@@ -6,6 +6,7 @@ const NO_END = new Set('「『（');
 const SENT_END = /([。！？])([」』])?/g;
 const qs = new URLSearchParams(location.search);
 const SHOT = qs.has('shot');
+const DEV = qs.has('dev') && qs.get('dev') !== '0'; // right-side missing/warn/drawer panel
 const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 let drawerW = STOPS.includes(+qs.get('drawer')) ? +qs.get('drawer') : 0;
 let lockDrawer = false; // 有選項時不能收到 0
@@ -241,6 +242,8 @@ function checkAnim(anim, where) {
   const tid = resolveActionId(anim);
   const ent = entryById[tid];
   if (!ent) { miss(anim, '動作（表無此 id）', where); return; }
+  // drawn / temp_drawn = has art (action table v3.10d); do not list as missing
+  if (ent.status === 'drawn' || ent.status === 'temp_drawn') return;
   if (ent.status === 'missing') {
     const fb = parseFallback(ent.fallback);
     miss(tid, '動作（退回 ' + (fb.base || 'idle') + '）', where, ent.fallback || null);
@@ -959,12 +962,15 @@ function fit() {
   const side = document.getElementById('side');
   const phone = document.getElementById('phone');
   const stage = document.getElementById('stage');
+  const showSide = DEV && !SHOT;
   if (ORIENT === 'portrait') {
     phone.style.display = 'block'; stage.style.display = 'none';
     if (SHOT) { side.style.display = 'none'; phone.style.transform = 'none'; wrap.style.width = '1080px'; wrap.style.height = '2340px'; return; }
-    const k = Math.min(innerHeight / 2340, (innerWidth - (innerWidth > 900 ? 420 : 0)) / 1080);
+    const sidePad = showSide && innerWidth > 900 ? 420 : 0;
+    const k = Math.min(innerHeight / 2340, (innerWidth - sidePad) / 1080);
     phone.style.transform = `scale(${k})`; wrap.style.width = 1080 * k + 'px'; wrap.style.height = 2340 * k + 'px';
-    side.style.display = innerWidth > 900 ? 'block' : 'none';
+    side.style.display = showSide && innerWidth > 900 ? 'block' : 'none';
+    side.style.position = ''; side.style.right = ''; side.style.top = ''; side.style.zIndex = '';
   } else {
     phone.style.display = 'none'; stage.style.display = 'block';
     if (SHOT) { side.style.display = 'none'; stage.style.transform = 'none'; stage.style.left = '0'; stage.style.top = '0'; wrap.style.width = '2340px'; wrap.style.height = '1080px'; return; }
@@ -973,7 +979,11 @@ function fit() {
     stage.style.left = ((innerWidth - 2340 * k) / 2) + 'px';
     stage.style.top = ((innerHeight - 1080 * k) / 2) + 'px';
     wrap.style.width = '100vw'; wrap.style.height = '100vh';
-    side.style.display = 'block'; side.style.position = 'fixed'; side.style.right = '0'; side.style.top = '0'; side.style.zIndex = 9;
+    if (showSide) {
+      side.style.display = 'block'; side.style.position = 'fixed'; side.style.right = '0'; side.style.top = '0'; side.style.zIndex = 9;
+    } else {
+      side.style.display = 'none';
+    }
   }
 }
 
@@ -1045,18 +1055,20 @@ function wireDrawer() {
   fit(); addEventListener('resize', fit);
   if (ORIENT === 'landscape') wireDrawer();
 
-  document.getElementById('dl').onclick = () => {
-    const a = document.createElement('a'); a.download = 'missing_assets.json';
-    a.href = URL.createObjectURL(new Blob([JSON.stringify(window.MISSING, null, 2)], {type: 'application/json'})); a.click();
-  };
-  document.getElementById('togOrient').onclick = () => {
-    const u = new URL(location.href);
-    u.searchParams.set('orient', ORIENT === 'portrait' ? 'landscape' : 'portrait');
-    location.href = u.toString();
-  };
-  document.getElementById('snap0').onclick = () => { lockDrawer = false; setDrawer(0); };
-  document.getElementById('snap820').onclick = () => setDrawer(820);
-  document.getElementById('snap1300').onclick = () => setDrawer(1300);
+  if (DEV) {
+    document.getElementById('dl').onclick = () => {
+      const a = document.createElement('a'); a.download = 'missing_assets.json';
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(window.MISSING, null, 2)], {type: 'application/json'})); a.click();
+    };
+    document.getElementById('togOrient').onclick = () => {
+      const u = new URL(location.href);
+      u.searchParams.set('orient', ORIENT === 'portrait' ? 'landscape' : 'portrait');
+      location.href = u.toString();
+    };
+    document.getElementById('snap0').onclick = () => { lockDrawer = false; setDrawer(0); };
+    document.getElementById('snap820').onclick = () => setDrawer(820);
+    document.getElementById('snap1300').onclick = () => setDrawer(1300);
+  }
 
   // initial drawer from URL
   if (ORIENT === 'landscape' && qs.has('drawer')) {

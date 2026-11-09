@@ -1,20 +1,5 @@
 [
   {
-    "id": "爸爸_走路",
-    "kind": "動作（退回 爸爸_站）",
-    "where": [
-      "talent"
-    ],
-    "note": {
-      "base": "爸爸_站",
-      "overlay": [],
-      "transform": [
-        "slide_x",
-        "breathe_1px"
-      ]
-    }
-  },
-  {
     "id": "媽媽_翻傳單",
     "kind": "動作（退回 媽媽_站）",
     "where": [
@@ -124,20 +109,6 @@
       "test_long"
     ],
     "note": null
-  },
-  {
-    "id": "你_坐",
-    "kind": "動作（退回 你_站）",
-    "where": [
-      "test_long"
-    ],
-    "note": {
-      "base": "你_站",
-      "overlay": [],
-      "transform": [
-        "none"
-      ]
-    }
   },
   {
     "id": "蘇禾_坐",

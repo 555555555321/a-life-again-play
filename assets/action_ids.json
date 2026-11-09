@@ -1,7 +1,9 @@
 {
   "_note": "公主寫場景指示時，動作和道具只能從這張表挑 id。drawn 的路徑相對於 /workspace/ala/r8_art/王子/。missing 的 file_pattern 是預定檔名：{age} = child6／toddler／infant，{sex} = m／f，{n} = 從 0 開始的格數。缺圖時用 fallback。",
   "rules": [
-    "道具沒圖時不顯示"
+    "道具沒圖時不顯示",
+    "動作缺圖、又沒有替代方式的，不出場；事件或日常句的在場名單裡只要有這種人或動物，整件事件或那句在圖畫好之前不會抽到",
+    "抽屜打開（電腦版 480、手機橫版 820）時，每個人或道具的整個外框都要在場景 x 60 到 420 之內；抽屜拉到閱讀寬度（電腦版 800、手機橫版 1300）時場景停格、只眨眼呼吸，不檢查站位"
   ],
   "rules_note": "道具沒圖時不顯示：狀態是「缺」、或檔案不存在的道具，畫面上不畫，也不用其他圖代替。",
   "generated": "2026-11-09",
@@ -15,14 +17,27 @@
     "/workspace/princess_mockup_20261109/lines.md"
   ],
   "counts": {
-    "total": 86,
-    "drawn": 7,
+    "total": 113,
+    "drawn": 21,
     "temp_drawn": 4,
-    "interim_in_progress": 2,
-    "missing": 73,
-    "actions": 42,
-    "props": 44
+    "interim_in_progress": 1,
+    "in_progress": 1,
+    "missing": 86,
+    "actions": 56,
+    "props": 56,
+    "outfits": 1,
+    "pending_owner_approval": 7
   },
+  "phone_b_test_long_unmapped": [
+    "蘇禾_坐",
+    "蘇禾_拿書",
+    "蘇禾_站",
+    "道具_借書",
+    "道具_延後開門牌",
+    "道具_茶店門",
+    "陸淇_站",
+    "陸淇_走路"
+  ],
   "alias_index": {
     "anim_father_walk": "爸爸_走路",
     "missing_frames.md：爸爸走向家人／大人走路循環": "爸爸_走路",
@@ -63,9 +78,12 @@
     "W09：看報紙": "爸爸_看報紙",
     "W09：坐（沙發，媽媽）": "媽媽_坐沙發",
     "missing_frames.md：坐沙發（媽媽）": "媽媽_坐沙發",
+    "媽媽_坐": "媽媽_坐沙發",
     "W09：坐（餐桌，媽媽）": "媽媽_坐餐桌",
     "missing_frames.md：坐餐桌（媽媽）": "媽媽_坐餐桌",
     "missing_frames.md：蹲下和小孩同高的大人姿勢（媽媽）": "媽媽_蹲下",
+    "媽媽_蹲": "媽媽_蹲下",
+    "parent_death_draft.md：媽媽蹲下來說爸爸不會再回來": "媽媽_蹲下",
     "W09：坐（沙發，爸爸）": "爸爸_坐沙發",
     "missing_frames.md：坐沙發（爸爸）": "爸爸_坐沙發",
     "W09：坐（餐桌，爸爸）": "爸爸_坐餐桌",
@@ -126,7 +144,33 @@
     "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（門牙）": "道具_門牙",
     "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（小盒子）": "道具_小盒子",
     "annotations.json TW-A6-12：遊覽車（遊覽車）": "道具_遊覽車",
-    "annotations.json TW-A6-13：作業（空白）（作業）": "道具_作業"
+    "annotations.json TW-A6-13：作業（空白）（作業）": "道具_作業",
+    "lines.md：她是跑著過來的（單親媽媽句）": "媽媽_跑",
+    "在場：{稱呼.祖父}": "阿公_站",
+    "在場：{稱呼.祖母}": "阿嬤_站",
+    "在場：老師": "老師_站",
+    "在場：同學": "同學_站",
+    "annotations.json TW-A1-05：狗": "狗_待機",
+    "annotations.json TW-A3-08：小貓": "小貓_待機",
+    "公主.md／TW-A0-07：米糊、湯匙": "道具_湯匙",
+    "公主.md／TW-A0-09、TW-A6-03：桌子": "道具_桌子",
+    "公主.md／TW-A0-02：油飯、盒子": "道具_油飯盒",
+    "公主.md／TW-A1-10：紅包、抽屜": "道具_抽屜",
+    "公主.md／daily：娃娃車停在巷口": "道具_娃娃車",
+    "parent_death_draft.md：把拖鞋收進鞋櫃最裡面": "媽媽_收拖鞋",
+    "嬰兒被抱": "媽媽_抱嬰兒",
+    "你_站（待：嬰兒被抱）": "媽媽_抱嬰兒",
+    "parent_death_draft.md：那幾天媽媽抱著你": "媽媽_抱嬰兒",
+    "parent_death_draft.md：拖鞋": "道具_拖鞋",
+    "parent_death_draft.md：鞋櫃": "道具_鞋櫃",
+    "parent_death_draft.md：多擺了一雙筷子": "道具_筷子",
+    "parent_death_draft.md：相框（照片內容不畫細節）": "道具_相框",
+    "你_黑衣": "服裝_你_黑衣",
+    "你_站（黑衣換裝層）": "服裝_你_黑衣",
+    "親戚_站": "親戚_男_站",
+    "annotations.json TW-A0-07、TW-A3-09、TW-A6-06、TW-A6-07：椅子": "道具_椅子",
+    "cane": "道具_手杖",
+    "rocking_chair": "道具_搖椅"
   },
   "fallback_transforms": {
     "breathe_1px": "腰以上下移 1 px，腳不動",
@@ -140,24 +184,71 @@
       "kind": "action",
       "status": "drawn",
       "file_pattern": {
-        "master": "pixel480_assets_20261109/r6c/char_mother_master_r6c.png",
-        "idle_frames": [
-          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_00.png",
-          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_01.png",
-          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_02.png",
-          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_03.png"
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/mom.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f03.png"
         ],
-        "sheet": "pixel480_assets_20261109/r6c/char_mother_r6c.png"
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f00_blink.png"
+        ],
+        "variants": {
+          "idle": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle/f00_blink.png"
+            ]
+          },
+          "idle_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/idle_34v/f00_blink.png"
+            ]
+          }
+        },
+        "previous": {
+          "master": "pixel480_assets_20261109/r6c/char_mother_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_03.png"
+          ],
+          "sheet": "pixel480_assets_20261109/r6c/char_mother_r6c.png"
+        }
       },
-      "frame_count": 4,
+      "frame_count": "idle 4；idle_34v 4",
       "fallback": null,
       "sources": [
         "pixel480_assets_20261109/r6c/",
-        "王 指示 2026-11-09 17:48（範例 ID）"
+        "王 指示 2026-11-09 17:48（範例 ID）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [],
       "notes": [
-        "r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。臉部待 ChatGPT 重畫。"
+        "底身分層版（round 6b）：idle 四格＋眨眼、idle_34v 四格＋眨眼；phone B 已改用這組。",
+        "舊版（previous）：r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。臉部待 ChatGPT 重畫。"
       ]
     },
     {
@@ -165,24 +256,71 @@
       "kind": "action",
       "status": "drawn",
       "file_pattern": {
-        "master": "pixel480_assets_20261109/r6c/char_father_master_r6c.png",
-        "idle_frames": [
-          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_00.png",
-          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_01.png",
-          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_02.png",
-          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_03.png"
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/dad.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f03.png"
         ],
-        "sheet": "pixel480_assets_20261109/r6c/char_father_r6c.png"
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f00_blink.png"
+        ],
+        "variants": {
+          "idle": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle/f00_blink.png"
+            ]
+          },
+          "idle_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/idle_34v/f00_blink.png"
+            ]
+          }
+        },
+        "previous": {
+          "master": "pixel480_assets_20261109/r6c/char_father_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_03.png"
+          ],
+          "sheet": "pixel480_assets_20261109/r6c/char_father_r6c.png"
+        }
       },
-      "frame_count": 4,
+      "frame_count": "idle 4；idle_34v 4",
       "fallback": null,
       "sources": [
         "pixel480_assets_20261109/r6c/",
-        "王 指示 2026-11-09 17:48（範例 ID）"
+        "王 指示 2026-11-09 17:48（範例 ID）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [],
       "notes": [
-        "r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。"
+        "底身分層版（round 6b）：idle 四格＋眨眼、idle_34v 四格＋眨眼；phone B 已改用這組。",
+        "舊版（previous）：r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。"
       ]
     },
     {
@@ -190,52 +328,99 @@
       "kind": "action",
       "status": "drawn",
       "file_pattern": {
-        "child6_m": {
-          "master": "pixel480_assets_20261109/r6c/char_protag_boy_child6_master_r6c.png",
-          "idle_frames": [
-            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_00.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_01.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_02.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_03.png"
-          ]
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/kid.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f03.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f00_blink.png"
+        ],
+        "variants": {
+          "idle": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle/f00_blink.png"
+            ]
+          },
+          "idle_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f03.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/idle_34v/f00_blink.png"
+            ]
+          }
         },
-        "toddler_m": {
-          "master": "pixel480_assets_20261109/r6c/char_protag_boy_toddler_master_r6c.png",
-          "idle_frames": [
-            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_00.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_01.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_02.png",
-            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_03.png"
-          ]
-        },
-        "child6_f": {
-          "master": "pixel480_assets_20261109/r6c/char_protag_girl_child6_master_r6c.png",
-          "idle_frames": [
-            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_00.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_01.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_02.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_03.png"
-          ]
-        },
-        "toddler_f": {
-          "master": "pixel480_assets_20261109/r6c/char_protag_girl_toddler_master_r6c.png",
-          "idle_frames": [
-            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_00.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_01.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_02.png",
-            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_03.png"
-          ]
+        "previous": {
+          "child6_m": {
+            "master": "pixel480_assets_20261109/r6c/char_protag_boy_child6_master_r6c.png",
+            "idle_frames": [
+              "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_00.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_01.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_02.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_03.png"
+            ]
+          },
+          "toddler_m": {
+            "master": "pixel480_assets_20261109/r6c/char_protag_boy_toddler_master_r6c.png",
+            "idle_frames": [
+              "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_00.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_01.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_02.png",
+              "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_03.png"
+            ]
+          },
+          "child6_f": {
+            "master": "pixel480_assets_20261109/r6c/char_protag_girl_child6_master_r6c.png",
+            "idle_frames": [
+              "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_00.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_01.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_02.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_03.png"
+            ]
+          },
+          "toddler_f": {
+            "master": "pixel480_assets_20261109/r6c/char_protag_girl_toddler_master_r6c.png",
+            "idle_frames": [
+              "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_00.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_01.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_02.png",
+              "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_03.png"
+            ]
+          }
         }
       },
-      "frame_count": 4,
+      "frame_count": "idle 4；idle_34v 4",
       "fallback": null,
       "sources": [
         "pixel480_assets_20261109/r6c/",
-        "王 指示 2026-11-09 17:48（範例 ID）"
+        "王 指示 2026-11-09 17:48（範例 ID）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [],
       "notes": [
-        "六歲（65 px）與兩歲（49 px），男女各一。嬰兒沒有站姿，見 你_嬰兒坐。"
+        "底身分層版（round 6b）：idle 四格＋眨眼、idle_34v 四格＋眨眼；phone B 已改用這組。底身 kid＝六歲男孩；六歲女孩、兩歲男女還沒有底身版，暫時仍用 previous 裡的 r6c。",
+        "舊版（previous）：六歲（65 px）與兩歲（49 px），男女各一。嬰兒沒有站姿，見 你_嬰兒坐。"
       ]
     },
     {
@@ -366,73 +551,132 @@
     {
       "id": "爸爸_走路",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_m_爸爸_走路_f{n}.png",
-      "frame_count": "左右各 4–6",
-      "fallback": {
-        "base": "爸爸_站",
-        "overlay": [],
-        "transform": [
-          "slide_x",
-          "breathe_1px"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/dad.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f03.png"
+        ],
+        "blink": [],
+        "variants": {
+          "walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/walk/f03.png"
+            ],
+            "blink": []
+          }
+        }
       },
+      "frame_count": "walk 4",
+      "fallback": null,
       "sources": [
         "/workspace/phone_b_20261109/missing_assets.json",
         "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
         "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
-        "王 指示 2026-11-09 17:48（範例 ID）"
+        "王 指示 2026-11-09 17:48（範例 ID）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [
         "anim_father_walk",
         "missing_frames.md：爸爸走向家人／大人走路循環"
       ],
       "notes": [
-        "暫代：整張站姿左右平移，上半身每兩格下沉 1 px 當腳步；回程加 flip_x。",
-        "右邊可用左邊鏡像，需註明。"
+        "底身分層版（round 6b）：四格；phone B 已在用。",
+        "跑步＝同一組走路格播快一點（主人決定），不另畫跑步格。"
       ]
     },
     {
       "id": "媽媽_走路",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_f_媽媽_走路_f{n}.png",
-      "frame_count": "左右各 4–6",
-      "fallback": {
-        "base": "媽媽_站",
-        "overlay": [],
-        "transform": [
-          "slide_x"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/mom.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f03.png"
+        ],
+        "blink": [],
+        "variants": {
+          "walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f03.png"
+            ],
+            "blink": []
+          }
+        }
       },
+      "frame_count": "walk 4",
+      "fallback": null,
       "sources": [
-        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [
         "W09：走路（媽媽）"
       ],
-      "notes": []
+      "notes": [
+        "底身分層版（round 6b）：四格；phone B 已在用。",
+        "跑步＝同一組走路格播快一點（主人決定），不另畫跑步格。"
+      ]
     },
     {
       "id": "你_走路",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "{age}_{sex}_你_走路_f{n}.png",
-      "frame_count": "左右各 4–6",
-      "fallback": {
-        "base": "你_站",
-        "overlay": [],
-        "transform": [
-          "slide_x"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/kid.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f03.png"
+        ],
+        "blink": [],
+        "variants": {
+          "walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f03.png"
+            ],
+            "blink": []
+          }
+        }
       },
+      "frame_count": "walk 4",
+      "fallback": null,
       "sources": [
-        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [
         "W09：走路（主角六歲）"
       ],
-      "notes": []
+      "notes": [
+        "底身分層版（round 6b）：四格；phone B 已在用。只有六歲男孩，六歲女孩和兩歲還沒有。",
+        "跑步＝同一組走路格播快一點（主人決定），不另畫跑步格。"
+      ]
     },
     {
       "id": "媽媽_呼吸",
@@ -907,11 +1151,13 @@
       },
       "sources": [
         "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/w09_family/parent_death_draft.md"
       ],
       "aliases": [
         "W09：坐（沙發，媽媽）",
-        "missing_frames.md：坐沙發（媽媽）"
+        "missing_frames.md：坐沙發（媽媽）",
+        "媽媽_坐"
       ],
       "notes": [
         "暫代時不坐，站在沙發旁。"
@@ -920,48 +1166,103 @@
     {
       "id": "媽媽_坐餐桌",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_f_媽媽_坐餐桌_f{n}.png",
-      "frame_count": 1,
-      "fallback": {
-        "base": "媽媽_站",
-        "overlay": [],
-        "transform": [
-          "none"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/mom.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table_34v/f00.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table_34v/f00_blink.png"
+        ],
+        "variants": {
+          "sit_table": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table/f00_blink.png"
+            ]
+          },
+          "sit_table_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table_34v/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/sit_table_34v/f00_blink.png"
+            ]
+          }
+        }
       },
+      "frame_count": "sit_table 1；sit_table_34v 1",
+      "fallback": null,
       "sources": [
         "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r7、r7b）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/props/table_spec_<base>.json"
       ],
       "aliases": [
         "W09：坐（餐桌，媽媽）",
         "missing_frames.md：坐餐桌（媽媽）"
       ],
       "notes": [
-        "暫代時不坐，站在餐桌旁。"
+        "底身分層版（round 7b）。坐在桌邊，前臂平放在桌上；坐姿格不含椅子，椅子用 道具_椅子_<base>（側面）或 道具_椅子_34_<base>（四分之三）。大人同桌和自己用的桌高相同：桌面在地板列上方 34 列（側面，桌面列 81）、32 列（四分之三，列 83），見 table_spec。",
+        "TW-A0-07、TW-A3-09 用到（公主 cues）。"
       ]
     },
     {
       "id": "媽媽_蹲下",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_f_媽媽_蹲下_f{n}.png",
-      "frame_count": 1,
-      "fallback": {
-        "base": "媽媽_站",
-        "overlay": [],
-        "transform": [
-          "none"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/mom.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f02.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f02_blink.png"
+        ],
+        "variants": {
+          "crouch": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f02.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/crouch/f02_blink.png"
+            ]
+          }
+        }
       },
+      "frame_count": "crouch 3",
+      "fallback": null,
       "sources": [
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/w09_family/parent_death_draft.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r7、r7b）"
       ],
       "aliases": [
-        "missing_frames.md：蹲下和小孩同高的大人姿勢（媽媽）"
+        "missing_frames.md：蹲下和小孩同高的大人姿勢（媽媽）",
+        "媽媽_蹲",
+        "parent_death_draft.md：媽媽蹲下來說爸爸不會再回來"
       ],
-      "notes": []
+      "notes": [
+        "底身分層版（round 7）：三格（站、半蹲、全蹲）＋第三格眨眼；腳跟貼地、膝蓋往前、上身前傾、手伸向腳尖前的地面。",
+        "七個底身（dad、mom、kid、teacher、relative_m、relative_f、stranger）都有同一組 crouch/。"
+      ]
     },
     {
       "id": "爸爸_坐沙發",
@@ -991,70 +1292,205 @@
     {
       "id": "爸爸_坐餐桌",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_m_爸爸_坐餐桌_f{n}.png",
-      "frame_count": 1,
-      "fallback": {
-        "base": "爸爸_站",
-        "overlay": [],
-        "transform": [
-          "none"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/dad.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table_34v/f00.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table_34v/f00_blink.png"
+        ],
+        "variants": {
+          "sit_table": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table/f00_blink.png"
+            ]
+          },
+          "sit_table_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table_34v/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/sit_table_34v/f00_blink.png"
+            ]
+          }
+        }
       },
+      "frame_count": "sit_table 1；sit_table_34v 1",
+      "fallback": null,
       "sources": [
         "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r7、r7b）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/props/table_spec_<base>.json"
       ],
       "aliases": [
         "W09：坐（餐桌，爸爸）",
         "missing_frames.md：坐餐桌（爸爸）"
       ],
       "notes": [
-        "暫代時不坐，站在餐桌旁。"
+        "底身分層版（round 7b）。坐在桌邊，前臂平放在桌上；坐姿格不含椅子，椅子用 道具_椅子_<base>（側面）或 道具_椅子_34_<base>（四分之三）。大人同桌和自己用的桌高相同：桌面在地板列上方 34 列（側面，桌面列 81）、32 列（四分之三，列 83），見 table_spec。"
       ]
     },
     {
       "id": "爸爸_蹲下",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "adult_m_爸爸_蹲下_f{n}.png",
-      "frame_count": 1,
-      "fallback": {
-        "base": "爸爸_站",
-        "overlay": [],
-        "transform": [
-          "none"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/dad.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f02.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f02_blink.png"
+        ],
+        "variants": {
+          "crouch": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f02.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/dad/crouch/f02_blink.png"
+            ]
+          }
+        }
       },
+      "frame_count": "crouch 3",
+      "fallback": null,
       "sources": [
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r7、r7b）"
       ],
       "aliases": [
         "missing_frames.md：蹲下和小孩同高的大人姿勢（爸爸）"
       ],
-      "notes": []
+      "notes": [
+        "底身分層版（round 7）：三格（站、半蹲、全蹲）＋第三格眨眼。",
+        "TW-A0-12、TW-A1-01 用到（公主 cues）。"
+      ]
     },
     {
       "id": "你_坐",
       "kind": "action",
-      "status": "missing",
-      "file_pattern": "{age}_{sex}_你_坐_f{n}.png",
-      "frame_count": "1–2",
-      "fallback": {
-        "base": "你_站",
-        "overlay": [],
-        "transform": [
-          "none"
-        ]
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/kid.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_write/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_write/f01.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_34v/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_34v/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared/f00_blink.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared_34v/f00_blink.png"
+        ],
+        "variants": {
+          "sit": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit/f00_blink.png"
+            ]
+          },
+          "sit_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_34v/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_34v/f00_blink.png"
+            ]
+          },
+          "sit_table": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table/f00_blink.png"
+            ]
+          },
+          "sit_table_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_34v/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_34v/f00_blink.png"
+            ]
+          },
+          "sit_table_shared": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared/f00_blink.png"
+            ]
+          },
+          "sit_table_shared_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared_34v/f00.png"
+            ],
+            "blink": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_table_shared_34v/f00_blink.png"
+            ]
+          },
+          "sit_write": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_write/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_write/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/sit_write/f01.png"
+            ],
+            "blink": []
+          }
+        }
       },
+      "frame_count": "sit 1；sit_34v 1；sit_table 1；sit_table_34v 1；sit_table_shared 1；sit_table_shared_34v 1；sit_write 2",
+      "fallback": null,
       "sources": [
-        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r7、r7b）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/props/table_spec_<base>.json"
       ],
       "aliases": [
         "missing_frames.md：六歲坐姿"
       ],
       "notes": [
-        "六歲坐姿；嬰兒坐姿已有，見 你_嬰兒坐。"
+        "底身分層版（kid＝六歲男孩；女孩版還沒有）。依桌子選格：沒有桌子用 sit／sit_34v；自己的書桌用 sit_table／sit_table_34v（桌面在地板列上方 22／21 列，列 93／94）；和大人同一張桌用 sit_table_shared／sit_table_shared_34v（同桌高 34／32 列，桌子到胸口）；寫字用 sit_write（側面兩格，只有自己書桌的高度）。",
+        "椅子用 道具_椅子_child6 或 道具_椅子_34_child6。",
+        "TW-A6-06、TW-A6-07 用到（公主 cues）。"
       ]
     },
     {
@@ -1257,34 +1693,75 @@
     {
       "id": "你_跑",
       "kind": "action",
-      "status": "interim_in_progress",
+      "status": "drawn",
       "file_pattern": {
-        "folder": "/workspace/ala/r8_art/王子/interim_anim_20261109/",
-        "planned": [
-          "/workspace/ala/r8_art/王子/interim_anim_20261109/child6_m_你_跑_f0.png",
-          "/workspace/ala/r8_art/王子/interim_anim_20261109/你_跑_f0.png"
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/kid.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f03.png"
         ],
-        "existing_at_build": []
+        "blink": [],
+        "variants": {
+          "walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/walk/f03.png"
+            ],
+            "blink": []
+          }
+        },
+        "alias_of": "你_走路",
+        "previous": {
+          "frozen_run_6f": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f03.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f04.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/run/f05.png"
+            ]
+          },
+          "old_file_pattern": {
+            "folder": "/workspace/ala/r8_art/王子/interim_anim_20261109/",
+            "planned": [
+              "/workspace/ala/r8_art/王子/interim_anim_20261109/child6_m_你_跑_f0.png",
+              "/workspace/ala/r8_art/王子/interim_anim_20261109/你_跑_f0.png"
+            ],
+            "existing_at_build": []
+          },
+          "old_status": "interim_in_progress"
+        }
       },
-      "frame_count": "左右各 4–6",
-      "fallback": {
-        "base": "你_站",
-        "overlay": [],
-        "transform": [
-          "slide_x"
-        ]
-      },
+      "frame_count": "walk 4",
+      "fallback": null,
       "sources": [
         "王 指示 2026-11-09 17:53",
-        "/workspace/w09_annotate/annotations.json（畫面要有）"
+        "/workspace/w09_annotate/annotations.json（畫面要有）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
       ],
       "aliases": [
         "daily：你和同學比賽誰跑得比較快",
         "daily：下課鐘一響，你衝去操場"
       ],
       "notes": [
-        "另一位同事正在 interim_anim_20261109/ 畫暫用版。"
-      ]
+        "指向 你_走路（同一組檔案）。走路 4 幀用兩倍速（16 fps）播放，每步距離不變。",
+        "舊版（previous）：凍結的 6 格跑步 assembled/kid/run/，以及舊的 interim_anim_20261109/ 暫用版路徑（該處沒有跑步檔）。"
+      ],
+      "playback": {
+        "source_id": "你_走路",
+        "fps": 16,
+        "speed": 2,
+        "stride": "unchanged"
+      }
     },
     {
       "id": "你_跳",
@@ -1485,7 +1962,7 @@
         "annotations.json TW-A0-02：油飯、盒子（油飯）"
       ],
       "notes": [
-        "含分送用的盒子。"
+        "盒子另列 道具_油飯盒。"
       ]
     },
     {
@@ -2007,6 +2484,840 @@
       "notes": [
         "空白。"
       ]
+    },
+    {
+      "id": "媽媽_跑",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/mom.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f03.png"
+        ],
+        "blink": [],
+        "variants": {
+          "walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/walk/f03.png"
+            ],
+            "blink": []
+          }
+        },
+        "alias_of": "媽媽_走路",
+        "previous": {
+          "frozen_run_6f": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f03.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f04.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/mom/run/f05.png"
+            ]
+          },
+          "old_file_pattern": "adult_f_媽媽_跑_f{n}.png",
+          "old_status": "missing"
+        }
+      },
+      "frame_count": "walk 4",
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/princess_mockup_20261109/lines.md",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r6b；phone B 已改用）"
+      ],
+      "aliases": [
+        "lines.md：她是跑著過來的（單親媽媽句）"
+      ],
+      "notes": [
+        "指向 媽媽_走路（同一組檔案）。走路 4 幀用兩倍速（16 fps）播放，每步距離不變。",
+        "舊版（previous）：凍結的 6 格跑步 assembled/mom/run/。"
+      ],
+      "playback": {
+        "source_id": "媽媽_走路",
+        "fps": 16,
+        "speed": 2,
+        "stride": "unchanged"
+      }
+    },
+    {
+      "id": "阿公_站",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "elder_m_阿公_站_f{n}.png",
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "在場：{稱呼.祖父}"
+      ],
+      "notes": [
+        "第二批（w09_annotate/REPORT.md 列 8 個事件）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "阿嬤_站",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "elder_f_阿嬤_站_f{n}.png",
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "在場：{稱呼.祖母}"
+      ],
+      "notes": [
+        "第二批。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "老師_站",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/teacher.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/f03.png"
+        ],
+        "blink": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/idle/f00_blink.png"
+        ],
+        "previews": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_all_actions_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_idle34_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_jump_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_run_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_sit34_preview_with_chair_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_walk_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/contact_teacher_x4.png"
+        ]
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）",
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md"
+      ],
+      "aliases": [
+        "在場：老師"
+      ],
+      "notes": [
+        "分層製作（adult_f 底身＋teacher_ponytail 髮型、外套、長褲、平底鞋），在 base_bodies_20261109/。",
+        "小兵2號 硬規格檢查通過（2026-11-09 18:24）。"
+      ]
+    },
+    {
+      "id": "同學_站",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "child6_{sex}_同學_站_f{n}.png",
+      "frame_count": 4,
+      "fallback": {
+        "base": "阿穗_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "在場：同學"
+      ],
+      "notes": [
+        "六歲身形，男女各一；暫代用 阿穗_站（只能代一位女同學）。"
+      ]
+    },
+    {
+      "id": "狗_待機",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "animal_狗_待機_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-05：狗"
+      ],
+      "notes": [
+        "鄰居家的狗，不是家裡的貓。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "小貓_待機",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "animal_小貓_待機_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-08：小貓"
+      ],
+      "notes": [
+        "路邊紙箱裡的小貓；不可用 貓_待機 縮小代替（成貓）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "道具_湯匙",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_湯匙_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "公主.md／TW-A0-07：米糊、湯匙"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_桌子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_桌子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "公主.md／TW-A0-09、TW-A6-03：桌子"
+      ],
+      "notes": [
+        "抓周桌、教室桌；也可以併進場景家具，待定。"
+      ]
+    },
+    {
+      "id": "道具_油飯盒",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_油飯盒_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "公主.md／TW-A0-02：油飯、盒子"
+      ],
+      "notes": [
+        "滿月分送的盒子，不寫字；和 道具_餅乾盒、道具_小盒子 不同。"
+      ]
+    },
+    {
+      "id": "道具_抽屜",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_抽屜_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "公主.md／TW-A1-10：紅包、抽屜"
+      ],
+      "notes": [
+        "日常句也有；也可以併進場景家具，待定。"
+      ]
+    },
+    {
+      "id": "道具_娃娃車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_娃娃車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/inventory_20261109/公主.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "公主.md／daily：娃娃車停在巷口"
+      ],
+      "notes": [
+        "側面，無文字、無園所名稱。"
+      ]
+    },
+    {
+      "id": "媽媽_收拖鞋",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_收拖鞋_f{n}.png",
+      "frame_count": "3–4",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "parent_death_draft.md：把拖鞋收進鞋櫃最裡面"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "接在 媽媽_蹲下 之後；畫好前道具_拖鞋、道具_鞋櫃也還沒有圖，照規則一不顯示。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "媽媽_抱嬰兒",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_抱嬰兒_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "嬰兒被抱",
+        "你_站（待：嬰兒被抱）",
+        "parent_death_draft.md：那幾天媽媽抱著你"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "媽媽抱著嬰兒期的你，一張圖包含兩人；嬰兒用 你_包巾 的身體。暫代時媽媽站著、你_嬰兒坐 另放在旁邊。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "道具_拖鞋",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_拖鞋_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "parent_death_draft.md：拖鞋"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "大人拖鞋一雙，素面。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "道具_鞋櫃",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_鞋櫃_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "parent_death_draft.md：鞋櫃"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "玄關家具；也可以併進第二批的玄關場景，待定。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "道具_筷子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_筷子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "parent_death_draft.md：多擺了一雙筷子"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "一雙，放在餐桌上。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "道具_相框",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_相框_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "parent_death_draft.md：相框（照片內容不畫細節）"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "一般家用相框，照片只畫模糊色塊；不加黑框、黑紗、花圈或任何宗教、喪禮符號。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "服裝_你_黑衣",
+      "kind": "outfit",
+      "status": "missing",
+      "file_pattern": "layer_{age}_{sex}_服裝_你_黑衣.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_family/parent_death_draft.md"
+      ],
+      "aliases": [
+        "你_黑衣",
+        "你_站（黑衣換裝層）"
+      ],
+      "notes": [
+        "新寫文本、待主人點頭",
+        "換裝層，疊在 你 的身體上（紙娃娃分層）；七到十歲用六歲身形，男女各一。不合身、偏大一號；素面黑，不加臂章、白花或任何喪禮符號。"
+      ],
+      "pending_owner_approval": true
+    },
+    {
+      "id": "親戚_男_站",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_親戚_男_站_f{n}.png",
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_cues_20261109/cues.json",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "親戚_站"
+      ],
+      "notes": [
+        "正在用 adult_m 底身＋髮型、衣服圖層製作（/workspace/ala/r8_art/王子/base_bodies_20261109/）。",
+        "W09 TW-A1-10 用到（公主 cues）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "親戚_男_走路",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_親戚_男_走路_f{n}.png",
+      "frame_count": "左右各 4–6",
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_cues_20261109/cues.json",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [],
+      "notes": [
+        "正在用 adult_m 底身＋髮型、衣服圖層製作（/workspace/ala/r8_art/王子/base_bodies_20261109/）。",
+        "W09 TW-A1-10 用到（公主 cues）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "親戚_女_站",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_親戚_女_站_f{n}.png",
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_cues_20261109/cues.json",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [],
+      "notes": [
+        "正在用 adult_f 底身＋髮型、衣服圖層製作（/workspace/ala/r8_art/王子/base_bodies_20261109/）。",
+        "W09 TW-A1-10 用到（公主 cues）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "親戚_女_走路",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_親戚_女_走路_f{n}.png",
+      "frame_count": "左右各 4–6",
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_cues_20261109/cues.json",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [],
+      "notes": [
+        "正在用 adult_f 底身＋髮型、衣服圖層製作（/workspace/ala/r8_art/王子/base_bodies_20261109/）。",
+        "W09 TW-A1-10 用到（公主 cues）。",
+        "沒有可用的已畫底圖，畫好之前不出場。"
+      ],
+      "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
+    },
+    {
+      "id": "老師_走路",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/characters/teacher.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/walk/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/teacher/walk/f03.png"
+        ],
+        "blink": [],
+        "previews": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_all_actions_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_idle34_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_jump_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_run_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_sit34_preview_with_chair_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/previews/teacher_walk_x3.gif",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/contact_teacher_x4.png"
+        ]
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [],
+      "notes": [
+        "分層製作，同 老師_站。",
+        "小兵2號 硬規格檢查通過（2026-11-09 18:24）。"
+      ]
+    },
+    {
+      "id": "道具_椅子",
+      "kind": "prop",
+      "status": "in_progress",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_m.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_m.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_f.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_child6.png"
+        ],
+        "blink": [],
+        "per_base_side": {
+          "adult_m": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_m.png",
+          "adult_f": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_f.png",
+          "child6": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_child6.png"
+        },
+        "per_base_three_quarter": {
+          "adult_m": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_adult_m.png",
+          "adult_f": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_adult_f.png",
+          "child6": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_child6.png"
+        },
+        "meta_json": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_adult_f.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_adult_m.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_34_child6.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_f.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_adult_m.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_椅子_child6.json"
+        ]
+      },
+      "frame_count": "1（每種底身一張）",
+      "fallback": null,
+      "sources": [
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/props",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-07、TW-A3-09、TW-A6-06、TW-A6-07：椅子"
+      ],
+      "notes": [
+        "素面木頭椅，側面；畫在坐著的人下面一層（z 5），坐著的人共用。坐姿格不再含椅子。",
+        "每種底身一張（adult_m、adult_f、child6），另有四分之三側面版（_34_）。和坐姿格同畫布，放在跟人物相同的 x、y。",
+        "用到的事件：TW-A0-07、TW-A3-09、TW-A6-06、TW-A6-07。"
+      ]
+    },
+    {
+      "id": "道具_手杖",
+      "kind": "prop",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_m.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f00.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f01.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f02.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f03.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_f.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_m.png"
+        ],
+        "blink": [],
+        "variants": {
+          "adult_m/idle": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle/f03.png"
+            ],
+            "blink": []
+          },
+          "adult_m/walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/walk/f03.png"
+            ],
+            "blink": []
+          },
+          "adult_m/idle_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_m/idle_34v/f03.png"
+            ],
+            "blink": []
+          },
+          "adult_f/idle": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle/f03.png"
+            ],
+            "blink": []
+          },
+          "adult_f/walk": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/walk/f03.png"
+            ],
+            "blink": []
+          },
+          "adult_f/idle_34v": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f00.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f01.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f02.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/layers/prop/道具_手杖_adult_f/idle_34v/f03.png"
+            ],
+            "blink": []
+          }
+        },
+        "per_base_static": {
+          "adult_m": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_m.png",
+          "adult_f": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_f.png"
+        },
+        "meta_json": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_f.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_手杖_adult_m.json"
+        ]
+      },
+      "frame_count": "idle 4、walk 4、idle_34v 4（每種底身）",
+      "fallback": null,
+      "sources": [
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r8）",
+        "PR #17 family-state.js health.mobility"
+      ],
+      "aliases": [
+        "cane"
+      ],
+      "notes": [
+        "前景層（prop 槽，z95，畫在人物之後、手的前面），只有 idle、walk、idle_34v 三組；坐、蹲、跑、跳沒有手杖圖。",
+        "只有成年底身（adult_m、adult_f）；之後有老人底身時要重畫。",
+        "PR #17 health.mobility＝cane：基準年齡 78（暫定，健康好的會往後延）。常數 MOBILITY_CANE_AGE_TBD；實際年齡再加 max(0, floor((健康 − 起始值) / 10)) 年；健康差不會提早。公主核可，小兵2號 round 8 檢查通過。"
+      ],
+      "game_state": {
+        "key": "health.mobility",
+        "value": "cane",
+        "base_age": 78,
+        "constant": "MOBILITY_CANE_AGE_TBD",
+        "provisional": true,
+        "actual_age": "base_age + max(0, floor((health - start_value) / 10))",
+        "source": "PR #17 family-state.js health.mobility"
+      }
+    },
+    {
+      "id": "道具_搖椅",
+      "kind": "prop",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "character_json": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m.json",
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+        "existing_at_build": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m_f0.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m_f1.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m_f0.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m_f1.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f_f0.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f_f1.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f_f0.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f_f1.png",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f.png"
+        ],
+        "blink": [],
+        "variants": {
+          "adult_m/side": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m_f0.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m_f1.png"
+            ],
+            "blink": [],
+            "static": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m.png"
+          },
+          "adult_m/34": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m_f0.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m_f1.png"
+            ],
+            "blink": [],
+            "static": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m.png"
+          },
+          "adult_f/side": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f_f0.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f_f1.png"
+            ],
+            "blink": [],
+            "static": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f.png"
+          },
+          "adult_f/34": {
+            "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/",
+            "frames": [
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f_f0.png",
+              "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f_f1.png"
+            ],
+            "blink": [],
+            "static": "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f.png"
+          }
+        },
+        "meta_json": [
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_f.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_34_adult_m.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_f.json",
+          "/workspace/ala/r8_art/王子/base_bodies_20261109/props/道具_搖椅_adult_m.json"
+        ]
+      },
+      "frame_count": "靜止 1＋搖動 2（側面、四分之三，每種底身）",
+      "fallback": null,
+      "sources": [
+        "/workspace/ala/r8_art/王子/base_bodies_20261109/README_layout.md（r8）",
+        "PR #17 family-state.js health.mobility"
+      ],
+      "aliases": [
+        "rocking_chair"
+      ],
+      "notes": [
+        "背景層（back 槽，z5，畫在人物後面），跟 道具_椅子 一樣；配 sit／sit_34v，座面列相同（adult_m 92／92、adult_f 95／94）。_f0／_f1 是前後搖 1 px。",
+        "只有成年底身（adult_m、adult_f）；之後有老人底身時要重畫。",
+        "PR #17 health.mobility＝rocking_chair：基準年齡 88（暫定，健康好的會往後延）。常數 MOBILITY_ROCKING_CHAIR_AGE_TBD；實際年齡再加 max(0, floor((健康 − 起始值) / 10)) 年；健康差不會提早。公主核可，小兵2號 round 8 檢查通過。"
+      ],
+      "game_state": {
+        "key": "health.mobility",
+        "value": "rocking_chair",
+        "base_age": 88,
+        "constant": "MOBILITY_ROCKING_CHAIR_AGE_TBD",
+        "provisional": true,
+        "actual_age": "base_age + max(0, floor((health - start_value) / 10))",
+        "source": "PR #17 family-state.js health.mobility"
+      }
     }
   ]
 }
