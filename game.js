@@ -27,6 +27,21 @@ function miss(id, kind, where, note) {
   if (!missing.has(id)) missing.set(id, {id, kind, where: [], note: note || null});
   const m = missing.get(id); if (!m.where.includes(where)) m.where.push(where);
 }
+
+// test_long-only stand-ins: show under「示範用，不算缺圖」, not in formal missing count (王)
+const DEMO_MISSING_IDS = new Set([
+  '蘇禾_站', '蘇禾_拿書', '蘇禾_坐',
+  '陸淇_站', '陸淇_走路',
+  '道具_延後開門牌', '道具_借書', '道具_茶店門',
+]);
+
+function splitMissing() {
+  const formal = [], demo = [];
+  for (const m of missing.values()) {
+    (DEMO_MISSING_IDS.has(m.id) ? demo : formal).push(m);
+  }
+  return { formal, demo };
+}
 const load = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
 
 function resolveActionId(name) {
@@ -841,12 +856,28 @@ function onChoice(btn, last, i) {
 }
 
 function renderSide() {
-  const ul = document.getElementById('miss'); ul.innerHTML = '';
-  for (const m of missing.values()) {
-    const li = document.createElement('li');
-    li.textContent = `${m.id}（${m.kind}）：${m.where.join('、')}`;
-    ul.appendChild(li);
-  }
+  const box = document.getElementById('miss'); box.innerHTML = '';
+  const { formal, demo } = splitMissing();
+  const addGroup = (title, items, cls) => {
+    const h = document.createElement('div');
+    h.className = 'miss-group' + (cls ? ' ' + cls : '');
+    h.textContent = title + '（' + items.length + '）';
+    box.appendChild(h);
+    const ul = document.createElement('ul');
+    for (const m of items) {
+      const li = document.createElement('li');
+      li.textContent = `${m.id}（${m.kind}）：${m.where.join('、')}`;
+      ul.appendChild(li);
+    }
+    if (!items.length) {
+      const li = document.createElement('li'); li.textContent = '（無）'; ul.appendChild(li);
+    }
+    box.appendChild(ul);
+  };
+  addGroup('正式缺圖', formal, 'formal');
+  addGroup('示範用，不算缺圖', demo, 'demo');
+  const countEl = document.getElementById('missCount');
+  if (countEl) countEl.textContent = String(formal.length);
   const wu = document.getElementById('warns'); wu.innerHTML = '';
   for (const w of writerWarns) {
     const li = document.createElement('li'); li.className = 'warn';
@@ -854,7 +885,11 @@ function renderSide() {
     else li.textContent = `${w.type}: ${w.id || ''} ${w.text || ''}`;
     wu.appendChild(li);
   }
-  window.MISSING = [...missing.values()];
+  window.MISSING = {
+    '正式缺圖': formal,
+    '示範用，不算缺圖': demo,
+    count: formal.length,
+  };
   window.WRITER_WARNS = writerWarns.slice();
   window.PAGE_INFO = {pages: pages.length, pageIdx, orient: ORIENT, drawerW, sections: sections.length};
 }

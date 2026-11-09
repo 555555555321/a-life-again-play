@@ -57,6 +57,9 @@ body{display:flex;align-items:flex-start;justify-content:center;gap:40px}
 #side h3{margin:4px 0}
 #side li{margin:2px 0}
 #side .warn{color:#ffb0c8}
+#side .miss-group{margin:10px 0 4px;font-weight:700}
+#side .miss-group.demo{color:#9ad}
+#side #miss ul{margin:0 0 8px;padding-left:18px}
 #side button{display:block;margin:6px 0;padding:6px 10px;cursor:pointer}
 </style></head><body>
 <div id="wrap">
@@ -86,9 +89,9 @@ body{display:flex;align-items:flex-start;justify-content:center;gap:40px}
   </div>
 </div>
 <div id="side">
-  <h3>缺圖清單</h3>
-  <div>粉紅方塊＝manifest 沒有的素材；動作缺的退回 idle。</div>
-  <ul id="miss"></ul>
+  <h3>缺圖清單 <span id="missCount">0</span></h3>
+  <div>粉紅方塊＝manifest 沒有的素材；動作缺的退回 idle。示範用 id 不算正式缺圖。</div>
+  <div id="miss"></div>
   <h3>作者警告</h3>
   <ul id="warns"></ul>
   <button id="dl">下載 missing_assets.json</button>

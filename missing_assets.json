@@ -1,129 +1,134 @@
-[
-  {
-    "id": "媽媽_翻傳單",
-    "kind": "動作（退回 媽媽_站）",
-    "where": [
-      "talent"
-    ],
-    "note": {
-      "base": "媽媽_站",
-      "overlay": [
-        "道具_傳單"
+{
+  "正式缺圖": [
+    {
+      "id": "媽媽_翻傳單",
+      "kind": "動作（退回 媽媽_站）",
+      "where": [
+        "talent"
       ],
-      "transform": [
-        "none"
-      ]
-    }
-  },
-  {
-    "id": "媽媽_收零錢",
-    "kind": "動作（退回 媽媽_站）",
-    "where": [
-      "month_end"
-    ],
-    "note": {
-      "base": "媽媽_站",
-      "overlay": [
-        "道具_餅乾盒"
+      "note": {
+        "base": "媽媽_站",
+        "overlay": [
+          "道具_傳單"
+        ],
+        "transform": [
+          "none"
+        ]
+      }
+    },
+    {
+      "id": "媽媽_收零錢",
+      "kind": "動作（退回 媽媽_站）",
+      "where": [
+        "month_end"
       ],
-      "transform": [
-        "none"
-      ]
-    }
-  },
-  {
-    "id": "你_等出門",
-    "kind": "動作（退回 你_站）",
-    "where": [
-      "month_end"
-    ],
-    "note": {
-      "base": "你_站",
-      "overlay": [],
-      "transform": [
-        "none"
-      ]
-    }
-  },
-  {
-    "id": "你_剪紙",
-    "kind": "動作（退回 你_站）",
-    "where": [
-      "scissors"
-    ],
-    "note": {
-      "base": "你_站",
-      "overlay": [
-        "道具_剪刀",
-        "道具_碎紙"
+      "note": {
+        "base": "媽媽_站",
+        "overlay": [
+          "道具_餅乾盒"
+        ],
+        "transform": [
+          "none"
+        ]
+      }
+    },
+    {
+      "id": "你_等出門",
+      "kind": "動作（退回 你_站）",
+      "where": [
+        "month_end"
       ],
-      "transform": [
-        "none"
-      ]
+      "note": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      }
+    },
+    {
+      "id": "你_剪紙",
+      "kind": "動作（退回 你_站）",
+      "where": [
+        "scissors"
+      ],
+      "note": {
+        "base": "你_站",
+        "overlay": [
+          "道具_剪刀",
+          "道具_碎紙"
+        ],
+        "transform": [
+          "none"
+        ]
+      }
     }
-  },
-  {
-    "id": "道具_延後開門牌",
-    "kind": "道具",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "蘇禾_站",
-    "kind": "動作（表無此 id）",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "陸淇_站",
-    "kind": "動作（表無此 id）",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "蘇禾_拿書",
-    "kind": "動作（表無此 id）",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "道具_借書",
-    "kind": "道具",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "陸淇_走路",
-    "kind": "動作（表無此 id）",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "蘇禾_坐",
-    "kind": "動作（表無此 id）",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  },
-  {
-    "id": "道具_茶店門",
-    "kind": "道具",
-    "where": [
-      "test_long"
-    ],
-    "note": null
-  }
-]
+  ],
+  "示範用，不算缺圖": [
+    {
+      "id": "道具_延後開門牌",
+      "kind": "道具",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "蘇禾_站",
+      "kind": "動作（表無此 id）",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "陸淇_站",
+      "kind": "動作（表無此 id）",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "蘇禾_拿書",
+      "kind": "動作（表無此 id）",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "道具_借書",
+      "kind": "道具",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "陸淇_走路",
+      "kind": "動作（表無此 id）",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "蘇禾_坐",
+      "kind": "動作（表無此 id）",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    },
+    {
+      "id": "道具_茶店門",
+      "kind": "道具",
+      "where": [
+        "test_long"
+      ],
+      "note": null
+    }
+  ],
+  "count": 4
+}
