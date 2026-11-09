@@ -1,0 +1,609 @@
+{
+  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
+  "corner": "二〇〇四年・春・你五歲",
+  "family": "dad_works_mom_home",
+  "order": [
+    "talent",
+    "month_end",
+    "scissors"
+  ],
+  "screens": {
+    "talent": {
+      "lighting": "evening",
+      "status": "晚餐時你把今天發生的事全部說了一遍。",
+      "text": "媽媽拿著幾張傳單，一張一張說給你聽：這是畫畫班，這是音樂班，那是跳舞班，問你想不想去學點什麼。",
+      "buttons": [
+        "畫畫",
+        "音樂",
+        "跳舞",
+        "不去"
+      ],
+      "cast": [
+        {
+          "id": "father",
+          "x": 376,
+          "feet": 246,
+          "flip": true,
+          "walk_to": 334,
+          "anim": "爸爸_走路"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 212,
+          "feet": 258,
+          "flip": false
+        },
+        {
+          "id": "mother",
+          "x": 242,
+          "feet": 254,
+          "flip": true,
+          "props": [
+            {
+              "id": "道具_傳單",
+              "dx": -12,
+              "dy": -50,
+              "w": 6,
+              "h": 7
+            }
+          ],
+          "anim": "媽媽_翻傳單"
+        },
+        {
+          "id": "cat",
+          "x": 80,
+          "feet": 263,
+          "flip": true
+        }
+      ]
+    },
+    "month_end": {
+      "lighting": "daylight",
+      "status": "週末不用上學，你一早就醒來等大人帶你出門。",
+      "text": "爸爸這個月薪水四萬二千六百八十四元。公立幼稚園二千五百零一元，便當一個四十五元。媽媽把零錢收進餅乾盒。",
+      "buttons": [
+        "繼續"
+      ],
+      "scene_props": [
+        {
+          "id": "道具_餅乾盒",
+          "x": 308,
+          "y": 181,
+          "w": 10,
+          "h": 6
+        }
+      ],
+      "cast": [
+        {
+          "id": "cat",
+          "x": 81,
+          "feet": 236,
+          "flip": false
+        },
+        {
+          "id": "mother",
+          "x": 342,
+          "feet": 247,
+          "flip": true,
+          "anim": "媽媽_收零錢"
+        },
+        {
+          "id": "father",
+          "x": 400,
+          "feet": 250,
+          "flip": false
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 407,
+          "feet": 264,
+          "flip": false,
+          "anim": "你_等出門"
+        }
+      ]
+    },
+    "scissors": {
+      "lighting": "daylight",
+      "status": "你學會了用剪刀，剪了一大堆碎紙。",
+      "text": "",
+      "buttons": [
+        "繼續"
+      ],
+      "scene_props": [
+        {
+          "id": "道具_碎紙",
+          "x": 160,
+          "y": 254,
+          "w": 64,
+          "h": 14
+        }
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 190,
+          "feet": 262,
+          "flip": false,
+          "props": [
+            {
+              "id": "道具_剪刀",
+              "dx": 8,
+              "dy": -24,
+              "w": 4,
+              "h": 4
+            }
+          ],
+          "anim": "你_剪紙"
+        },
+        {
+          "id": "mother",
+          "x": 402,
+          "feet": 238,
+          "flip": true
+        },
+        {
+          "id": "cat",
+          "x": 81,
+          "feet": 236,
+          "flip": false
+        }
+      ]
+    },
+    "test_long": {
+      "_note": "公主分頁示範 G04 ALA-GAP-20261025-G04-E014；原文見 /workspace/princess_pagination_demo/source.md。場景暫借客廳 daylight。‖ 分段與 marked.json 一致。",
+      "origin_id": "ALA-GAP-20261025-G04-E014",
+      "lighting": "daylight",
+      "status": "茶店門口。",
+      "text": "你到了茶店門口，門上掛著延後開門的牌子。‖蘇禾與陸淇先在兩頭的廊口等；群組通話裡有人說「我只能坐一下」，另一人接著說「我還能留下」。‖這幾個字你都取得了，卻對不上人。‖蘇禾帶著要還你的書，陸淇約好談近況；要先找到短留的那個人，才來得及都見到。‖兩人發來的具名更正終於齊了：蘇禾還在茶店旁，陸淇已得往河對面的辦事地點走，只能在途中短談。‖剛才若能辨明聲音，你本可在廊口先見陸淇，再回茶店取書；現在追上她再回來，就會越過蘇禾必須離開的時點。‖字句補齊了，失去的那段相見時間卻沒有回來。‖你告訴兩人自己留在原已到達的茶店。‖店門終於打開，蘇禾過來坐下，把借書還你，你們實際聊了一段；陸淇收到你的選擇後先去忙自己的事。‖今天你沒有與她談近況，也沒有因她離開就推定她不願再見。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 200,
+          "feet": 258,
+          "flip": false,
+          "anim": "你_站"
+        }
+      ],
+      "scene_props": [
+        {
+          "id": "道具_延後開門牌",
+          "x": 392,
+          "y": 90,
+          "w": 28,
+          "h": 18
+        }
+      ],
+      "cues": [
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_延後開門牌",
+              "x": 392,
+              "y": 90,
+              "w": 28,
+              "h": 18
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": [
+              "道具_延後開門牌"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_拿書"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_拿書",
+              "陸淇_站"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 391,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 400,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 358,
+              "feet": 250,
+              "flip": false,
+              "anim": "你_坐"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 300,
+              "feet": 242,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_坐"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 400,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            },
+            {
+              "id": "道具_茶店門",
+              "x": 390,
+              "y": 120,
+              "w": 30,
+              "h": 100
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_坐",
+              "蘇禾_坐",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書",
+              "道具_茶店門"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 358,
+              "feet": 250,
+              "flip": false,
+              "anim": "你_坐"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 300,
+              "feet": 242,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_坐"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾"
+            ],
+            "actions": [
+              "你_坐",
+              "蘇禾_坐"
+            ],
+            "props": []
+          }
+        }
+      ]
+    },
+    "test_reader": {
+      "_note": "閱讀頁：同一段 G04 示範原文。",
+      "reader": true,
+      "lighting": "daylight",
+      "status": "一封關於茶店的回憶。",
+      "text": "你到了茶店門口，門上掛著延後開門的牌子。‖蘇禾與陸淇先在兩頭的廊口等；群組通話裡有人說「我只能坐一下」，另一人接著說「我還能留下」。‖這幾個字你都取得了，卻對不上人。‖蘇禾帶著要還你的書，陸淇約好談近況；要先找到短留的那個人，才來得及都見到。‖兩人發來的具名更正終於齊了：蘇禾還在茶店旁，陸淇已得往河對面的辦事地點走，只能在途中短談。‖剛才若能辨明聲音，你本可在廊口先見陸淇，再回茶店取書；現在追上她再回來，就會越過蘇禾必須離開的時點。‖字句補齊了，失去的那段相見時間卻沒有回來。‖你告訴兩人自己留在原已到達的茶店。‖店門終於打開，蘇禾過來坐下，把借書還你，你們實際聊了一段；陸淇收到你的選擇後先去忙自己的事。‖今天你沒有與她談近況，也沒有因她離開就推定她不願再見。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": []
+    }
+  },
+  "_test_order": [
+    "test_long",
+    "test_reader"
+  ]
+}

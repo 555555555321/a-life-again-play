@@ -1,0 +1,2012 @@
+{
+  "_note": "公主寫場景指示時，動作和道具只能從這張表挑 id。drawn 的路徑相對於 /workspace/ala/r8_art/王子/。missing 的 file_pattern 是預定檔名：{age} = child6／toddler／infant，{sex} = m／f，{n} = 從 0 開始的格數。缺圖時用 fallback。",
+  "rules": [
+    "道具沒圖時不顯示"
+  ],
+  "rules_note": "道具沒圖時不顯示：狀態是「缺」、或檔案不存在的道具，畫面上不畫，也不用其他圖代替。",
+  "generated": "2026-11-09",
+  "by": "王子",
+  "sources_read": [
+    "/workspace/phone_b_20261109/missing_assets.json",
+    "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+    "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+    "/workspace/ala/r8_art/王子/pixel480_assets_20261109/r6c",
+    "/workspace/ala/r8_art/王子/pixel480_assets_20261109/char_cat_idle_r5b",
+    "/workspace/princess_mockup_20261109/lines.md"
+  ],
+  "counts": {
+    "total": 86,
+    "drawn": 7,
+    "temp_drawn": 4,
+    "interim_in_progress": 2,
+    "missing": 73,
+    "actions": 42,
+    "props": 44
+  },
+  "alias_index": {
+    "anim_father_walk": "爸爸_走路",
+    "missing_frames.md：爸爸走向家人／大人走路循環": "爸爸_走路",
+    "W09：走路（媽媽）": "媽媽_走路",
+    "W09：走路（主角六歲）": "你_走路",
+    "W09：待機呼吸起伏（媽媽）": "媽媽_呼吸",
+    "missing_frames.md：站著的呼吸（媽媽）": "媽媽_呼吸",
+    "W09：眨眼（媽媽）": "媽媽_眨眼",
+    "W09：側身（媽媽）": "媽媽_側身",
+    "missing_frames.md：面向／3/4 側身、轉頭朝向對方（媽媽）": "媽媽_側身",
+    "W09：待機呼吸起伏（爸爸）": "爸爸_呼吸",
+    "missing_frames.md：站著的呼吸（爸爸）": "爸爸_呼吸",
+    "W09：眨眼（爸爸）": "爸爸_眨眼",
+    "W09：側身（爸爸）": "爸爸_側身",
+    "missing_frames.md：面向／3/4 側身、轉頭朝向對方（爸爸）": "爸爸_側身",
+    "W09：待機呼吸起伏（你）": "你_呼吸",
+    "missing_frames.md：站著的呼吸（你）": "你_呼吸",
+    "W09：眨眼（你）": "你_眨眼",
+    "W09：側身（你）": "你_側身",
+    "missing_frames.md：面向／3/4 側身、轉頭朝向對方（你）": "你_側身",
+    "anim_mother_show_flyers（拿著的那一格）": "媽媽_拿傳單",
+    "missing_frames.md：媽媽拿傳單／手持紙張站姿": "媽媽_拿傳單",
+    "W09：拿紙（傳單）": "媽媽_拿傳單",
+    "anim_mother_show_flyers": "媽媽_翻傳單",
+    "missing_frames.md：翻看 2–3 格": "媽媽_翻傳單",
+    "anim_mother_coins_into_tin": "媽媽_收零錢",
+    "missing_frames.md：媽媽和餅乾盒／把零錢放進盒子": "媽媽_收零錢",
+    "W09：數零錢": "媽媽_收零錢",
+    "lines.md：媽媽在餐桌收零錢": "媽媽_收零錢",
+    "pose_child_wait_at_door": "你_等出門",
+    "missing_frames.md：小孩站在門邊等出門／看著門口的站姿": "你_等出門",
+    "lines.md：你在門邊": "你_等出門",
+    "missing_frames.md：拿剪刀站姿": "你_拿剪刀",
+    "anim_child_cut_paper": "你_剪紙",
+    "missing_frames.md：剪紙動作（張開、合上、碎紙落下）": "你_剪紙",
+    "missing_frames.md：蹲著或坐地上剪紙": "你_蹲剪紙",
+    "lines.md：爸爸拿鑰匙": "爸爸_拿鑰匙",
+    "W09：看報紙": "爸爸_看報紙",
+    "W09：坐（沙發，媽媽）": "媽媽_坐沙發",
+    "missing_frames.md：坐沙發（媽媽）": "媽媽_坐沙發",
+    "W09：坐（餐桌，媽媽）": "媽媽_坐餐桌",
+    "missing_frames.md：坐餐桌（媽媽）": "媽媽_坐餐桌",
+    "missing_frames.md：蹲下和小孩同高的大人姿勢（媽媽）": "媽媽_蹲下",
+    "W09：坐（沙發，爸爸）": "爸爸_坐沙發",
+    "missing_frames.md：坐沙發（爸爸）": "爸爸_坐沙發",
+    "W09：坐（餐桌，爸爸）": "爸爸_坐餐桌",
+    "missing_frames.md：坐餐桌（爸爸）": "爸爸_坐餐桌",
+    "missing_frames.md：蹲下和小孩同高的大人姿勢（爸爸）": "爸爸_蹲下",
+    "missing_frames.md：六歲坐姿": "你_坐",
+    "prop_mother_flyers.evening.png": "道具_傳單",
+    "prop_mother_flyers": "道具_傳單",
+    "missing_frames.md：在手邊畫三張空白紙": "道具_傳單",
+    "prop_cookie_tin.png": "道具_餅乾盒",
+    "prop_cookie_tin": "道具_餅乾盒",
+    "missing_frames.md：餅乾盒畫在桌面": "道具_餅乾盒",
+    "prop_child_scissors.png": "道具_剪刀",
+    "prop_child_scissors": "道具_剪刀",
+    "missing_frames.md：兒童剪刀": "道具_剪刀",
+    "prop_paper_scraps.png": "道具_碎紙",
+    "prop_paper_scraps": "道具_碎紙",
+    "missing_frames.md：碎紙／碎紙掉落": "道具_碎紙",
+    "lines.md：鑰匙（爸爸拿鑰匙）": "道具_鑰匙",
+    "lines.md：零錢": "道具_零錢",
+    "W09：零錢（數零錢）": "道具_零錢",
+    "W09：報紙（看報紙）": "道具_報紙",
+    "missing_frames.md：客廳門或玄關素材": "道具_客廳門",
+    "daily：你和同學比賽誰跑得比較快": "你_跑",
+    "daily：下課鐘一響，你衝去操場": "你_跑",
+    "daily：你在騎樓下跳格子": "你_跳",
+    "TW-A6-12：遊覽車上（坐車）": "你_坐車",
+    "annotations.json TW-A0-00（登記）：戶口名簿（空白）（戶口名簿）": "道具_戶口名簿",
+    "annotations.json TW-A0-02：油飯、盒子（油飯）": "道具_油飯",
+    "annotations.json TW-A0-03：小餅（小餅）": "道具_小餅",
+    "annotations.json TW-A0-07：米糊、湯匙（米糊）": "道具_米糊",
+    "annotations.json TW-A0-08、TW-A6-09：電話（電話）": "道具_電話",
+    "annotations.json TW-A0-09：桌子、抓周物品（書／筆／算盤／尺／錢幣／印章皆空白或不寫面額）（抓周物品）": "道具_抓周物品",
+    "annotations.json TW-A0-11：蠟燭、扇子（蠟燭）": "道具_蠟燭",
+    "annotations.json TW-A0-11：蠟燭、扇子（扇子）": "道具_扇子",
+    "annotations.json TW-A0-12：相機（相機）": "道具_相機",
+    "annotations.json TW-A1-04：橘子（橘子）": "道具_橘子",
+    "annotations.json TW-A1-07、TW-A3-08：紙箱、小被子／路邊、紙箱、小貓（紙箱）": "道具_紙箱",
+    "annotations.json TW-A1-07：紙箱、小被子（小被子）": "道具_小被子",
+    "annotations.json TW-A1-08：電視（電視）": "道具_電視",
+    "annotations.json TW-A1-10：紅包、抽屜（紅包）": "道具_紅包",
+    "annotations.json TW-A3-01（附加句）：{園所名稱}門口；附加句時加招牌（空白）（招牌）": "道具_招牌",
+    "annotations.json TW-A3-02：積木（積木）": "道具_積木",
+    "annotations.json TW-A3-04：客廳、玩具箱（玩具箱）": "道具_玩具箱",
+    "annotations.json TW-A3-05：紙筆（空白）（紙筆）": "道具_紙筆",
+    "annotations.json TW-A3-10：玩具（玩具）": "道具_玩具",
+    "annotations.json TW-A3-11：腳踏車、平交道、火車（腳踏車）": "道具_腳踏車",
+    "annotations.json TW-A3-11：腳踏車、平交道、火車（火車）": "道具_火車",
+    "annotations.json TW-A3-12：吐司、烤肉、騎樓／整條街（吐司）": "道具_吐司",
+    "annotations.json TW-A3-12：吐司、烤肉、騎樓／整條街（烤肉架）": "道具_烤肉架",
+    "annotations.json TW-A6-01、TW-A6-07：新書包、名牌（空白）／考卷（空白）、書包（書包）": "道具_書包",
+    "annotations.json TW-A6-01：新書包、名牌（空白）（名牌）": "道具_名牌",
+    "annotations.json TW-A6-05：客廳、氣球（氣球）": "道具_氣球",
+    "annotations.json TW-A6-06：電腦教室、電腦（螢幕空白）（電腦）": "道具_電腦",
+    "annotations.json TW-A6-06b：黏土（黏土）": "道具_黏土",
+    "annotations.json TW-A6-07：考卷（空白）、書包（考卷）": "道具_考卷",
+    "annotations.json TW-A6-08：課本（空白）（課本）": "道具_課本",
+    "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（門牙）": "道具_門牙",
+    "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（小盒子）": "道具_小盒子",
+    "annotations.json TW-A6-12：遊覽車（遊覽車）": "道具_遊覽車",
+    "annotations.json TW-A6-13：作業（空白）（作業）": "道具_作業"
+  },
+  "fallback_transforms": {
+    "breathe_1px": "腰以上下移 1 px，腳不動",
+    "flip_x": "水平翻轉",
+    "slide_x": "整張左右平移（整數 px）",
+    "none": "不變"
+  },
+  "entries": [
+    {
+      "id": "媽媽_站",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "master": "pixel480_assets_20261109/r6c/char_mother_master_r6c.png",
+        "idle_frames": [
+          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_00.png",
+          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_01.png",
+          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_02.png",
+          "pixel480_assets_20261109/r6c/char_mother_idle_r6c/frame_03.png"
+        ],
+        "sheet": "pixel480_assets_20261109/r6c/char_mother_r6c.png"
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/r6c/",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [],
+      "notes": [
+        "r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。臉部待 ChatGPT 重畫。"
+      ]
+    },
+    {
+      "id": "爸爸_站",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "master": "pixel480_assets_20261109/r6c/char_father_master_r6c.png",
+        "idle_frames": [
+          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_00.png",
+          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_01.png",
+          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_02.png",
+          "pixel480_assets_20261109/r6c/char_father_idle_r6c/frame_03.png"
+        ],
+        "sheet": "pixel480_assets_20261109/r6c/char_father_r6c.png"
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/r6c/",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [],
+      "notes": [
+        "r6c 暫定版。四格中第 0–2 格相同，只有第 3 格上半身不同。"
+      ]
+    },
+    {
+      "id": "你_站",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "child6_m": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_boy_child6_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_child6_idle_r6c/frame_03.png"
+          ]
+        },
+        "toddler_m": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_boy_toddler_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_toddler_idle_r6c/frame_03.png"
+          ]
+        },
+        "child6_f": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_girl_child6_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_child6_idle_r6c/frame_03.png"
+          ]
+        },
+        "toddler_f": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_girl_toddler_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_toddler_idle_r6c/frame_03.png"
+          ]
+        }
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/r6c/",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [],
+      "notes": [
+        "六歲（65 px）與兩歲（49 px），男女各一。嬰兒沒有站姿，見 你_嬰兒坐。"
+      ]
+    },
+    {
+      "id": "你_嬰兒坐",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "infant_m": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_boy_infant_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_idle_r6c/frame_03.png"
+          ],
+          "limbs_master": "pixel480_assets_20261109/r6c/char_protag_boy_infant_limbs_master_r6c.png"
+        },
+        "infant_f": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_girl_infant_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_idle_r6c/frame_03.png"
+          ],
+          "limbs_master": "pixel480_assets_20261109/r6c/char_protag_girl_infant_limbs_master_r6c.png"
+        }
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/r6c/"
+      ],
+      "aliases": [],
+      "notes": [
+        "嬰兒坐姿（28 px），含手腳分層版。"
+      ]
+    },
+    {
+      "id": "你_包巾",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "infant_m": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_boy_infant_swaddle_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_swaddle_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_swaddle_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_swaddle_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_boy_infant_swaddle_idle_r6c/frame_03.png"
+          ]
+        },
+        "infant_f": {
+          "master": "pixel480_assets_20261109/r6c/char_protag_girl_infant_swaddle_master_r6c.png",
+          "idle_frames": [
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_swaddle_idle_r6c/frame_00.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_swaddle_idle_r6c/frame_01.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_swaddle_idle_r6c/frame_02.png",
+            "pixel480_assets_20261109/r6c/char_protag_girl_infant_swaddle_idle_r6c/frame_03.png"
+          ]
+        }
+      },
+      "frame_count": 4,
+      "fallback": {
+        "base": "你_嬰兒坐",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "pixel480_assets_20261109/r6c/"
+      ],
+      "aliases": [],
+      "notes": [
+        "嬰兒包巾版。"
+      ]
+    },
+    {
+      "id": "阿穗_站",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "master": "pixel480_assets_20261109/r6c/char_asui_child6_master_r6c.png",
+        "idle_frames": [
+          "pixel480_assets_20261109/r6c/char_asui_child6_idle_r6c/frame_00.png",
+          "pixel480_assets_20261109/r6c/char_asui_child6_idle_r6c/frame_01.png",
+          "pixel480_assets_20261109/r6c/char_asui_child6_idle_r6c/frame_02.png",
+          "pixel480_assets_20261109/r6c/char_asui_child6_idle_r6c/frame_03.png"
+        ]
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/r6c/"
+      ],
+      "aliases": [],
+      "notes": [
+        "六歲角色阿穗，r6c 暫定版。"
+      ]
+    },
+    {
+      "id": "貓_待機",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "master": "pixel480_assets_20261109/char_cat_master_r5b.png",
+        "idle_frames": [
+          "pixel480_assets_20261109/char_cat_idle_r5b/frame_00.png",
+          "pixel480_assets_20261109/char_cat_idle_r5b/frame_01.png",
+          "pixel480_assets_20261109/char_cat_idle_r5b/frame_02.png",
+          "pixel480_assets_20261109/char_cat_idle_r5b/frame_03.png"
+        ],
+        "lut_evening": "pixel480_assets_20261109/lut_char_cat_evening_r5.json",
+        "lut_rainy": "pixel480_assets_20261109/lut_char_cat_rainy_r5b.json"
+      },
+      "frame_count": 4,
+      "fallback": null,
+      "sources": [
+        "pixel480_assets_20261109/char_cat_idle_r5b/",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [],
+      "notes": [
+        "尾巴擺動四格。傍晚換色表用 r5（對 r5b 每個顏色都有對應）。"
+      ]
+    },
+    {
+      "id": "爸爸_走路",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_走路_f{n}.png",
+      "frame_count": "左右各 4–6",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "slide_x",
+          "breathe_1px"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "anim_father_walk",
+        "missing_frames.md：爸爸走向家人／大人走路循環"
+      ],
+      "notes": [
+        "暫代：整張站姿左右平移，上半身每兩格下沉 1 px 當腳步；回程加 flip_x。",
+        "右邊可用左邊鏡像，需註明。"
+      ]
+    },
+    {
+      "id": "媽媽_走路",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_走路_f{n}.png",
+      "frame_count": "左右各 4–6",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "slide_x"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：走路（媽媽）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "你_走路",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_走路_f{n}.png",
+      "frame_count": "左右各 4–6",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "slide_x"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：走路（主角六歲）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "媽媽_呼吸",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_呼吸_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "breathe_1px"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：待機呼吸起伏（媽媽）",
+        "missing_frames.md：站著的呼吸（媽媽）"
+      ],
+      "notes": [
+        "暫代：腰以上下移 1 px，腳不動；每人錯開相位。"
+      ]
+    },
+    {
+      "id": "媽媽_眨眼",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_眨眼_f{n}.png",
+      "frame_count": 2,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：眨眼（媽媽）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "媽媽_側身",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_側身_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "flip_x"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：側身（媽媽）",
+        "missing_frames.md：面向／3/4 側身、轉頭朝向對方（媽媽）"
+      ],
+      "notes": [
+        "暫代：整張水平翻轉，只改面向。"
+      ]
+    },
+    {
+      "id": "爸爸_呼吸",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_呼吸_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "breathe_1px"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：待機呼吸起伏（爸爸）",
+        "missing_frames.md：站著的呼吸（爸爸）"
+      ],
+      "notes": [
+        "暫代：腰以上下移 1 px，腳不動；每人錯開相位。"
+      ]
+    },
+    {
+      "id": "爸爸_眨眼",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_眨眼_f{n}.png",
+      "frame_count": 2,
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：眨眼（爸爸）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "爸爸_側身",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_側身_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "flip_x"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：側身（爸爸）",
+        "missing_frames.md：面向／3/4 側身、轉頭朝向對方（爸爸）"
+      ],
+      "notes": [
+        "暫代：整張水平翻轉，只改面向。"
+      ]
+    },
+    {
+      "id": "你_呼吸",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_呼吸_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "breathe_1px"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：待機呼吸起伏（你）",
+        "missing_frames.md：站著的呼吸（你）"
+      ],
+      "notes": [
+        "暫代：腰以上下移 1 px，腳不動；每人錯開相位。"
+      ]
+    },
+    {
+      "id": "你_眨眼",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_眨眼_f{n}.png",
+      "frame_count": 2,
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：眨眼（你）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "你_側身",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_側身_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "flip_x"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：側身（你）",
+        "missing_frames.md：面向／3/4 側身、轉頭朝向對方（你）"
+      ],
+      "notes": [
+        "暫代：整張水平翻轉，只改面向。"
+      ]
+    },
+    {
+      "id": "媽媽_拿傳單",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_拿傳單_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [
+          "道具_傳單"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "anim_mother_show_flyers（拿著的那一格）",
+        "missing_frames.md：媽媽拿傳單／手持紙張站姿",
+        "W09：拿紙（傳單）"
+      ],
+      "notes": [
+        "暫代：傳單疊在媽媽右手邊，加兩個手指像素。"
+      ]
+    },
+    {
+      "id": "媽媽_翻傳單",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_翻傳單_f{n}.png",
+      "frame_count": "2–3",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [
+          "道具_傳單"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "anim_mother_show_flyers",
+        "missing_frames.md：翻看 2–3 格"
+      ],
+      "notes": [
+        "媽媽_拿傳單 畫好後，改用它當底圖。"
+      ]
+    },
+    {
+      "id": "媽媽_收零錢",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_收零錢_f{n}.png",
+      "frame_count": "2–3",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [
+          "道具_餅乾盒"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/princess_mockup_20261109/lines.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "anim_mother_coins_into_tin",
+        "missing_frames.md：媽媽和餅乾盒／把零錢放進盒子",
+        "W09：數零錢",
+        "lines.md：媽媽在餐桌收零錢"
+      ],
+      "notes": [
+        "暫代：餅乾盒放在桌面，媽媽站在旁邊。",
+        "W09 的「數零錢」先併在這裡；若要分開，另立 媽媽_數零錢。"
+      ]
+    },
+    {
+      "id": "你_等出門",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_等出門_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/princess_mockup_20261109/lines.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "pose_child_wait_at_door",
+        "missing_frames.md：小孩站在門邊等出門／看著門口的站姿",
+        "lines.md：你在門邊"
+      ],
+      "notes": [
+        "暫代：站在房間右側邊緣（客廳沒有門）。"
+      ]
+    },
+    {
+      "id": "你_拿剪刀",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_拿剪刀_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "你_站",
+        "overlay": [
+          "道具_剪刀"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：拿剪刀站姿"
+      ],
+      "notes": [
+        "暫代：剪刀疊在右手邊。"
+      ]
+    },
+    {
+      "id": "你_剪紙",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_剪紙_f{n}.png",
+      "frame_count": "3–4",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [
+          "道具_剪刀",
+          "道具_碎紙"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/phone_b_20261109/missing_assets.json",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "anim_child_cut_paper",
+        "missing_frames.md：剪紙動作（張開、合上、碎紙落下）"
+      ],
+      "notes": [
+        "你_拿剪刀 畫好後，改用它當底圖。"
+      ]
+    },
+    {
+      "id": "你_蹲剪紙",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_蹲剪紙_f{n}.png",
+      "frame_count": "3–4",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [
+          "道具_剪刀",
+          "道具_碎紙"
+        ],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：蹲著或坐地上剪紙"
+      ],
+      "notes": [
+        "你_剪紙 畫好後，改用它當底圖。"
+      ]
+    },
+    {
+      "id": "爸爸_拿鑰匙",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_拿鑰匙_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/princess_mockup_20261109/lines.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "lines.md：爸爸拿鑰匙"
+      ],
+      "notes": [
+        "道具_鑰匙 還沒有圖，暫代時手上不畫東西。"
+      ]
+    },
+    {
+      "id": "爸爸_看報紙",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_看報紙_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：看報紙"
+      ],
+      "notes": [
+        "W09 沒寫誰看報紙，先放爸爸。"
+      ]
+    },
+    {
+      "id": "媽媽_坐沙發",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_坐沙發_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：坐（沙發，媽媽）",
+        "missing_frames.md：坐沙發（媽媽）"
+      ],
+      "notes": [
+        "暫代時不坐，站在沙發旁。"
+      ]
+    },
+    {
+      "id": "媽媽_坐餐桌",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_坐餐桌_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：坐（餐桌，媽媽）",
+        "missing_frames.md：坐餐桌（媽媽）"
+      ],
+      "notes": [
+        "暫代時不坐，站在餐桌旁。"
+      ]
+    },
+    {
+      "id": "媽媽_蹲下",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_蹲下_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：蹲下和小孩同高的大人姿勢（媽媽）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "爸爸_坐沙發",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_坐沙發_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：坐（沙發，爸爸）",
+        "missing_frames.md：坐沙發（爸爸）"
+      ],
+      "notes": [
+        "暫代時不坐，站在沙發旁。"
+      ]
+    },
+    {
+      "id": "爸爸_坐餐桌",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_坐餐桌_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "W09：坐（餐桌，爸爸）",
+        "missing_frames.md：坐餐桌（爸爸）"
+      ],
+      "notes": [
+        "暫代時不坐，站在餐桌旁。"
+      ]
+    },
+    {
+      "id": "爸爸_蹲下",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_蹲下_f{n}.png",
+      "frame_count": 1,
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：蹲下和小孩同高的大人姿勢（爸爸）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "你_坐",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_坐_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：六歲坐姿"
+      ],
+      "notes": [
+        "六歲坐姿；嬰兒坐姿已有，見 你_嬰兒坐。"
+      ]
+    },
+    {
+      "id": "道具_傳單",
+      "kind": "prop",
+      "status": "temp_drawn",
+      "file_pattern": {
+        "primary": "/workspace/phone_b_20261109/assets/props/prop_道具_傳單_f0.png",
+        "candidates": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_傳單_f0.png"
+        ],
+        "existing_at_build": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_傳單_f0.png"
+        ]
+      },
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/phone_b_20261109/assets/props/（小兵匯出，manifest.json）",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "prop_mother_flyers.evening.png",
+        "prop_mother_flyers",
+        "missing_frames.md：在手邊畫三張空白紙"
+      ],
+      "notes": [
+        "prop_道具_傳單_f0.png 是傍晚光線版（來自 render.draw_flyers），白天版還沒有。",
+        "空白，不能有字或圖案。"
+      ],
+      "final_file": "prop_道具_傳單_f{n}.png"
+    },
+    {
+      "id": "道具_餅乾盒",
+      "kind": "prop",
+      "status": "temp_drawn",
+      "file_pattern": {
+        "primary": "/workspace/phone_b_20261109/assets/props/prop_道具_餅乾盒_f0.png",
+        "candidates": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_餅乾盒_f0.png"
+        ],
+        "existing_at_build": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_餅乾盒_f0.png"
+        ]
+      },
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/phone_b_20261109/assets/props/（小兵匯出，manifest.json）",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "/workspace/princess_mockup_20261109/lines.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "prop_cookie_tin.png",
+        "prop_cookie_tin",
+        "missing_frames.md：餅乾盒畫在桌面"
+      ],
+      "notes": [
+        "暫代圖來自 full_layout_v2.draw_tin，白天色。",
+        "素面，不能有字或商標。"
+      ],
+      "final_file": "prop_道具_餅乾盒_f{n}.png"
+    },
+    {
+      "id": "道具_剪刀",
+      "kind": "prop",
+      "status": "temp_drawn",
+      "file_pattern": {
+        "primary": "/workspace/phone_b_20261109/assets/props/prop_道具_剪刀_f0.png",
+        "candidates": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_剪刀_f0.png"
+        ],
+        "existing_at_build": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_剪刀_f0.png"
+        ]
+      },
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/phone_b_20261109/assets/props/（小兵匯出，manifest.json）",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "prop_child_scissors.png",
+        "prop_child_scissors",
+        "missing_frames.md：兒童剪刀"
+      ],
+      "notes": [
+        "暫代圖來自 full_layout_v2.add_scissors：暗紅握把、灰刀片、無字。"
+      ],
+      "final_file": "prop_道具_剪刀_f{n}.png"
+    },
+    {
+      "id": "道具_碎紙",
+      "kind": "prop",
+      "status": "temp_drawn",
+      "file_pattern": {
+        "primary": "/workspace/phone_b_20261109/assets/props/prop_道具_碎紙_f0.png",
+        "candidates": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_碎紙_f0.png"
+        ],
+        "existing_at_build": [
+          "/workspace/phone_b_20261109/assets/props/prop_道具_碎紙_f0.png"
+        ]
+      },
+      "frame_count": "1（掉落動畫 2–3，可選）",
+      "fallback": null,
+      "sources": [
+        "/workspace/phone_b_20261109/assets/props/（小兵匯出，manifest.json）",
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md",
+        "王 指示 2026-11-09 17:48（範例 ID）"
+      ],
+      "aliases": [
+        "prop_paper_scraps.png",
+        "prop_paper_scraps",
+        "missing_frames.md：碎紙／碎紙掉落"
+      ],
+      "notes": [
+        "暫代圖來自 full_layout_v2.draw_scraps。",
+        "白色素面，不能有字、顏色或花紋。"
+      ],
+      "final_file": "prop_道具_碎紙_f{n}.png"
+    },
+    {
+      "id": "道具_鑰匙",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_鑰匙_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/princess_mockup_20261109/lines.md"
+      ],
+      "aliases": [
+        "lines.md：鑰匙（爸爸拿鑰匙）"
+      ],
+      "notes": [
+        "還沒有暫代圖，暫代時不畫。"
+      ]
+    },
+    {
+      "id": "道具_零錢",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_零錢_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/princess_mockup_20261109/lines.md",
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "lines.md：零錢",
+        "W09：零錢（數零錢）"
+      ],
+      "notes": [
+        "還沒有暫代圖，暫代時不畫。",
+        "錢幣不畫面額。"
+      ]
+    },
+    {
+      "id": "道具_報紙",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_報紙_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/handoffs/W09_anim_frames_need_20261109.txt"
+      ],
+      "aliases": [
+        "W09：報紙（看報紙）"
+      ],
+      "notes": [
+        "還沒有暫代圖，暫代時不畫。",
+        "報紙不畫字，只用灰色橫線區塊。"
+      ]
+    },
+    {
+      "id": "道具_客廳門",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_客廳門_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/ala/r8_art/王子/mockup_20261109/full_layout/missing_frames.md"
+      ],
+      "aliases": [
+        "missing_frames.md：客廳門或玄關素材"
+      ],
+      "notes": [
+        "房間素材的一部分；目前客廳沒有門，你_等出門 暫代時站在房間右側邊緣。"
+      ]
+    },
+    {
+      "id": "你_跑",
+      "kind": "action",
+      "status": "interim_in_progress",
+      "file_pattern": {
+        "folder": "/workspace/ala/r8_art/王子/interim_anim_20261109/",
+        "planned": [
+          "/workspace/ala/r8_art/王子/interim_anim_20261109/child6_m_你_跑_f0.png",
+          "/workspace/ala/r8_art/王子/interim_anim_20261109/你_跑_f0.png"
+        ],
+        "existing_at_build": []
+      },
+      "frame_count": "左右各 4–6",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "slide_x"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "daily：你和同學比賽誰跑得比較快",
+        "daily：下課鐘一響，你衝去操場"
+      ],
+      "notes": [
+        "另一位同事正在 interim_anim_20261109/ 畫暫用版。"
+      ]
+    },
+    {
+      "id": "你_跳",
+      "kind": "action",
+      "status": "interim_in_progress",
+      "file_pattern": {
+        "folder": "/workspace/ala/r8_art/王子/interim_anim_20261109/",
+        "planned": [
+          "/workspace/ala/r8_art/王子/interim_anim_20261109/child6_m_你_跳_f0.png",
+          "/workspace/ala/r8_art/王子/interim_anim_20261109/你_跳_f0.png"
+        ],
+        "existing_at_build": []
+      },
+      "frame_count": "3–4",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "breathe_1px"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53",
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "daily：你在騎樓下跳格子"
+      ],
+      "notes": [
+        "另一位同事正在 interim_anim_20261109/ 畫暫用版。暫代只用呼吸起伏，不離地。"
+      ]
+    },
+    {
+      "id": "爸爸_開車",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_開車_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "需要 道具_汽車（側面）一起畫；暫代時不出現車。"
+      ]
+    },
+    {
+      "id": "媽媽_開車",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_開車_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "同 爸爸_開車。"
+      ]
+    },
+    {
+      "id": "你_坐車",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "{age}_{sex}_你_坐車_f{n}.png",
+      "frame_count": "1–2",
+      "fallback": {
+        "base": "你_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [
+        "TW-A6-12：遊覽車上（坐車）"
+      ],
+      "notes": [
+        "自家車後座、遊覽車座位都用這個 id。"
+      ]
+    },
+    {
+      "id": "爸爸_騎機車",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_m_爸爸_騎機車_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "爸爸_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "需要 道具_機車；暫代時不出現車。"
+      ]
+    },
+    {
+      "id": "媽媽_騎機車",
+      "kind": "action",
+      "status": "missing",
+      "file_pattern": "adult_f_媽媽_騎機車_f{n}.png",
+      "frame_count": "2–4",
+      "fallback": {
+        "base": "媽媽_站",
+        "overlay": [],
+        "transform": [
+          "none"
+        ]
+      },
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "同 爸爸_騎機車。"
+      ]
+    },
+    {
+      "id": "道具_汽車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_汽車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "側面，無廠牌、無車牌、無文字。"
+      ]
+    },
+    {
+      "id": "道具_機車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_機車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "王 指示 2026-11-09 17:53"
+      ],
+      "aliases": [],
+      "notes": [
+        "側面，無廠牌、無車牌、無文字。"
+      ]
+    },
+    {
+      "id": "道具_戶口名簿",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_戶口名簿_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-00（登記）：戶口名簿（空白）（戶口名簿）"
+      ],
+      "notes": [
+        "封面與內頁都空白。"
+      ]
+    },
+    {
+      "id": "道具_油飯",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_油飯_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-02：油飯、盒子（油飯）"
+      ],
+      "notes": [
+        "含分送用的盒子。"
+      ]
+    },
+    {
+      "id": "道具_小餅",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_小餅_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-03：小餅（小餅）"
+      ],
+      "notes": [
+        "收涎用，串成一串。"
+      ]
+    },
+    {
+      "id": "道具_米糊",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_米糊_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-07：米糊、湯匙（米糊）"
+      ],
+      "notes": [
+        "碗＋湯匙。"
+      ]
+    },
+    {
+      "id": "道具_電話",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_電話_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-08、TW-A6-09：電話（電話）"
+      ],
+      "notes": [
+        "家用市內電話，依年代；不畫手機畫面。"
+      ]
+    },
+    {
+      "id": "道具_抓周物品",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_抓周物品_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-09：桌子、抓周物品（書／筆／算盤／尺／錢幣／印章皆空白或不寫面額）（抓周物品）"
+      ],
+      "notes": [
+        "六樣一組，書和印章不寫字，錢幣不寫面額。"
+      ]
+    },
+    {
+      "id": "道具_蠟燭",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_蠟燭_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-11：蠟燭、扇子（蠟燭）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_扇子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_扇子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-11：蠟燭、扇子（扇子）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_相機",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_相機_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A0-12：相機（相機）"
+      ],
+      "notes": [
+        "底片相機，不畫數位相機。"
+      ]
+    },
+    {
+      "id": "道具_橘子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_橘子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-04：橘子（橘子）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_紙箱",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_紙箱_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-07、TW-A3-08：紙箱、小被子／路邊、紙箱、小貓（紙箱）"
+      ],
+      "notes": [
+        "素面，不畫字或商標。"
+      ]
+    },
+    {
+      "id": "道具_小被子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_小被子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-07：紙箱、小被子（小被子）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_電視",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_電視_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-08：電視（電視）"
+      ],
+      "notes": [
+        "映像管電視，不接機上盒，螢幕不畫內容。"
+      ]
+    },
+    {
+      "id": "道具_紅包",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_紅包_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A1-10：紅包、抽屜（紅包）"
+      ],
+      "notes": [
+        "不寫字。"
+      ]
+    },
+    {
+      "id": "道具_招牌",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_招牌_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-01（附加句）：{園所名稱}門口；附加句時加招牌（空白）（招牌）"
+      ],
+      "notes": [
+        "空白招牌。"
+      ]
+    },
+    {
+      "id": "道具_積木",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_積木_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-02：積木（積木）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_玩具箱",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_玩具箱_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-04：客廳、玩具箱（玩具箱）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_紙筆",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_紙筆_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-05：紙筆（空白）（紙筆）"
+      ],
+      "notes": [
+        "紙空白。"
+      ]
+    },
+    {
+      "id": "道具_玩具",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_玩具_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-10：玩具（玩具）"
+      ],
+      "notes": [
+        "吵架搶的那個玩具，一件即可。"
+      ]
+    },
+    {
+      "id": "道具_腳踏車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_腳踏車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-11：腳踏車、平交道、火車（腳踏車）"
+      ],
+      "notes": [
+        "無廠牌。"
+      ]
+    },
+    {
+      "id": "道具_火車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_火車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-11：腳踏車、平交道、火車（火車）"
+      ],
+      "notes": [
+        "無文字、無塗裝標誌。"
+      ]
+    },
+    {
+      "id": "道具_吐司",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_吐司_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-12：吐司、烤肉、騎樓／整條街（吐司）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_烤肉架",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_烤肉架_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A3-12：吐司、烤肉、騎樓／整條街（烤肉架）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_書包",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_書包_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-01、TW-A6-07：新書包、名牌（空白）／考卷（空白）、書包（書包）"
+      ],
+      "notes": [
+        "無圖案文字。"
+      ]
+    },
+    {
+      "id": "道具_名牌",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_名牌_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-01：新書包、名牌（空白）（名牌）"
+      ],
+      "notes": [
+        "空白。"
+      ]
+    },
+    {
+      "id": "道具_氣球",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_氣球_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-05：客廳、氣球（氣球）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_電腦",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_電腦_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-06：電腦教室、電腦（螢幕空白）（電腦）"
+      ],
+      "notes": [
+        "映像管螢幕，螢幕空白。"
+      ]
+    },
+    {
+      "id": "道具_黏土",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_黏土_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-06b：黏土（黏土）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_考卷",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_考卷_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-07：考卷（空白）、書包（考卷）"
+      ],
+      "notes": [
+        "空白。"
+      ]
+    },
+    {
+      "id": "道具_課本",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_課本_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-08：課本（空白）（課本）"
+      ],
+      "notes": [
+        "空白。"
+      ]
+    },
+    {
+      "id": "道具_門牙",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_門牙_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（門牙）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_小盒子",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_小盒子_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-11：門牙；依選項：屋頂／床底／小盒子（小盒子）"
+      ],
+      "notes": []
+    },
+    {
+      "id": "道具_遊覽車",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_遊覽車_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-12：遊覽車（遊覽車）"
+      ],
+      "notes": [
+        "無文字、無公司標誌。"
+      ]
+    },
+    {
+      "id": "道具_作業",
+      "kind": "prop",
+      "status": "missing",
+      "file_pattern": "prop_道具_作業_f{n}.png",
+      "frame_count": 1,
+      "fallback": null,
+      "sources": [
+        "/workspace/w09_annotate/annotations.json（畫面要有）"
+      ],
+      "aliases": [
+        "annotations.json TW-A6-13：作業（空白）（作業）"
+      ],
+      "notes": [
+        "空白。"
+      ]
+    }
+  ]
+}
