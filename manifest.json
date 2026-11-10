@@ -41,7 +41,8 @@
     "view_sit": "34v",
     "view_walk": "side",
     "idle_side": "assets/chars/father/idle_side_00.png",
-    "idle_side_blink": "assets/chars/father/idle_side_00_blink.png"
+    "idle_side_blink": "assets/chars/father/idle_side_00_blink.png",
+    "turn_n": 0
   },
   "mother": {
     "anchor": "foot",
@@ -312,5 +313,36 @@
       19
     ],
     "from": "props prop_道具_小被子_floor_f0 (floor, outside box)"
+  },
+  "father_walk_c": {
+    "anchor": "foot",
+    "anchor_w": [
+      27,
+      115
+    ],
+    "anchor_e": [
+      28,
+      115
+    ],
+    "canvas": [
+      56,
+      116
+    ],
+    "idle_frames": "assets/chars/father_walk_c/idle_0{i}.png",
+    "idle_n": 4,
+    "idle_blink": "assets/chars/father_walk_c/idle_00_blink.png",
+    "idle_side": "assets/chars/father_walk_c/idle_side_00.png",
+    "walk_frames": "assets/chars/father_walk_c/walk_0{i}.png",
+    "walk_n": 8,
+    "turn_frames": "assets/chars/father_walk_c/turn_0{i}.png",
+    "turn_n": 2,
+    "sit_n": 0,
+    "stride": 8,
+    "lut_evening": "assets/luts/father_walk_c.evening.json",
+    "stand": "爸爸_站",
+    "from": "walk_trialC_20261110 DEV only — do not replace default father walk",
+    "frames": "assets/chars/father_walk_c/idle_0{i}.png",
+    "n": 4,
+    "facing_drawn": "W"
   }
 }

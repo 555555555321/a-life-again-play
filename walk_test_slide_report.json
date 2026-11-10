@@ -1,0 +1,22 @@
+{
+  "C": {
+    "walk_ticks": 39,
+    "max_abs_planted_dx_px": 20.5,
+    "mean_abs_planted_dx_px": 7.744,
+    "char_dx_unique": [
+      0,
+      8,
+      16
+    ]
+  },
+  "old": {
+    "walk_ticks": 39,
+    "max_abs_planted_dx_px": 16,
+    "mean_abs_planted_dx_px": 7.59,
+    "char_dx_unique": [
+      0,
+      8,
+      16
+    ]
+  }
+}

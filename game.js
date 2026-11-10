@@ -170,6 +170,16 @@ async function sprite(charKey, lighting) {
         catch (_) {}
       }
     }
+    pack.turn = [];
+    const nTurn = m.turn_n || 0;
+    if (nTurn && m.turn_frames) {
+      for (let i = 0; i < nTurn; i++) {
+        try {
+          const im = await load(m.turn_frames.replace('{i}', i));
+          pack.turn.push(await applyLutToImage(im, lut, charKey, lighting));
+        } catch (_) {}
+      }
+    }
     const nCrouch = m.crouch_n || 0;
     if (nCrouch && m.crouch_frames) {
       for (let i = 0; i < nCrouch; i++) {
@@ -557,6 +567,11 @@ function compositeLandscape(dest, now) {
 
 function loop(now) {
   if (!prepared) { requestAnimationFrame(loop); return; }
+  if (activeKey === 'walk_test' && walkTest) {
+    drawWalkTest(now);
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -1104,6 +1119,217 @@ function wireDrawer() {
   });
 }
 
+// —— DEV walk_test: Trial C vs old dad walk (does not alter default father walk) ——
+const WALK_TEST_LOG = [];
+let walkTest = null;
+
+function wtReset() {
+  if (!walkTest) return;
+  const now = performance.now();
+  for (const lane of walkTest.lanes) {
+    lane.phase = 'stand';
+    lane.phaseT0 = now;
+    lane.x = lane.x0;
+    lane.frame = 0;
+    lane.flip = true; // same as game: art faces W; flipX when travelling east
+    lane.done = false;
+    lane._prevX = null;
+    lane._prevPlanted = null;
+    lane._logTick = null;
+  }
+  walkTest.t0 = now;
+  WALK_TEST_LOG.length = 0;
+}
+
+async function initWalkTest() {
+  const lighting = 'daylight';
+  const packC = await sprite('father_walk_c', lighting);
+  const packOld = await sprite('father', lighting);
+  // facing report
+  walkTest = {
+    facingC: 'W',
+    facingOld: 'W',
+    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies',
+    lanes: [
+      { id: 'C', label: 'Trial C (8+turn)', pack: packC, x0: 90, feet: 230, x1: 390, stride: 8, period: 125 },
+      { id: 'old', label: 'old walk (4)', pack: packOld, x0: 90, feet: 258, x1: 390, stride: 8, period: 125 },
+    ],
+  };
+  wtReset();
+  window.WALK_TEST = walkTest;
+  window.WALK_TEST_LOG = WALK_TEST_LOG;
+}
+
+function wtPhaseMs(lane) {
+  if (lane.phase === 'stand') return 1000;
+  if (lane.phase === 'turn') {
+    const n = (lane.pack.turn && lane.pack.turn.length) || 0;
+    return Math.max(1, n) * lane.period;
+  }
+  if (lane.phase === 'walk') return 1e12; // until x reaches x1
+  if (lane.phase === 'stop_side') return 200;
+  return 1e12; // stop idle
+}
+
+function wtAdvance(lane, now) {
+  const elapsed = now - lane.phaseT0;
+  if (lane.phase === 'stand' && elapsed >= wtPhaseMs(lane)) {
+    if (lane.pack.turn && lane.pack.turn.length) {
+      lane.phase = 'turn'; lane.phaseT0 = now; lane.frame = 0;
+    } else {
+      lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0;
+    }
+  } else if (lane.phase === 'turn' && elapsed >= wtPhaseMs(lane)) {
+    lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0;
+  } else if (lane.phase === 'walk') {
+    const step = Math.floor(elapsed / lane.period);
+    let x = lane.x0;
+    for (let i = 0; i < step; i++) x += lane.stride;
+    if (x >= lane.x1) {
+      lane.x = lane.x1; lane.phase = 'stop_side'; lane.phaseT0 = now; lane.frame = 0;
+    } else {
+      lane.x = x; lane.frame = step % lane.pack.walk.length;
+    }
+  } else if (lane.phase === 'stop_side' && elapsed >= 200) {
+    lane.phase = 'stop'; lane.phaseT0 = now; lane.frame = 0; lane.done = true;
+  }
+}
+
+function wtFrame(lane, now) {
+  const p = lane.pack;
+  if (lane.phase === 'stand') {
+    const phase = Math.floor((now - lane.phaseT0) / 100) % 24;
+    if (phase >= 20 && p.blink) return p.blink;
+    return p.idle[Math.min(p.idle.length - 1, Math.floor(phase / 6))];
+  }
+  if (lane.phase === 'turn') {
+    const i = Math.min(p.turn.length - 1, Math.floor((now - lane.phaseT0) / lane.period));
+    return p.turn[i];
+  }
+  if (lane.phase === 'walk') return p.walk[lane.frame];
+  if (lane.phase === 'stop_side') return p.idleSide || p.idle[0];
+  // stop: idle_34v
+  const phase = Math.floor((now - lane.phaseT0) / 100) % 24;
+  if (phase >= 20 && p.blink) return p.blink;
+  return p.idle[Math.min(p.idle.length - 1, Math.floor(phase / 6))];
+}
+
+function drawWalkTest(now) {
+  if (!walkTest) return;
+  const g = document.getElementById('sceneL').getContext('2d');
+  // also portrait canvas if needed
+  const canvases = [];
+  if (ORIENT === 'landscape') canvases.push(document.getElementById('sceneL'));
+  else canvases.push(document.getElementById('sceneP'));
+
+  for (const lane of walkTest.lanes) wtAdvance(lane, now);
+
+  for (const cnv of canvases) {
+    if (!cnv) continue;
+    const gg = cnv.getContext('2d');
+    const room = prepared && prepared.room;
+    gg.imageSmoothingEnabled = false;
+    gg.clearRect(0, 0, cnv.width, cnv.height);
+    // room scaled into canvas
+    if (room) {
+      if (cnv === document.getElementById('sceneL')) {
+        // landscape: room drawn into scene area with gutters like main renderer
+        // Use same path as drawSceneNative by temporarily building cast-less draw:
+        gg.fillStyle = '#000'; gg.fillRect(0, 0, cnv.width, cnv.height);
+        // draw room at native then we draw characters in scene coords on top via helper
+      } else {
+        gg.drawImage(room, 0, 0);
+      }
+    }
+  }
+
+  // Prefer landscape native draw path: reuse drawSceneNative structure manually
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+  const targets = ORIENT === 'landscape' ? [{g: gL, scale: 1, ox: 210, oy: 0, mode: 'land'}] : [{g: gP, scale: 1, ox: 0, oy: 0, mode: 'port'}];
+
+  // Actually sceneL is 2340×1080 and room is drawn at full with gutters in main code.
+  // Simplest: call into existing prepareCue with empty cast for room, then blit characters in scene 480 space onto the ×4 region.
+
+  if (ORIENT === 'landscape' && gL) {
+    gL.imageSmoothingEnabled = false;
+    gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+    if (prepared && prepared.room) {
+      // scene area 1920×1080 starting x=210
+      gL.drawImage(prepared.room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+    }
+    gL.fillStyle = '#f0e8d6';
+    gL.font = '28px NotoTC,sans-serif';
+    for (const lane of walkTest.lanes) {
+      const f = wtFrame(lane, now);
+      const ax = lane.pack.ax, ay = lane.pack.ay;
+      const feetY = lane.feet;
+      const x = lane.x;
+      // draw at ×4 inside scene region
+      gL.save();
+      const sx = 210 + x * 4;
+      const sy = feetY * 4;
+      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+      else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+      gL.restore();
+      gL.fillText(lane.label, 220, (lane.feet - 100) * 4);
+      // Foot-slide log once per walk frame tick (scene px)
+      const tick = Math.floor((now - walkTest.t0) / 125);
+      if (!lane._logTick || lane._logTick !== tick) {
+        lane._logTick = tick;
+        const prev = lane._prevX;
+        const dx = (prev == null) ? 0 : (x - prev);
+        lane._prevX = x;
+        // planted foot ≈ opaque span on ground row of current frame, mapped to scene x
+        let planted = null, slide = null;
+        try {
+          const fr = f;
+          const cnv = document.createElement('canvas');
+          cnv.width = 56; cnv.height = 116;
+          const cg = cnv.getContext('2d'); cg.drawImage(fr, 0, 0);
+          const row = cg.getImageData(0, 115, 56, 1).data;
+          let lo = 56, hi = -1;
+          for (let i = 0; i < 56; i++) if (row[i*4+3] > 0) { if (i < lo) lo = i; if (i > hi) hi = i; }
+          if (hi >= lo) {
+            // foot contact mid of bottom span, relative to anchor; flipX mirrors
+            const mid = (lo + hi) / 2;
+            const local = lane.flip ? (27 - (mid - 27)) : mid; // mirror around ax≈27
+            planted = x + (local - 27);
+            if (lane._prevPlanted != null && lane.phase === 'walk') {
+              // ideal planted foot stays put while body moves; slide = planted delta
+              slide = planted - lane._prevPlanted;
+            }
+            lane._prevPlanted = planted;
+          }
+        } catch (_) {}
+        WALK_TEST_LOG.push({
+          t_ms: Math.round(now - walkTest.t0),
+          lane: lane.id,
+          phase: lane.phase,
+          frame: lane.frame,
+          char_x: Math.round(x * 100) / 100,
+          char_dx: Math.round(dx * 100) / 100,
+          foot_y: feetY,
+          planted_x: planted == null ? null : Math.round(planted * 100) / 100,
+          planted_dx: slide == null ? null : Math.round(slide * 100) / 100,
+          flip: lane.flip,
+        });
+      }
+    }
+  } else if (gP) {
+    gP.imageSmoothingEnabled = false;
+    if (prepared && prepared.room) gP.drawImage(prepared.room, 0, 0);
+    for (const lane of walkTest.lanes) {
+      const f = wtFrame(lane, now);
+      const ax = lane.pack.ax, ay = lane.pack.ay;
+      gP.save();
+      if (lane.flip) { gP.translate(lane.x, 0); gP.scale(-1, 1); gP.drawImage(f, -ax, lane.feet - ay); }
+      else gP.drawImage(f, lane.x - ax, lane.feet - ay);
+      gP.restore();
+    }
+  }
+}
+
 (async () => {
   [manifest, data, actionIds] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
@@ -1155,7 +1381,40 @@ function wireDrawer() {
 
   const startKey = qs.get('screen');
   const startPage = Math.max(0, +(qs.get('page') || 0));
-  if (startKey && data.screens[startKey]) await goKey(startKey, startPage);
+  if (startKey === 'walk_test') {
+    if (!DEV) {
+      console.warn('walk_test requires ?dev=1');
+      await go(0, false);
+    } else {
+      // prepare room only
+      const scr = data.screens.walk_test;
+      activeKey = 'walk_test';
+      prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'walk_test');
+      await initWalkTest();
+      reflow();
+      renderAll();
+      const wireReplay = (sel) => {
+        const box = document.getElementById(sel);
+        if (!box) return;
+        box.innerHTML = '';
+        const b = document.createElement('button');
+        b.textContent = '重播';
+        b.onclick = () => wtReset();
+        box.appendChild(b);
+        const b2 = document.createElement('button');
+        b2.textContent = '下載 foot log';
+        b2.onclick = () => {
+          const a = document.createElement('a');
+          a.download = 'walk_test_foot_log.json';
+          a.href = URL.createObjectURL(new Blob([JSON.stringify(WALK_TEST_LOG, null, 2)], {type: 'application/json'}));
+          a.click();
+        };
+        box.appendChild(b2);
+      };
+      wireReplay('btns'); wireReplay('lbtns');
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey && data.screens[startKey]) await goKey(startKey, startPage);
   else await go(Math.max(0, data.order.indexOf(startKey)), false);
 
   // expose for shoot.py

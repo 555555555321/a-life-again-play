@@ -728,6 +728,20 @@
       ],
       "age": 1,
       "season": "春"
+    },
+    "walk_test": {
+      "_note": "DEV ONLY Trial C vs old dad walk. Reach via ?dev=1&screen=walk_test. Not in order.",
+      "dev_only": true,
+      "age": 5,
+      "season": "春",
+      "corner": "二〇〇三年・春・你五歲",
+      "lighting": "daylight",
+      "status": "走路試驗 C（上）對照舊 4 格（下）。",
+      "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。上＝Trial C 8 格；下＝舊 walk 4 格。",
+      "buttons": [
+        "重播"
+      ],
+      "cast": []
     }
   },
   "_test_order": [
