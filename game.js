@@ -582,6 +582,11 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if (activeKey === 'pixelbolt_trial' && pixelboltTrial) {
+    drawPixelboltTrial(now);
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -1595,6 +1600,70 @@ function drawEldersStand(now) {
   }
 }
 
+// —— DEV pixelbolt_trial: 原圖媽媽站姿 vs Pixelbolt 配方重繪／呼吸（不改預設媽媽素材） ——
+const PB_FLOOR_LINE = 252;
+const PB_BREATH_MS = 600;
+let pixelboltTrial = null;
+
+async function initPixelboltTrial() {
+  const orig = await load('assets/dev/pixelbolt_trial/original.png');
+  const stand = await load('assets/dev/pixelbolt_trial/stand.png');
+  const breath = await load('assets/dev/pixelbolt_trial/breath.png');
+  const pack = (frames) => ({ anchor: true, ax: 27, ay: 115, canvasW: 56, canvasH: 116, idle: frames, blink: null, walk: [] });
+  pixelboltTrial = {
+    floorLine: PB_FLOOR_LINE,
+    facing: 'WEST as drawn, no flip',
+    note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). Original = Phone B mother/idle_00.png. Pixelbolt frames from 王的本機安裝 /workspace/ala/tools/Pixelbolt @ 61fec0d2.',
+    chars: [
+      { id: 'orig',     label: '原圖站姿',       pack: pack([orig]),          x: 160, feet: PB_FLOOR_LINE, anim: false },
+      { id: 'pb_stand', label: 'Pixelbolt第1格', pack: pack([stand]),         x: 250, feet: PB_FLOOR_LINE, anim: false },
+      { id: 'pb_idle',  label: 'Pixelbolt呼吸',  pack: pack([stand, breath]), x: 340, feet: PB_FLOOR_LINE, anim: true },
+    ],
+    t0: performance.now(),
+  };
+  window.PIXELBOLT_TRIAL = pixelboltTrial;
+}
+
+function pbFrame(ch, now) {
+  const p = ch.pack;
+  if (!ch.anim || p.idle.length < 2) { ch.frame = 0; return p.idle[0]; }
+  const elapsed = Math.max(0, now - (pixelboltTrial.t0 || now));
+  const i = ((Math.floor(elapsed / PB_BREATH_MS) % p.idle.length) + p.idle.length) % p.idle.length;
+  ch.frame = i;
+  return p.idle[i];
+}
+
+function drawPixelboltTrial(now) {
+  if (!pixelboltTrial) return;
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (!(ORIENT === 'landscape' && gL)) {
+    const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+    if (gP && prepared && prepared.room) {
+      gP.imageSmoothingEnabled = false;
+      gP.drawImage(prepared.room, 0, 0);
+      for (const ch of pixelboltTrial.chars) {
+        const f = pbFrame(ch, now);
+        const ax = ch.pack.ax, ay = ch.pack.ay;
+        gP.drawImage(f, ch.x - ax, ch.feet - ay);
+      }
+    }
+    return;
+  }
+  gL.imageSmoothingEnabled = false;
+  gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+  const room = prepared && prepared.room;
+  if (room) gL.drawImage(room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+  gL.font = '28px NotoTC,sans-serif';
+  for (const ch of pixelboltTrial.chars) {
+    const f = pbFrame(ch, now);
+    const ax = ch.pack.ax, ay = ch.pack.ay;
+    const sx = 210 + ch.x * 4;
+    const sy = ch.feet * 4;
+    gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+    ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
+  }
+}
+
 (async () => {
   [manifest, data, actionIds] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
@@ -1689,6 +1758,20 @@ function drawEldersStand(now) {
       activeKey = 'elders_stand';
       prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'elders_stand');
       await initEldersStand();
+      fit();
+      reflow();
+      renderAll();
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'pixelbolt_trial') {
+    if (!DEV) {
+      console.warn('pixelbolt_trial requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.pixelbolt_trial;
+      activeKey = 'pixelbolt_trial';
+      prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'pixelbolt_trial');
+      await initPixelboltTrial();
       fit();
       reflow();
       renderAll();

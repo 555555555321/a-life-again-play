@@ -756,6 +756,18 @@
       "_corner_hardcoded": true,
       "_corner_note": "DEV only: year manually set until PR #19 merges. Do not call cornerLabel(0, 春) (that yields 一九九九年).",
       "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫."
+    },
+    "pixelbolt_trial": {
+      "_note": "DEV ONLY Pixelbolt 試驗：原圖媽媽站姿 vs Pixelbolt 第1格 vs 2格呼吸。?dev=1&screen=pixelbolt_trial。Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "Pixelbolt 試驗：左原圖、中配方第1格、右呼吸。",
+      "text": "左邊是手機B現用的媽媽站姿，中間是 Pixelbolt 依配方重畫的第1格（應與原圖完全一樣），右邊是同一份配方加的2格呼吸（腳釘在原地）。角落標「工具試驗・非劇情」，是手動寫死，不是年份函式。",
+      "buttons": [],
+      "cast": [],
+      "corner": "工具試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV tool trial: not a story date. Hardcoded so cornerLabel() is not used."
     }
   },
   "_test_order": [
