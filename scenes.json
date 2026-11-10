@@ -7,7 +7,8 @@
     "month_end",
     "scissors",
     "animal_dog",
-    "animal_kitten"
+    "animal_kitten",
+    "animal_blanket"
   ],
   "screens": {
     "talent": {
@@ -663,12 +664,56 @@
           "anim": "小貓_待機"
         }
       ]
+    },
+    "animal_blanket": {
+      "_note": "TW-A1-07；cue cues.json。紙箱空箱＋地板小被子（floor 版，箱外）。",
+      "origin_id": "TW-A1-07",
+      "lighting": "daylight",
+      "status": "客廳。",
+      "corner": "二〇〇四年・春・你五歲",
+      "text": "家人把所有東西裝進紙箱，只有你的小被子一直留在外面，到新家第一個拿出來。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "mother",
+          "x": 160,
+          "feet": 252,
+          "flip": true,
+          "anim": "媽媽_站"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 210,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_站"
+        }
+      ],
+      "scene_props": [
+        {
+          "id": "道具_紙箱",
+          "x": 296,
+          "y": 233,
+          "w": 28,
+          "h": 20
+        },
+        {
+          "id": "道具_小被子",
+          "x": 241,
+          "y": 233,
+          "w": 28,
+          "h": 20
+        }
+      ]
     }
   },
   "_test_order": [
     "test_long",
     "test_reader",
     "animal_dog",
-    "animal_kitten"
+    "animal_kitten",
+    "animal_blanket"
   ]
 }

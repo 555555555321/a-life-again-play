@@ -299,5 +299,18 @@
     "layer": true,
     "src": "assets/props/prop_道具_紙箱_f0.png",
     "from": "animals props 道具_紙箱 empty"
+  },
+  "道具_小被子": {
+    "layer": true,
+    "src": "assets/props/prop_道具_小被子_floor_f0.png",
+    "canvas": [
+      28,
+      20
+    ],
+    "anchor_w": [
+      14,
+      19
+    ],
+    "from": "props prop_道具_小被子_floor_f0 (floor, outside box)"
   }
 }

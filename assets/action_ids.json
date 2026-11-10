@@ -2116,7 +2116,7 @@
     {
       "id": "道具_小被子",
       "kind": "prop",
-      "status": "missing",
+      "status": "drawn",
       "file_pattern": "prop_道具_小被子_f{n}.png",
       "frame_count": 1,
       "fallback": null,
@@ -2126,7 +2126,9 @@
       "aliases": [
         "annotations.json TW-A1-07：紙箱、小被子（小被子）"
       ],
-      "notes": []
+      "notes": [
+        "phone B floor blanket A1-07"
+      ]
     },
     {
       "id": "道具_電視",
