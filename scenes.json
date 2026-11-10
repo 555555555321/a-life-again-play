@@ -744,16 +744,18 @@
       "cast": []
     },
     "elders_stand": {
-      "_note": "DEV ONLY 阿公/阿嬤 r5 站立呼吸，與爸媽 idle 並排比尺度。?dev=1&screen=elders_stand。Not in order.",
+      "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。Corner year hardcoded until PR #19. Not in order.",
       "dev_only": true,
-      "age": 5,
       "season": "春",
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "一九九八年・春・你零歲",
       "lighting": "daylight",
-      "status": "站立試驗：阿公、阿嬤 r5 站立呼吸，旁邊是爸爸、媽媽 idle，同一尺度。",
-      "text": "左起阿公、阿嬤、爸爸、媽媽。都站在地板上，面向西（原畫朝 W，無 flipX）。阿公／阿嬤兩格呼吸。",
+      "status": "取名（字輩）",
+      "text": "阿公說，照家裡的規矩，你這一代都有一個「宇」字，剩下一個字讓你爸媽挑。",
       "buttons": [],
-      "cast": []
+      "cast": [],
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV only: year manually set until PR #19 merges. Do not call cornerLabel(0, 春) (that yields 一九九九年).",
+      "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫."
     }
   },
   "_test_order": [

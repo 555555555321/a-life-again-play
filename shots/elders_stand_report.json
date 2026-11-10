@@ -1,88 +1,415 @@
 {
-  "facing": "W as drawn; flipX=false for all four (grandpa, grandma, dad, mom)",
-  "scale": "same game scale: ×4 in landscape, anchor (27,115), feet on official floor_line 252",
-  "floor_top_y": 210,
+  "facing": "grandpa flipX=true (faces E, toward the parents); grandma, dad, mom flipX=false (face W as drawn)",
+  "x_positions": {
+    "grandpa": 126,
+    "grandma": 164,
+    "dad": 194,
+    "mom": 234
+  },
+  "feet_y": 252,
   "floor_line_y": 252,
-  "console_errors": [],
-  "overlaps": [],
-  "characters": [
+  "floor_top_y": 210,
+  "corner_label_rendered": "一九九八年・春・你零歲",
+  "corner_note": "Hardcoded 「一九九八年・春・你零歲」 via screen._corner_hardcoded. Do not call cornerLabel(0, 春) (would be 一九九九年). Manually set until PR #19 merges.",
+  "text_rendered": "阿公說，照家裡的規矩，你這一代都有\n一個「宇」字，剩下一個字讓你爸媽\n挑。",
+  "text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫.",
+  "mom_frames": {
+    "used": [
+      "assets/chars/mother_hold_infant/hold_00.png",
+      "assets/chars/mother_hold_infant/hold_01.png"
+    ],
+    "source": [
+      "/workspace/ala/r8_art/王子/hug_set_20261110/frames/mom_infant/hold_f00.png",
+      "/workspace/ala/r8_art/王子/hug_set_20261110/frames/mom_infant/hold_f01.png"
+    ],
+    "note": "小兵2號-signed r8 抱嬰兒・呼吸 (hold_f00/f01), byte-identical to frames_before_r9 r8 freeze. Pickup frames not used."
+  },
+  "overlap": {
+    "kind": "elders_stand",
+    "label_vs_sprite": [],
+    "char_vs_char": [],
+    "label_vs_label": [],
+    "char_vs_prop": [
+      {
+        "char": "grandpa",
+        "prop": "sofa_legs",
+        "sprite": {
+          "x0": 111,
+          "x1": 140,
+          "y0": 163,
+          "y1": 252
+        },
+        "prop_box": {
+          "x0": 124,
+          "y0": 210,
+          "x1": 272,
+          "y1": 223
+        }
+      },
+      {
+        "char": "grandma",
+        "prop": "sofa_legs",
+        "sprite": {
+          "x0": 149,
+          "x1": 178,
+          "y0": 165,
+          "y1": 252
+        },
+        "prop_box": {
+          "x0": 124,
+          "y0": 210,
+          "x1": 272,
+          "y1": 223
+        }
+      },
+      {
+        "char": "dad",
+        "prop": "sofa_legs",
+        "sprite": {
+          "x0": 180,
+          "x1": 211,
+          "y0": 157,
+          "y1": 252
+        },
+        "prop_box": {
+          "x0": 124,
+          "y0": 210,
+          "x1": 272,
+          "y1": 223
+        }
+      },
+      {
+        "char": "mom",
+        "prop": "sofa_legs",
+        "sprite": {
+          "x0": 212,
+          "x1": 246,
+          "y0": 165,
+          "y1": 252
+        },
+        "prop_box": {
+          "x0": 124,
+          "y0": 210,
+          "x1": 272,
+          "y1": 223
+        }
+      }
+    ],
+    "label_vs_prop": [],
+    "ok": true
+  },
+  "chars": [
     {
       "id": "grandpa",
-      "facing": "W",
-      "flipX": false,
-      "x": 90,
-      "feet_y": 252,
-      "floor_line_y": 252,
-      "floor_top_y": 210,
-      "height_source_px": 90,
-      "top_y_source": 26,
-      "bottom_y_source": 115,
-      "breath_frame_diff_px": 108,
-      "bbox_source": {
-        "x0": 77,
+      "x": 126,
+      "feet": 252,
+      "flip": true,
+      "frame": 0,
+      "sprite": {
+        "x0": 111,
+        "x1": 140,
         "y0": 163,
-        "x1": 106,
         "y1": 252
+      },
+      "label": {
+        "x0": 110,
+        "x1": 142,
+        "y0": 254,
+        "y1": 262.75,
+        "text": "grandpa"
+      },
+      "label_canvas": {
+        "x": 650,
+        "y": 1016,
+        "w": 129,
+        "h": 36,
+        "text": "grandpa"
       }
     },
     {
       "id": "grandma",
-      "facing": "W",
-      "flipX": false,
-      "x": 175,
-      "feet_y": 252,
-      "floor_line_y": 252,
-      "floor_top_y": 210,
-      "height_source_px": 88,
-      "top_y_source": 28,
-      "bottom_y_source": 115,
-      "breath_frame_diff_px": 101,
-      "bbox_source": {
-        "x0": 160,
+      "x": 164,
+      "feet": 252,
+      "flip": false,
+      "frame": 0,
+      "sprite": {
+        "x0": 149,
+        "x1": 178,
         "y0": 165,
-        "x1": 189,
         "y1": 252
+      },
+      "label": {
+        "x0": 146.75,
+        "x1": 181,
+        "y0": 254,
+        "y1": 262.75,
+        "text": "grandma"
+      },
+      "label_canvas": {
+        "x": 797,
+        "y": 1016,
+        "w": 138,
+        "h": 36,
+        "text": "grandma"
       }
     },
     {
       "id": "dad",
-      "facing": "W",
-      "flipX": false,
-      "x": 260,
-      "feet_y": 252,
-      "floor_line_y": 252,
-      "floor_top_y": 210,
-      "height_source_px": 96,
-      "top_y_source": 20,
-      "bottom_y_source": 115,
-      "breath_frame_diff_px": 0,
-      "bbox_source": {
-        "x0": 246,
+      "x": 194,
+      "feet": 252,
+      "flip": false,
+      "frame": 0,
+      "sprite": {
+        "x0": 180,
+        "x1": 211,
         "y0": 157,
-        "x1": 277,
         "y1": 252
+      },
+      "label": {
+        "x0": 185.25,
+        "x1": 202.75,
+        "y0": 254,
+        "y1": 262.75,
+        "text": "dad"
+      },
+      "label_canvas": {
+        "x": 951,
+        "y": 1016,
+        "w": 71,
+        "h": 36,
+        "text": "dad"
       }
     },
     {
       "id": "mom",
-      "facing": "W",
-      "flipX": false,
-      "x": 345,
-      "feet_y": 252,
-      "floor_line_y": 252,
-      "floor_top_y": 210,
-      "height_source_px": 89,
-      "top_y_source": 27,
-      "bottom_y_source": 115,
-      "breath_frame_diff_px": 0,
-      "bbox_source": {
-        "x0": 331,
-        "y0": 164,
-        "x1": 363,
+      "x": 234,
+      "feet": 252,
+      "flip": false,
+      "frame": 0,
+      "sprite": {
+        "x0": 212,
+        "x1": 246,
+        "y0": 165,
         "y1": 252
+      },
+      "label": {
+        "x0": 223,
+        "x1": 245,
+        "y0": 254,
+        "y1": 262.75,
+        "text": "mom"
+      },
+      "label_canvas": {
+        "x": 1102,
+        "y": 1016,
+        "w": 89,
+        "h": 36,
+        "text": "mom"
       }
     }
   ],
+  "console_errors": [],
   "screenshot": "/workspace/phone_b_20261109/shots/elders_stand_820.png",
-  "gif": "/workspace/phone_b_20261109/shots/elders_stand_820.gif"
+  "gif": "/workspace/phone_b_20261109/shots/elders_stand_820.gif",
+  "walk_test_label_overlap": [
+    {
+      "n": 2,
+      "phases": [
+        "turn",
+        "turn",
+        "walk"
+      ],
+      "ok": true,
+      "label_vs_sprite": [],
+      "boxes": [
+        {
+          "id": "C_lock",
+          "x": 90.5,
+          "feet": 252,
+          "sprite": {
+            "x0": 78.5,
+            "x1": 103.5,
+            "y0": 157,
+            "y1": 252
+          },
+          "label": {
+            "x0": 70.25,
+            "x1": 110.5,
+            "y0": 254,
+            "y1": 262.75,
+            "text": "C foot-lock"
+          }
+        },
+        {
+          "id": "C8",
+          "x": 90,
+          "feet": 365,
+          "sprite": {
+            "x0": 78,
+            "x1": 103,
+            "y0": 270,
+            "y1": 365
+          },
+          "label": {
+            "x0": 67.25,
+            "x1": 112.75,
+            "y0": 367,
+            "y1": 375.75,
+            "text": "C constant-8"
+          }
+        },
+        {
+          "id": "old",
+          "x": 90,
+          "feet": 478,
+          "sprite": {
+            "x0": 79,
+            "x1": 103,
+            "y0": 384,
+            "y1": 478
+          },
+          "label": {
+            "x0": 68.75,
+            "x1": 111.25,
+            "y0": 480,
+            "y1": 488.75,
+            "text": "old walk (4)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 24,
+      "phases": [
+        "walk",
+        "walk",
+        "walk"
+      ],
+      "ok": true,
+      "label_vs_sprite": [],
+      "boxes": [
+        {
+          "id": "C_lock",
+          "x": 231,
+          "feet": 252,
+          "sprite": {
+            "x0": 217,
+            "x1": 243,
+            "y0": 158,
+            "y1": 252
+          },
+          "label": {
+            "x0": 210.75,
+            "x1": 251,
+            "y0": 254,
+            "y1": 262.75,
+            "text": "C foot-lock"
+          }
+        },
+        {
+          "id": "C8",
+          "x": 322,
+          "feet": 365,
+          "sprite": {
+            "x0": 308,
+            "x1": 334,
+            "y0": 271,
+            "y1": 365
+          },
+          "label": {
+            "x0": 299.25,
+            "x1": 344.75,
+            "y0": 367,
+            "y1": 375.75,
+            "text": "C constant-8"
+          }
+        },
+        {
+          "id": "old",
+          "x": 338,
+          "feet": 478,
+          "sprite": {
+            "x0": 330,
+            "x1": 354,
+            "y0": 383,
+            "y1": 478
+          },
+          "label": {
+            "x0": 316.75,
+            "x1": 359.25,
+            "y0": 480,
+            "y1": 488.75,
+            "text": "old walk (4)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 48,
+      "phases": [
+        "stop",
+        "stop",
+        "stop"
+      ],
+      "ok": true,
+      "label_vs_sprite": [],
+      "boxes": [
+        {
+          "id": "C_lock",
+          "x": 377,
+          "feet": 252,
+          "sprite": {
+            "x0": 361,
+            "x1": 392,
+            "y0": 157,
+            "y1": 252
+          },
+          "label": {
+            "x0": 356.75,
+            "x1": 397,
+            "y0": 254,
+            "y1": 262.75,
+            "text": "C foot-lock"
+          }
+        },
+        {
+          "id": "C8",
+          "x": 390,
+          "feet": 365,
+          "sprite": {
+            "x0": 374,
+            "x1": 405,
+            "y0": 270,
+            "y1": 365
+          },
+          "label": {
+            "x0": 367.25,
+            "x1": 412.75,
+            "y0": 367,
+            "y1": 375.75,
+            "text": "C constant-8"
+          }
+        },
+        {
+          "id": "old",
+          "x": 390,
+          "feet": 478,
+          "sprite": {
+            "x0": 374,
+            "x1": 405,
+            "y0": 383,
+            "y1": 478
+          },
+          "label": {
+            "x0": 368.75,
+            "x1": 411.25,
+            "y0": 480,
+            "y1": 488.75,
+            "text": "old walk (4)"
+          }
+        }
+      ]
+    }
+  ],
+  "walk_test_console_errors": []
 }

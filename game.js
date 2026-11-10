@@ -26,6 +26,9 @@ function cornerLabel(age, season) {
   return cnYear(y) + '・' + s + '・你' + cnAge(a);
 }
 function screenCorner(scr) {
+  // DEV elders_stand: corner year is manually set until PR #19 merges.
+  // Do not call cornerLabel(0, '春') for that screen — it would print 一九九九年.
+  if (scr && scr._corner_hardcoded && scr.corner) return scr.corner;
   if (!scr) return cornerLabel((data && data.age), (data && data.season));
   if (scr.age != null) return cornerLabel(scr.age, scr.season || (data && data.season) || '春');
   if (scr.corner) return scr.corner;
@@ -1128,6 +1131,21 @@ function wireDrawer() {
   });
 }
 
+
+// DEV screens only: name/lane labels sit on the floor under the feet, never over a sprite.
+function devFloorLabel(g, text, canvasX, feetY) {
+  g.font = '28px NotoTC,sans-serif';
+  const tw = Math.ceil((g.measureText(text).width) || (text.length * 16));
+  const padX = 10, boxH = 36, boxW = tw + padX * 2;
+  const x = Math.max(0, Math.min(2340 - boxW, Math.round(canvasX - boxW / 2)));
+  const y = feetY * 4 + 8; // 2 source px below the foot row
+  g.fillStyle = '#2a2428';
+  g.fillRect(x, y, boxW, boxH);
+  g.fillStyle = '#f0e8d6';
+  g.fillText(text, x + padX, y + 28);
+  return {x, y, w: boxW, h: boxH, text};
+}
+
 // —— DEV walk_test: Trial C vs old dad walk (does not alter default father walk) ——
 const WALK_TEST_LOG = [];
 let walkTest = null;
@@ -1433,12 +1451,8 @@ function drawWalkTest(now) {
       if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
       else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
       gL.restore();
-      // lane label in the left margin of the row, just above the head; opaque so screenshots keep it
-      const ly = (feetY - 96) * 4 + 32;
-      gL.fillStyle = '#2a2428';
-      gL.fillRect(226, ly - 28, 232, 36);
-      gL.fillStyle = '#f0e8d6';
-      gL.fillText(lane.label, 234, ly);
+      // lane label on the floor under the feet — never over the sprite
+      lane._labelBox = devFloorLabel(gL, lane.label, sx, feetY);
       // Foot-slide log once per walk frame tick (scene px)
       const tick = Math.floor((now - walkTest.t0) / 125);
       if (!lane._logTick || lane._logTick !== tick) {
@@ -1507,17 +1521,21 @@ async function initEldersStand() {
   const packGp = await sprite('grandpa', lighting);
   const packGm = await sprite('grandma', lighting);
   const packDad = await sprite('father', lighting);
-  const packMom = await sprite('mother', lighting);
+  // Signed r8 mom infant hold-breath (抱嬰兒・呼吸), not pickup. DEV only; default mother idle unchanged.
+  const hold0 = await load('assets/chars/mother_hold_infant/hold_00.png');
+  const hold1 = await load('assets/chars/mother_hold_infant/hold_01.png');
+  const packMomHold = { anchor: true, ax: 27, ay: 115, canvasW: 56, canvasH: 116, idle: [hold0, hold1], blink: null, walk: [] };
   eldersStand = {
     floorLine: ES_FLOOR_LINE,
     floorTop: ES_FLOOR_TOP,
-    facing: 'W',
-    note: 'All four face WEST as drawn (no flipX). Same game scale (×4, anchor (27,115), feet on floor_line 252).',
+    facing: 'grandpa flipX (faces E, toward the parents); grandma/dad/mom face W as drawn',
+    note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). Grandpa on the west side, flipped to face the parents. Mom uses signed r8 hold-breath frames.',
+    momHold: { src: ['assets/chars/mother_hold_infant/hold_00.png', 'assets/chars/mother_hold_infant/hold_01.png'], from: 'hug_set_20261110/frames/mom_infant/hold_f00.png + hold_f01.png (r8 signed, frozen)' },
     chars: [
-      { id: 'grandpa', label: 'grandpa', pack: packGp, x: 90,  feet: ES_FLOOR_LINE, flip: false, breath: true },
-      { id: 'grandma', label: 'grandma', pack: packGm, x: 175, feet: ES_FLOOR_LINE, flip: false, breath: true },
-      { id: 'dad',     label: 'dad',     pack: packDad, x: 260, feet: ES_FLOOR_LINE, flip: false, breath: false },
-      { id: 'mom',     label: 'mom',     pack: packMom, x: 345, feet: ES_FLOOR_LINE, flip: false, breath: false },
+      { id: 'grandpa', label: 'grandpa', pack: packGp,      x: 126, feet: ES_FLOOR_LINE, flip: true,  breath: true },
+      { id: 'grandma', label: 'grandma', pack: packGm,      x: 164, feet: ES_FLOOR_LINE, flip: false, breath: true },
+      { id: 'dad',     label: 'dad',     pack: packDad,     x: 194, feet: ES_FLOOR_LINE, flip: false, breath: false },
+      { id: 'mom',     label: 'mom',     pack: packMomHold, x: 234, feet: ES_FLOOR_LINE, flip: false, breath: true },
     ],
     t0: performance.now(),
   };
@@ -1526,12 +1544,14 @@ async function initEldersStand() {
 
 function esFrame(ch, now) {
   const p = ch.pack;
+  const elapsed = Math.max(0, now - (eldersStand.t0 || now));
   if (ch.breath) {
-    const i = Math.floor((now - eldersStand.t0) / ES_BREATH_MS) % Math.max(1, p.idle.length);
+    const n = Math.max(1, p.idle.length);
+    const i = ((Math.floor(elapsed / ES_BREATH_MS) % n) + n) % n;
     ch.frame = i;
     return p.idle[i];
   }
-  const phase = Math.floor((now - eldersStand.t0) / 100) % 24;
+  const phase = Math.floor(elapsed / 100) % 24;
   if (phase >= 20 && p.blink) { ch.frame = 'blink'; return p.blink; }
   const i = Math.min(p.idle.length - 1, Math.floor(phase / 6));
   ch.frame = i;
@@ -1571,11 +1591,7 @@ function drawEldersStand(now) {
     if (ch.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
     else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
     gL.restore();
-    const ly = (ch.feet - 96) * 4 + 32;
-    gL.fillStyle = '#2a2428';
-    gL.fillRect(sx - 70, ly - 28, 160, 36);
-    gL.fillStyle = '#f0e8d6';
-    gL.fillText(ch.label, sx - 60, ly);
+    ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
 }
 
