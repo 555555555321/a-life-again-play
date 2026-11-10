@@ -1,58 +1,128 @@
 {
   "C_lock": {
-    "walk_ticks": 91,
-    "max_abs_planted_dx_px": 13.5,
-    "mean_abs_planted_dx_px": 3.302,
-    "max_stance_slide_px": 3.5,
-    "mean_stance_slide_px": 0.051,
-    "foot_switch_spikes": 22,
-    "note": "stance_slide excludes |planted_dx|>=10 (foot change ≈ step length, not slide)",
+    "walk_ticks": 59,
+    "foot_y": 252,
+    "max_abs_planted_dx_px": 20.5,
+    "mean_abs_planted_dx_px": 4.992,
+    "max_stance_slide_px": 7.5,
+    "mean_stance_slide_px": 0.167,
+    "foot_switch_spikes": 14,
+    "switch_dx_unique": [
+      20.5
+    ],
+    "stance_dx_unique": [
+      0,
+      7.5
+    ],
     "char_dx_unique": [
       0,
-      1.5,
+      4,
       4.5,
-      9
-    ]
+      5.5,
+      6.5,
+      9.5,
+      11
+    ],
+    "note": "First walk tick 7.5 is stand/turn → walk pose plant, not mid-stance slip. After that stance slide is 0. Switch spikes 20.5 = step length. stance_slide excludes |planted_dx|>=10.",
+    "first_walk_tick_planted_dx": 7.5,
+    "subsequent_stance_slide_max": 0
   },
   "C8": {
     "walk_ticks": 39,
-    "max_abs_planted_dx_px": 20.5,
-    "mean_abs_planted_dx_px": 7.641,
-    "max_stance_slide_px": 6.5,
-    "mean_stance_slide_px": 0.476,
-    "foot_switch_spikes": 18,
-    "note": "stance_slide excludes |planted_dx|>=10 (foot change ≈ step length, not slide)",
+    "foot_y": 365,
+    "max_abs_planted_dx_px": 25.5,
+    "mean_abs_planted_dx_px": 7.615,
+    "max_stance_slide_px": 7.5,
+    "mean_stance_slide_px": 2.6,
+    "foot_switch_spikes": 9,
+    "switch_dx_unique": [
+      22,
+      25.5
+    ],
+    "stance_dx_unique": [
+      0,
+      1.5,
+      2.5,
+      3.5,
+      4,
+      6.5,
+      7.5
+    ],
     "char_dx_unique": [
       0,
       8,
       16
-    ]
+    ],
+    "note": "Constant 8 vs r3 foot-lock (avg 5.125). First tick 7.5 is stand/turn → walk plant; subsequent stance max 6.5. Switch spikes 22/25.5."
   },
   "old": {
     "walk_ticks": 39,
+    "foot_y": 478,
     "max_abs_planted_dx_px": 16,
     "mean_abs_planted_dx_px": 7.795,
     "max_stance_slide_px": 4,
-    "mean_stance_slide_px": 0.4,
+    "mean_stance_slide_px": 1.6,
     "foot_switch_spikes": 19,
-    "note": "stance_slide excludes |planted_dx|>=10 (foot change ≈ step length, not slide)",
+    "switch_dx_unique": [
+      12,
+      16
+    ],
+    "stance_dx_unique": [
+      -4,
+      0,
+      4
+    ],
     "char_dx_unique": [
       0,
       8,
       16
-    ]
+    ],
+    "note": "Old 4-frame walk, constant 8. stance max 4, mean 1.6. Unchanged movement."
   },
   "WALK_DX_C": [
-    1.5,
-    3.5,
-    1.0,
-    7.5,
-    1.5,
-    3.5,
-    1.0,
-    7.5
+    6.5,
+    5.5,
+    4.0,
+    4.5,
+    6.5,
+    5.5,
+    4.0,
+    4.5
   ],
-  "WALK_DX_C_cycle_sum": 27.0,
-  "sanity_2x_max_spread": 36,
-  "interpretation": "Cycle sum 27 = 2×(rear_cx−front_cx)=2×13.5. 2×max_spread=36 overestimates (toe↔opposite heel). C_lock stance slide ≈0; C8 max slide 20.5."
+  "WALK_DX_C_cycle_sum": 41.0,
+  "layout": {
+    "floor_top_y_source": 210,
+    "floor_top_y_image": 840,
+    "head_height_source": 16,
+    "rows": [
+      {
+        "id": "C_lock",
+        "intended_feet_y": 252,
+        "measured_head_y": 156.0,
+        "measured_feet_y": 252.75,
+        "on_floor": true
+      },
+      {
+        "id": "C8",
+        "intended_feet_y": 365,
+        "measured_head_y": 269.0,
+        "measured_feet_y": 365.75,
+        "on_floor": true
+      },
+      {
+        "id": "old",
+        "intended_feet_y": 478,
+        "measured_head_y": 383.0,
+        "measured_feet_y": 478.75,
+        "on_floor": true
+      }
+    ],
+    "bbox_gaps_source_px": [
+      16.0,
+      17.0
+    ],
+    "min_bbox_gap_source_px": 16.0,
+    "note": "feet .75 is the 4x coverage of the 1px ground row (display y=feet*4 .. feet*4+3). Min gap equals one head height (16). Screenshot: shots/walk_test_C_vs_old_820.png (2340x1976, drawer 820)."
+  },
+  "independent_dx_matches_r3_json": true
 }

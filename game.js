@@ -1067,11 +1067,13 @@ function fit() {
     side.style.position = ''; side.style.right = ''; side.style.top = ''; side.style.zIndex = '';
   } else {
     phone.style.display = 'none'; stage.style.display = 'block';
-    if (SHOT) { side.style.display = 'none'; stage.style.transform = 'none'; stage.style.left = '0'; stage.style.top = '0'; wrap.style.width = '2340px'; wrap.style.height = '1080px'; return; }
-    const k = Math.min(innerWidth / 2340, innerHeight / 1080);
+    const SH = (typeof wtStageH === 'function') ? wtStageH() : 1080;
+    if (typeof wtApplyStage === 'function') wtApplyStage();
+    if (SHOT) { side.style.display = 'none'; stage.style.transform = 'none'; stage.style.left = '0'; stage.style.top = '0'; wrap.style.width = '2340px'; wrap.style.height = SH + 'px'; return; }
+    const k = Math.min(innerWidth / 2340, innerHeight / SH);
     stage.style.transform = `scale(${k})`;
     stage.style.left = ((innerWidth - 2340 * k) / 2) + 'px';
-    stage.style.top = ((innerHeight - 1080 * k) / 2) + 'px';
+    stage.style.top = ((innerHeight - SH * k) / 2) + 'px';
     wrap.style.width = '100vw'; wrap.style.height = '100vh';
     if (showSide) {
       side.style.display = 'block'; side.style.position = 'fixed'; side.style.right = '0'; side.style.top = '0'; side.style.zIndex = 9;
@@ -1146,26 +1148,55 @@ function wtReset() {
 
 // Trial C foot-lock root dx (east/flipX): same-foot centroid on row 115.
 // Dual contact: front = cluster matching next single; f03→f04 / f07→f00 continue onto rear then switch.
-// Cycle sum 27 (not 2×spread=36: spread is toe↔opposite-heel; same-foot travel = 13.5/step).
-const WALK_DX_C = [1.5, 3.5, 1.0, 7.5, 1.5, 3.5, 1.0, 7.5];
+// r3 wider stride: cycle sum 41 (same-foot centroid travel 20.5/step; not 2×spread=50).
+const WALK_DX_C = [6.5, 5.5, 4.0, 4.5, 6.5, 5.5, 4.0, 4.5];
+// DEV walk_test layout only: 3 rows on a taller floor band (dad stays ×4; scale vs sofa/table unchanged).
+// Dad head (idle/walk hair top y20 through chin y35) = 16px. Body bob max y19–115 = 97px.
+// Gap between inclusive bboxes = 16 empty px (= one head). Top feet = game floor_line 252.
+const WT_ROOM_H = 494;
+const WT_STAGE_H = WT_ROOM_H * 4; // 1976
+const WT_FLOOR_TOP = 210; // first continuous wood-floor row of the room (open mid floor from 224)
+const WT_HEAD_H = 16;
+const WT_FEET = [252, 365, 478]; // 252 + (97+16) twice
+
+function wtStageH() {
+  return (activeKey === 'walk_test' && ORIENT === 'landscape') ? WT_STAGE_H : 1080;
+}
+function wtApplyStage() {
+  const h = wtStageH();
+  const cnv = document.getElementById('sceneL');
+  const stage = document.getElementById('stage');
+  const box = document.getElementById('sceneBoxL');
+  if (cnv) { cnv.width = 2340; cnv.height = h; cnv.style.width = '2340px'; cnv.style.height = h + 'px'; }
+  if (stage) { stage.style.width = '2340px'; stage.style.height = h + 'px'; }
+  if (box) { box.style.width = '2340px'; box.style.height = h + 'px'; }
+}
 
 async function initWalkTest() {
   const lighting = 'daylight';
   const packC = await sprite('father_walk_c', lighting);
   const packOld = await sprite('father', lighting);
+  const roomTall = new Image();
+  roomTall.src = 'assets/room_daylight_walk_test.png';
+  await roomTall.decode();
   // facing report
   walkTest = {
     facingC: 'W',
     facingOld: 'W',
     walkDxC: WALK_DX_C,
     walkDxC_sum: WALK_DX_C.reduce((a, b) => a + b, 0),
-    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies. C_lock uses WALK_DX_C foot-lock; C8 keeps constant 8.',
+    room: roomTall,
+    roomH: WT_ROOM_H,
+    floorTop: WT_FLOOR_TOP,
+    headH: WT_HEAD_H,
+    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies. C_lock uses WALK_DX_C foot-lock; C8 keeps constant 8. Three floor rows, dad ×4, floor band extended for this DEV screen only.',
     lanes: [
-      { id: 'C_lock', label: 'C foot-lock', pack: packC, x0: 90, feet: 202, x1: 390, stride: WALK_DX_C, period: 125 },
-      { id: 'C8', label: 'C constant-8', pack: packC, x0: 90, feet: 230, x1: 390, stride: 8, period: 125 },
-      { id: 'old', label: 'old walk (4)', pack: packOld, x0: 90, feet: 258, x1: 390, stride: 8, period: 125 },
+      { id: 'C_lock', label: 'C foot-lock', pack: packC, x0: 90, feet: WT_FEET[0], x1: 390, stride: WALK_DX_C, period: 125 },
+      { id: 'C8', label: 'C constant-8', pack: packC, x0: 90, feet: WT_FEET[1], x1: 390, stride: 8, period: 125 },
+      { id: 'old', label: 'old walk (4)', pack: packOld, x0: 90, feet: WT_FEET[2], x1: 390, stride: 8, period: 125 },
     ],
   };
+  wtApplyStage();
   wtReset();
   window.WALK_TEST = walkTest;
   window.WALK_TEST_LOG = WALK_TEST_LOG;
@@ -1263,13 +1294,15 @@ function drawWalkTest(now) {
   // Simplest: call into existing prepareCue with empty cast for room, then blit characters in scene 480 space onto the ×4 region.
 
   if (ORIENT === 'landscape' && gL) {
+    const SH = wtStageH();
+    const RH = (walkTest && walkTest.roomH) || 270;
+    const room = (walkTest && walkTest.room) || (prepared && prepared.room);
     gL.imageSmoothingEnabled = false;
-    gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
-    if (prepared && prepared.room) {
-      // scene area 1920×1080 starting x=210
-      gL.drawImage(prepared.room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+    gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, SH);
+    if (room) {
+      // scene area 1920×(roomH×4) starting x=210; dad stays ×4
+      gL.drawImage(room, 0, 0, 480, RH, 210, 0, 1920, RH * 4);
     }
-    gL.fillStyle = '#f0e8d6';
     gL.font = '28px NotoTC,sans-serif';
     for (const lane of walkTest.lanes) {
       const f = wtFrame(lane, now);
@@ -1283,7 +1316,12 @@ function drawWalkTest(now) {
       if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
       else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
       gL.restore();
-      gL.fillText(lane.label, 220, (lane.feet - 100) * 4);
+      // lane label in the left margin of the row, just above the head; opaque so screenshots keep it
+      const ly = (feetY - 96) * 4 + 32;
+      gL.fillStyle = '#2a2428';
+      gL.fillRect(226, ly - 28, 232, 36);
+      gL.fillStyle = '#f0e8d6';
+      gL.fillText(lane.label, 234, ly);
       // Foot-slide log once per walk frame tick (scene px)
       const tick = Math.floor((now - walkTest.t0) / 125);
       if (!lane._logTick || lane._logTick !== tick) {
@@ -1418,6 +1456,7 @@ function drawWalkTest(now) {
       activeKey = 'walk_test';
       prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'walk_test');
       await initWalkTest();
+      fit();
       reflow();
       renderAll();
       const wireReplay = (sel) => {

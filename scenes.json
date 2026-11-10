@@ -736,8 +736,8 @@
       "season": "春",
       "corner": "二〇〇四年・春・你五歲",
       "lighting": "daylight",
-      "status": "走路試驗 C（上）對照舊 4 格（下）。",
-      "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。上＝Trial C 8 格；下＝舊 walk 4 格。",
+      "status": "走路試驗：上 C foot-lock，中 C constant-8，下舊 4 格。",
+      "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。三排都站在地板上。上＝Trial C 腳鎖（r3）；中＝C 每格 8；下＝舊 walk 4 格。",
       "buttons": [
         "重播"
       ],
