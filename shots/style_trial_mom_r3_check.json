@@ -1,0 +1,630 @@
+{
+  "round": 3,
+  "palette": "/workspace/ala/codex_r3/anim-r1/assets/pixel/variety/palette.txt",
+  "palette_size": 3349,
+  "versions": {
+    "current": {
+      "file": "/workspace/ala/r8_art/王子/style_trial_mom_20261110/current.png",
+      "size": [
+        56,
+        116
+      ],
+      "size_ok": true,
+      "opaque": 1931,
+      "bbox": [
+        13,
+        27,
+        45,
+        115
+      ],
+      "height": 89,
+      "feet_row": 115,
+      "feet_row_ok": true,
+      "feet_x": [
+        17,
+        34
+      ],
+      "anchor_nominal": [
+        27,
+        115
+      ],
+      "colours": 12,
+      "colour_hex": [
+        "#18161c",
+        "#2c282e",
+        "#3e2a1c",
+        "#44444e",
+        "#4e4850",
+        "#604028",
+        "#62626c",
+        "#a0583e",
+        "#c86e54",
+        "#e2946c",
+        "#f09670",
+        "#fab888"
+      ],
+      "off_palette_count": 12,
+      "off_palette": [
+        "#18161c",
+        "#2c282e",
+        "#3e2a1c",
+        "#44444e",
+        "#4e4850",
+        "#604028",
+        "#62626c",
+        "#a0583e",
+        "#c86e54",
+        "#e2946c",
+        "#f09670",
+        "#fab888"
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "n4_components": 1,
+      "component_sizes": [
+        1931
+      ],
+      "single_blob": true,
+      "stray_pixels_8n": 0,
+      "outline_pixels": 225,
+      "near_black_outline_pixels": 203,
+      "exact_151218_pixels": 0,
+      "near_black_outline_fraction": "203/225",
+      "near_black_outline_percent": 90.22222222222223,
+      "near_black_def": "exact #151218 OR CIELAB L* < 15 (D65 sRGB, Y=0.2126R+0.7152G+0.0722B)",
+      "outline_def": "opaque pixel with at least one transparent or out-of-canvas N4 neighbour"
+    },
+    "A": {
+      "file": "/workspace/ala/r8_art/王子/style_trial_mom_20261110/A.png",
+      "size": [
+        56,
+        116
+      ],
+      "size_ok": true,
+      "opaque": 1931,
+      "bbox": [
+        13,
+        27,
+        45,
+        115
+      ],
+      "height": 89,
+      "feet_row": 115,
+      "feet_row_ok": true,
+      "feet_x": [
+        17,
+        34
+      ],
+      "anchor_nominal": [
+        27,
+        115
+      ],
+      "colours": 16,
+      "colour_hex": [
+        "#2d2526",
+        "#3a2a20",
+        "#3d3132",
+        "#45454a",
+        "#514238",
+        "#60402c",
+        "#646467",
+        "#7d7d7e",
+        "#855d3e",
+        "#9c5749",
+        "#c86a52",
+        "#c99470",
+        "#d38666",
+        "#e0a060",
+        "#e8b98f",
+        "#f6d2b0"
+      ],
+      "off_palette_count": 0,
+      "off_palette": [],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "n4_components": 1,
+      "component_sizes": [
+        1931
+      ],
+      "single_blob": true,
+      "stray_pixels_8n": 0,
+      "outline_pixels": 225,
+      "near_black_outline_pixels": 0,
+      "exact_151218_pixels": 0,
+      "near_black_outline_fraction": "0/225",
+      "near_black_outline_percent": 0.0,
+      "near_black_def": "exact #151218 OR CIELAB L* < 15 (D65 sRGB, Y=0.2126R+0.7152G+0.0722B)",
+      "outline_def": "opaque pixel with at least one transparent or out-of-canvas N4 neighbour"
+    },
+    "B": {
+      "file": "/workspace/ala/r8_art/王子/style_trial_mom_20261110/B.png",
+      "size": [
+        56,
+        116
+      ],
+      "size_ok": true,
+      "opaque": 1931,
+      "bbox": [
+        13,
+        27,
+        45,
+        115
+      ],
+      "height": 89,
+      "feet_row": 115,
+      "feet_row_ok": true,
+      "feet_x": [
+        17,
+        34
+      ],
+      "anchor_nominal": [
+        27,
+        115
+      ],
+      "colours": 16,
+      "colour_hex": [
+        "#2d2526",
+        "#3a2a20",
+        "#3d3132",
+        "#45454a",
+        "#514238",
+        "#60402c",
+        "#646467",
+        "#7d7d7e",
+        "#855d3e",
+        "#9c5749",
+        "#c86a52",
+        "#c99470",
+        "#d38666",
+        "#e0a060",
+        "#e8b98f",
+        "#f6d2b0"
+      ],
+      "off_palette_count": 0,
+      "off_palette": [],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "n4_components": 1,
+      "component_sizes": [
+        1931
+      ],
+      "single_blob": true,
+      "stray_pixels_8n": 0,
+      "outline_pixels": 225,
+      "near_black_outline_pixels": 0,
+      "exact_151218_pixels": 0,
+      "near_black_outline_fraction": "0/225",
+      "near_black_outline_percent": 0.0,
+      "near_black_def": "exact #151218 OR CIELAB L* < 15 (D65 sRGB, Y=0.2126R+0.7152G+0.0722B)",
+      "outline_def": "opaque pixel with at least one transparent or out-of-canvas N4 neighbour"
+    },
+    "C": {
+      "file": "/workspace/ala/r8_art/王子/style_trial_mom_20261110/C.png",
+      "size": [
+        56,
+        116
+      ],
+      "size_ok": true,
+      "opaque": 1890,
+      "bbox": [
+        13,
+        27,
+        45,
+        115
+      ],
+      "height": 89,
+      "feet_row": 115,
+      "feet_row_ok": true,
+      "feet_x": [
+        17,
+        34
+      ],
+      "anchor_nominal": [
+        27,
+        115
+      ],
+      "colours": 16,
+      "colour_hex": [
+        "#2d2526",
+        "#3a2a20",
+        "#3d3132",
+        "#45454a",
+        "#514238",
+        "#60402c",
+        "#646467",
+        "#7d7d7e",
+        "#855d3e",
+        "#9c5749",
+        "#c86a52",
+        "#c99470",
+        "#d38666",
+        "#e0a060",
+        "#e8b98f",
+        "#f6d2b0"
+      ],
+      "off_palette_count": 0,
+      "off_palette": [],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "n4_components": 1,
+      "component_sizes": [
+        1890
+      ],
+      "single_blob": true,
+      "stray_pixels_8n": 0,
+      "outline_pixels": 223,
+      "near_black_outline_pixels": 0,
+      "exact_151218_pixels": 0,
+      "near_black_outline_fraction": "0/223",
+      "near_black_outline_percent": 0.0,
+      "near_black_def": "exact #151218 OR CIELAB L* < 15 (D65 sRGB, Y=0.2126R+0.7152G+0.0722B)",
+      "outline_def": "opaque pixel with at least one transparent or out-of-canvas N4 neighbour"
+    }
+  },
+  "placement": {
+    "current": {
+      "x": 132,
+      "label": "目前版",
+      "x0": 118,
+      "x1": 150,
+      "y0": 164,
+      "y1": 252,
+      "feet": 252,
+      "flip": false,
+      "facing": "W"
+    },
+    "A": {
+      "x": 177,
+      "label": "A 細節",
+      "x0": 163,
+      "x1": 195,
+      "y0": 164,
+      "y1": 252,
+      "feet": 252,
+      "flip": false,
+      "facing": "W"
+    },
+    "B": {
+      "x": 406,
+      "label": "B 臉部",
+      "x0": 392,
+      "x1": 424,
+      "y0": 164,
+      "y1": 252,
+      "feet": 252,
+      "flip": false,
+      "facing": "W"
+    },
+    "C": {
+      "x": 222,
+      "label": "C 比例",
+      "x0": 208,
+      "x1": 240,
+      "y0": 164,
+      "y1": 252,
+      "feet": 252,
+      "flip": false,
+      "facing": "W"
+    }
+  },
+  "furniture_boxes_checked": {
+    "pet_bed": {
+      "x0": 12,
+      "y0": 228,
+      "x1": 82,
+      "y1": 252
+    },
+    "pet_bowl": {
+      "x0": 84,
+      "y0": 240,
+      "x1": 113,
+      "y1": 252
+    },
+    "stool": {
+      "x0": 244,
+      "y0": 215,
+      "x1": 286,
+      "y1": 244
+    },
+    "table": {
+      "x0": 289,
+      "y0": 185,
+      "x1": 391,
+      "y1": 242
+    }
+  },
+  "overlap": {
+    "char_vs_char": [],
+    "char_vs_furniture": [],
+    "ok": true
+  },
+  "B_coral_vs_wall": {
+    "daylight": {
+      "vs_wall_behind_blouse": {
+        "n": 126,
+        "mean_L_blouse": 59.98587974944696,
+        "mean_L_bg": 71.7008789731862,
+        "mean_dL": -11.714999223739255,
+        "min_dL": -26.82257962726829,
+        "max_dL": -0.8190439051049054,
+        "mean_Y_blouse": 0.2856606075255716,
+        "mean_Y_bg": 0.4321844902239582,
+        "mean_contrast_ratio": 1.4928465290267028,
+        "min_contrast_ratio": 1.0255382080149684,
+        "mid_and_light_coral": {
+          "n": 86,
+          "mean_L_blouse": 63.40079213496749,
+          "mean_L_bg": 71.72254673653269,
+          "mean_dL": -8.321754601565194,
+          "min_dL": -9.935733488425882,
+          "max_dL": -0.8190439051049054,
+          "mean_contrast_ratio": 1.3026361462883058,
+          "min_contrast_ratio": 1.0255382080149684
+        },
+        "all_blouse_incl_shadow_outline": true,
+        "note": "only blouse pixels whose room pixel is a wall color from the (290,80)-(359,159) sample",
+        "wall_sample_top": [
+          [
+            "#c2ab9d",
+            3388
+          ],
+          [
+            "#c9af9a",
+            1956
+          ],
+          [
+            "#d2b6a0",
+            218
+          ],
+          [
+            "#d2b59e",
+            38
+          ]
+        ]
+      },
+      "vs_whatever_is_behind": {
+        "n": 885,
+        "mean_L_blouse": 58.23840723998646,
+        "mean_L_bg": 50.772006332537515,
+        "mean_dL": 7.4664009074489455,
+        "min_dL": -26.82257962726829,
+        "max_dL": 45.26150884179543,
+        "mean_Y_blouse": 0.2670212291533098,
+        "mean_Y_bg": 0.2112845295349134,
+        "mean_contrast_ratio": 1.5967055516109068,
+        "min_contrast_ratio": 1.0116377650933206,
+        "mid_and_light_coral": {
+          "n": 442,
+          "mean_L_blouse": 63.327890553338044,
+          "mean_L_bg": 54.79425368707062,
+          "mean_dL": 8.53363686626742,
+          "min_dL": -9.935733488425882,
+          "max_dL": 45.26150884179543,
+          "mean_contrast_ratio": 1.5696904354437045,
+          "min_contrast_ratio": 1.0116377650933206
+        },
+        "all_blouse_incl_shadow_outline": true,
+        "note": "every blouse pixel vs the room pixel it covers",
+        "wall_sample_top": [
+          [
+            "#c2ab9d",
+            3388
+          ],
+          [
+            "#c9af9a",
+            1956
+          ],
+          [
+            "#d2b6a0",
+            218
+          ],
+          [
+            "#d2b59e",
+            38
+          ]
+        ]
+      },
+      "n_blouse": 885,
+      "n_on_wall": 126,
+      "n_off_wall": 759
+    },
+    "evening": {
+      "vs_wall_behind_blouse": {
+        "n": 126,
+        "mean_L_blouse": 59.98587974944696,
+        "mean_L_bg": 35.4688225243049,
+        "mean_dL": 24.517057225142057,
+        "min_dL": 9.283569548113256,
+        "max_dL": 35.28710527027664,
+        "mean_Y_blouse": 0.2856606075255716,
+        "mean_Y_bg": 0.0873491595656363,
+        "mean_contrast_ratio": 2.443849009248334,
+        "min_contrast_ratio": 1.409935744377097,
+        "mid_and_light_coral": {
+          "n": 86,
+          "mean_L_blouse": 63.40079213496749,
+          "mean_L_bg": 35.4688225243049,
+          "mean_dL": 27.93196961066259,
+          "min_dL": 27.756847333052733,
+          "max_dL": 35.28710527027664,
+          "mean_contrast_ratio": 2.7004435654818484,
+          "min_contrast_ratio": 2.6835539240852646
+        },
+        "all_blouse_incl_shadow_outline": true,
+        "note": "only blouse pixels whose room pixel is a wall color from the (290,80)-(359,159) sample",
+        "wall_sample_top": [
+          [
+            "#6c4d33",
+            5600
+          ]
+        ]
+      },
+      "vs_whatever_is_behind": {
+        "n": 885,
+        "mean_L_blouse": 58.23840723998646,
+        "mean_L_bg": 24.158702012695702,
+        "mean_dL": 34.07970522729076,
+        "min_dL": 9.283569548113256,
+        "max_dL": 54.91751134299538,
+        "mean_Y_blouse": 0.2670212291533098,
+        "mean_Y_bg": 0.0449517058313695,
+        "mean_contrast_ratio": 3.4690626002084524,
+        "min_contrast_ratio": 1.409935744377097,
+        "mid_and_light_coral": {
+          "n": 442,
+          "mean_L_blouse": 63.327890553338044,
+          "mean_L_bg": 25.98738662309073,
+          "mean_dL": 37.340503930247316,
+          "min_dL": 27.756847333052733,
+          "max_dL": 54.91751134299538,
+          "mean_contrast_ratio": 3.8468656483342656,
+          "min_contrast_ratio": 2.6835539240852646
+        },
+        "all_blouse_incl_shadow_outline": true,
+        "note": "every blouse pixel vs the room pixel it covers",
+        "wall_sample_top": [
+          [
+            "#6c4d33",
+            5600
+          ]
+        ]
+      },
+      "n_blouse": 885,
+      "n_on_wall": 126,
+      "n_off_wall": 759
+    }
+  },
+  "blouse_colors": {
+    "#e0a060": "light #e0a060",
+    "#d38666": "mid #d38666",
+    "#c86a52": "dark #c86a52",
+    "#9c5749": "brick outline #9c5749"
+  },
+  "B_coral_vs_wall_refined": {
+    "daylight": {
+      "n_blouse_pixels": 885,
+      "n_on_wall": 885,
+      "n_not_wall": 0,
+      "not_wall_top_bg": [],
+      "by_tone": {
+        "light": {
+          "n": 6,
+          "mean_L_blouse": 70.75592779458154,
+          "mean_L_bg": 55.17233236939927,
+          "mean_dL": 15.583595425182267,
+          "min_dL": -0.8190439051049054,
+          "max_dL": 31.197264078990067,
+          "mean_contrast_ratio": 1.8507033584434425,
+          "min_contrast_ratio": 1.0255382080149684
+        },
+        "mid": {
+          "n": 436,
+          "mean_L_blouse": 63.22566985735763,
+          "mean_L_bg": 54.789050769423895,
+          "mean_dL": 8.43661908793373,
+          "min_dL": -9.935733488425882,
+          "max_dL": 45.26150884179543,
+          "mean_contrast_ratio": 1.5658232851271945,
+          "min_contrast_ratio": 1.0116377650933206
+        },
+        "dark": {
+          "n": 354,
+          "mean_L_blouse": 55.27429346996436,
+          "mean_L_bg": 46.55575397532901,
+          "mean_dL": 8.718539494635348,
+          "min_dL": -17.88710987581915,
+          "max_dL": 37.310132454402165,
+          "mean_contrast_ratio": 1.6484397981840568,
+          "min_contrast_ratio": 1.0408098791931695
+        },
+        "brick": {
+          "n": 89,
+          "mean_L_blouse": 44.752392072418154,
+          "mean_L_bg": 47.56661311622485,
+          "mean_dL": -2.8142210438066986,
+          "min_dL": -26.82257962726829,
+          "max_dL": 26.788231056855956,
+          "mean_contrast_ratio": 1.5250960915997647,
+          "min_contrast_ratio": 1.020675968411005
+        },
+        "all": {
+          "n": 885,
+          "mean_L_blouse": 58.23840723998646,
+          "mean_L_bg": 50.772006332537515,
+          "mean_dL": 7.4664009074489455,
+          "min_dL": -26.82257962726829,
+          "max_dL": 45.26150884179543,
+          "mean_contrast_ratio": 1.5967055516109068,
+          "min_contrast_ratio": 1.0116377650933206
+        }
+      }
+    },
+    "evening": {
+      "n_blouse_pixels": 885,
+      "n_on_wall": 885,
+      "n_not_wall": 0,
+      "not_wall_top_bg": [],
+      "by_tone": {
+        "light": {
+          "n": 6,
+          "mean_L_blouse": 70.75592779458154,
+          "mean_L_bg": 27.361134362453186,
+          "mean_dL": 43.39479343212835,
+          "min_dL": 35.28710527027664,
+          "max_dL": 51.627698575061636,
+          "mean_contrast_ratio": 4.653059226212018,
+          "min_contrast_ratio": 3.4098085041383737
+        },
+        "mid": {
+          "n": 436,
+          "mean_L_blouse": 63.22566985735763,
+          "mean_L_bg": 25.968481837686657,
+          "mean_dL": 37.25718801967097,
+          "min_dL": 27.756847333052733,
+          "max_dL": 54.91751134299538,
+          "mean_contrast_ratio": 3.83577124129925,
+          "min_contrast_ratio": 2.6835539240852646
+        },
+        "dark": {
+          "n": 354,
+          "mean_L_blouse": 55.27429346996436,
+          "mean_L_bg": 22.277125949895783,
+          "mean_dL": 32.99716752006858,
+          "min_dL": 19.805470945659465,
+          "max_dL": 46.966134955602115,
+          "mean_contrast_ratio": 3.3030896341634826,
+          "min_contrast_ratio": 2.0529157030026703
+        },
+        "brick": {
+          "n": 89,
+          "mean_L_blouse": 44.752392072418154,
+          "mean_L_bg": 22.560941658050375,
+          "mean_dL": 22.19145041436778,
+          "min_dL": 9.283569548113256,
+          "max_dL": 36.444233558055906,
+          "mean_contrast_ratio": 2.2529444283917095,
+          "min_contrast_ratio": 1.409935744377097
+        },
+        "all": {
+          "n": 885,
+          "mean_L_blouse": 58.23840723998646,
+          "mean_L_bg": 24.158702012695702,
+          "mean_dL": 34.07970522729076,
+          "min_dL": 9.283569548113256,
+          "max_dL": 54.91751134299538,
+          "mean_contrast_ratio": 3.4690626002084524,
+          "min_contrast_ratio": 1.409935744377097
+        }
+      }
+    }
+  },
+  "B_coral_vs_wall_note": "B is placed at x=406 (right of the table) so the coral top sits against the wall, with the plant behind her right shoulder (scenery, feet on clear floor). L* is CIELAB D65; contrast ratio is (Ymax+0.05)/(Ymin+0.05) with relative luminance Y. Wall colors sampled from plant-free wall patches (x 250–289 and 360–399, y 40–189) in each room."
+}

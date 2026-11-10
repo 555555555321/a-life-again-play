@@ -768,6 +768,21 @@
       "corner": "工具試驗・非劇情",
       "_corner_hardcoded": true,
       "_corner_note": "DEV tool trial: not a story date. Hardcoded so cornerLabel() is not used."
+    },
+    "style_trial_mom": {
+      "_note": "DEV ONLY mom standing style trial. Paths come from STYLE_TRIAL_MOM_SRC_DIR in game.js (currently r3). ?dev=1&orient=landscape&screen=style_trial_mom. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "season": "春",
+      "age": 5,
+      "corner": "二〇〇四年・春・你五歲",
+      "lighting": "daylight",
+      "status": "媽媽站姿畫風試畫（第 3 輪）。B 靠牆，方便看日間／夜間上衣對比。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": []
     }
   },
   "_test_order": [

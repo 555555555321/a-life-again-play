@@ -587,6 +587,11 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if (activeKey === 'style_trial_mom' && styleTrialMom) {
+    drawStyleTrialMom(now);
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -1664,6 +1669,93 @@ function drawPixelboltTrial(now) {
   }
 }
 
+// —— DEV style_trial_mom: four mom standing stills at game scale (×4, feet 252, face W) ——
+// One-line swap: change STYLE_TRIAL_MOM_SRC_DIR to 'assets/chars/style_trial_mom/r2' (or a future round).
+const STYLE_TRIAL_MOM_SRC_DIR = 'assets/chars/style_trial_mom/r3';
+const STYLE_TRIAL_MOM_FLOOR = 252;
+const STYLE_TRIAL_MOM_VERSIONS = [
+  { id: 'current', label: '目前版', file: 'current.png', x: 132 },
+  { id: 'A',       label: 'A 細節', file: 'A.png',       x: 177 },
+  { id: 'C',       label: 'C 比例', file: 'C.png',       x: 222 },
+  { id: 'B',       label: 'B 臉部', file: 'B.png',       x: 406 },
+];
+let styleTrialMom = null;
+
+async function initStyleTrialMom(lighting) {
+  const lit = (lighting === 'evening') ? 'evening' : 'daylight';
+  const day = new Image(); day.src = 'assets/room_daylight.png';
+  const eve = new Image(); eve.src = 'assets/room_evening.png';
+  await Promise.all([day.decode(), eve.decode()]);
+  const versions = [];
+  for (const v of STYLE_TRIAL_MOM_VERSIONS) {
+    const src = STYLE_TRIAL_MOM_SRC_DIR + '/' + v.file;
+    const img = await load(src);
+    versions.push({ id: v.id, label: v.label, src: src, file: v.file, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img });
+  }
+  styleTrialMom = {
+    srcDir: STYLE_TRIAL_MOM_SRC_DIR,
+    round: STYLE_TRIAL_MOM_SRC_DIR.split('/').pop(),
+    lighting: lit,
+    rooms: { daylight: day, evening: eve },
+    floorLine: STYLE_TRIAL_MOM_FLOOR,
+    facing: 'W as drawn (no flip)',
+    note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). B stands against the wall (right of the table) so coral-vs-wall can be judged in evening light. Plant is scenery behind B’s right shoulder; feet are on clear floor. Swap SRC_DIR to change the round.',
+    versions: versions,
+  };
+  window.STYLE_TRIAL_MOM = styleTrialMom;
+  stmRefreshLitButtons();
+}
+
+function stmRefreshLitButtons() {
+  if (!styleTrialMom) return;
+  for (const sel of ['btns', 'lbtns']) {
+    const box = document.getElementById(sel);
+    if (!box) continue;
+    for (const b of box.querySelectorAll('button')) {
+      const want = (b.textContent === '夜間') ? 'evening' : (b.textContent === '日間') ? 'daylight' : null;
+      if (want) b.classList.toggle('sel', styleTrialMom.lighting === want);
+    }
+  }
+}
+
+function stmSetLighting(lit) {
+  if (!styleTrialMom) return;
+  styleTrialMom.lighting = (lit === 'evening') ? 'evening' : 'daylight';
+  if (prepared) prepared.room = styleTrialMom.rooms[styleTrialMom.lighting];
+  const u = new URL(location.href);
+  if (styleTrialMom.lighting === 'evening') u.searchParams.set('lit', 'evening');
+  else u.searchParams.delete('lit');
+  history.replaceState(null, '', u.toString());
+  stmRefreshLitButtons();
+}
+
+function drawStyleTrialMom(now) {
+  if (!styleTrialMom) return;
+  const room = styleTrialMom.rooms[styleTrialMom.lighting] || (prepared && prepared.room);
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (!(ORIENT === 'landscape' && gL)) {
+    const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+    if (gP && room) {
+      gP.imageSmoothingEnabled = false;
+      gP.drawImage(room, 0, 0);
+      for (const ch of styleTrialMom.versions) {
+        gP.drawImage(ch.img, ch.x - ch.ax, ch.feet - ch.ay);
+      }
+    }
+    return;
+  }
+  gL.imageSmoothingEnabled = false;
+  gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+  if (room) gL.drawImage(room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+  gL.font = '28px NotoTC,sans-serif';
+  for (const ch of styleTrialMom.versions) {
+    const sx = 210 + ch.x * 4;
+    const sy = ch.feet * 4;
+    gL.drawImage(ch.img, sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
+  }
+}
+
 (async () => {
   [manifest, data, actionIds] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
@@ -1775,6 +1867,34 @@ function drawPixelboltTrial(now) {
       fit();
       reflow();
       renderAll();
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'style_trial_mom') {
+    if (!DEV) {
+      console.warn('style_trial_mom requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.style_trial_mom;
+      activeKey = 'style_trial_mom';
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, 'style_trial_mom');
+      await initStyleTrialMom(lit);
+      fit();
+      reflow();
+      renderAll();
+      const wireLit = (sel) => {
+        const box = document.getElementById(sel);
+        if (!box) return;
+        box.innerHTML = '';
+        for (const [id, label] of [['daylight', '日間'], ['evening', '夜間']]) {
+          const b = document.createElement('button');
+          b.textContent = label;
+          if (styleTrialMom && styleTrialMom.lighting === id) b.classList.add('sel');
+          b.onclick = () => stmSetLighting(id);
+          box.appendChild(b);
+        }
+      };
+      wireLit('btns'); wireLit('lbtns');
       if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
     }
   } else if (startKey && data.screens[startKey]) await goKey(startKey, startPage);
