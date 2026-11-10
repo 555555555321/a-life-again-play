@@ -116,7 +116,7 @@ async function sprite(charKey, lighting) {
       canvasW: (m.canvas && m.canvas[0]) || 56,
       canvasH: (m.canvas && m.canvas[1]) || 116,
       stride: m.stride != null ? m.stride : 8,
-      idle: [], walk: [], sit: [], blink: null, sitBlink: null, chair: null,
+      idle: [], walk: [], sit: [], crouch: [], blink: null, sitBlink: null, crouchBlink: null, chair: null,
     };
     const nIdle = m.idle_n || m.n || 4;
     const idlePat = m.idle_frames || m.frames;
@@ -145,6 +145,19 @@ async function sprite(charKey, lighting) {
       }
       if (m.sit_blink) {
         try { pack.sitBlink = await applyLutToImage(await load(m.sit_blink), lut, charKey, lighting); }
+        catch (_) {}
+      }
+    }
+    const nCrouch = m.crouch_n || 0;
+    if (nCrouch && m.crouch_frames) {
+      for (let i = 0; i < nCrouch; i++) {
+        try {
+          const im = await load(m.crouch_frames.replace('{i}', i));
+          pack.crouch.push(await applyLutToImage(im, lut, charKey, lighting));
+        } catch (_) {}
+      }
+      if (m.crouch_blink) {
+        try { pack.crouchBlink = await applyLutToImage(await load(m.crouch_blink), lut, charKey, lighting); }
         catch (_) {}
       }
     }
@@ -184,6 +197,7 @@ function strideAt(stride, step) {
 }
 
 function isSitAnim(anim) { return /坐/.test(String(anim || '')); }
+function isCrouchAnim(anim) { return /蹲/.test(String(anim || '')); }
 
 function pinkBox(g, x, y, w, h) {
   g.fillStyle = PINK; g.fillRect(x, y, w, h);
@@ -417,12 +431,18 @@ function drawSceneNative(g, now) {
     // Foot-anchored base body
     if (fr.anchor) {
       const sitting = isSitAnim(m.anim);
-      const walking = !!(c._walkMoving && fr.walk.length && !sitting);
-      const bridging = !!(fr.idleSide && c._walkStopAt && (now - c._walkStopAt) < 200 && !sitting && !walking);
+      const crouching = isCrouchAnim(m.anim);
+      const walking = !!(c._walkMoving && fr.walk.length && !sitting && !crouching);
+      const bridging = !!(fr.idleSide && c._walkStopAt && (now - c._walkStopAt) < 200 && !sitting && !crouching && !walking);
       let f;
       if (sitting) {
         const blinkOn = ((t + Math.max(0, c.i) * 7) % 20) >= 17;
         f = (blinkOn && fr.sitBlink) ? fr.sitBlink : (fr.sit[0] || fr.idle[0]);
+      } else if (crouching) {
+        // 你_蹲：full crouch (last frame) + blink
+        const blinkOn = ((t + Math.max(0, c.i) * 7) % 20) >= 17;
+        const full = fr.crouch.length ? fr.crouch[fr.crouch.length - 1] : fr.idle[0];
+        f = (blinkOn && fr.crouchBlink) ? fr.crouchBlink : full;
       } else if (walking) {
         const run = isRunAnim(c.m.anim);
         const period = run ? 62.5 : 125;

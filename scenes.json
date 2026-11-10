@@ -5,12 +5,14 @@
   "order": [
     "talent",
     "month_end",
-    "scissors"
+    "scissors",
+    "animal_dog",
+    "animal_kitten"
   ],
   "screens": {
     "talent": {
       "lighting": "evening",
-      "status": "晚餐時你把今天發生的事全部說了一遍。",
+      "status": "你數到一百，中間跳過了好幾個數字。",
       "text": "媽媽拿著幾張傳單，一張一張說給你聽：這是畫畫班，這是音樂班，那是跳舞班，問你想不想去學點什麼。",
       "buttons": [
         "畫畫",
@@ -600,10 +602,73 @@
         "繼續"
       ],
       "cast": []
+    },
+    "animal_dog": {
+      "_note": "TW-A1-05 雙薪／只有爸爸上班 variant；cue /workspace/w09_cues_20261109/cues.json。背景暫借客廳 daylight（phone B 無戶外圖）。",
+      "origin_id": "TW-A1-05",
+      "lighting": "daylight",
+      "status": "鄰居家門口。",
+      "corner": "二〇〇四年・春・你五歲",
+      "text": "爸爸牽著你站在鄰居家門口，陪你看那隻狗看了好久。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "father",
+          "x": 170,
+          "feet": 252,
+          "flip": true,
+          "anim": "爸爸_站"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 202,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_站"
+        },
+        {
+          "id": "dog",
+          "x": 280,
+          "feet": 252,
+          "flip": false,
+          "anim": "狗_待機"
+        }
+      ]
+    },
+    "animal_kitten": {
+      "_note": "TW-A3-08；cue cues.json。小貓在紙箱（back→kitten@(2,6) clipped→front）。背景暫借客廳 daylight（phone B 無路邊圖）。",
+      "origin_id": "TW-A3-08",
+      "lighting": "daylight",
+      "status": "路邊。",
+      "corner": "二〇〇四年・春・你五歲",
+      "text": "路邊的紙箱裡有一隻小貓，你蹲下來看，牠也看著你。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 220,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_蹲"
+        },
+        {
+          "id": "kitten_in_box",
+          "x": 300,
+          "feet": 252,
+          "flip": false,
+          "anim": "小貓_待機"
+        }
+      ]
     }
   },
   "_test_order": [
     "test_long",
-    "test_reader"
+    "test_reader",
+    "animal_dog",
+    "animal_kitten"
   ]
 }

@@ -17,12 +17,12 @@
     "/workspace/princess_mockup_20261109/lines.md"
   ],
   "counts": {
-    "total": 113,
-    "drawn": 21,
+    "total": 114,
+    "drawn": 25,
     "temp_drawn": 4,
     "interim_in_progress": 1,
     "in_progress": 1,
-    "missing": 86,
+    "missing": 83,
     "actions": 56,
     "props": 56,
     "outfits": 1,
@@ -2098,7 +2098,7 @@
     {
       "id": "道具_紙箱",
       "kind": "prop",
-      "status": "missing",
+      "status": "drawn",
       "file_pattern": "prop_道具_紙箱_f{n}.png",
       "frame_count": 1,
       "fallback": null,
@@ -2109,7 +2109,8 @@
         "annotations.json TW-A1-07、TW-A3-08：紙箱、小被子／路邊、紙箱、小貓（紙箱）"
       ],
       "notes": [
-        "素面，不畫字或商標。"
+        "素面，不畫字或商標。",
+        "phone B animals r9b installed"
       ]
     },
     {
@@ -2659,7 +2660,7 @@
     {
       "id": "狗_待機",
       "kind": "action",
-      "status": "missing",
+      "status": "drawn",
       "file_pattern": "animal_狗_待機_f{n}.png",
       "frame_count": "2–4",
       "fallback": null,
@@ -2672,14 +2673,15 @@
       ],
       "notes": [
         "鄰居家的狗，不是家裡的貓。",
-        "沒有可用的已畫底圖，畫好之前不出場。"
+        "沒有可用的已畫底圖，畫好之前不出場。",
+        "phone B animals r9b installed"
       ],
       "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
     },
     {
       "id": "小貓_待機",
       "kind": "action",
-      "status": "missing",
+      "status": "drawn",
       "file_pattern": "animal_小貓_待機_f{n}.png",
       "frame_count": "2–4",
       "fallback": null,
@@ -2692,7 +2694,8 @@
       ],
       "notes": [
         "路邊紙箱裡的小貓；不可用 貓_待機 縮小代替（成貓）。",
-        "沒有可用的已畫底圖，畫好之前不出場。"
+        "沒有可用的已畫底圖，畫好之前不出場。",
+        "phone B animals r9b installed"
       ],
       "no_fallback": "沒有可用的已畫底圖，畫好之前不出場。"
     },
@@ -3318,6 +3321,17 @@
         "actual_age": "base_age + max(0, floor((health - start_value) / 10))",
         "source": "PR #17 family-state.js health.mobility"
       }
+    },
+    {
+      "id": "你_蹲",
+      "kind": "action",
+      "status": "drawn",
+      "file_pattern": {
+        "layered": true,
+        "frames_dir": "/workspace/ala/r8_art/王子/base_bodies_20261109/assembled/kid/crouch"
+      },
+      "aliases": [],
+      "notes": "phone B: kid crouch stand/half/full"
     }
   ]
 }

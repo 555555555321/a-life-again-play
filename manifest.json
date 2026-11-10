@@ -114,7 +114,11 @@
     "view_sit": "34v",
     "view_walk": "side",
     "idle_side": "assets/chars/protag_boy_child6/idle_side_00.png",
-    "idle_side_blink": "assets/chars/protag_boy_child6/idle_side_00_blink.png"
+    "idle_side_blink": "assets/chars/protag_boy_child6/idle_side_00_blink.png",
+    "crouch_frames": "assets/chars/protag_boy_child6/crouch_0{i}.png",
+    "crouch_n": 3,
+    "crouch_blink": "assets/chars/protag_boy_child6/crouch_02_blink.png",
+    "crouch_full": "assets/chars/protag_boy_child6/crouch_02.png"
   },
   "cat": {
     "frames": "assets/chars/cat/frame_0{i}.png",
@@ -214,5 +218,86 @@
     ],
     "anchor": "foot",
     "from": "底模 props/道具_椅子_34_child6.png"
+  },
+  "dog": {
+    "anchor": "foot",
+    "anchor_w": [
+      28,
+      47
+    ],
+    "anchor_e": [
+      27,
+      47
+    ],
+    "canvas": [
+      56,
+      48
+    ],
+    "idle_frames": "assets/chars/dog/idle_0{i}.png",
+    "idle_n": 2,
+    "idle_blink": "assets/chars/dog/idle_00_blink.png",
+    "walk_n": 0,
+    "sit_n": 0,
+    "lut_evening": "assets/luts/dog.evening.json",
+    "stand": "狗_待機",
+    "from": "animals r9b dog/stand → 狗_待機",
+    "frames": "assets/chars/dog/idle_0{i}.png",
+    "n": 2
+  },
+  "kitten": {
+    "anchor": "foot",
+    "anchor_w": [
+      12,
+      16
+    ],
+    "anchor_e": [
+      11,
+      16
+    ],
+    "canvas": [
+      24,
+      17
+    ],
+    "idle_frames": "assets/chars/kitten/idle_0{i}.png",
+    "idle_n": 2,
+    "idle_blink": "assets/chars/kitten/idle_00_blink.png",
+    "walk_n": 0,
+    "sit_n": 0,
+    "lut_evening": "assets/luts/kitten.evening.json",
+    "stand": "小貓_待機",
+    "from": "animals r9b SMALL kitten/stand → 小貓_待機",
+    "frames": "assets/chars/kitten/idle_0{i}.png",
+    "n": 2
+  },
+  "kitten_in_box": {
+    "anchor": "foot",
+    "anchor_w": [
+      14,
+      19
+    ],
+    "anchor_e": [
+      13,
+      19
+    ],
+    "canvas": [
+      28,
+      20
+    ],
+    "idle_frames": "assets/chars/kitten_in_box/idle_0{i}.png",
+    "idle_n": 2,
+    "idle_blink": "assets/chars/kitten_in_box/idle_00_blink.png",
+    "walk_n": 0,
+    "sit_n": 0,
+    "lut_evening": "assets/luts/kitten_in_box.evening.json",
+    "stand": "小貓_待機",
+    "from": "紙箱 back+小貓@(2,6) clipped+front",
+    "frames": "assets/chars/kitten_in_box/idle_0{i}.png",
+    "n": 2,
+    "embeds_prop": "道具_紙箱"
+  },
+  "道具_紙箱": {
+    "layer": true,
+    "src": "assets/props/prop_道具_紙箱_f0.png",
+    "from": "animals props 道具_紙箱 empty"
   }
 }
