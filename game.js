@@ -8,6 +8,28 @@ const qs = new URLSearchParams(location.search);
 const SHOT = qs.has('shot');
 const DEV = qs.has('dev') && qs.get('dev') !== '0'; // right-side missing/warn/drawer panel
 const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
+
+// Year label: ONE shared rule (王). birth_year 1998 + age; season from screen/event or 春.
+const BIRTH_YEAR = 1998;
+const CN_DIGIT = '〇一二三四五六七八九';
+function cnYear(y) { return String(y).split('').map(d => CN_DIGIT[+d]).join('') + '年'; }
+function cnAge(a) {
+  const m = {0:'零',1:'一',2:'二',3:'三',4:'四',5:'五',6:'六',7:'七',8:'八',9:'九',10:'十'};
+  return (m[a] != null ? m[a] : String(a)) + '歲';
+}
+function cornerLabel(age, season) {
+  const a = (age == null ? 5 : +age);
+  const s = season || '春';
+  const by = (typeof data !== 'undefined' && data && data.birth_year != null) ? +data.birth_year : BIRTH_YEAR;
+  return cnYear(by + a) + '・' + s + '・你' + cnAge(a);
+}
+function screenCorner(scr) {
+  if (!scr) return cornerLabel((data && data.age), (data && data.season));
+  if (scr.age != null) return cornerLabel(scr.age, scr.season || (data && data.season) || '春');
+  if (scr.corner) return scr.corner;
+  return cornerLabel((data && data.age), (data && data.season));
+}
+
 let drawerW = STOPS.includes(+qs.get('drawer')) ? +qs.get('drawer') : 0;
 let lockDrawer = false; // 有選項時不能收到 0
 let sceneFrozen = false;       // drawer 1300: freeze scene (idle only)
@@ -762,7 +784,7 @@ function renderTextPortrait() {
   const phone = document.getElementById('phone');
   const s = data.screens[activeKey];
   phone.classList.toggle('reader', !!s.reader);
-  document.getElementById('corner').textContent = data.corner;
+  document.getElementById('corner').textContent = screenCorner(s);
   document.getElementById('status').textContent = s.status || '';
   document.getElementById('pageind').textContent = pages.length > 1 ? `${pageIdx + 1}/${pages.length}` : '';
   const box = document.getElementById('text'); box.innerHTML = '';
@@ -787,7 +809,7 @@ function renderTextLandscape() {
   const stage = document.getElementById('stage');
   const s = data.screens[activeKey];
   stage.classList.toggle('reader', !!s.reader);
-  document.getElementById('tag').textContent = data.corner;
+  document.getElementById('tag').textContent = screenCorner(s);
   document.getElementById('caption').textContent = s.status || '';
   document.getElementById('lstatus').textContent = s.status || '';
   document.getElementById('lpageind').textContent = pages.length > 1 ? `${pageIdx + 1}/${pages.length}` : '';

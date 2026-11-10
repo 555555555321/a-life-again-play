@@ -1,6 +1,6 @@
 {
   "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
-  "corner": "二〇〇四年・春・你五歲",
+  "corner": "二〇〇三年・春・你五歲",
   "family": "dad_works_mom_home",
   "order": [
     "talent",
@@ -58,7 +58,10 @@
           "feet": 263,
           "flip": true
         }
-      ]
+      ],
+      "corner": "二〇〇三年・春・你五歲",
+      "age": 5,
+      "season": "春"
     },
     "month_end": {
       "lighting": "daylight",
@@ -103,7 +106,10 @@
           "flip": false,
           "anim": "你_等出門"
         }
-      ]
+      ],
+      "corner": "二〇〇三年・春・你五歲",
+      "age": 5,
+      "season": "春"
     },
     "scissors": {
       "lighting": "daylight",
@@ -150,7 +156,10 @@
           "feet": 236,
           "flip": false
         }
-      ]
+      ],
+      "corner": "二〇〇三年・春・你五歲",
+      "age": 5,
+      "season": "春"
     },
     "test_long": {
       "_note": "公主分頁示範 G04 ALA-GAP-20261025-G04-E014；原文見 /workspace/princess_pagination_demo/source.md。場景暫借客廳 daylight。‖ 分段與 marked.json 一致。",
@@ -591,7 +600,10 @@
             "props": []
           }
         }
-      ]
+      ],
+      "corner": "二〇〇三年・春・你五歲",
+      "age": 5,
+      "season": "春"
     },
     "test_reader": {
       "_note": "閱讀頁：同一段 G04 示範原文。",
@@ -602,14 +614,17 @@
       "buttons": [
         "繼續"
       ],
-      "cast": []
+      "cast": [],
+      "corner": "二〇〇三年・春・你五歲",
+      "age": 5,
+      "season": "春"
     },
     "animal_dog": {
       "_note": "TW-A1-05 雙薪／只有爸爸上班 variant；cue /workspace/w09_cues_20261109/cues.json。背景暫借客廳 daylight（phone B 無戶外圖）。",
       "origin_id": "TW-A1-05",
       "lighting": "daylight",
       "status": "鄰居家門口。",
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "一九九九年・春・你一歲",
       "text": "爸爸牽著你站在鄰居家門口，陪你看那隻狗看了好久。",
       "buttons": [
         "繼續"
@@ -617,33 +632,35 @@
       "cast": [
         {
           "id": "father",
-          "x": 170,
+          "x": 168,
           "feet": 252,
           "flip": true,
           "anim": "爸爸_站"
         },
         {
           "id": "protag_boy_child6",
-          "x": 202,
+          "x": 196,
           "feet": 252,
           "flip": true,
           "anim": "你_站"
         },
         {
           "id": "dog",
-          "x": 280,
+          "x": 250,
           "feet": 252,
           "flip": false,
           "anim": "狗_待機"
         }
-      ]
+      ],
+      "age": 1,
+      "season": "春"
     },
     "animal_kitten": {
       "_note": "TW-A3-08；cue cues.json。小貓在紙箱（back→kitten@(2,6) clipped→front）。背景暫借客廳 daylight（phone B 無路邊圖）。",
       "origin_id": "TW-A3-08",
       "lighting": "daylight",
       "status": "路邊。",
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇一年・春・你三歲",
       "text": "路邊的紙箱裡有一隻小貓，你蹲下來看，牠也看著你。",
       "buttons": [
         "繼續"
@@ -651,7 +668,7 @@
       "cast": [
         {
           "id": "protag_boy_child6",
-          "x": 220,
+          "x": 242,
           "feet": 252,
           "flip": true,
           "anim": "你_蹲"
@@ -663,14 +680,16 @@
           "flip": false,
           "anim": "小貓_待機"
         }
-      ]
+      ],
+      "age": 3,
+      "season": "春"
     },
     "animal_blanket": {
       "_note": "TW-A1-07；cue cues.json。紙箱空箱＋地板小被子（floor 版，箱外）。",
       "origin_id": "TW-A1-07",
       "lighting": "daylight",
       "status": "客廳。",
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "一九九九年・春・你一歲",
       "text": "家人把所有東西裝進紙箱，只有你的小被子一直留在外面，到新家第一個拿出來。",
       "buttons": [
         "繼續"
@@ -678,14 +697,14 @@
       "cast": [
         {
           "id": "mother",
-          "x": 160,
+          "x": 128,
           "feet": 252,
           "flip": true,
           "anim": "媽媽_站"
         },
         {
           "id": "protag_boy_child6",
-          "x": 210,
+          "x": 175,
           "feet": 252,
           "flip": true,
           "anim": "你_站"
@@ -701,12 +720,14 @@
         },
         {
           "id": "道具_小被子",
-          "x": 241,
+          "x": 189,
           "y": 233,
           "w": 28,
           "h": 20
         }
-      ]
+      ],
+      "age": 1,
+      "season": "春"
     }
   },
   "_test_order": [
@@ -715,5 +736,9 @@
     "animal_dog",
     "animal_kitten",
     "animal_blanket"
-  ]
+  ],
+  "_corner_rule": "cornerLabel(age,season): year = birth_year(1998)+age; season from screen.season or event, else 春. Computed by shared game.js cornerLabel().",
+  "birth_year": 1998,
+  "age": 5,
+  "season": "春"
 }
