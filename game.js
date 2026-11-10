@@ -1673,6 +1673,10 @@ function drawPixelboltTrial(now) {
 // One-line swap: change STYLE_TRIAL_MOM_SRC_DIR to 'assets/chars/style_trial_mom/r2' (or a future round).
 const STYLE_TRIAL_MOM_SRC_DIR = 'assets/chars/style_trial_mom/r3';
 const STYLE_TRIAL_MOM_FLOOR = 252;
+// Room ambient evening multiply, fitted from room_daylight → room_evening
+// (median channel ratio of non-sky pixels). (142,115,83)/255 recovers the
+// beige wall (194,171,157) → (108,77,51) exactly. Applied at render time only.
+const STYLE_TRIAL_MOM_EVENING_MUL = [142, 115, 83];
 const STYLE_TRIAL_MOM_VERSIONS = [
   { id: 'current', label: '目前版', file: 'current.png', x: 132 },
   { id: 'A',       label: 'A 細節', file: 'A.png',       x: 177 },
@@ -1690,7 +1694,7 @@ async function initStyleTrialMom(lighting) {
   for (const v of STYLE_TRIAL_MOM_VERSIONS) {
     const src = STYLE_TRIAL_MOM_SRC_DIR + '/' + v.file;
     const img = await load(src);
-    versions.push({ id: v.id, label: v.label, src: src, file: v.file, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img });
+    versions.push({ id: v.id, label: v.label, src: src, file: v.file, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img) });
   }
   styleTrialMom = {
     srcDir: STYLE_TRIAL_MOM_SRC_DIR,
@@ -1699,11 +1703,33 @@ async function initStyleTrialMom(lighting) {
     rooms: { daylight: day, evening: eve },
     floorLine: STYLE_TRIAL_MOM_FLOOR,
     facing: 'W as drawn (no flip)',
-    note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). B stands against the wall (right of the table) so coral-vs-wall can be judged in evening light. Plant is scenery behind B’s right shoulder; feet are on clear floor. Swap SRC_DIR to change the round.',
+    note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). B stands against the wall (right of the table) so coral-vs-wall can be judged in evening light. Plant is scenery behind B’s right shoulder; feet are on clear floor. Swap SRC_DIR to change the round. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
+    eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
     versions: versions,
   };
   window.STYLE_TRIAL_MOM = styleTrialMom;
   stmRefreshLitButtons();
+}
+
+function stmTintEvening(im) {
+  const c = document.createElement('canvas');
+  c.width = im.width; c.height = im.height;
+  const g = c.getContext('2d');
+  g.drawImage(im, 0, 0);
+  const d = g.getImageData(0, 0, c.width, c.height), px = d.data;
+  const [mr, mg, mb] = STYLE_TRIAL_MOM_EVENING_MUL;
+  for (let i = 0; i < px.length; i += 4) {
+    if (!px[i + 3]) continue;
+    px[i]     = Math.round(px[i]     * mr / 255);
+    px[i + 1] = Math.round(px[i + 1] * mg / 255);
+    px[i + 2] = Math.round(px[i + 2] * mb / 255);
+  }
+  g.putImageData(d, 0, 0);
+  return c;
+}
+
+function stmSprite(ch) {
+  return (styleTrialMom && styleTrialMom.lighting === 'evening' && ch.imgEvening) ? ch.imgEvening : ch.img;
 }
 
 function stmRefreshLitButtons() {
@@ -1739,7 +1765,7 @@ function drawStyleTrialMom(now) {
       gP.imageSmoothingEnabled = false;
       gP.drawImage(room, 0, 0);
       for (const ch of styleTrialMom.versions) {
-        gP.drawImage(ch.img, ch.x - ch.ax, ch.feet - ch.ay);
+        gP.drawImage(stmSprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
       }
     }
     return;
@@ -1751,7 +1777,7 @@ function drawStyleTrialMom(now) {
   for (const ch of styleTrialMom.versions) {
     const sx = 210 + ch.x * 4;
     const sy = ch.feet * 4;
-    gL.drawImage(ch.img, sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    gL.drawImage(stmSprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
     ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
 }

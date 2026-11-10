@@ -626,5 +626,172 @@
       }
     }
   },
-  "B_coral_vs_wall_note": "B is placed at x=406 (right of the table) so the coral top sits against the wall, with the plant behind her right shoulder (scenery, feet on clear floor). L* is CIELAB D65; contrast ratio is (Ymax+0.05)/(Ymin+0.05) with relative luminance Y. Wall colors sampled from plant-free wall patches (x 250–289 and 360–399, y 40–189) in each room."
+  "B_coral_vs_wall_note": "B is placed at x=406 (right of the table) so the coral top sits against the wall, with the plant behind her right shoulder (scenery, feet on clear floor). L* is CIELAB D65; contrast ratio is (Ymax+0.05)/(Ymin+0.05) with relative luminance Y. Wall colors sampled from plant-free wall patches (x 250–289 and 360–399, y 40–189) in each room.",
+  "B_coral_vs_wall_evening_tinted": {
+    "multiply": [
+      142,
+      115,
+      83
+    ],
+    "multiply_note": "Room ambient multiply from room_daylight→room_evening (median non-sky ratios). (142,115,83)/255 recovers beige wall (194,171,157)→(108,77,51). Render-time only; PNGs unchanged. JS Math.round.",
+    "placement_x": 406,
+    "vs_dominant_wall_108_77_51": {
+      "all": {
+        "n": 126,
+        "mean_L_blouse": 30.458683738783048,
+        "mean_L_bg": 35.4688225243049,
+        "mean_dL": -5.0101387855218515,
+        "min_dL": -13.368896007697977,
+        "max_dL": 0.6951259598497614,
+        "mean_contrast_ratio": 1.2084770596511183,
+        "min_contrast_ratio": 1.0261171348777811
+      },
+      "mid_and_light": {
+        "n": 86,
+        "mean_L_blouse": 32.18109574588978,
+        "mean_L_bg": 35.4688225243049,
+        "mean_dL": -3.2877267784151245,
+        "min_dL": -3.382556605516669,
+        "max_dL": 0.6951259598497614,
+        "mean_contrast_ratio": 1.1304393572906577,
+        "min_contrast_ratio": 1.0261171348777811
+      },
+      "by_tone": {
+        "light": {
+          "n": 2,
+          "mean_L_blouse": 36.16394848415466,
+          "mean_L_bg": 35.4688225243049,
+          "mean_dL": 0.6951259598497614,
+          "min_dL": 0.6951259598497614,
+          "max_dL": 0.6951259598497614,
+          "mean_contrast_ratio": 1.0261171348777811,
+          "min_contrast_ratio": 1.0261171348777811
+        },
+        "mid": {
+          "n": 84,
+          "mean_L_blouse": 32.08626591878823,
+          "mean_L_bg": 35.4688225243049,
+          "mean_dL": -3.382556605516669,
+          "min_dL": -3.382556605516669,
+          "max_dL": -3.382556605516669,
+          "mean_contrast_ratio": 1.1329232197290595,
+          "min_contrast_ratio": 1.1329232197290595
+        },
+        "dark": {
+          "n": 30,
+          "mean_L_blouse": 28.307355059135798,
+          "mean_L_bg": 35.4688225243049,
+          "mean_dL": -7.161467465169096,
+          "min_dL": -7.161467465169096,
+          "max_dL": -7.161467465169096,
+          "mean_contrast_ratio": 1.2991117290355136,
+          "min_contrast_ratio": 1.2991117290355136
+        },
+        "brick": {
+          "n": 10,
+          "mean_L_blouse": 22.09992651660692,
+          "mean_L_bg": 35.4688225243049,
+          "mean_dL": -13.368896007697975,
+          "min_dL": -13.368896007697977,
+          "max_dL": -13.368896007697977,
+          "mean_contrast_ratio": 1.607697291797895,
+          "min_contrast_ratio": 1.607697291797895
+        }
+      }
+    },
+    "vs_whatever_behind": {
+      "n": 885,
+      "mean_L_blouse": 29.598070940574782,
+      "mean_L_bg": 24.158702012695702,
+      "mean_dL": 5.439368927879086,
+      "min_dL": -13.368896007697977,
+      "max_dL": 23.77810740442598,
+      "mean_contrast_ratio": 1.2889892630985822,
+      "min_contrast_ratio": 1.0121134914757672
+    },
+    "n_blouse": 885,
+    "n_on_exact_wall": 126,
+    "wall_L": 35.4688225243049
+  },
+  "outline_vs_evening_after_tint": {
+    "current": {
+      "vs_wall": {
+        "n": 225,
+        "mean_dL": -31.964641161748926,
+        "min_abs_dL": 21.850016157375645,
+        "mean_contrast_ratio": 2.5515971406038727,
+        "min_contrast_ratio": 2.060853982942202,
+        "share_cr_below_1_15": 0.0
+      },
+      "vs_sofa": {
+        "n": 225,
+        "mean_dL": -15.078725578698723,
+        "min_abs_dL": 4.964100574325439,
+        "mean_contrast_ratio": 1.4211348489202111,
+        "min_contrast_ratio": 1.147811058058346,
+        "share_cr_below_1_15": 0.03111111111111111
+      }
+    },
+    "A": {
+      "vs_wall": {
+        "n": 225,
+        "mean_dL": -20.61851077232249,
+        "min_abs_dL": 13.368896007697977,
+        "mean_contrast_ratio": 1.9822887296623974,
+        "min_contrast_ratio": 1.607697291797895,
+        "share_cr_below_1_15": 0.0
+      },
+      "vs_sofa": {
+        "n": 225,
+        "mean_dL": -3.7325951892722844,
+        "min_abs_dL": 2.0995287698509415,
+        "mean_contrast_ratio": 1.1985398458009038,
+        "min_contrast_ratio": 1.0669949890493007,
+        "share_cr_below_1_15": 0.4488888888888889
+      }
+    },
+    "B": {
+      "vs_wall": {
+        "n": 225,
+        "mean_dL": -20.61851077232249,
+        "min_abs_dL": 13.368896007697977,
+        "mean_contrast_ratio": 1.9822887296623974,
+        "min_contrast_ratio": 1.607697291797895,
+        "share_cr_below_1_15": 0.0
+      },
+      "vs_sofa": {
+        "n": 225,
+        "mean_dL": -3.7325951892722844,
+        "min_abs_dL": 2.0995287698509415,
+        "mean_contrast_ratio": 1.1985398458009038,
+        "min_contrast_ratio": 1.0669949890493007,
+        "share_cr_below_1_15": 0.4488888888888889
+      }
+    },
+    "C": {
+      "vs_wall": {
+        "n": 223,
+        "mean_dL": -20.505668311734105,
+        "min_abs_dL": 13.368896007697977,
+        "mean_contrast_ratio": 1.9772805085519614,
+        "min_contrast_ratio": 1.607697291797895,
+        "share_cr_below_1_15": 0.0
+      },
+      "vs_sofa": {
+        "n": 223,
+        "mean_dL": -3.6197527286838973,
+        "min_abs_dL": 2.0995287698509415,
+        "mean_contrast_ratio": 1.1946124917144978,
+        "min_contrast_ratio": 1.0669949890493007,
+        "share_cr_below_1_15": 0.4439461883408072
+      }
+    }
+  },
+  "face_after_tint": {
+    "note": "Uniform multiply keeps relative feature/skin contrast, scaled. B brow/mouth #c99470 → (112,67,36) L*33.1 vs skin mid (129,83,47) L*39.7 (ΔL 6.6, was 12.8 before tint). Hair remains much darker than skin.",
+    "B_skin_mid_L": 39.67945633921059,
+    "B_feature_L": 33.10628982121657,
+    "B_feature_vs_skin_dL": -6.573166517994018,
+    "B_feature_vs_skin_CR": 1.2758881806612656
+  }
 }
