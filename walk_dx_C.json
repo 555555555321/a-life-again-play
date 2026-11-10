@@ -1,0 +1,33 @@
+{
+  "source": "walk_trialC_20261110/frames row 115",
+  "method": "same-foot centroid continuity; dual-contact front=cluster matching next single; at f03→f04/f07→f00 continue onto rear cluster then switch",
+  "max_foot_spread_px": 18,
+  "sanity_2x_spread": 36,
+  "note": "2×max_spread≈36 overestimates; same-foot centroid travel per step = rear_cx−front_cx = 34.0−20.5 = 13.5 (cycle 27). Verified planted scene-x constant across each stance.",
+  "plant_sprite_cx": [
+    20.5,
+    22.0,
+    25.5,
+    26.5,
+    20.5,
+    22.0,
+    25.5,
+    26.5
+  ],
+  "switch_arrive_rear_cx": {
+    "f04_from_f03": 34.0,
+    "f00_from_f07": 34.0
+  },
+  "walk_dx_east_flipX": [
+    1.5,
+    3.5,
+    1.0,
+    7.5,
+    1.5,
+    3.5,
+    1.0,
+    7.5
+  ],
+  "cycle_sum": 27.0,
+  "avg_per_frame": 3.375
+}

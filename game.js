@@ -9,7 +9,7 @@ const SHOT = qs.has('shot');
 const DEV = qs.has('dev') && qs.get('dev') !== '0'; // right-side missing/warn/drawer panel
 const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 
-// Year label: ONE shared rule (王). birth_year 1998 + age; season from screen/event or 春.
+// Year label: ONE shared rule (王). birth May 1998; 春→1998+age+1 else 1998+age; season from screen/event or 春.
 const BIRTH_YEAR = 1998;
 const CN_DIGIT = '〇一二三四五六七八九';
 function cnYear(y) { return String(y).split('').map(d => CN_DIGIT[+d]).join('') + '年'; }
@@ -21,7 +21,9 @@ function cornerLabel(age, season) {
   const a = (age == null ? 5 : +age);
   const s = season || '春';
   const by = (typeof data !== 'undefined' && data && data.birth_year != null) ? +data.birth_year : BIRTH_YEAR;
-  return cnYear(by + a) + '・' + s + '・你' + cnAge(a);
+  // Birth May 1998: 春 already past birthday → calendar year = birth+age+1; other seasons = birth+age.
+  const y = by + a + (s === '春' ? 1 : 0);
+  return cnYear(y) + '・' + s + '・你' + cnAge(a);
 }
 function screenCorner(scr) {
   if (!scr) return cornerLabel((data && data.age), (data && data.season));
@@ -1135,11 +1137,17 @@ function wtReset() {
     lane.done = false;
     lane._prevX = null;
     lane._prevPlanted = null;
+    lane._prevPlantSprite = null;
     lane._logTick = null;
   }
   walkTest.t0 = now;
   WALK_TEST_LOG.length = 0;
 }
+
+// Trial C foot-lock root dx (east/flipX): same-foot centroid on row 115.
+// Dual contact: front = cluster matching next single; f03→f04 / f07→f00 continue onto rear then switch.
+// Cycle sum 27 (not 2×spread=36: spread is toe↔opposite-heel; same-foot travel = 13.5/step).
+const WALK_DX_C = [1.5, 3.5, 1.0, 7.5, 1.5, 3.5, 1.0, 7.5];
 
 async function initWalkTest() {
   const lighting = 'daylight';
@@ -1149,9 +1157,12 @@ async function initWalkTest() {
   walkTest = {
     facingC: 'W',
     facingOld: 'W',
-    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies',
+    walkDxC: WALK_DX_C,
+    walkDxC_sum: WALK_DX_C.reduce((a, b) => a + b, 0),
+    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies. C_lock uses WALK_DX_C foot-lock; C8 keeps constant 8.',
     lanes: [
-      { id: 'C', label: 'Trial C (8+turn)', pack: packC, x0: 90, feet: 230, x1: 390, stride: 8, period: 125 },
+      { id: 'C_lock', label: 'C foot-lock', pack: packC, x0: 90, feet: 202, x1: 390, stride: WALK_DX_C, period: 125 },
+      { id: 'C8', label: 'C constant-8', pack: packC, x0: 90, feet: 230, x1: 390, stride: 8, period: 125 },
       { id: 'old', label: 'old walk (4)', pack: packOld, x0: 90, feet: 258, x1: 390, stride: 8, period: 125 },
     ],
   };
@@ -1184,7 +1195,7 @@ function wtAdvance(lane, now) {
   } else if (lane.phase === 'walk') {
     const step = Math.floor(elapsed / lane.period);
     let x = lane.x0;
-    for (let i = 0; i < step; i++) x += lane.stride;
+    for (let i = 0; i < step; i++) x += strideAt(lane.stride, i);
     if (x >= lane.x1) {
       lane.x = lane.x1; lane.phase = 'stop_side'; lane.phaseT0 = now; lane.frame = 0;
     } else {
@@ -1288,15 +1299,31 @@ function drawWalkTest(now) {
           cnv.width = 56; cnv.height = 116;
           const cg = cnv.getContext('2d'); cg.drawImage(fr, 0, 0);
           const row = cg.getImageData(0, 115, 56, 1).data;
-          let lo = 56, hi = -1;
-          for (let i = 0; i < 56; i++) if (row[i*4+3] > 0) { if (i < lo) lo = i; if (i > hi) hi = i; }
-          if (hi >= lo) {
-            // foot contact mid of bottom span, relative to anchor; flipX mirrors
-            const mid = (lo + hi) / 2;
-            const local = lane.flip ? (27 - (mid - 27)) : mid; // mirror around ax≈27
+          // cluster opaque runs on ground row
+          const runs = [];
+          let rs = -1;
+          for (let i = 0; i < 56; i++) {
+            const on = row[i*4+3] > 0;
+            if (on && rs < 0) rs = i;
+            if ((!on || i === 55) && rs >= 0) {
+              const re = on && i === 55 ? i : i - 1;
+              runs.push([(rs + re) / 2, rs, re]);
+              rs = -1;
+            }
+          }
+          if (runs.length) {
+            // support = sole cluster, or cluster nearest previous plant (continuity); else front (min cx in sprite = forward when W-art)
+            let mid;
+            if (runs.length === 1) mid = runs[0][0];
+            else if (lane._prevPlantSprite != null) {
+              mid = runs.reduce((b, r) => Math.abs(r[0] - lane._prevPlantSprite) < Math.abs(b[0] - lane._prevPlantSprite) ? r : b)[0];
+            } else {
+              mid = Math.min(...runs.map(r => r[0])); // front at contact
+            }
+            lane._prevPlantSprite = mid;
+            const local = lane.flip ? (27 - (mid - 27)) : mid;
             planted = x + (local - 27);
             if (lane._prevPlanted != null && lane.phase === 'walk') {
-              // ideal planted foot stays put while body moves; slide = planted delta
               slide = planted - lane._prevPlanted;
             }
             lane._prevPlanted = planted;

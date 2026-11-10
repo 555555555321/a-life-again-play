@@ -1,6 +1,6 @@
 {
   "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
-  "corner": "二〇〇三年・春・你五歲",
+  "corner": "二〇〇四年・春・你五歲",
   "family": "dad_works_mom_home",
   "order": [
     "talent",
@@ -59,7 +59,7 @@
           "flip": true
         }
       ],
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -107,7 +107,7 @@
           "anim": "你_等出門"
         }
       ],
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -157,7 +157,7 @@
           "flip": false
         }
       ],
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -601,7 +601,7 @@
           }
         }
       ],
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -615,7 +615,7 @@
         "繼續"
       ],
       "cast": [],
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -624,7 +624,7 @@
       "origin_id": "TW-A1-05",
       "lighting": "daylight",
       "status": "鄰居家門口。",
-      "corner": "一九九九年・春・你一歲",
+      "corner": "二〇〇〇年・春・你一歲",
       "text": "爸爸牽著你站在鄰居家門口，陪你看那隻狗看了好久。",
       "buttons": [
         "繼續"
@@ -660,7 +660,7 @@
       "origin_id": "TW-A3-08",
       "lighting": "daylight",
       "status": "路邊。",
-      "corner": "二〇〇一年・春・你三歲",
+      "corner": "二〇〇二年・春・你三歲",
       "text": "路邊的紙箱裡有一隻小貓，你蹲下來看，牠也看著你。",
       "buttons": [
         "繼續"
@@ -689,7 +689,7 @@
       "origin_id": "TW-A1-07",
       "lighting": "daylight",
       "status": "客廳。",
-      "corner": "一九九九年・春・你一歲",
+      "corner": "二〇〇〇年・春・你一歲",
       "text": "家人把所有東西裝進紙箱，只有你的小被子一直留在外面，到新家第一個拿出來。",
       "buttons": [
         "繼續"
@@ -734,7 +734,7 @@
       "dev_only": true,
       "age": 5,
       "season": "春",
-      "corner": "二〇〇三年・春・你五歲",
+      "corner": "二〇〇四年・春・你五歲",
       "lighting": "daylight",
       "status": "走路試驗 C（上）對照舊 4 格（下）。",
       "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。上＝Trial C 8 格；下＝舊 walk 4 格。",
@@ -751,7 +751,7 @@
     "animal_kitten",
     "animal_blanket"
   ],
-  "_corner_rule": "cornerLabel(age,season): year = birth_year(1998)+age; season from screen.season or event, else 春. Computed by shared game.js cornerLabel().",
+  "_corner_rule": "cornerLabel(age,season): birth May 1998; year = birth_year+age+1 if season==春 else birth_year+age; season from screen.season or event, else 春. Shared game.js cornerLabel().",
   "birth_year": 1998,
   "age": 5,
   "season": "春"
