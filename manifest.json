@@ -344,5 +344,63 @@
     "frames": "assets/chars/father_walk_c/idle_0{i}.png",
     "n": 4,
     "facing_drawn": "W"
+  },
+  "grandpa": {
+    "anchor": "foot",
+    "anchor_w": [
+      27,
+      115
+    ],
+    "anchor_e": [
+      28,
+      115
+    ],
+    "canvas": [
+      56,
+      116
+    ],
+    "idle_frames": "assets/chars/grandpa/stand_0{i}.png",
+    "idle_n": 2,
+    "walk_n": 0,
+    "sit_n": 0,
+    "turn_n": 0,
+    "stride": 0,
+    "stand": "阿公_站",
+    "from": "elders_stand_20261110 r5 阿公 stand+breath DEV only",
+    "frames": "assets/chars/grandpa/stand_0{i}.png",
+    "n": 2,
+    "view_idle": "34v",
+    "facing_drawn": "W",
+    "height_px": 90,
+    "dev_only": true
+  },
+  "grandma": {
+    "anchor": "foot",
+    "anchor_w": [
+      27,
+      115
+    ],
+    "anchor_e": [
+      28,
+      115
+    ],
+    "canvas": [
+      56,
+      116
+    ],
+    "idle_frames": "assets/chars/grandma/stand_0{i}.png",
+    "idle_n": 2,
+    "walk_n": 0,
+    "sit_n": 0,
+    "turn_n": 0,
+    "stride": 0,
+    "stand": "阿嬤_站",
+    "from": "elders_stand_20261110 r5 阿嬤 stand+breath DEV only",
+    "frames": "assets/chars/grandma/stand_0{i}.png",
+    "n": 2,
+    "view_idle": "34v",
+    "facing_drawn": "W",
+    "height_px": 88,
+    "dev_only": true
   }
 }

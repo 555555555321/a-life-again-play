@@ -1,0 +1,88 @@
+{
+  "facing": "W as drawn; flipX=false for all four (grandpa, grandma, dad, mom)",
+  "scale": "same game scale: ×4 in landscape, anchor (27,115), feet on official floor_line 252",
+  "floor_top_y": 210,
+  "floor_line_y": 252,
+  "console_errors": [],
+  "overlaps": [],
+  "characters": [
+    {
+      "id": "grandpa",
+      "facing": "W",
+      "flipX": false,
+      "x": 90,
+      "feet_y": 252,
+      "floor_line_y": 252,
+      "floor_top_y": 210,
+      "height_source_px": 90,
+      "top_y_source": 26,
+      "bottom_y_source": 115,
+      "breath_frame_diff_px": 108,
+      "bbox_source": {
+        "x0": 77,
+        "y0": 163,
+        "x1": 106,
+        "y1": 252
+      }
+    },
+    {
+      "id": "grandma",
+      "facing": "W",
+      "flipX": false,
+      "x": 175,
+      "feet_y": 252,
+      "floor_line_y": 252,
+      "floor_top_y": 210,
+      "height_source_px": 88,
+      "top_y_source": 28,
+      "bottom_y_source": 115,
+      "breath_frame_diff_px": 101,
+      "bbox_source": {
+        "x0": 160,
+        "y0": 165,
+        "x1": 189,
+        "y1": 252
+      }
+    },
+    {
+      "id": "dad",
+      "facing": "W",
+      "flipX": false,
+      "x": 260,
+      "feet_y": 252,
+      "floor_line_y": 252,
+      "floor_top_y": 210,
+      "height_source_px": 96,
+      "top_y_source": 20,
+      "bottom_y_source": 115,
+      "breath_frame_diff_px": 0,
+      "bbox_source": {
+        "x0": 246,
+        "y0": 157,
+        "x1": 277,
+        "y1": 252
+      }
+    },
+    {
+      "id": "mom",
+      "facing": "W",
+      "flipX": false,
+      "x": 345,
+      "feet_y": 252,
+      "floor_line_y": 252,
+      "floor_top_y": 210,
+      "height_source_px": 89,
+      "top_y_source": 27,
+      "bottom_y_source": 115,
+      "breath_frame_diff_px": 0,
+      "bbox_source": {
+        "x0": 331,
+        "y0": 164,
+        "x1": 363,
+        "y1": 252
+      }
+    }
+  ],
+  "screenshot": "/workspace/phone_b_20261109/shots/elders_stand_820.png",
+  "gif": "/workspace/phone_b_20261109/shots/elders_stand_820.gif"
+}

@@ -742,6 +742,18 @@
         "重播"
       ],
       "cast": []
+    },
+    "elders_stand": {
+      "_note": "DEV ONLY 阿公/阿嬤 r5 站立呼吸，與爸媽 idle 並排比尺度。?dev=1&screen=elders_stand。Not in order.",
+      "dev_only": true,
+      "age": 5,
+      "season": "春",
+      "corner": "二〇〇四年・春・你五歲",
+      "lighting": "daylight",
+      "status": "站立試驗：阿公、阿嬤 r5 站立呼吸，旁邊是爸爸、媽媽 idle，同一尺度。",
+      "text": "左起阿公、阿嬤、爸爸、媽媽。都站在地板上，面向西（原畫朝 W，無 flipX）。阿公／阿嬤兩格呼吸。",
+      "buttons": [],
+      "cast": []
     }
   },
   "_test_order": [

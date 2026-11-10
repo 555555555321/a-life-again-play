@@ -574,6 +574,11 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if (activeKey === 'elders_stand' && eldersStand) {
+    drawEldersStand(now);
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -1140,6 +1145,12 @@ function wtReset() {
     lane._prevX = null;
     lane._prevPlanted = null;
     lane._prevPlantSprite = null;
+    lane._plantId = null;
+    lane.walkAlign = 0;
+    lane._holdImg = null;
+    lane._holdPhase = null;
+    lane._walkStep = 0;
+    lane._aligns = [];
     lane._logTick = null;
   }
   walkTest.t0 = now;
@@ -1200,6 +1211,7 @@ async function initWalkTest() {
   wtReset();
   window.WALK_TEST = walkTest;
   window.WALK_TEST_LOG = WALK_TEST_LOG;
+  window.WALK_TEST_ALIGNS = () => (walkTest.lanes.find(l => l.id === 'C_lock') || {})._aligns || [];
 }
 
 function wtPhaseMs(lane) {
@@ -1213,24 +1225,127 @@ function wtPhaseMs(lane) {
   return 1e12; // stop idle
 }
 
+function wtGroundRuns(img) {
+  const cnv = document.createElement('canvas');
+  cnv.width = 56; cnv.height = 116;
+  const cg = cnv.getContext('2d');
+  cg.drawImage(img, 0, 0);
+  const row = cg.getImageData(0, 115, 56, 1).data;
+  const runs = [];
+  let rs = -1;
+  for (let i = 0; i < 56; i++) {
+    const on = row[i * 4 + 3] > 0;
+    if (on && rs < 0) rs = i;
+    if ((!on || i === 55) && rs >= 0) {
+      const re = on && i === 55 ? i : i - 1;
+      runs.push({ mid: (rs + re) / 2, lo: rs, hi: re });
+      rs = -1;
+    }
+  }
+  return runs;
+}
+function wtPickPlant(runs, prevMid) {
+  if (!runs.length) return null;
+  if (runs.length === 1) return runs[0];
+  if (prevMid != null) return runs.reduce((b, r) => Math.abs(r.mid - prevMid) < Math.abs(b.mid - prevMid) ? r : b);
+  return runs.reduce((b, r) => (r.mid < b.mid ? r : b)); // front = min cx in W-facing art
+}
+function wtPlantedSceneX(lane, mid, x) {
+  const local = lane.flip ? (27 - (mid - 27)) : mid;
+  return x + (local - 27);
+}
+// C foot-lock only: whenever the same foot stays planted across a frame change,
+// shift root x so that foot's scene-x is unchanged. Only a real foot switch may move planted x.
+const WT_SWITCH_PX = 10;
+function wtHoldDelta(lane, prevImg, nextImg) {
+  const tPick = wtPickPlant(wtGroundRuns(prevImg), lane._prevPlantSprite);
+  const wPick = wtPickPlant(wtGroundRuns(nextImg), tPick ? tPick.mid : null);
+  if (!tPick || !wPick) return { delta: 0, switched: false, prevMid: null, nextMid: null };
+  const delta = lane.flip ? (wPick.mid - tPick.mid) : (tPick.mid - wPick.mid);
+  return { delta, midJump: wPick.mid - tPick.mid, prevMid: tPick.mid, nextMid: wPick.mid };
+}
+function wtApplyHold(lane, nextImg, meta) {
+  if (lane.id !== 'C_lock' || !nextImg) return 0;
+  const prevImg = lane._holdImg;
+  const fromPhase = lane._holdPhase;
+  if (!prevImg || prevImg === nextImg) {
+    lane._holdImg = nextImg;
+    lane._holdPhase = lane.phase;
+    return 0;
+  }
+  const h = wtHoldDelta(lane, prevImg, nextImg);
+  const xBefore = lane.x;
+  let correction = 0;
+  // A real foot switch is only a walk-cycle contact change (rear ~37 → front ~23).
+  // Pose changes (idle/turn/walk/side/stop) can move the ground-run mid a lot
+  // when two feet fuse or split; those still keep the same planted foot.
+  const walkToWalk = (fromPhase === 'walk' && lane.phase === 'walk');
+  const switched = !!(walkToWalk && Math.abs(h.midJump) >= WT_SWITCH_PX);
+  if (switched) {
+    if (meta && meta.walkStride != null) {
+      correction = meta.walkStride;
+      lane.x += correction;
+    }
+    if (!lane._aligns) lane._aligns = [];
+    lane._aligns.push({
+      kind: 'switch', from_phase: fromPhase || null, to_phase: lane.phase,
+      from_mid: h.prevMid, to_mid: h.nextMid,
+      correction, x_before: xBefore, x_after: lane.x,
+    });
+  } else {
+    correction = h.delta;
+    if (correction) lane.x += correction;
+    if (correction) {
+      if (!lane._aligns) lane._aligns = [];
+      lane._aligns.push({
+        kind: 'hold', from_phase: fromPhase || null, to_phase: lane.phase,
+        from_mid: h.prevMid, to_mid: h.nextMid,
+        correction, x_before: Math.round(xBefore * 100) / 100, x_after: Math.round(lane.x * 100) / 100,
+      });
+    }
+  }
+  lane._holdImg = nextImg;
+  lane._holdPhase = lane.phase;
+  return correction;
+}
+
 function wtAdvance(lane, now) {
   const elapsed = now - lane.phaseT0;
   if (lane.phase === 'stand' && elapsed >= wtPhaseMs(lane)) {
     if (lane.pack.turn && lane.pack.turn.length) {
       lane.phase = 'turn'; lane.phaseT0 = now; lane.frame = 0;
     } else {
-      lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0;
+      lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0; lane._walkStep = 0;
     }
   } else if (lane.phase === 'turn' && elapsed >= wtPhaseMs(lane)) {
-    lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0;
+    lane.phase = 'walk'; lane.phaseT0 = now; lane.frame = 0; lane._walkStep = 0;
   } else if (lane.phase === 'walk') {
     const step = Math.floor(elapsed / lane.period);
-    let x = lane.x0;
-    for (let i = 0; i < step; i++) x += strideAt(lane.stride, i);
-    if (x >= lane.x1) {
-      lane.x = lane.x1; lane.phase = 'stop_side'; lane.phaseT0 = now; lane.frame = 0;
+    if (lane.id === 'C_lock') {
+      const prev = lane._walkStep || 0;
+      const nW = lane.pack.walk.length;
+      for (let s = prev + 1; s <= step; s++) {
+        const nextImg = lane.pack.walk[s % nW];
+        const prevImg = lane._holdImg || lane.pack.walk[(s - 1 + nW) % nW];
+        const h = wtHoldDelta(lane, prevImg, nextImg);
+        const switched = Math.abs(h.midJump) >= WT_SWITCH_PX;
+        const dx = switched ? strideAt(lane.stride, s - 1) : h.delta;
+        if (lane.x + dx >= lane.x1) {
+          lane.phase = 'stop_side'; lane.phaseT0 = now; lane.frame = 0;
+          break;
+        }
+        wtApplyHold(lane, nextImg, { walkStride: switched ? strideAt(lane.stride, s - 1) : null });
+        lane._walkStep = s;
+        lane.frame = s % nW;
+      }
     } else {
-      lane.x = x; lane.frame = step % lane.pack.walk.length;
+      let x = lane.x0 + (lane.walkAlign || 0);
+      for (let i = 0; i < step; i++) x += strideAt(lane.stride, i);
+      if (x >= lane.x1) {
+        lane.x = lane.x1; lane.phase = 'stop_side'; lane.phaseT0 = now; lane.frame = 0;
+      } else {
+        lane.x = x; lane.frame = step % lane.pack.walk.length;
+      }
     }
   } else if (lane.phase === 'stop_side' && elapsed >= 200) {
     lane.phase = 'stop'; lane.phaseT0 = now; lane.frame = 0; lane.done = true;
@@ -1246,6 +1361,7 @@ function wtFrame(lane, now) {
   }
   if (lane.phase === 'turn') {
     const i = Math.min(p.turn.length - 1, Math.floor((now - lane.phaseT0) / lane.period));
+    lane.frame = i;
     return p.turn[i];
   }
   if (lane.phase === 'walk') return p.walk[lane.frame];
@@ -1306,6 +1422,7 @@ function drawWalkTest(now) {
     gL.font = '28px NotoTC,sans-serif';
     for (const lane of walkTest.lanes) {
       const f = wtFrame(lane, now);
+      wtApplyHold(lane, f, null);
       const ax = lane.pack.ax, ay = lane.pack.ay;
       const feetY = lane.feet;
       const x = lane.x;
@@ -1329,54 +1446,37 @@ function drawWalkTest(now) {
         const prev = lane._prevX;
         const dx = (prev == null) ? 0 : (x - prev);
         lane._prevX = x;
-        // planted foot ≈ opaque span on ground row of current frame, mapped to scene x
-        let planted = null, slide = null;
+        // planted foot ≈ opaque cluster on ground row, mapped to scene x
+        let planted = null, slide = null, plantId = lane._plantId;
         try {
-          const fr = f;
-          const cnv = document.createElement('canvas');
-          cnv.width = 56; cnv.height = 116;
-          const cg = cnv.getContext('2d'); cg.drawImage(fr, 0, 0);
-          const row = cg.getImageData(0, 115, 56, 1).data;
-          // cluster opaque runs on ground row
-          const runs = [];
-          let rs = -1;
-          for (let i = 0; i < 56; i++) {
-            const on = row[i*4+3] > 0;
-            if (on && rs < 0) rs = i;
-            if ((!on || i === 55) && rs >= 0) {
-              const re = on && i === 55 ? i : i - 1;
-              runs.push([(rs + re) / 2, rs, re]);
-              rs = -1;
-            }
-          }
-          if (runs.length) {
-            // support = sole cluster, or cluster nearest previous plant (continuity); else front (min cx in sprite = forward when W-art)
-            let mid;
-            if (runs.length === 1) mid = runs[0][0];
-            else if (lane._prevPlantSprite != null) {
-              mid = runs.reduce((b, r) => Math.abs(r[0] - lane._prevPlantSprite) < Math.abs(b[0] - lane._prevPlantSprite) ? r : b)[0];
-            } else {
-              mid = Math.min(...runs.map(r => r[0])); // front at contact
-            }
-            lane._prevPlantSprite = mid;
-            const local = lane.flip ? (27 - (mid - 27)) : mid;
-            planted = x + (local - 27);
-            if (lane._prevPlanted != null && lane.phase === 'walk') {
+          const pick = wtPickPlant(wtGroundRuns(f), lane._prevPlantSprite);
+          if (pick) {
+            const mid = pick.mid;
+            planted = wtPlantedSceneX(lane, mid, x);
+            if (lane._prevPlanted != null) {
               slide = planted - lane._prevPlanted;
             }
+            if (lane._plantId == null) lane._plantId = 'A';
+            else if (slide != null && Math.abs(slide) >= 10) {
+              lane._plantId = lane._plantId === 'A' ? 'B' : 'A';
+            }
+            plantId = lane._plantId;
+            lane._prevPlantSprite = mid;
             lane._prevPlanted = planted;
           }
         } catch (_) {}
         WALK_TEST_LOG.push({
-          t_ms: Math.round(now - walkTest.t0),
           lane: lane.id,
+          tick: tick,
+          t_ms: Math.round(now - walkTest.t0),
           phase: lane.phase,
           frame: lane.frame,
           char_x: Math.round(x * 100) / 100,
           char_dx: Math.round(dx * 100) / 100,
-          foot_y: feetY,
+          planted_foot_id: plantId || null,
           planted_x: planted == null ? null : Math.round(planted * 100) / 100,
           planted_dx: slide == null ? null : Math.round(slide * 100) / 100,
+          foot_y: feetY,
           flip: lane.flip,
         });
       }
@@ -1392,6 +1492,90 @@ function drawWalkTest(now) {
       else gP.drawImage(f, lane.x - ax, lane.feet - ay);
       gP.restore();
     }
+  }
+}
+
+
+// —— DEV elders_stand: 阿公/阿嬤 r5 stand + 2-frame breath next to dad/mom idle (does not alter default casts) ——
+const ES_FLOOR_LINE = 252;
+const ES_FLOOR_TOP = 210;
+const ES_BREATH_MS = 600;
+let eldersStand = null;
+
+async function initEldersStand() {
+  const lighting = 'daylight';
+  const packGp = await sprite('grandpa', lighting);
+  const packGm = await sprite('grandma', lighting);
+  const packDad = await sprite('father', lighting);
+  const packMom = await sprite('mother', lighting);
+  eldersStand = {
+    floorLine: ES_FLOOR_LINE,
+    floorTop: ES_FLOOR_TOP,
+    facing: 'W',
+    note: 'All four face WEST as drawn (no flipX). Same game scale (×4, anchor (27,115), feet on floor_line 252).',
+    chars: [
+      { id: 'grandpa', label: 'grandpa', pack: packGp, x: 90,  feet: ES_FLOOR_LINE, flip: false, breath: true },
+      { id: 'grandma', label: 'grandma', pack: packGm, x: 175, feet: ES_FLOOR_LINE, flip: false, breath: true },
+      { id: 'dad',     label: 'dad',     pack: packDad, x: 260, feet: ES_FLOOR_LINE, flip: false, breath: false },
+      { id: 'mom',     label: 'mom',     pack: packMom, x: 345, feet: ES_FLOOR_LINE, flip: false, breath: false },
+    ],
+    t0: performance.now(),
+  };
+  window.ELDERS_STAND = eldersStand;
+}
+
+function esFrame(ch, now) {
+  const p = ch.pack;
+  if (ch.breath) {
+    const i = Math.floor((now - eldersStand.t0) / ES_BREATH_MS) % Math.max(1, p.idle.length);
+    ch.frame = i;
+    return p.idle[i];
+  }
+  const phase = Math.floor((now - eldersStand.t0) / 100) % 24;
+  if (phase >= 20 && p.blink) { ch.frame = 'blink'; return p.blink; }
+  const i = Math.min(p.idle.length - 1, Math.floor(phase / 6));
+  ch.frame = i;
+  return p.idle[i];
+}
+
+function drawEldersStand(now) {
+  if (!eldersStand) return;
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (!(ORIENT === 'landscape' && gL)) {
+    const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+    if (gP && prepared && prepared.room) {
+      gP.imageSmoothingEnabled = false;
+      gP.drawImage(prepared.room, 0, 0);
+      for (const ch of eldersStand.chars) {
+        const f = esFrame(ch, now);
+        const ax = ch.pack.ax, ay = ch.pack.ay;
+        gP.save();
+        if (ch.flip) { gP.translate(ch.x, 0); gP.scale(-1, 1); gP.drawImage(f, -ax, ch.feet - ay); }
+        else gP.drawImage(f, ch.x - ax, ch.feet - ay);
+        gP.restore();
+      }
+    }
+    return;
+  }
+  gL.imageSmoothingEnabled = false;
+  gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+  const room = prepared && prepared.room;
+  if (room) gL.drawImage(room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+  gL.font = '28px NotoTC,sans-serif';
+  for (const ch of eldersStand.chars) {
+    const f = esFrame(ch, now);
+    const ax = ch.pack.ax, ay = ch.pack.ay;
+    const sx = 210 + ch.x * 4;
+    const sy = ch.feet * 4;
+    gL.save();
+    if (ch.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+    else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+    gL.restore();
+    const ly = (ch.feet - 96) * 4 + 32;
+    gL.fillStyle = '#2a2428';
+    gL.fillRect(sx - 70, ly - 28, 160, 36);
+    gL.fillStyle = '#f0e8d6';
+    gL.fillText(ch.label, sx - 60, ly);
   }
 }
 
@@ -1478,6 +1662,20 @@ function drawWalkTest(now) {
         box.appendChild(b2);
       };
       wireReplay('btns'); wireReplay('lbtns');
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'elders_stand') {
+    if (!DEV) {
+      console.warn('elders_stand requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.elders_stand;
+      activeKey = 'elders_stand';
+      prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'elders_stand');
+      await initEldersStand();
+      fit();
+      reflow();
+      renderAll();
       if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
     }
   } else if (startKey && data.screens[startKey]) await goKey(startKey, startPage);
