@@ -47,6 +47,24 @@ assert.strictEqual(pendingVersion.x, 111);
 assert.strictEqual(pendingVersion.feet, 222);
 pass('pending_redraw / pending_scene are not applied; pass is');
 
+const passTemplate = Object.assign({}, SP.lookup(rows, 'mom_A_r5c'));
+const emptyStatusRows = [Object.assign({}, passTemplate, { status: '' })];
+const typoStatusRows = [Object.assign({}, passTemplate, { status: 'pas' })];
+const memberSeed = { id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' };
+const emptyApplied = SP.applyToCastMember(memberSeed, emptyStatusRows);
+assert.strictEqual(emptyApplied.x, 100);
+assert.strictEqual(emptyApplied.feet, 200);
+const typoApplied = SP.applyToCastMember(memberSeed, typoStatusRows);
+assert.strictEqual(typoApplied.x, 100);
+assert.strictEqual(typoApplied.feet, 200);
+const passApplied = SP.applyToCastMember(memberSeed, rows);
+assert.strictEqual(passApplied.x, 295);
+assert.strictEqual(passApplied.feet, 252);
+const typoVersion = SP.applyToVersion({ id: 'a5c_12', src: 'x', x: 100, feet: 200 }, 'mom_A_r5c', typoStatusRows);
+assert.strictEqual(typoVersion.x, 100);
+assert.strictEqual(typoVersion.feet, 200);
+pass('empty and typo statuses are not applied; pass is');
+
 const movedCsv = csv.replace(/^mom_A_r5c,([^,]+),([^,]+),295,/m, 'mom_A_r5c,$1,$2,310,');
 const movedRows = SP.parse(movedCsv);
 assert.strictEqual(SP.lookup(movedRows, 'mom_A_r5c').x, 310);

@@ -38,12 +38,13 @@
     return null;
   }
 
-  // pending_redraw / pending_scene are recorded only; do not move the cast.
-  function isPendingStatus(status) {
-    return status === 'pending_redraw' || status === 'pending_scene';
+  // Apply a row only when status is exactly "pass".
+  // Empty, missing, misspelled, pending_redraw, and pending_scene are not applied.
+  function isPassStatus(status) {
+    return status === 'pass';
   }
 
-  function warnPendingIfDev(row) {
+  function warnSkipIfDev(row) {
     let dev = false;
     try {
       if (typeof DEV !== 'undefined') dev = !!DEV;
@@ -54,7 +55,13 @@
     } catch (_) {}
     if (!dev) return;
     if (typeof console !== 'undefined' && typeof console.warn === 'function') {
-      console.warn('StandingPoints: not applying standing_group "' + row.group_id + '" because status is ' + row.status);
+      const st = row.status;
+      const known = st === 'pending_redraw' || st === 'pending_scene';
+      const label = (st == null || st === '') ? JSON.stringify(st) : st;
+      const why = known
+        ? ('status is ' + st)
+        : ('status is not pass (' + label + ')');
+      console.warn('StandingPoints: not applying standing_group "' + row.group_id + '" because ' + why);
     }
   }
 
@@ -63,8 +70,8 @@
     const id = member.standing_group || member.standingGroup;
     const row = lookup(rows, id);
     if (!row) return member;
-    if (isPendingStatus(row.status)) {
-      warnPendingIfDev(row);
+    if (!isPassStatus(row.status)) {
+      warnSkipIfDev(row);
       return member;
     }
     const out = Object.assign({}, member);
@@ -82,8 +89,8 @@
   function applyToVersion(version, groupId, rows) {
     const row = lookup(rows, groupId);
     if (!row || !version) return version;
-    if (isPendingStatus(row.status)) {
-      warnPendingIfDev(row);
+    if (!isPassStatus(row.status)) {
+      warnSkipIfDev(row);
       return version;
     }
     const out = Object.assign({}, version);
