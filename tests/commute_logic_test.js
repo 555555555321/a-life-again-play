@@ -168,6 +168,66 @@ assert.strictEqual(forcedBreak.play, true);
 assert.strictEqual(forcedBreak.event.type, 'breakdown');
 pass('readCarState adapter, URL aliases, play-on-breakdown');
 
+// carAge must never take g.age (that is often the person). Use car.boughtAge.
+const notPersonAge = L.readCarState({ vehicle: 'car' }, { vehicle: { owned: { type: 'compact', age: 40 } } });
+assert.strictEqual(notPersonAge.carAge, 0, 'g.age must not be used as carAge, got ' + notPersonAge.carAge);
+const notCarObjAge = L.readCarState({ vehicle: 'car' }, { car: { type: 'compact', age: 40 } });
+assert.strictEqual(notCarObjAge.carAge, 0);
+const fromBought = L.readCarState({ vehicle: 'car' }, { age: 30, car: { type: 'compact', boughtAge: 26 } });
+assert.strictEqual(fromBought.carAge, 4);
+const fromPlayerBought = L.readCarState({ vehicle: 'car' }, { player: { age: 18 }, vehicle: { owned: { type: 'compact', boughtAge: 16 } } });
+assert.strictEqual(fromPlayerBought.carAge, 2);
+const boughtNoPlayer = L.readCarState({ vehicle: 'car' }, { car: { type: 'compact', boughtAge: 16 } });
+assert.strictEqual(boughtNoPlayer.carAge, 0);
+const boughtClamped = L.readCarState({ vehicle: 'car' }, { age: 10, car: { type: 'compact', boughtAge: 16 } });
+assert.strictEqual(boughtClamped.carAge, 0);
+const qBeatsBought = L.readCarState({ vehicle: 'car', carage: '7' }, { age: 30, car: { type: 'compact', boughtAge: 26 } });
+assert.strictEqual(qBeatsBought.carAge, 7);
+const explicitCarAge = L.readCarState({ vehicle: 'car' }, { age: 40, vehicle: { owned: { type: 'compact', carAge: 8, age: 40 } } });
+assert.strictEqual(explicitCarAge.carAge, 8);
+pass('carAge from boughtAge, never g.age');
+
+// 王: scooter uses the same breakdown rate as the car
+assert.strictEqual(
+  L.tripBreakdownProbability({ mode: 'scooter', carAge: 12 }),
+  L.tripBreakdownProbability({ mode: 'car', carAge: 12 })
+);
+assert.strictEqual(
+  L.tripBreakdownProbability({ mode: 'scooter', carAge: 1, maint: true }),
+  L.tripBreakdownProbability({ mode: 'car', carAge: 1, maint: true })
+);
+pass('scooter breakdown rate matches car');
+
+
+assert.deepStrictEqual(L.resolveRiders('family'), { riders: 'family', passengers: 1, kidSeat: false });
+const famScoot = L.readCarState({ vehicle: 'scooter', riders: 'family', driver: 'mom' });
+assert.strictEqual(famScoot.riders, 'family');
+assert.strictEqual(famScoot.passengers, 1);
+assert.strictEqual(famScoot.driver, 'mom');
+const famCar = L.readCarState({ vehicle: 'car', riders: 'family' });
+assert.strictEqual(famCar.riders, 'kid_seat');
+assert.strictEqual(famCar.kidSeat, true);
+const drv = L.readCarState({ vehicle: 'car' });
+assert.strictEqual(drv.driver, 'dad');
+pass('riders=family and driver');
+
+const carThree = L.readCarState({ vehicle: 'car', riders: 'partner', kidseat: '1' });
+assert.strictEqual(carThree.riders, 'partner');
+assert.strictEqual(carThree.kidSeat, true);
+assert.strictEqual(carThree.passengers, 2);
+const carThreeKid = L.readCarState({ vehicle: 'car', riders: 'partner', kid: '1' });
+assert.strictEqual(carThreeKid.kidSeat, true);
+assert.strictEqual(carThreeKid.passengers, 2);
+const carKidOnly = L.readCarState({ vehicle: 'car', riders: 'kid_seat' });
+assert.strictEqual(carKidOnly.riders, 'kid_seat');
+assert.strictEqual(carKidOnly.kidSeat, true);
+assert.strictEqual(carKidOnly.passengers, 1);
+const carPartnerOnly = L.readCarState({ vehicle: 'car', riders: 'partner' });
+assert.strictEqual(carPartnerOnly.kidSeat, false);
+assert.strictEqual(carPartnerOnly.passengers, 1);
+pass('car riders=partner&kidseat=1 is driver+spouse+child seat');
+
+
 // 10-year sim: 2000 seeds × 5500 trips per age band ± maint
 const bands = [
   { label: '0–3', carAge: 1 },
