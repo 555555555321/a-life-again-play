@@ -24,6 +24,8 @@ const overlayManifests = {
 cfg.overlayManifests = overlayManifests;
 const v2 = require('../assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
 const famAnchors = require('../assets/vehicles/a/scooter_m0_family_v2/anchors_day_dad.json');
+const famM1Anchors = require('../assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+const famM2Anchors = require('../assets/vehicles/a/scooter_m2_family/anchors_day_dad.json');
 const scoot0v2 = require('../assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
 const scoot2v2 = require('../assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
 function bakedFrom(anchors) {
@@ -33,15 +35,37 @@ function bakedFrom(anchors) {
     ground_row: anchors.ground_row,
     px_per_frame: anchors.wheels[0].px_per_frame,
     origin: [0, 0],
+    wheels: anchors.wheels,
   };
 }
 cfg.bakedMetrics = {
   bicycle_m2_v2: bakedFrom(v2),
   scooter_m0_family_v2: bakedFrom(famAnchors),
   scooter_m0_family: bakedFrom(famAnchors),
+  scooter_m1_family: bakedFrom(famM1Anchors),
+  scooter_m2_family: bakedFrom(famM2Anchors),
   scooter_m0_v2: bakedFrom(scoot0v2),
   scooter_m2_v2: bakedFrom(scoot2v2),
 };
+const fs = require('fs');
+cfg.variantMetrics = {};
+function loadVariantAnchors(dir, names) {
+  for (const v of names) {
+    const rel = dir + '/anchors_' + v + '.json';
+    const abs = path.join(__dirname, '..', rel);
+    if (!fs.existsSync(abs)) continue;
+    const doc = require('../' + rel);
+    cfg.variantMetrics[L.variantMetricsKey(dir, v)] = L.metricsFromAnchorDoc(doc, 'anchors_' + v);
+  }
+}
+const SCOOT_VARS = ['day_dad','day_dad_p1','day_mom','day_mom_p1','night_dad','night_dad_p1','night_mom','night_mom_p1'];
+const FAM_VARS = ['day_dad','day_mom','night_dad','night_mom'];
+loadVariantAnchors('assets/vehicles/a/scooter_m0_v2', SCOOT_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m1', SCOOT_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m2_v2', SCOOT_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m0_family_v2', FAM_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m1_family', FAM_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m2_family', FAM_VARS);
 
 // px/frame and canvas for small cars come from overlays/manifest.json, not the old composite.
 for (const m of [0, 1, 2]) {
@@ -136,16 +160,33 @@ assert.strictEqual(famHit.variant, 'day_mom');
 assert.strictEqual(famHit.assetDir, 'assets/vehicles/a/scooter_m0_family_v2');
 assert.strictEqual(famHit.family, true);
 assert.ok(!famHit.pending.includes('scooter_family'));
-assert.deepStrictEqual(famHit.canvas, [52, 50]);
+assert.ok(!famHit.labels.includes('機車全家款待王子'));
+const famMomAnchors = require('../assets/vehicles/a/scooter_m0_family_v2/anchors_day_mom.json');
+assert.deepStrictEqual(famHit.canvas, famMomAnchors.canvas);
+assert.strictEqual(famHit.ground_row, famMomAnchors.ground_row);
+assert.strictEqual(famHit.metricsSource, 'anchors_day_mom');
 
 const famM1 = L.resolveArtPlan({
   pack: 'a', mode: 'scooter', model: 1, driver: 'dad', lighting: 'daylight',
-  passengers: 1, riders: 'family', cfg, familyAvailable: true,
+  passengers: 1, riders: 'family', cfg, familyAvailable: { 0: true, 1: true, 2: true },
   available: new Set(['day_dad']),
 });
-assert.strictEqual(famM1.fallbackFrom, 'family');
-assert.ok(famM1.pending.includes('scooter_family'));
-assert.ok(famM1.assetDir.indexOf('scooter_m1') >= 0);
+assert.strictEqual(famM1.family, true);
+assert.strictEqual(famM1.fallbackFrom, null);
+assert.ok(!famM1.pending.includes('scooter_family'));
+assert.ok(!famM1.labels.includes('機車全家款待王子'));
+assert.strictEqual(famM1.assetDir, 'assets/vehicles/a/scooter_m1_family');
+assert.strictEqual(famM1.variant, 'day_dad');
+assert.deepStrictEqual(famM1.canvas, famM1Anchors.canvas);
+assert.strictEqual(famM1.ground_row, famM1Anchors.ground_row);
+
+const famM1Missing = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 1, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'family', cfg, familyAvailable: false,
+  available: new Set(['day_dad']),
+});
+assert.ok(famM1Missing.pending.includes('scooter_family'));
+assert.ok(famM1Missing.labels.includes('機車全家款待王子'));
 
 const carPartner = L.resolveArtPlan({
   pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
@@ -358,6 +399,112 @@ assert.strictEqual(wkTraffic.source, 'arrive');
 assert.ok(wkTraffic.eventText);
 
 pass('card lookup: ' + n + ' combos deterministic, arrive=' + arrive + ' road_line=' + road + ' placeholder=' + placeholder + ' breakdown=' + breakdown);
+
+
+// Variant canvas / ground / axle come from anchors_{v}.json, not the day_dad default.
+function assertVariantPlan(opts, anchorsRel) {
+  const anchors = require('../' + anchorsRel);
+  const plan = L.resolveArtPlan(opts);
+  assert.deepStrictEqual(plan.canvas, anchors.canvas, 'canvas ' + anchorsRel);
+  assert.strictEqual(plan.ground_row, anchors.ground_row, 'ground ' + anchorsRel);
+  assert.strictEqual(plan.metricsSource, 'anchors_' + plan.variant);
+  if (anchors.wheels && anchors.wheels[0] && plan.wheels && plan.wheels[0]) {
+    assert.deepStrictEqual(plan.wheels[0].hub_xy, anchors.wheels[0].hub_xy, 'axle ' + anchorsRel);
+  }
+  return plan;
+}
+
+const allP1 = new Set(['day_dad','day_dad_p1','day_mom','day_mom_p1','night_dad','night_dad_p1','night_mom','night_mom_p1']);
+const momP1m0 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'mom', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m0_v2/anchors_day_mom_p1.json');
+assert.strictEqual(momP1m0.variant, 'day_mom_p1');
+assert.ok(!momP1m0.pending.includes('baked_passenger_variant'));
+assert.ok(!momP1m0.labels.includes('夜間載客合成格待王子'));
+
+const nightDadP1m0 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m0_v2/anchors_night_dad_p1.json');
+assert.strictEqual(nightDadP1m0.variant, 'night_dad_p1');
+assert.ok(!nightDadP1m0.pending.includes('baked_passenger_variant'));
+
+const nightMomP1m0 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'mom', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m0_v2/anchors_night_mom_p1.json');
+assert.strictEqual(nightMomP1m0.variant, 'night_mom_p1');
+
+const momP1m1 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 1, driver: 'mom', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m1/anchors_day_mom_p1.json');
+assert.strictEqual(momP1m1.variant, 'day_mom_p1');
+assert.strictEqual(momP1m1.assetDir, 'assets/vehicles/a/scooter_m1');
+
+const nightDadP1m2 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 2, driver: 'dad', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m2_v2/anchors_night_dad_p1.json');
+assert.strictEqual(nightDadP1m2.variant, 'night_dad_p1');
+assert.strictEqual(nightDadP1m2.assetDir, 'assets/vehicles/a/scooter_m2_v2');
+
+const dayDadP1m2 = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 2, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg, available: allP1,
+}, 'assets/vehicles/a/scooter_m2_v2/anchors_day_dad_p1.json');
+assert.strictEqual(dayDadP1m2.variant, 'day_dad_p1');
+
+const famM1Mom = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 1, driver: 'mom', lighting: 'daylight',
+  passengers: 1, riders: 'family', cfg,
+}, 'assets/vehicles/a/scooter_m1_family/anchors_day_mom.json');
+assert.strictEqual(famM1Mom.assetDir, 'assets/vehicles/a/scooter_m1_family');
+assert.strictEqual(famM1Mom.family, true);
+
+const famM2NightMom = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 2, driver: 'mom', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'family', cfg,
+}, 'assets/vehicles/a/scooter_m2_family/anchors_night_mom.json');
+assert.strictEqual(famM2NightMom.assetDir, 'assets/vehicles/a/scooter_m2_family');
+assert.strictEqual(famM2NightMom.variant, 'night_mom');
+assert.ok(!famM2NightMom.labels.includes('機車全家款待王子'));
+
+const famM2NightDad = assertVariantPlan({
+  pack: 'a', mode: 'scooter', model: 2, driver: 'dad', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'family', cfg,
+}, 'assets/vehicles/a/scooter_m2_family/anchors_night_dad.json');
+assert.strictEqual(famM2NightDad.variant, 'night_dad');
+pass('variant metrics come from each anchors_{v}.json (mom +1, m2 night width, m1 p1 width); family m1/m2 wired');
+
+// Small car 3 passengers: positions live in the manifest; engine does not hardcode seat shifts.
+for (const m of [0, 1, 2]) {
+  const man = overlayManifests[m];
+  assert.deepStrictEqual(man.body_bob_px, [0, 0, 1, 0, 0, 0, 1, 0]);
+  const plan = L.resolveArtPlan({
+    pack: 'a', mode: 'car', model: m, driver: 'dad', lighting: 'daylight',
+    passengers: 2, riders: 'partner', kidSeat: true, cfg, overlayManifests,
+  });
+  assert.deepStrictEqual(plan.layers.map((x) => x.folder), ['body_day', 'child_seat', 'passenger_spouse_mom', 'driver_dad']);
+  assert.strictEqual(plan.overlays, man.overlays);
+  assert.deepStrictEqual(plan.overlays.child_seat.offset_xy, [0, 0]);
+  assert.deepStrictEqual(plan.overlays.child_seat.content_bbox_f00, man.overlays.child_seat.content_bbox_f00);
+  assert.deepStrictEqual(plan.overlays.child_seat.head_anchors_per_frame, man.overlays.child_seat.head_anchors_per_frame);
+  assert.deepStrictEqual(plan.overlays.passengers_parents.head_anchors_per_frame, man.overlays.passengers_parents.head_anchors_per_frame);
+  assert.deepStrictEqual(plan.overlays.driver_dad.content_bbox_f00, man.overlays.driver_dad.content_bbox_f00);
+  assert.deepStrictEqual(plan.body_bob_px, man.body_bob_px);
+  assert.ok(!('seat_dx' in plan) && !('head_shift' in plan));
+}
+const mutatedPos = { 0: JSON.parse(JSON.stringify(overlayManifests[0])) };
+mutatedPos[0].overlays.child_seat.content_bbox_f00 = [1, 2, 3, 4];
+const planPosMut = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
+  passengers: 2, riders: 'partner', kidSeat: true, cfg, overlayManifests: mutatedPos,
+});
+assert.deepStrictEqual(planPosMut.overlays.child_seat.content_bbox_f00, [1, 2, 3, 4]);
+assert.notDeepStrictEqual(planPosMut.overlays.child_seat.content_bbox_f00, overlayManifests[0].overlays.child_seat.content_bbox_f00);
+pass('small-car 3-passenger positions and head anchors come from overlays/manifest.json; body_bob_px unchanged');
 
 console.log('ALL PASS');
 console.log(JSON.stringify({

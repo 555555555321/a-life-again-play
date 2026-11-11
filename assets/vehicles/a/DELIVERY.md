@@ -66,3 +66,17 @@ assets/vehicles/a/scooter_m{0|1|2}/frames/{day|night}_{dad|mom}_family/f00.png�
 - m0 兒童座椅椅背已收在車頂下。
 - `config.json` 小型車 canvas／ground_row／輪轂 y 已改成新車身數字（m0 98×46／45／38，m1 94×50／49／42，m2 90×48／47／38）。舊合成圖數字留在 `legacy_composite`。
 - 機車輪面相位標記：`scooter_m0_v2`、`scooter_m2_v2`、`scooter_m0_family_v2` 取代先前合成圖（舊資料夾保留）。每格轉 45°。m0／m2 的 v2 已含白天／夜晚 × 爸／媽載客格。
+
+
+---
+
+## 已交（2026-11-11 第 12 節）
+
+王子補齊先前缺的機車載客／全家款與小型車三人位置，舊檔未改。引擎已接上，缺檔占位字已拿掉（「夜間載客合成格待王子」「機車全家款待王子」僅在檔案真的不在時才出現）。
+
+1. 機車載客格：m0、m1、m2、m0_v2、m2_v2 現有 `night_dad_p1`、`day_mom_p1`、`night_mom_p1`（夜間開車燈）；m2_v2 另有 `day_dad_p1`。媽媽款高 1 px，ground 與輪轂 y +1。畫布／ground／輪轂一律讀該變體的 `anchors_{v}.json`，不寫死數字。
+2. 機車全家款：新增 `scooter_m1_family/`、`scooter_m2_family/`，白天／夜晚 × 爸／媽。m0 仍用 `scooter_m0_family_v2`。
+3. 小型車三人：各款 `overlays/manifest.json` 已更新兒童座椅、祖父母、m2 駕駛位置與頭錨點（像素已畫進 PNG，`offset_xy` 仍為 `[0,0]`，引擎不另外平移）。`body_bob_px` 仍為 `[0,0,1,0,0,0,1,0]`。開發預覽用 `riders=partner&kidseat=1`。
+
+已知畫面上的弱點（不加占位字）：m1 全家款小孩的腳會穿過車架；m2 全家款小孩的手靠近大圓燈。
+

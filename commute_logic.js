@@ -315,6 +315,7 @@
     const riders = resolveRiders(param(qs, 'riders'), hasParam(qs, 'passengers') ? param(qs, 'passengers') : null);
     // bike: no passengers. scooter: at most 1 (partner or family). bus: waiting, no in-vehicle riders.
     // riders=family is a scooter-only baked variant (child in front, adult behind).
+    // Car: &riders=partner&kidseat=1 (or kid=1) is driver + spouse + child seat.
     let passengers = riders.passengers;
     let kidSeat = riders.kidSeat;
     let ridersKind = riders.riders;
@@ -324,6 +325,10 @@
     }
     if (mode === 'bike' || mode === 'bus') { passengers = 0; kidSeat = false; ridersKind = 'solo'; }
     if (mode === 'scooter') { passengers = Math.min(passengers, 1); kidSeat = false; }
+    if (mode === 'car' && ridersKind === 'partner' && (param(qs, 'kidseat') === '1' || param(qs, 'kid') === '1')) {
+      kidSeat = true;
+      passengers = Math.max(passengers, 2);
+    }
 
     let driver = param(qs, 'driver', 'dad');
     if (driver !== 'mom') driver = 'dad';
@@ -441,6 +446,73 @@
     return bob.px[idx] || 0;
   }
 
+
+
+  function metricsFromAnchorDoc(doc, source) {
+    if (!doc) return null;
+    const px = doc.wheels && doc.wheels[0] && doc.wheels[0].px_per_frame;
+    return {
+      source: source || 'anchors',
+      canvas: doc.canvas,
+      origin: doc.origin || [0, 0],
+      ground_row: doc.ground_row,
+      px_per_frame: px != null ? Number(px) : null,
+      wheels: doc.wheels || null,
+    };
+  }
+
+  function variantMetricsKey(assetDir, variant) {
+    return String(assetDir || '') + ':' + String(variant || '');
+  }
+
+  function lookupVariantMetrics(cfg, assetDir, variant) {
+    if (!variant) return null;
+    const vm = cfg && cfg.variantMetrics;
+    if (!vm) return null;
+    return vm[variantMetricsKey(assetDir, variant)] || vm[variant] || null;
+  }
+
+  function familyAssetDir(model) {
+    const m = String(model == null ? 0 : model);
+    if (m === '0') return 'assets/vehicles/a/scooter_m0_family_v2';
+    return 'assets/vehicles/a/scooter_m' + m + '_family';
+  }
+
+  function familyMetricsKey(model) {
+    const m = String(model == null ? 0 : model);
+    if (m === '0') return 'scooter_m0_family_v2';
+    return 'scooter_m' + m + '_family';
+  }
+
+  function isFamilyReady(opts, model) {
+    const o = opts || {};
+    if (o.familyAvailable === false) return false;
+    const m = String(model == null ? 0 : model);
+    if (Array.isArray(o.familyAvailable)) return o.familyAvailable.map(String).indexOf(m) >= 0;
+    if (o.familyAvailable && typeof o.familyAvailable === 'object') {
+      const v = o.familyAvailable[m];
+      if (v === false) return false;
+      if (v) return true;
+    }
+    const baked = o.cfg && o.cfg.bakedMetrics;
+    const key = familyMetricsKey(m);
+    const inBaked = !!(baked && (baked[key] || (m === '0' && baked.scooter_m0_family)));
+    if (o.familyAvailable === true) return true;
+    return inBaked;
+  }
+
+  function applyVariantMetrics(cfg, assetDir, variant, cur) {
+    const out = cur || {};
+    const vm = lookupVariantMetrics(cfg, assetDir, variant);
+    if (!vm) return out;
+    if (vm.canvas) out.canvas = vm.canvas;
+    if (vm.ground_row != null) out.ground_row = vm.ground_row;
+    if (vm.origin) out.origin = vm.origin;
+    if (vm.px_per_frame != null && Number.isFinite(Number(vm.px_per_frame))) out.px_per_frame = Number(vm.px_per_frame);
+    if (vm.wheels) out.wheels = vm.wheels;
+    if (vm.source) out.metricsSource = vm.source;
+    return out;
+  }
 
   function metricsFor(cfg, mode, model, extra) {
     const kind = vehicleKind(mode);
@@ -600,6 +672,7 @@
           px_per_frame: Number(over.px_per_frame), frames: over.frames || 8, scale: 1, fps,
           duskTint, variant: null, metricsSource: 'overlay_manifest',
           body_bob_px: bob.px, body_bob_missing: bob.missing,
+          overlays: over.overlays || null,
         };
       }
       // Do not fall back to the old 1 px-shorter composites.
@@ -632,23 +705,27 @@
       if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
     }
     if (wantedFamily) {
-      const famReady = model === '0' && o.familyAvailable !== false;
-      if (famReady) {
+      if (isFamilyReady(o, model)) {
         const chosenFam = time + '_' + driver;
-        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics.scooter_m0_family_v2 || o.cfg.bakedMetrics.scooter_m0_family);
+        const famDir = familyAssetDir(model);
+        const bmKey = familyMetricsKey(model);
+        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics[bmKey] || (model === '0' && o.cfg.bakedMetrics.scooter_m0_family));
         if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+        const famMet = applyVariantMetrics(o.cfg, famDir, chosenFam, { canvas, ground_row, origin, px_per_frame: pxUse });
         return {
           pack: 'a', compose: 'baked_rider', kind, model: Number(model),
           layers: [{
             role: 'combined', variant: chosenFam, baked: true,
             tint: duskTint ? 'evening' : null,
-            pathPattern: 'assets/vehicles/a/scooter_m0_family_v2/frames/' + chosenFam + '/f{frame}.png',
+            pathPattern: famDir + '/frames/' + chosenFam + '/f{frame}.png',
           }],
           pending, labels,
-          assetDir: 'assets/vehicles/a/scooter_m0_family_v2',
-          canvas, origin, ground_row,
-          px_per_frame: pxUse, frames: 8, scale: 1, fps,
+          assetDir: famDir,
+          canvas: famMet.canvas, origin: famMet.origin, ground_row: famMet.ground_row,
+          px_per_frame: famMet.px_per_frame, frames: 8, scale: 1, fps,
           duskTint, variant: chosenFam, fallbackFrom: null, family: true,
+          metricsSource: famMet.metricsSource || (bm && bm.source) || null,
+          wheels: famMet.wheels || (bm && bm.wheels) || null,
         };
       }
       pending.push('scooter_family');
@@ -663,6 +740,8 @@
       pending.push('baked_passenger_variant');
       labels.push('夜間載客合成格待王子');
     }
+    const varMet = applyVariantMetrics(o.cfg, assetDir, chosen, { canvas, ground_row, origin, px_per_frame: pxUse });
+    canvas = varMet.canvas; ground_row = varMet.ground_row; origin = varMet.origin; pxUse = varMet.px_per_frame;
     return {
       pack: 'a',
       compose: 'baked_rider',
@@ -679,6 +758,8 @@
       canvas, origin, ground_row,
       px_per_frame: pxUse, frames: 8, scale: 1, fps,
       duskTint, variant: chosen,
+      metricsSource: varMet.metricsSource || null,
+      wheels: varMet.wheels || null,
       fallbackFrom: wantedFamily ? 'family' : null,
     };
   }
@@ -798,6 +879,8 @@
     MODE_TO_KIND, SMALLCAR_LAYER_ORDER, BREAKDOWN_FALLBACK_CARD,
     vehicleKind, metricsFor, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
     BODY_BOB_KEY, readBodyBobPx, layerDrawOffsetY,
+    metricsFromAnchorDoc, variantMetricsKey, lookupVariantMetrics,
+    familyAssetDir, familyMetricsKey, isFamilyReady, applyVariantMetrics,
     cardMatches, pickCard, lookupArrivalCard,
   };
 });

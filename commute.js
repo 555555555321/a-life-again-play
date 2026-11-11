@@ -108,7 +108,39 @@
       }
       await bakeScooter('scooter_m0_v2', 'assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
       await bakeScooter('scooter_m2_v2', 'assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
+      await bakeScooter('scooter_m1_family', 'assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+      await bakeScooter('scooter_m2_family', 'assets/vehicles/a/scooter_m2_family/anchors_day_dad.json');
       cfg.bakedMetrics = baked;
+    }
+    if (!cfg.variantMetrics) {
+      const Logic = root.CommuteLogic;
+      const variantMetrics = {};
+      const scooterVars = ['day_dad','day_dad_p1','day_mom','day_mom_p1','night_dad','night_dad_p1','night_mom','night_mom_p1'];
+      const familyVars = ['day_dad','day_mom','night_dad','night_mom'];
+      const variantDirs = [
+        ['assets/vehicles/a/scooter_m0_v2', scooterVars],
+        ['assets/vehicles/a/scooter_m1', scooterVars],
+        ['assets/vehicles/a/scooter_m2_v2', scooterVars],
+        ['assets/vehicles/a/scooter_m0_family_v2', familyVars],
+        ['assets/vehicles/a/scooter_m1_family', familyVars],
+        ['assets/vehicles/a/scooter_m2_family', familyVars],
+      ];
+      for (let d = 0; d < variantDirs.length; d++) {
+        const dir = variantDirs[d][0];
+        const names = variantDirs[d][1];
+        for (let i = 0; i < names.length; i++) {
+          const v = names[i];
+          const a = await loadJson(dir + '/anchors_' + v + '.json');
+          if (!a) continue;
+          const met = Logic && Logic.metricsFromAnchorDoc
+            ? Logic.metricsFromAnchorDoc(a, 'anchors_' + v)
+            : { source: 'anchors_' + v, canvas: a.canvas, ground_row: a.ground_row, origin: a.origin || [0, 0],
+                px_per_frame: a.wheels && a.wheels[0] && a.wheels[0].px_per_frame, wheels: a.wheels };
+          const key = Logic && Logic.variantMetricsKey ? Logic.variantMetricsKey(dir, v) : (dir + ':' + v);
+          variantMetrics[key] = met;
+        }
+      }
+      cfg.variantMetrics = variantMetrics;
     }
   }
 
@@ -143,7 +175,7 @@
   function destBgName(dest) { return dest === 'friend' ? 'friend_home' : dest; }
 
   async function ensureCfg() {
-    if (cfg && cfg.overlayManifests) return cfg;
+    if (cfg && cfg.overlayManifests && cfg.bakedMetrics && cfg.variantMetrics) return cfg;
     if (!cfg) cfg = await (await fetch('assets/vehicles/config.json')).json();
     await loadArtMetrics();
     return cfg;
@@ -873,7 +905,11 @@
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
         cfg, available, overlayManifests: cfg.overlayManifests,
-        familyAvailable: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+        familyAvailable: {
+          0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
+        },
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
@@ -944,7 +980,11 @@
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
         cfg, available, overlayManifests: cfg.overlayManifests,
-        familyAvailable: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+        familyAvailable: {
+          0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
+        },
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
@@ -1001,7 +1041,7 @@
     'art=a|old (default a if A-pack files load, else old)',
     'driver=dad|mom',
     'passengers=0..3',
-    'riders=solo|partner|kid_seat|parents|family (family is scooter-only; falls back to baked solo if the file is missing)',
+    'riders=solo|partner|kid_seat|parents|family (family is scooter-only, m0–m2). Car: riders=partner&kidseat=1 is driver+spouse+child seat',
     'wear=new|old (alias: old→carage=12, new→carage=0)',
     'carage=<years> (0–3 / 4–9 / 10+ breakdown bands)',
     'maint=1 (insurance/maintenance, breakdown rate × 0.7)',

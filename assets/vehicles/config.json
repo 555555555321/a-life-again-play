@@ -130,7 +130,7 @@
     "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
     "card_slot": "抵達後顯示公主 arrival_cards.json 對到的句子。拋錨仍用原本的占位卡。到公司／到家若沒有專用句，改顯示路上句或「待公主補」。",
     "smallcar_body_strip": "小型車車身條與疊圖已交，讀 overlays/manifest.json。",
-    "scooter_family": "機車全家款目前只有 m0（scooter_m0_family_v2）；m1/m2 待王子。"
+    "scooter_family": "機車全家款 m0（v2）、m1、m2 已交。m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。"
   },
   "missing_originals": [],
   "weekend_dests": [
@@ -325,7 +325,7 @@
     "scooter": {
       "kind": "scooter",
       "compose": "baked_rider",
-      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2；m1/m2 全家款缺檔時退回該款單人合成格。",
+      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 載客格含白天／夜晚 × 爸／媽（夜間開車燈）。畫布／ground／輪轂以各變體 anchors_{v}.json 為準（媽媽高 1 px，ground 與輪轂 y +1；m2 夜間較寬）。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2、scooter_m1_family、scooter_m2_family。",
       "models": {
         "0": {
           "id": "scooter_m0",
@@ -444,8 +444,11 @@
             "day_dad",
             "day_dad_p1",
             "day_mom",
+            "day_mom_p1",
             "night_dad",
-            "night_mom"
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
           ]
         },
         "2": {
@@ -513,10 +516,15 @@
         }
       },
       "family_variant": {
-        "status": "delivered_m0_v2",
+        "status": "delivered_m0_m1_m2",
         "riders": "family",
-        "note": "小孩站在前面、大人在後面。使用 scooter_m0_family_v2（輪面相位標記）；舊 scooter_m0_family 保留但不再使用。m1/m2 缺檔時退回該款單人合成格。",
-        "path": "assets/vehicles/a/scooter_m0_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+        "note": "小孩站在前面、大人在後面。m0 用 scooter_m0_family_v2；m1／m2 用 scooter_m1_family／scooter_m2_family。畫布／ground 讀各變體 anchors_{v}.json。已知弱點：m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。",
+        "paths": {
+          "0": "assets/vehicles/a/scooter_m0_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png",
+          "1": "assets/vehicles/a/scooter_m1_family/frames/{day|night}_{dad|mom}/f00.png–f07.png",
+          "2": "assets/vehicles/a/scooter_m2_family/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+        },
+        "path": "assets/vehicles/a/scooter_m{0:0_family_v2|1_family|2_family}/frames/{day|night}_{dad|mom}/f00.png–f07.png"
       }
     },
     "smallcar": {
@@ -738,7 +746,8 @@
           "parents": "assets/vehicles/a/smallcar_m{model}/overlays/passengers_parents/f00.png–f07.png"
         },
         "metrics": "overlays/manifest.json is the single source of truth for canvas, origin, ground_row, px_per_frame, and body_bob_px",
-        "body_bob_px_key": "body_bob_px"
+        "body_bob_px_key": "body_bob_px",
+        "three_person": "positions and head_anchors live in overlays/manifest.json (pixels already placed in the PNGs; offset_xy is [0,0]). body_bob_px is unchanged. Dev preview: riders=partner&kidseat=1."
       }
     }
   }

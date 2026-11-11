@@ -211,6 +211,22 @@ const drv = L.readCarState({ vehicle: 'car' });
 assert.strictEqual(drv.driver, 'dad');
 pass('riders=family and driver');
 
+const carThree = L.readCarState({ vehicle: 'car', riders: 'partner', kidseat: '1' });
+assert.strictEqual(carThree.riders, 'partner');
+assert.strictEqual(carThree.kidSeat, true);
+assert.strictEqual(carThree.passengers, 2);
+const carThreeKid = L.readCarState({ vehicle: 'car', riders: 'partner', kid: '1' });
+assert.strictEqual(carThreeKid.kidSeat, true);
+assert.strictEqual(carThreeKid.passengers, 2);
+const carKidOnly = L.readCarState({ vehicle: 'car', riders: 'kid_seat' });
+assert.strictEqual(carKidOnly.riders, 'kid_seat');
+assert.strictEqual(carKidOnly.kidSeat, true);
+assert.strictEqual(carKidOnly.passengers, 1);
+const carPartnerOnly = L.readCarState({ vehicle: 'car', riders: 'partner' });
+assert.strictEqual(carPartnerOnly.kidSeat, false);
+assert.strictEqual(carPartnerOnly.passengers, 1);
+pass('car riders=partner&kidseat=1 is driver+spouse+child seat');
+
 
 // 10-year sim: 2000 seeds × 5500 trips per age band ± maint
 const bands = [
