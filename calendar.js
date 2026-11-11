@@ -1,34 +1,50 @@
-// Shared non-leap calendar, aligned with A-Life-Again PR #19 (6ea7814, game-calendar.js).
+// Shared non-leap calendar, aligned with A-Life-Again game-calendar.js.
 // A game year is 365 days starting on the birthday. There is no 29 February;
 // after 80 game years the civil date is 20 days ahead of the real calendar, by design.
+// Birth month is per life (default May for old data). Pass {year:2000,month,day:1} as the last argument.
 (function (root, factory) {
-  const api = factory();
+  const api = factory(root && root.ALABirth);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.ALACalendar = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (ALABirth) {
   const MONTH_LENGTHS = Object.freeze([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]);
 
-  /** The player's birth date. Day 0 of a life is this civil date. */
+  /** Default birth date when a life (or old save / scenes.json) has no field: 2000-05-01. */
   const PLAYER_BIRTH_DATE = Object.freeze({ year: 2000, month: 5, day: 1 });
 
   const GAME_START_YEAR = PLAYER_BIRTH_DATE.year;
   const BIRTH_MONTH = PLAYER_BIRTH_DATE.month;
   const BIRTH_DAY_OF_MONTH = PLAYER_BIRTH_DATE.day;
 
-  /** 0-based day-of-year of the birthday in the non-leap 365-day year. */
-  const BIRTH_DAY_OF_YEAR = MONTH_LENGTHS.slice(0, BIRTH_MONTH - 1).reduce((sum, days) => sum + days, 0)
-    + (BIRTH_DAY_OF_MONTH - 1);
+  function resolveBirth(birth) {
+    if (ALABirth && ALABirth.resolveBirth) return ALABirth.resolveBirth(birth);
+    if (birth == null || (typeof birth === 'object' && birth.month == null && birth.birthMonth == null)) {
+      return PLAYER_BIRTH_DATE;
+    }
+    const month = Number(birth.month ?? birth.birthMonth);
+    if (!Number.isInteger(month) || month < 1 || month > 12) throw new RangeError('生日月份必須是 1 到 12。');
+    return { year: 2000, month, day: 1 };
+  }
 
-  // Display seasons follow the real month, not a birthday offset: 3–5 春, 6–8 夏, 9–11 秋, 12–2 冬.
+  function birthDayOfYear(birth) {
+    if (ALABirth && ALABirth.birthDayOfYear) return ALABirth.birthDayOfYear(birth);
+    const b = resolveBirth(birth);
+    let doy = b.day - 1;
+    for (let i = 0; i < b.month - 1; i++) doy += MONTH_LENGTHS[i];
+    return doy;
+  }
+
+  const BIRTH_DAY_OF_YEAR = birthDayOfYear(PLAYER_BIRTH_DATE);
+
   const CORNER_SEASON = Object.freeze({
     1: '冬', 2: '冬', 3: '春', 4: '春', 5: '春', 6: '夏',
     7: '夏', 8: '夏', 9: '秋', 10: '秋', 11: '秋', 12: '冬',
   });
 
-  // When a screen only has a season word, pick a month inside that season.
-  // 春 → May (birthday, start of that age). 冬 → December (first winter of that age).
-  // 夏 / 秋 fall wholly after the birthday, so mid-season months are unambiguous.
+  // Fallback month when the season word is given and this life's birthday is not in that season.
+  // If the birthday falls in the season, defaultMonthForSeason uses the birthday month instead.
   const DEFAULT_MONTH_FOR_SEASON = Object.freeze({ 春: 5, 夏: 7, 秋: 10, 冬: 12 });
+  const SEASON_FALLBACK_MONTH = Object.freeze({ 春: 3, 夏: 7, 秋: 10, 冬: 12 });
 
   const YEAR_DIGIT = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
   const AGE_DIGIT = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
@@ -46,15 +62,17 @@
   }
 
   /** Shared non-leap calendar. A game year is 365 days starting on the birthday. */
-  function monthDate(day) {
+  function monthDate(day, birth) {
     if (!Number.isSafeInteger(day) || day < 0) throw new RangeError('遊戲日期必須是非負整數。');
+    const b = resolveBirth(birth);
+    const birthDoy = birthDayOfYear(b);
     const ageYear = Math.floor(day / 365);
-    const shifted = day % 365 + BIRTH_DAY_OF_YEAR;
+    const shifted = day % 365 + birthDoy;
     const yearCarry = shifted >= 365 ? 1 : 0;
     const { monthIndex, dayOfMonth, daysInMonth } = monthOfDayOfYear(shifted % 365);
-    const year = GAME_START_YEAR + ageYear + yearCarry;
+    const year = b.year + ageYear + yearCarry;
     const month = monthIndex + 1;
-    const lifeMonth = (monthIndex - (BIRTH_MONTH - 1) + 12) % 12;
+    const lifeMonth = (monthIndex - (b.month - 1) + 12) % 12;
     return {
       day, year, month, dayOfMonth, daysInMonth,
       monthIndex: ageYear * 12 + lifeMonth,
@@ -63,16 +81,14 @@
     };
   }
 
-  /** 1-based day of this life year. Day 0, the birthday, is 第 1 天 — not 1 January. */
   function lifeDayOfYear(day) {
     if (!Number.isSafeInteger(day) || day < 0) throw new RangeError('遊戲日期必須是非負整數。');
     return day % 365 + 1;
   }
 
-  /** Birth-record and in-life month heading. Day 0 is the birthday month. */
-  function monthLabel(day) {
+  function monthLabel(day, birth) {
     const whole = Math.max(0, Math.floor(Number(day) || 0));
-    const date = monthDate(whole);
+    const date = monthDate(whole, birth);
     return `${date.year} 年 ${date.month} 月`;
   }
 
@@ -97,9 +113,8 @@
     return ones ? `${tenWord}${YEAR_DIGIT[ones]}` : tenWord;
   }
 
-  /** Actual calendar date, Chinese numerals, from monthDate. Example: 二〇〇一年一月一日. */
-  function chineseDateLabel(day) {
-    const date = monthDate(day);
+  function chineseDateLabel(day, birth) {
+    const date = monthDate(day, birth);
     return `${chineseYear(date.year)}年${chineseMonth(date.month)}月${chineseDayOfMonth(date.dayOfMonth)}日`;
   }
 
@@ -122,11 +137,11 @@
 
   /**
    * Corner label. Year and season both come from monthDate, never from the season word.
-   * Jan–Apr of age N is birthYear+N+1; May–Dec is birthYear+N.
+   * Before the birth month of age N the year is 2000+N+1; from the birth month on it is 2000+N.
    */
-  function cornerStamp(day) {
+  function cornerStamp(day, birth) {
     const whole = Math.max(0, Math.floor(Number(day) || 0));
-    const date = monthDate(whole);
+    const date = monthDate(whole, birth);
     const age = Math.floor(whole / 365);
     const season = CORNER_SEASON[date.month];
     return {
@@ -138,24 +153,38 @@
     };
   }
 
-  function nextMonthBoundary(day) {
-    const date = monthDate(day);
+  function nextMonthBoundary(day, birth) {
+    const date = monthDate(day, birth);
     return day + date.daysInMonth - date.dayOfMonth + 1;
   }
 
-  function defaultMonthForSeason(season) {
-    return DEFAULT_MONTH_FOR_SEASON[season] || BIRTH_MONTH;
+  function defaultMonthForSeason(season, birth) {
+    if (ALABirth && ALABirth.defaultMonthForSeason) return ALABirth.defaultMonthForSeason(season, birth);
+    const b = resolveBirth(birth);
+    if (season && CORNER_SEASON[b.month] === season) return b.month;
+    if (season && SEASON_FALLBACK_MONTH[season]) return SEASON_FALLBACK_MONTH[season];
+    return DEFAULT_MONTH_FOR_SEASON[season] || b.month;
   }
 
   function seasonOfMonth(month) {
     return CORNER_SEASON[month];
   }
 
+  function civilYear(age, month, birth) {
+    if (ALABirth && ALABirth.civilYear) return ALABirth.civilYear(age, month, birth);
+    const b = resolveBirth(birth);
+    const a = Math.max(0, Math.floor(Number(age) || 0));
+    const m = Math.floor(Number(month));
+    if (!Number.isInteger(m) || m < 1 || m > 12) throw new RangeError('月份必須是 1 到 12。');
+    return m >= b.month ? b.year + a : b.year + a + 1;
+  }
+
   /**
-   * Life day for (age, month, dayOfMonth) under the May-birthday year.
-   * Age N runs from 1 May (birthYear+N) through 30 April (birthYear+N+1).
+   * Life day for (age, month, dayOfMonth) under this life's birthday.
+   * Age N runs from the birthday (2000+N) through the day before the next birthday.
    */
-  function dayFromAgeMonth(age, month, dayOfMonth) {
+  function dayFromAgeMonth(age, month, dayOfMonth, birth) {
+    const b = resolveBirth(birth);
     const a = Math.max(0, Math.floor(Number(age) || 0));
     const m = Math.floor(Number(month));
     const d = Math.floor(Number(dayOfMonth) || 1);
@@ -163,9 +192,10 @@
     const dim = MONTH_LENGTHS[m - 1];
     if (!Number.isSafeInteger(d) || d < 1 || d > dim) throw new RangeError('日期超出該月天數。');
     const doy = dayOfYear0(m, d);
-    const day = m >= BIRTH_MONTH
-      ? a * 365 + (doy - BIRTH_DAY_OF_YEAR)
-      : a * 365 + (365 - BIRTH_DAY_OF_YEAR) + doy;
+    const birthDoy = birthDayOfYear(b);
+    const day = m >= b.month
+      ? a * 365 + (doy - birthDoy)
+      : a * 365 + (365 - birthDoy) + doy;
     return day;
   }
 
@@ -173,26 +203,29 @@
    * Phone B corner label.
    * Prefer a life day; else age+month; else age+season with the default month for that season.
    * Also accepts the older cornerLabel(age, season) call shape.
+   * Options may include `birth`.
    */
-  function cornerLabel(ageOrOpts, season) {
-    let day = null, age = null, month = null, dayOfMonth = 1, seas = null;
+  function cornerLabel(ageOrOpts, season, birth) {
+    let day = null, age = null, month = null, dayOfMonth = 1, seas = null, b = birth;
     if (ageOrOpts != null && typeof ageOrOpts === 'object') {
       if (ageOrOpts.day != null && ageOrOpts.day !== '') day = +ageOrOpts.day;
       if (ageOrOpts.age != null && ageOrOpts.age !== '') age = +ageOrOpts.age;
-      if (ageOrOpts.month != null && ageOrOpts.month !== '') month = +ageOrOpts.month;
+      if (ageOrOpts.month != null && ageOrOpts.month !== '' && ageOrOpts.month !== 'birth') month = +ageOrOpts.month;
       if (ageOrOpts.dayOfMonth != null && ageOrOpts.dayOfMonth !== '') dayOfMonth = +ageOrOpts.dayOfMonth;
       seas = ageOrOpts.season || null;
+      if (ageOrOpts.birth) b = ageOrOpts.birth;
     } else {
       if (ageOrOpts != null && ageOrOpts !== '') age = +ageOrOpts;
       seas = season || null;
     }
+    const resolved = resolveBirth(b);
     if (day != null && Number.isFinite(day)) {
       if (!Number.isSafeInteger(day) || day < 0) throw new RangeError('遊戲日期必須是非負整數。');
-      return cornerStamp(day).label;
+      return cornerStamp(day, resolved).label;
     }
     if (age == null || !Number.isFinite(age)) age = 5;
-    if (month == null || !Number.isFinite(month)) month = defaultMonthForSeason(seas || '春');
-    return cornerStamp(dayFromAgeMonth(age, month, dayOfMonth)).label;
+    if (month == null || !Number.isFinite(month)) month = defaultMonthForSeason(seas || '春', resolved);
+    return cornerStamp(dayFromAgeMonth(age, month, dayOfMonth, resolved), resolved).label;
   }
 
   return {
@@ -202,6 +235,7 @@
     BIRTH_MONTH,
     BIRTH_DAY_OF_MONTH,
     BIRTH_DAY_OF_YEAR,
+    resolveBirth,
     monthDate,
     lifeDayOfYear,
     monthLabel,
@@ -213,6 +247,7 @@
     dayFromAgeMonth,
     defaultMonthForSeason,
     seasonOfMonth,
+    civilYear,
     cornerLabel,
     CORNER_SEASON,
     DEFAULT_MONTH_FOR_SEASON,

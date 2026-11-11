@@ -11,34 +11,52 @@ const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 // Evening-only character rim light. URL ?rim=1 turns it on; default off. (王 2026-11-11)
 const RIM = qs.get('rim') === '1';
 
-// Year label: date-based rule aligned with A-Life-Again PR #19 (6ea7814).
-// Year and season both come from the calendar date, never from the season word.
-// Jan–Apr of age N = 2000+N+1; May–Dec = 2000+N. Age = floor(day/365).
-// Year/date numerals use 「〇」; corner age uses 「零」. See calendar.js.
-const BIRTH_YEAR = (typeof ALACalendar !== 'undefined') ? ALACalendar.PLAYER_BIRTH_DATE.year : 2000;
+// Year label: date-based rule. Year and season come from the calendar date, never from the season word.
+// Before this life's birth month of age N, year = 2000+N+1; from the birth month on, year = 2000+N.
+// Age = floor(day/365). Year/date numerals use 「〇」; corner age uses 「零」. See calendar.js.
+// Birth month is drawn for a life (Taiwan 2000 weights); ?birthMonth= or ?seed= override; missing field = May.
+const BIRTH_YEAR = 2000;
+function lifeBirth() {
+  const raw = qs.get('birthMonth');
+  if (raw != null && raw !== '') return ALACalendar.resolveBirth({ month: +raw });
+  const seed = qs.get('seed');
+  if (seed != null && seed !== '' && typeof ALABirth !== 'undefined') {
+    return ALABirth.drawBirthDate(seed);
+  }
+  const field = (data && data.birth_month != null) ? data.birth_month
+    : (data && data.birth && data.birth.month != null) ? data.birth.month
+    : null;
+  return ALACalendar.resolveBirth(field == null ? null : { month: +field });
+}
+function readMonth(src) {
+  if (src == null || src.month == null || src.month === '' || src.month === 'birth') return null;
+  const n = +src.month;
+  return Number.isFinite(n) ? n : null;
+}
 function cnYear(y) { return ALACalendar.chineseYear(y) + '年'; }
 function cnAge(a) { return ALACalendar.chineseAge(a) + '歲'; }
 function cornerLabel(age, season) {
-  return ALACalendar.cornerLabel(age, season);
+  return ALACalendar.cornerLabel({ age, season, birth: lifeBirth() });
 }
 function screenCorner(scr) {
   // Non-story DEV trials keep a hardcoded caption (not a date).
   if (scr && scr._corner_hardcoded && scr.corner) return scr.corner;
+  const birth = lifeBirth();
   const dayParam = qs.has('day') && qs.get('day') !== '' ? +qs.get('day') : null;
   const src = scr || data || {};
   const day = (dayParam != null && Number.isFinite(dayParam)) ? dayParam
     : (src.day != null ? +src.day : (data && data.day != null ? +data.day : null));
-  if (day != null && Number.isFinite(day)) return ALACalendar.cornerStamp(day).label;
+  if (day != null && Number.isFinite(day)) return ALACalendar.cornerStamp(day, birth).label;
   const age = (scr && scr.age != null) ? +scr.age : (data && data.age);
-  const month = (scr && scr.month != null) ? +scr.month : (data && data.month);
+  const month = readMonth(scr) ?? readMonth(data);
   const season = (scr && scr.season) || (data && data.season) || '春';
   const dayOfMonth = (scr && scr.dayOfMonth != null) ? +scr.dayOfMonth
     : (data && data.dayOfMonth != null ? +data.dayOfMonth : 1);
   if (age != null || month != null) {
-    return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
+    return ALACalendar.cornerLabel({ age, month, season, dayOfMonth, birth });
   }
   if (scr && scr.corner) return scr.corner;
-  return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
+  return ALACalendar.cornerLabel({ age, month, season, dayOfMonth, birth });
 }
 
 let drawerW = STOPS.includes(+qs.get('drawer')) ? +qs.get('drawer') : 0;
