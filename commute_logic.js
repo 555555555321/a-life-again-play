@@ -56,7 +56,54 @@
     return durability != null && Number(durability) < 50;
   }
 
-  // Seeded road event. One event per trip. Breakdown is more likely when the car is worn.
+  // 王 2026-11-11: 550 trips/year (500 commute + 50 weekend).
+  // Annual breakdown by car age: 0–3 → 0.25, 4–9 → 0.5, 10+ → 1.5. Insurance/maintenance × 0.7.
+  // wear=old aliases to carAge 12; wear=new aliases to 0.
+  const TRIPS_PER_YEAR = 550;
+  const MAINT_FACTOR = 0.7;
+  const WEAR_OLD_AGE = 12;
+  const WEAR_NEW_AGE = 0;
+
+  function resolveCarAge(opts) {
+    const o = opts || {};
+    if (o.carAge != null && o.carAge !== '') {
+      const n = Number(o.carAge);
+      if (Number.isFinite(n) && n >= 0) return n;
+    }
+    if (o.wear === 'old') return WEAR_OLD_AGE;
+    if (o.wear === 'new') return WEAR_NEW_AGE;
+    if (o.durability != null && Number(o.durability) < 50) return WEAR_OLD_AGE;
+    return WEAR_NEW_AGE;
+  }
+
+  function annualBreakdownRate(carAge, maint) {
+    const age = Number(carAge);
+    const a = Number.isFinite(age) && age >= 0 ? age : 0;
+    let annual = 0.25;
+    if (a >= 10) annual = 1.5;
+    else if (a >= 4) annual = 0.5;
+    if (maint) annual *= MAINT_FACTOR;
+    return annual;
+  }
+
+  function tripBreakdownProbability(opts) {
+    const o = opts || {};
+    const mode = o.mode || (o.hasCar ? 'car' : 'bike');
+    if (mode !== 'car' && mode !== 'scooter') return 0;
+    const age = o.carAge != null ? o.carAge : resolveCarAge(o);
+    return annualBreakdownRate(age, o.maint) / TRIPS_PER_YEAR;
+  }
+
+  // Breakdown is rolled on every trip, independent of the 1-in-5 play rule.
+  // A breakdown trip always plays (the breakdown version).
+  function shouldPlayTrip(opts) {
+    const o = opts || {};
+    const type = (o.event && o.event.type) || o.eventType;
+    if (type === 'breakdown') return true;
+    return shouldPlayCommute(o);
+  }
+
+  // Seeded road event. One event per trip. Breakdown uses its own roll and car-age rate.
   // forced (dev &event=) wins. Rain as weather can still stack a non-rain event.
   function pickRoadEvent(opts) {
     const o = opts || {};
@@ -66,20 +113,56 @@
     }
     if (forced === 'none') return { type: 'none', forced: true };
     const seed = o.seed == null ? '0' : String(o.seed);
-    const old = wearIsOld(o.wear, o.durability);
     const mode = o.mode || (o.hasCar ? 'car' : 'bike');
+    const carAge = o.carAge != null ? o.carAge : resolveCarAge(o);
+    const maint = !!o.maint;
+    const pBreak = tripBreakdownProbability({ mode, carAge, maint });
+    if (pBreak > 0 && rand01(seed, 'breakdown') < pBreak) {
+      return { type: 'breakdown', forced: false, carAge, maint };
+    }
     const r = rand01(seed, 'event');
-    // Cumulative thresholds. Bus/bike cannot break down the same way; scooter can.
-    const canBreak = mode === 'car' || mode === 'scooter';
-    const pBreak = !canBreak ? 0 : (old ? 0.18 : 0.04);
     const pTraffic = 0.12;
     const pLost = 0.08;
     const pRain = o.rain ? 0 : 0.10; // mid-trip rain only if weather was not already rain
-    if (r < pBreak) return { type: 'breakdown', forced: false, wear: old };
-    if (r < pBreak + pTraffic) return { type: 'traffic', forced: false };
-    if (r < pBreak + pTraffic + pLost) return { type: 'lost', forced: false };
-    if (r < pBreak + pTraffic + pLost + pRain) return { type: 'rain', forced: false };
+    if (r < pTraffic) return { type: 'traffic', forced: false };
+    if (r < pTraffic + pLost) return { type: 'lost', forced: false };
+    if (r < pTraffic + pLost + pRain) return { type: 'rain', forced: false };
     return { type: 'none', forced: false };
+  }
+
+  // Hold car age fixed (one band) and run years * TRIPS_PER_YEAR trips for each seed.
+  function simulateBreakdowns(opts) {
+    const o = opts || {};
+    const years = o.years == null ? 10 : o.years;
+    const seeds = o.seeds == null ? 2000 : o.seeds;
+    const tripsPerYear = o.tripsPerYear == null ? TRIPS_PER_YEAR : o.tripsPerYear;
+    const carAge = o.carAge;
+    const maint = !!o.maint;
+    const mode = o.mode || 'car';
+    const prefix = o.seedPrefix == null ? 'sim' : String(o.seedPrefix);
+    let breakdowns = 0, plays = 0, breakdownPlays = 0;
+    const tripsEach = years * tripsPerYear;
+    for (let s = 0; s < seeds; s++) {
+      for (let t = 0; t < tripsEach; t++) {
+        const seed = prefix + ':' + s + ':' + t;
+        const event = pickRoadEvent({ seed, carAge, maint, mode });
+        const play = shouldPlayTrip({ seed, event });
+        if (event.type === 'breakdown') breakdowns++;
+        if (play) plays++;
+        if (play && event.type === 'breakdown') breakdownPlays++;
+      }
+    }
+    const totalYears = seeds * years;
+    const totalTrips = totalYears * tripsPerYear;
+    return {
+      carAge, maint, mode, years, seeds, tripsPerYear,
+      targetAnnual: annualBreakdownRate(carAge, maint),
+      meanBreakdownsPerYear: breakdowns / totalYears,
+      meanBreakdownAnimsPerYear: breakdownPlays / totalYears,
+      shareOfPlaysThatAreBreakdowns: plays ? breakdownPlays / plays : 0,
+      playRate: totalTrips ? plays / totalTrips : 0,
+      breakdowns, plays, breakdownPlays, totalYears, totalTrips,
+    };
   }
 
   function resolveRiders(riders, passengersQ) {
@@ -136,8 +219,22 @@
     let durability = hasParam(qs, 'durability') ? Number(param(qs, 'durability')) : (g && g.durability != null ? Number(g.durability) : 100);
     if (!Number.isFinite(durability)) durability = 100;
     durability = Math.max(0, Math.min(100, durability));
-    const wear = wearQ === 'old' || wearQ === 'new' ? wearQ : (durability < 50 ? 'old' : 'new');
+    let wear = wearQ === 'old' || wearQ === 'new' ? wearQ : (durability < 50 ? 'old' : 'new');
     if (wear === 'old' && !hasParam(qs, 'durability') && !(g && g.durability != null)) durability = 35;
+
+    const carAgeRaw = hasParam(qs, 'carage')
+      ? param(qs, 'carage')
+      : (g && (g.carAge != null ? g.carAge : (g.age != null ? g.age : null)));
+    const carAge = resolveCarAge({
+      carAge: carAgeRaw,
+      wear: (carAgeRaw == null || carAgeRaw === '') ? wear : null,
+    });
+    const maint = param(qs, 'maint') === '1' || !!(g && (g.maint || g.maintenance || g.insured));
+    // carage=12 with no wear=/durability still previews as a worn car.
+    if (!wearQ && carAge >= 10 && !hasParam(qs, 'durability') && !(g && g.durability != null)) {
+      wear = 'old';
+      if (durability >= 50) durability = 35;
+    }
 
     let color = hasParam(qs, 'color') ? Number(param(qs, 'color')) : (g && g.color != null ? Number(g.color) : 0);
     if (!Number.isInteger(color) || color < 0 || color > 5) color = 0;
@@ -188,10 +285,10 @@
     const eventForced = param(qs, 'event');
     const rain = rainQ || eventForced === 'rain';
     const event = pickRoadEvent({
-      seed, wear, durability, rain: rainQ, mode, hasCar,
+      seed, wear, durability, rain: rainQ, mode, hasCar, carAge, maint,
       forced: eventForced && ROAD_EVENTS.includes(eventForced) ? eventForced : null,
     });
-    const play = shouldPlayCommute({ force, isFirstWorkday, isNewCar: newCar, isNewJob, seed });
+    const play = shouldPlayTrip({ force, isFirstWorkday, isNewCar: newCar, isNewJob, seed, event });
     const durationMs = tripDurationMs({ trip, newCar, event, rain: rainQ });
 
     return {
@@ -204,6 +301,10 @@
       colourZh: COLOR_ZH[color],
       durability,
       wear,
+      carAge,
+      maint,
+      breakdownAnnual: tripBreakdownProbability({ mode, hasCar, carAge, maint }) * TRIPS_PER_YEAR,
+      breakdownP: tripBreakdownProbability({ mode, hasCar, carAge, maint }),
       tier: param(qs, 'tier', (g && g.tier) || 'middle'),
       riders: (mode === 'bike' || mode === 'bus') ? 'solo' : (mode === 'scooter' && riders.riders === 'kid_seat' ? (passengers ? 'partner' : 'solo') : riders.riders),
       passengers,
@@ -227,7 +328,9 @@
 
   return {
     COLORS, COLOR_ZH, WEEKEND_DESTS, RIDERS, ROAD_EVENTS, TYPE_TO_MODE,
-    hashSeed, rand01, shouldPlayCommute, pickNoCarMode, pickRoadEvent,
-    wearIsOld, resolveRiders, tripDurationMs, readCarState,
+    hashSeed, rand01, shouldPlayCommute, shouldPlayTrip, pickNoCarMode, pickRoadEvent,
+    wearIsOld, resolveCarAge, annualBreakdownRate, tripBreakdownProbability,
+    simulateBreakdowns, resolveRiders, tripDurationMs, readCarState,
+    TRIPS_PER_YEAR, MAINT_FACTOR, WEAR_OLD_AGE, WEAR_NEW_AGE,
   };
 });

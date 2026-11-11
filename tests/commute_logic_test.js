@@ -50,22 +50,48 @@ assert.strictEqual(L.resolveRiders(null, '2').passengers, 2);
 assert.strictEqual(L.resolveRiders(null, '3').passengers, 3);
 pass('resolveRiders');
 
-// pickRoadEvent forced + wear raises breakdown rate
+// annual rates and aliases
+assert.strictEqual(L.TRIPS_PER_YEAR, 550);
+assert.strictEqual(L.MAINT_FACTOR, 0.7);
+assert.strictEqual(L.annualBreakdownRate(0, false), 0.25);
+assert.strictEqual(L.annualBreakdownRate(3, false), 0.25);
+assert.strictEqual(L.annualBreakdownRate(4, false), 0.5);
+assert.strictEqual(L.annualBreakdownRate(9, false), 0.5);
+assert.strictEqual(L.annualBreakdownRate(10, false), 1.5);
+assert.strictEqual(L.annualBreakdownRate(12, false), 1.5);
+assert.strictEqual(L.annualBreakdownRate(12, true), 1.5 * 0.7);
+assert.strictEqual(L.annualBreakdownRate(0, true), 0.25 * 0.7);
+assert.strictEqual(L.annualBreakdownRate(6, true), 0.5 * 0.7);
+assert.strictEqual(L.resolveCarAge({ wear: 'old' }), 12);
+assert.strictEqual(L.resolveCarAge({ wear: 'new' }), 0);
+assert.strictEqual(L.resolveCarAge({ carAge: '6', wear: 'old' }), 6);
+assert.ok(Math.abs(L.tripBreakdownProbability({ carAge: 12, mode: 'car' }) - 1.5 / 550) < 1e-12);
+assert.ok(Math.abs(L.tripBreakdownProbability({ carAge: 0, mode: 'car' }) - 0.25 / 550) < 1e-12);
+assert.ok(Math.abs(L.tripBreakdownProbability({ carAge: 6, maint: true, mode: 'car' }) - 0.5 * 0.7 / 550) < 1e-12);
+assert.strictEqual(L.tripBreakdownProbability({ carAge: 12, mode: 'bike' }), 0);
+assert.strictEqual(L.tripBreakdownProbability({ carAge: 12, mode: 'bus' }), 0);
+pass('annualBreakdownRate bands, maint factor, wear aliases');
+
+// pickRoadEvent forced + age-based breakdown; bike never breaks
 assert.strictEqual(L.pickRoadEvent({ seed: 'e', forced: 'traffic' }).type, 'traffic');
 assert.strictEqual(L.pickRoadEvent({ seed: 'e', event: 'none' }).type, 'none');
-let brOld = 0, brNew = 0;
-for (let i = 0; i < 2000; i++) {
-  if (L.pickRoadEvent({ seed: 'ev:' + i, wear: 'old', mode: 'car' }).type === 'breakdown') brOld++;
-  if (L.pickRoadEvent({ seed: 'ev:' + i, wear: 'new', mode: 'car', durability: 100 }).type === 'breakdown') brNew++;
-}
-assert.ok(brOld > brNew * 2, 'breakdown old=' + brOld + ' new=' + brNew);
-assert.ok(brNew > 20 && brNew < 150, 'new breakdown count ' + brNew);
+assert.strictEqual(L.pickRoadEvent({ seed: 'e', forced: 'breakdown' }).type, 'breakdown');
 assert.strictEqual(L.pickRoadEvent({ seed: 'b', wear: 'old', mode: 'bike', forced: null }).type !== 'x', true);
-// bike should not break down
 let bikeBreak = 0;
 for (let i = 0; i < 500; i++) if (L.pickRoadEvent({ seed: 'bk:' + i, wear: 'old', mode: 'bike' }).type === 'breakdown') bikeBreak++;
 assert.strictEqual(bikeBreak, 0);
-pass('pickRoadEvent wear vs breakdown old=' + brOld + ' new=' + brNew);
+// same seed is deterministic
+assert.strictEqual(
+  L.pickRoadEvent({ seed: 'det', carAge: 12, mode: 'car' }).type,
+  L.pickRoadEvent({ seed: 'det', carAge: 12, mode: 'car' }).type
+);
+pass('pickRoadEvent forced + bike never breaks');
+
+// breakdown trip always plays, even on a silent (1-in-5 miss) seed
+assert.strictEqual(L.shouldPlayTrip({ seed: silent[0], event: { type: 'none' } }), false);
+assert.strictEqual(L.shouldPlayTrip({ seed: silent[0], event: { type: 'breakdown' } }), true);
+assert.strictEqual(L.shouldPlayTrip({ seed: silent[0], eventType: 'breakdown' }), true);
+pass('shouldPlayTrip forces play on breakdown');
 
 // tripDurationMs
 assert.strictEqual(L.tripDurationMs({}), 3000);
@@ -90,6 +116,25 @@ assert.strictEqual(kids.passengers, 1);
 const old = L.readCarState({ vehicle: 'car', wear: 'old' });
 assert.strictEqual(old.wear, 'old');
 assert.ok(old.durability < 50);
+assert.strictEqual(old.carAge, 12);
+assert.strictEqual(old.maint, false);
+assert.ok(Math.abs(old.breakdownP - 1.5 / 550) < 1e-12);
+const fresh = L.readCarState({ vehicle: 'car', wear: 'new' });
+assert.strictEqual(fresh.carAge, 0);
+assert.ok(Math.abs(fresh.breakdownP - 0.25 / 550) < 1e-12);
+const aged = L.readCarState({ vehicle: 'car', carage: '12' });
+assert.strictEqual(aged.carAge, 12);
+assert.strictEqual(aged.wear, 'old');
+const agedMaint = L.readCarState({ vehicle: 'car', carage: '12', maint: '1' });
+assert.strictEqual(agedMaint.maint, true);
+assert.ok(Math.abs(agedMaint.breakdownP - 1.5 * 0.7 / 550) < 1e-12);
+const mid = L.readCarState({ vehicle: 'car', carage: '6', wear: 'new' });
+assert.strictEqual(mid.carAge, 6);
+assert.strictEqual(mid.wear, 'new');
+assert.ok(Math.abs(mid.breakdownP - 0.5 / 550) < 1e-12);
+const fromGameAge = L.readCarState({ vehicle: 'car' }, { vehicle: { owned: { type: 'compact', carAge: 8, maintenance: true } } });
+assert.strictEqual(fromGameAge.carAge, 8);
+assert.strictEqual(fromGameAge.maint, true);
 const wk = L.readCarState({ trip: 'weekend', dest: 'beach', vehicle: 'car' });
 assert.strictEqual(wk.trip, 'weekend');
 assert.strictEqual(wk.dest, 'beach');
@@ -111,12 +156,56 @@ assert.strictEqual(bus.mode, 'bus');
 assert.strictEqual(bus.passengers, 0);
 const ev = L.readCarState({ vehicle: 'car', event: 'breakdown' });
 assert.strictEqual(ev.event.type, 'breakdown');
+assert.strictEqual(ev.play, true);
 assert.ok(ev.durationMs > 3000);
 const skip = L.readCarState({ seed: silent[0] });
 assert.strictEqual(skip.play, false);
 const forcedPlay = L.readCarState({ seed: silent[0], force: '1' });
 assert.strictEqual(forcedPlay.play, true);
-pass('readCarState adapter and URL overrides');
+// a silent seed with a forced breakdown still plays
+const forcedBreak = L.readCarState({ seed: silent[0], vehicle: 'car', event: 'breakdown' });
+assert.strictEqual(forcedBreak.play, true);
+assert.strictEqual(forcedBreak.event.type, 'breakdown');
+pass('readCarState adapter, URL aliases, play-on-breakdown');
+
+// 10-year sim: 2000 seeds × 5500 trips per age band ± maint
+const bands = [
+  { label: '0–3', carAge: 1 },
+  { label: '4–9', carAge: 6 },
+  { label: '10+', carAge: 12 },
+];
+const simRows = [];
+const t0 = Date.now();
+for (const band of bands) {
+  for (const maint of [false, true]) {
+    const row = L.simulateBreakdowns({
+      carAge: band.carAge, maint, years: 10, seeds: 2000,
+      seedPrefix: 'band-' + band.label + (maint ? '-m' : ''),
+    });
+    row.label = band.label;
+    const rel = Math.abs(row.meanBreakdownsPerYear - row.targetAnnual) / row.targetAnnual;
+    assert.ok(rel < 0.10, band.label + ' maint=' + maint + ' mean=' + row.meanBreakdownsPerYear + ' target=' + row.targetAnnual);
+    // Every breakdown plays, so animations/year equals breakdowns/year
+    assert.ok(Math.abs(row.meanBreakdownAnimsPerYear - row.meanBreakdownsPerYear) < 1e-12);
+    simRows.push(row);
+  }
+}
+pass('10-year sim 2000 seeds × 6 bands in ' + (Date.now() - t0) + 'ms');
 
 console.log('ALL PASS');
-console.log(JSON.stringify({ noneBikeSeed, silentSeed: silent[0], hitsPer1000: hits, breakdownOld: brOld, breakdownNew: brNew }));
+console.log(JSON.stringify({
+  noneBikeSeed,
+  silentSeed: silent[0],
+  hitsPer1000: hits,
+  tripsPerYear: L.TRIPS_PER_YEAR,
+  sim: simRows.map(r => ({
+    band: r.label,
+    carAge: r.carAge,
+    maint: r.maint,
+    targetAnnual: r.targetAnnual,
+    meanBreakdownsPerYear: Number(r.meanBreakdownsPerYear.toFixed(4)),
+    meanBreakdownAnimsPerYear: Number(r.meanBreakdownAnimsPerYear.toFixed(4)),
+    shareOfPlaysThatAreBreakdowns: Number((r.shareOfPlaysThatAreBreakdowns * 100).toFixed(3)),
+    playRate: Number(r.playRate.toFixed(4)),
+  })),
+}, null, 2));

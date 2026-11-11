@@ -2,11 +2,15 @@
   "_note": "爸媽／六歲：站與坐用斜側面（idle_34v/sit_34v），走／跑／跳用側面。錨點腳底中心 (27,115)。",
   "room_daylight": {
     "src": "assets/room_daylight.png",
-    "from": "王子 room_daylight_480x270_r5"
+    "from": "王子 room_daylight_480x270_r5",
+    "light_side": "right",
+    "light_side_note": "Living-room evening light is the tall floor lamp on the right (brightest region of room_evening, lamp at head/shoulder height). The window is dark at dusk and the left table lamp is lower and smaller. Rim only appears in evening, so both day and evening rooms use light_side=right. A r4 at the wall slot x=406 stands just left of that lamp, so her lit side is the right."
   },
   "room_evening": {
     "src": "assets/room_evening.png",
-    "from": "王子 room_evening_480x270_r5"
+    "from": "王子 room_evening_480x270_r5",
+    "light_side": "right",
+    "light_side_note": "Living-room evening light is the tall floor lamp on the right (brightest region of room_evening, lamp at head/shoulder height). The window is dark at dusk and the left table lamp is lower and smaller. Rim only appears in evening, so both day and evening rooms use light_side=right. A r4 at the wall slot x=406 stands just left of that lamp, so her lit side is the right."
   },
   "father": {
     "anchor": "foot",
