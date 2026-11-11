@@ -397,7 +397,7 @@
     vis.forEach((row, i) => {
       const y = startY + i * rowH;
       drawPixelText(g, row.name, [x, y, width, 8], pri, { maxLines: 1 });
-      const line = row.faded ? (row.fadeTag || row.fadeListLine) : (row.lastLine || T.UI.emptyList.sms);
+      const line = row.faded ? fadeShortTag(row) : (row.lastLine || T.UI.emptyList.sms);
       drawPixelText(g, line, [x, y + 8, width, 8], sec, { maxLines: 1 });
       hit('contact', [x, y, width, rowH], { personId: row.personId });
     });
@@ -435,10 +435,17 @@
     } else {
       drawPixelText(g, T.UI.itemName.sms, rectOf('sms_flip', 'message_stamp'), sec, { align: 'right' });
     }
-    const body = app.banner && app.banner !== T.UI.feeHint ? app.banner : (last || T.UI.emptyList.sms);
-    drawPixelText(g, body, rectOf('sms_flip', 'message_body'), pri, { maxLines: 2 });
     if (app.banner === T.UI.feeHint) {
-      // fee hint sits in the stamp if not faded; otherwise already shown as body prefix — keep last line as body
+      // 「傳送一則簡訊會扣一筆費用。」13 字 × 8px = 104px。
+      // 收件人橫線（y=31）到輸入框頂（y=52）只有 20px；用 48px 寬排成 6+6+1。
+      // 前兩行用完整 8px 格；句號上移 1px、高度 5px，避免被輸入框頂線切掉。
+      const hintLines = wrapText(T.UI.feeHint, 48);
+      drawPixelText(g, hintLines[0] || '', [24, 32, 48, 8], sec, { maxLines: 1 });
+      if (hintLines[1]) drawPixelText(g, hintLines[1], [24, 40, 48, 8], sec, { maxLines: 1 });
+      if (hintLines[2]) drawPixelText(g, hintLines[2], [24, 47, 48, 5], sec, { maxLines: 1 });
+    } else {
+      const body = app.banner ? app.banner : (last || T.UI.emptyList.sms);
+      drawPixelText(g, body, rectOf('sms_flip', 'message_body'), pri, { maxLines: 2 });
     }
     const draft = draftText();
     drawPixelText(g, draft || (app.banner === T.UI.feeHint ? T.UI.composeNew.sms : ''), rectOf('sms_flip', 'input_field'), pri, { maxLines: 1 });
@@ -486,8 +493,8 @@
       blitNN(g, av, 18, y, 16, 16);
       drawPixelText(g, row.name, [36, y, 42, 8], pri, { maxLines: 1 });
       if (row.faded) {
-        // §四：時間標籤 + 列表變淡行
-        drawPixelText(g, row.fadeTag, [36, y + 8, 42, 8], sec, { maxLines: 1 });
+        // 列表 42px 放不下「上次聊天是三年前」，改用 fadeShortTag「三年前」。畫面不用「變淡」。
+        drawPixelText(g, fadeShortTag(row), [36, y + 8, 42, 8], sec, { maxLines: 1 });
       } else {
         drawPixelText(g, row.lastLine || T.UI.emptyList.chat, [36, y + 8, 42, 8], sec, { maxLines: 1 });
       }
@@ -522,6 +529,8 @@
       // opener is long; keep the header clean and write the full line below
     } else if (faded) {
       // Full 64px LCD width sits on the conversation stamp row so the 8-glyph tag is not cropped.
+    } else if (app.banner === T.UI.feeHint) {
+      // 扣費說明佔頭像下方兩行，不並畫「已讀」。
     } else {
       drawLabel(g, chrome, T.UI.readByOther.chat, sec);
     }
@@ -537,7 +546,10 @@
     } else if (faded) {
       const days = app.state.day - (L.lastContactDayOf(app.state, p.id) || app.state.day);
       drawPixelText(g, L.fadeTimeTag(days, 'chat'), [16, 41, 64, 8], sec, { maxLines: 1 });
-    } else if (app.banner && app.banner !== T.UI.feeHint) {
+    } else if (app.banner === T.UI.feeHint) {
+      // 聊天撰寫若帶了扣費說明：60px 寬排成兩行，放在頭像列下方、氣泡上方，不遮頭像。
+      drawPixelText(g, T.UI.feeHint, [18, 38, 60, 16], sec, { maxLines: 2 });
+    } else if (app.banner) {
       drawPixelText(g, app.banner, rectOf(chrome, 'conversation_stamp'), sec, { maxLines: 1 });
     }
 

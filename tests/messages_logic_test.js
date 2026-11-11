@@ -30,7 +30,7 @@ pass('phone.gen flip → SMS, smart/thin → chat');
   pass('last line is newest messages[] entry for that personId');
 }
 
-// —— SMS fee deducted from savingsUsd; insufficient does not send ——
+// —— SMS fee is recorded as pending; savings is not deducted at send ——
 {
   const state = L.makeSampleState('compose');
   assert.strictEqual(L.messagesUiKind(state.phone.gen), 'sms');
@@ -38,26 +38,28 @@ pass('phone.gen flip → SMS, smart/thin → chat');
   const before = state.messages.length;
   const r1 = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.meal.1' });
   assert.strictEqual(r1.ok, true);
-  assert.strictEqual(state.savingsUsd, 2);
-  assert.strictEqual(state._sample.pendingSmsFeesUsd, 1);
+  assert.strictEqual(state.savingsUsd, 3, 'send does not deduct savings');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 1);
   assert.strictEqual(state.messages.length, before + 1);
   assert.strictEqual(state.messages[state.messages.length - 1].from, 'self');
   assert.strictEqual(state.messages[state.messages.length - 1].textId, 'out.friend.sms.meal.1');
   const r2 = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.1' });
   assert.strictEqual(r2.ok, true);
-  assert.strictEqual(state.savingsUsd, 1);
+  assert.strictEqual(state.savingsUsd, 3);
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 2);
   const r3 = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.drive.1' });
   assert.strictEqual(r3.ok, true);
-  assert.strictEqual(state.savingsUsd, 0);
+  assert.strictEqual(state.savingsUsd, 3);
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 3);
   const n = state.messages.length;
   const fail = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.2' });
   assert.strictEqual(fail.ok, false);
   assert.strictEqual(fail.reason, 'insufficient');
   assert.strictEqual(fail.message, '存款不足，這則簡訊沒有送出。');
-  assert.strictEqual(state.savingsUsd, 0, 'savings unchanged on failure');
+  assert.strictEqual(state.savingsUsd, 3, 'savings unchanged on failure');
   assert.strictEqual(state.messages.length, n, 'no message written on failure');
-  assert.strictEqual(state._sample.pendingSmsFeesUsd, 3);
-  pass('SMS fee 1 from savings; insufficient shows 公主 wording and does not send');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 3, 'failed send does not add a fee');
+  pass('SMS fee goes to phone.bill.smsPendingUsd at send; insufficient uses 公主 wording and does not send');
 }
 
 // chat (smart / thin) does not charge
@@ -76,18 +78,78 @@ pass('phone.gen flip → SMS, smart/thin → chat');
   pass('smart and thin chat sends do not deduct savings');
 }
 
-// monthly settlement parks fees in the sample bag (no official bill key)
+// monthly settlement deducts pending fees from savings once, then resets to 0
 {
   const state = L.makeSampleState('compose');
   state.savingsUsd = 5;
   L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.1' });
   L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.2' });
+  assert.strictEqual(state.savingsUsd, 5, 'still not deducted before settle');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 2);
   const settled = L.settleMonth(state);
   assert.strictEqual(settled.addedUsd, 2);
   assert.strictEqual(settled.billSmsUsd, 2);
-  assert.strictEqual(state._sample.pendingSmsFeesUsd, 0);
-  assert.ok(settled.missingKey.indexOf('phone.bill') !== -1);
-  pass('settleMonth moves pending SMS fees into the sample bill bag');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 0);
+  assert.strictEqual(state.savingsUsd, 3);
+  const again = L.settleMonth(state);
+  assert.strictEqual(again.addedUsd, 0);
+  assert.strictEqual(state.savingsUsd, 3, 'second settle does not deduct again');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 0);
+  pass('settleMonth deducts pending SMS fees from savings once and resets the bill key');
+}
+
+// savings exactly covering pending+fee may send; one point short is blocked
+{
+  const state = L.makeSampleState('compose');
+  state.savingsUsd = 2;
+  state.phone.bill.smsPendingUsd = 1;
+  const n = state.messages.length;
+  const ok = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.1' });
+  assert.strictEqual(ok.ok, true, 'savings 2 with pending 1 covers this fee of 1');
+  assert.strictEqual(state.savingsUsd, 2);
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 2);
+  assert.strictEqual(state.messages.length, n + 1);
+  const blocked = L.sendMessage(state, { personId: 'friend_qing', textId: 'out.friend.sms.hi.2' });
+  assert.strictEqual(blocked.ok, false);
+  assert.strictEqual(blocked.reason, 'insufficient');
+  assert.strictEqual(blocked.message, '存款不足，這則簡訊沒有送出。');
+  assert.strictEqual(state.savingsUsd, 2);
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 2);
+  assert.strictEqual(state.messages.length, n + 1);
+  const settled = L.settleMonth(state);
+  assert.strictEqual(settled.addedUsd, 2);
+  assert.strictEqual(state.savingsUsd, 0);
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 0);
+  pass('send allowed when savings exactly covers pending+fee; one short is blocked');
+}
+
+// 70 characters allowed; the 71st is rejected (current send path does not truncate)
+{
+  const state = L.makeSampleState('compose');
+  state.savingsUsd = 10;
+  T.TEXTS['test.chars70'] = '字'.repeat(70);
+  T.TEXTS['test.chars71'] = '字'.repeat(71);
+  try {
+    assert.strictEqual(L.smsCharCount(T.TEXTS['test.chars70']), 70);
+    assert.strictEqual(L.smsCharCount(T.TEXTS['test.chars71']), 71);
+    const r70 = L.sendMessage(state, { personId: 'friend_qing', textId: 'test.chars70' });
+    assert.strictEqual(r70.ok, true);
+    assert.strictEqual(state.phone.bill.smsPendingUsd, 1);
+    const n = state.messages.length;
+    const pending = state.phone.bill.smsPendingUsd;
+    const sav = state.savingsUsd;
+    const r71 = L.sendMessage(state, { personId: 'friend_qing', textId: 'test.chars71' });
+    assert.strictEqual(r71.ok, false);
+    assert.strictEqual(r71.reason, 'char_full');
+    assert.strictEqual(r71.message, '字數已滿，請再短一點。');
+    assert.strictEqual(state.messages.length, n, '71st character does not send');
+    assert.strictEqual(state.phone.bill.smsPendingUsd, pending);
+    assert.strictEqual(state.savingsUsd, sav);
+  } finally {
+    delete T.TEXTS['test.chars70'];
+    delete T.TEXTS['test.chars71'];
+  }
+  pass('SMS 70 characters allowed; 71st rejected as 字數已滿');
 }
 
 // —— dead relative is read-only (parents.*.alive, no new key) ——
@@ -192,10 +254,12 @@ pass('phone.gen flip → SMS, smart/thin → chat');
   pass('7 incoming categories × 3 replies (sms and chat), verbatim catalog');
 }
 
-// missing official keys are listed, not invented
+// official bill key (狀態鍵表第 200 列) is used; no longer listed as missing
 {
-  assert.ok(L.MISSING_KEYS.some(k => k.proposed.indexOf('phone.bill') !== -1));
-  pass('missing official keys listed for 小兵2號');
+  const state = L.makeSampleState('compose');
+  assert.strictEqual(state.phone.bill.smsPendingUsd, 0);
+  assert.strictEqual(L.MISSING_KEYS.length, 0);
+  pass('phone.bill.smsPendingUsd is the official pending SMS bill key');
 }
 
 console.log('OK messages_logic_test.js');

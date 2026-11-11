@@ -4,7 +4,7 @@
     ? require('./messages_text.js')
     : root.MessagesText;
 
-  const SMS_FEE_USD = 1; // 王：每則從存款扣一點
+  const SMS_FEE_USD = 1; // 每則 1 點：送出時計入本月待結，月結時才從存款扣一次
   const SMS_CHAR_LIMIT = 70; // 公主：約七十字，暫定
   const FRIEND_FADE_DAYS = 365; // 狀態鍵表：朋友 365 天少聯絡 → 變淡
   const CLOSENESS_DELTA = 0.02; // 傳送後輕觸 closeness（若該人已有此鍵）
@@ -218,6 +218,22 @@
     return Array.from(text || '').length;
   }
 
+
+  // 狀態鍵表第 200 列 phone.bill.smsPendingUsd：
+  // 本月已送出簡訊的累計費用，月結從存款扣一次後歸 0。
+  // 樣本直接寫在 state.phone.bill.smsPendingUsd，正式接鍵時不必再改名。
+  function smsPendingUsd(state) {
+    const bill = state.phone && state.phone.bill;
+    return Number(bill && bill.smsPendingUsd) || 0;
+  }
+
+  function setSmsPendingUsd(state, value) {
+    state.phone = state.phone || {};
+    state.phone.bill = state.phone.bill || {};
+    state.phone.bill.smsPendingUsd = value;
+    return value;
+  }
+
   function sendMessage(state, opts) {
     opts = opts || {};
     const personId = opts.personId;
@@ -234,13 +250,12 @@
         return { ok: false, reason: 'char_full', message: T.UI.charFullLine };
       }
       const savings = Number(state.savingsUsd);
-      if (!(savings >= SMS_FEE_USD)) {
+      const pending = smsPendingUsd(state);
+      // 可支用額 = 存款 − 本月已待結簡訊費。不夠則用公主「存款不足」句，不送出、不記帳。
+      if (!((savings - pending) >= SMS_FEE_USD)) {
         return { ok: false, reason: 'insufficient', message: T.UI.insufficientLine };
       }
-      state.savingsUsd = savings - SMS_FEE_USD;
-      // Sample-only bag — not a 狀態鍵. 月結時本應併入電話費，正式鍵尚未登記。
-      state._sample = state._sample || { pendingSmsFeesUsd: 0, settledSmsFeesUsd: 0 };
-      state._sample.pendingSmsFeesUsd = (state._sample.pendingSmsFeesUsd || 0) + SMS_FEE_USD;
+      setSmsPendingUsd(state, pending + SMS_FEE_USD);
     }
     if (!state.messages) state.messages = [];
     state.messages.push({
@@ -302,16 +317,16 @@
     state.relationships.people[personId] = rec;
   }
 
-  // 月結：把本月簡訊費併入電話費。正式 phone bill 鍵尚未在狀態鍵表，只累到樣本欄。
+  // 月結：把本月簡訊費從存款扣一次，並將 phone.bill.smsPendingUsd 歸 0（鍵表第 200 列）。
   function settleMonth(state) {
-    state._sample = state._sample || { pendingSmsFeesUsd: 0, settledSmsFeesUsd: 0 };
-    const pending = state._sample.pendingSmsFeesUsd || 0;
-    state._sample.settledSmsFeesUsd = (state._sample.settledSmsFeesUsd || 0) + pending;
-    state._sample.pendingSmsFeesUsd = 0;
+    const pending = smsPendingUsd(state);
+    const savings = Number(state.savingsUsd) || 0;
+    state.savingsUsd = savings - pending;
+    setSmsPendingUsd(state, 0);
     return {
       addedUsd: pending,
-      billSmsUsd: state._sample.settledSmsFeesUsd,
-      missingKey: 'phone.bill（或同等電話費月結鍵；狀態鍵表尚無，簡訊費暫存在樣本 _sample.pendingSmsFeesUsd / settledSmsFeesUsd）'
+      billSmsUsd: pending,
+      savingsUsd: state.savingsUsd
     };
   }
 
@@ -334,7 +349,7 @@
     const state = {
       day: TODAY,
       selfName: '小安',
-      phone: { owned: true, gen: 'smart' },
+      phone: { owned: true, gen: 'smart', bill: { smsPendingUsd: 0 } },
       savingsUsd: 40,
       messages: [
         { personId: 'mother', day: recent, from: 'other', textId: 'hist.mother.other.eat', replyOptionId: null, effect: null },
@@ -356,8 +371,8 @@
       parents: {
         mother: { alive: true, deathAge: null, personId: 'mother', name: '媽' },
         father: { alive: true, deathAge: null, personId: 'father', name: '爸' }
-      },
-      _sample: { pendingSmsFeesUsd: 0, settledSmsFeesUsd: 0 }
+      }
+      // phone.bill.smsPendingUsd 見上；樣本不再另放 _sample 待結欄，以免雙邊記帳。
     };
 
     fixture = fixture || 'list';
@@ -398,13 +413,8 @@
     return state;
   }
 
-  const MISSING_KEYS = [
-    {
-      need: '電話費月結（簡訊費併入帳單顯示）',
-      proposed: 'phone.bill 或 phone.bill.smsUsd / 既有電話費鍵',
-      note: '王定：簡訊費從存款扣、月結併入電話費。狀態鍵表無電話費鍵。樣本暫用 _sample.pendingSmsFeesUsd 與 _sample.settledSmsFeesUsd，不寫進鍵表。'
-    }
-  ];
+  // 電話費待結已接狀態鍵表第 200 列 phone.bill.smsPendingUsd，不再列為缺鍵。
+  const MISSING_KEYS = [];
 
   const api = {
     SMS_FEE_USD, SMS_CHAR_LIMIT, FRIEND_FADE_DAYS, CLOSENESS_DELTA,
@@ -413,7 +423,7 @@
     personVars, resolveText, lastLineText, fadeListLine, deadOpener, fadeOpener,
     outgoingPresets, incomingPack, contactList, canCompose, smsCharCount,
     sendMessage, receiveIncoming, replyIncoming, bumpRelationship, settleMonth,
-    defaultPeople, makeSampleState, MISSING_KEYS
+    defaultPeople, makeSampleState, MISSING_KEYS, smsPendingUsd, setSmsPendingUsd
   };
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.MessagesLogic = api;

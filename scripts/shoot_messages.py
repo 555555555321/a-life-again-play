@@ -14,7 +14,7 @@ REPO = Path(__file__).resolve().parents[1]
 PORT = 8875
 BASE = f"http://127.0.0.1:{PORT}"
 OUT_REPO = REPO / "artifacts" / "messages"
-OUT_ALA = Path("/workspace/ala/小兵/2026-11-11/msgapp_shots")
+OUT_ALA = Path("/workspace/ala/小兵/2026-11-11/msgapp_shots_r2")
 
 SHOTS = [
     ("flip_list", "dev=1&shot&orient=portrait&screen=messages&fixture=list", None),
@@ -24,6 +24,8 @@ SHOTS = [
     ("insufficient_savings", "dev=1&shot&orient=portrait&screen=messages&fixture=nosavings", "insufficient"),
     ("dead_readonly", "dev=1&shot&orient=portrait&screen=messages&fixture=dead", None),
     ("fade_label", "dev=1&shot&orient=portrait&screen=messages&fixture=fade", None),
+    ("incoming", "dev=1&shot&orient=portrait&screen=messages&fixture=incoming&gen=smart", None),
+    ("smart_compose", "dev=1&shot&orient=portrait&screen=messages&fixture=compose&gen=smart", None),
 ]
 
 
