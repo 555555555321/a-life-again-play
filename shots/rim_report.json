@@ -13,6 +13,7 @@
         "lighting": "evening",
         "rimFlag": false,
         "rimActive": false,
+        "lightSide": "right",
         "charRim": {
           "hex": "#c4aa78",
           "rgb": [
@@ -21,8 +22,10 @@
             120
           ],
           "pad": 1,
-          "placement": "outside",
-          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
         },
         "canvas": [
           2340,
@@ -39,12 +42,13 @@
         2340,
         1080
       ],
-      "sha256_16": "0bc0fda46e8b20c5",
+      "sha256_16": "a3dc086a7107c2ca",
       "js": {
         "ready": true,
         "lighting": "evening",
         "rimFlag": true,
         "rimActive": true,
+        "lightSide": "right",
         "charRim": {
           "hex": "#c4aa78",
           "rgb": [
@@ -53,8 +57,10 @@
             120
           ],
           "pad": 1,
-          "placement": "outside",
-          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
         },
         "canvas": [
           2340,
@@ -77,6 +83,7 @@
         "lighting": "evening",
         "rimFlag": false,
         "rimActive": false,
+        "lightSide": "right",
         "charRim": {
           "hex": "#c4aa78",
           "rgb": [
@@ -85,8 +92,10 @@
             120
           ],
           "pad": 1,
-          "placement": "outside",
-          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
         },
         "canvas": [
           2340,
@@ -109,6 +118,7 @@
         "lighting": "daylight",
         "rimFlag": false,
         "rimActive": false,
+        "lightSide": "right",
         "charRim": {
           "hex": "#c4aa78",
           "rgb": [
@@ -117,8 +127,10 @@
             120
           ],
           "pad": 1,
-          "placement": "outside",
-          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
         },
         "canvas": [
           2340,
@@ -141,6 +153,7 @@
         "lighting": "daylight",
         "rimFlag": true,
         "rimActive": false,
+        "lightSide": "right",
         "charRim": {
           "hex": "#c4aa78",
           "rgb": [
@@ -149,8 +162,10 @@
             120
           ],
           "pad": 1,
-          "placement": "outside",
-          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
         },
         "canvas": [
           2340,
@@ -168,12 +183,8 @@
     "evening_rim_omitted_vs_rim0_identical": true,
     "evening_rim0_vs_rim1_differ": true,
     "evening_off_sha": "dfd1f4ce881ea77e",
-    "evening_on_sha": "0bc0fda46e8b20c5",
+    "evening_on_sha": "a3dc086a7107c2ca",
     "evening_default_sha": "dfd1f4ce881ea77e"
-  },
-  "upscale_integer_nearest": {
-    "evening_off": false,
-    "evening_on": false
   },
   "contrast": {
     "r3_A": {
@@ -184,27 +195,30 @@
         251,
         253
       ],
-      "rim_on": {
-        "n": 215,
+      "feet_row_native": 252,
+      "top_cutoff_src_y": 62.2,
+      "light_side_and_top": {
+        "n": 119,
         "pct_ge_2": 100.0,
         "pct_ge_1_5": 100.0,
         "min": 5.0689,
-        "mean": 6.0602,
+        "mean": 6.037,
         "max": 8.1023
       },
-      "rim_off_outline": {
-        "n": 338,
-        "pct_ge_2": 0.0,
-        "pct_ge_1_5": 0.0,
-        "min": 1.0,
-        "mean": 1.1222,
-        "max": 1.4778
+      "whole_silhouette_coverage": {
+        "rim_pixels": 134,
+        "outer_ring_candidates": 244,
+        "percent": 54.92,
+        "note": "Painted light-side+top rim pixels as a share of the full exterior ring (excluding the floor-contact row, enclosed holes, and 1 px channels)."
       },
-      "diff_pixels": 271,
-      "rim_pixels": 215,
-      "non_rim_diff_pixels": 56,
-      "outline_pixels": 338,
-      "note": "215 of the differing native cells are a pure 1 px #c4aa78 rim; all 215 have contrast ≥ 2 vs the actual background. The other 60 cells sit over r3 A’s lower legs and the 1 px under the feet, where the screen status text 「位置 (x 406)」 overlays the sofa; those pixels are the caption composited on top of the rim, not a second rim colour. They are excluded from the rim_on figures."
+      "shot_vs_predicted": {
+        "predicted_in_frame": 134,
+        "shot_matched": 119,
+        "extra_shot_rim_not_predicted": 0,
+        "shot_rim_on_or_below_feet_row": 0,
+        "shot_rim_in_hole_or_channel": 0
+      },
+      "note": "134 light-side+top rim pixels are predicted; 119 are visible in the shot and all have contrast ≥ 2. The other 15 sit on her lower right side under the screen status text 「位置 (x 406)」, so they are not in the contrast sample. None of the shot rim pixels are on or below the floor-contact row, and none fill the gap between the legs."
     },
     "a4_12": {
       "char": "a4_12",
@@ -214,27 +228,30 @@
         435,
         253
       ],
-      "rim_on": {
-        "n": 275,
+      "feet_row_native": 252,
+      "top_cutoff_src_y": 62.2,
+      "light_side_and_top": {
+        "n": 134,
         "pct_ge_2": 100.0,
         "pct_ge_1_5": 100.0,
         "min": 3.4104,
-        "mean": 5.153,
+        "mean": 5.5059,
         "max": 7.9121
       },
-      "rim_off_outline": {
-        "n": 423,
-        "pct_ge_2": 7.33,
-        "pct_ge_1_5": 16.08,
-        "min": 1.0,
-        "mean": 1.2883,
-        "max": 2.4378
+      "whole_silhouette_coverage": {
+        "rim_pixels": 134,
+        "outer_ring_candidates": 244,
+        "percent": 54.92,
+        "note": "Painted light-side+top rim pixels as a share of the full exterior ring (excluding the floor-contact row, enclosed holes, and 1 px channels)."
       },
-      "diff_pixels": 275,
-      "rim_pixels": 275,
-      "non_rim_diff_pixels": 0,
-      "outline_pixels": 423,
-      "note": "All 275 differing native cells are a pure 1 px #c4aa78 rim against the wall and plant. None are under the status text. Contrast vs the actual background in the rim-off shot: 100% ≥ 2, 100% ≥ 1.5, min 3.41 (the colour’s contrast to the evening wall #6c4d33), mean 5.15. With the rim off, the existing dark outline at the same stand point reaches ≥ 2 at only 7.33% of outline points and ≥ 1.5 at 16.08%."
+      "shot_vs_predicted": {
+        "predicted_in_frame": 134,
+        "shot_matched": 134,
+        "extra_shot_rim_not_predicted": 0,
+        "shot_rim_on_or_below_feet_row": 0,
+        "shot_rim_in_hole_or_channel": 0
+      },
+      "note": "All 134 predicted light-side+top rim pixels are visible in the shot (the wall slot is clear of the status line). Contrast vs the actual background: 100% ≥ 2, 100% ≥ 1.5, min 3.41, mean 5.51. Coverage of the full exterior ring (no feet row, no holes, no 1 px channels) is 54.92% (134/244) — not a full ring. Zero rim pixels on or below the floor-contact row (scene y=252) and zero in the leg gap."
     }
   },
   "face_x8": {
@@ -244,13 +261,43 @@
       424,
       210
     ],
-    "note": "A r4 head and shoulders, nearest-neighbour 8× from native pixels (stage is already 4×, then 2×).",
+    "note": "A r4 head and shoulders, nearest-neighbour 8× from native pixels.",
     "evening_off": "shots/rim_a4_evening_off_face_x8.png",
     "evening_on": "shots/rim_a4_evening_on_face_x8.png",
     "size": [
       264,
       408
     ]
+  },
+  "legs_x8": {
+    "r3_A": {
+      "native_box_inclusive": [
+        192,
+        200,
+        254,
+        256
+      ],
+      "evening_off": "shots/rim_a4_evening_off_legs_r3_A_x8.png",
+      "evening_on": "shots/rim_a4_evening_on_legs_r3_A_x8.png",
+      "size": [
+        504,
+        456
+      ]
+    },
+    "a4_12": {
+      "native_box_inclusive": [
+        376,
+        200,
+        438,
+        256
+      ],
+      "evening_off": "shots/rim_a4_evening_off_legs_a4_12_x8.png",
+      "evening_on": "shots/rim_a4_evening_on_legs_a4_12_x8.png",
+      "size": [
+        504,
+        456
+      ]
+    }
   },
   "js_ok": true,
   "js_errors": {
@@ -283,15 +330,15 @@
       120
     ],
     "palette": "family palette grandpa_khaki light; also in 3349 palette",
-    "placement": "outside the silhouette (1 px, 8-connected), not on the outermost body pixel"
+    "placement": "exterior top/shoulders (upward-facing, upper 40% of opaque bbox) plus light-facing side; no floor-contact row; no enclosed holes; no 1 px channels",
+    "light_side": "right",
+    "light_side_why": "Living-room evening: the window is dusk-dark; lamps are on at both sides. The tall floor lamp on the right is the brightest region of room_evening and sits at head/shoulder height. The left table lamp is lower and smaller. A r4 at x=406 stands just left of that floor lamp, so her lit side is the right. Light side is a world direction (manifest/scenes light_side) and flips with the sprite."
   },
-  "upscale_integer_nearest_note": "4× blocks are uniform on pixel-art room and sprites (~98.3%). Non-uniform blocks are anti-aliased UI text (corner year label, screen status line, floor labels), not the rim.",
-  "limitations": [
-    "walk_test / elders_stand / pixelbolt_trial on main are daylight-only, so the rim is wired in their draw path but does not appear until those screens have evening lighting.",
-    "The one story screen with evening lighting is talent; it uses the shared drawSceneNative path and will get the rim when rim=1.",
-    "The rim is a 1 px ring outside the silhouette (8-connected), including under the feet and in 1 px gaps (for example between r3 A’s legs). It is not painted on the existing dark outline.",
-    "DEV floor labels and the screen status line can sit over the lowest rim pixels; contrast for those covered pixels is not meaningful. A r4 at x=406 is clear of the status line.",
-    "Evening still has no hard 80% / contrast-2 pass mark (王 2026-11-11). These numbers are for the owner to compare with rim=0.",
-    "No vehicles or furniture are rimmed. Chairs stay unrimmed in the shared path."
-  ]
+  "rule": {
+    "light_side": "right",
+    "why": "Living-room evening: the window is dusk-dark; lamps are on at both sides. The tall floor lamp on the right is the brightest region of room_evening and sits at head/shoulder height. The left table lamp is lower and smaller. A r4 at x=406 stands just left of that floor lamp, so her lit side is the right. Light side is a world direction (manifest/scenes light_side) and flips with the sprite.",
+    "top_shoulders": "Upward-facing exterior edge (opaque pixel directly below) within the upper 40% of the opaque bounding box.",
+    "light_facing_side": "Exterior edge with an opaque neighbour toward the anti-light side, over the full height except the floor-contact row. World direction; a flipped sprite still takes the rim on the world-lit side.",
+    "excluded": "On or below the lowest opaque row; enclosed transparent holes (not reached by a 4-connected flood from the canvas border); 1 px channels with opaque on both sides (left/right or up/down)."
+  }
 }

@@ -362,16 +362,34 @@ async function prepareCue(cue, key) {
 
 function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
-// Evening character rim: 1 px warm edge OUTSIDE the silhouette, only when
-// lit=evening AND rim=1. Applied in the shared draw path, at render time
-// (PNGs are never modified). Furniture, props and vehicles are not rimmed.
+// Evening character rim: 1 px warm edge, only when lit=evening AND rim=1.
+// Applied in the shared draw path at render time (PNGs are never modified).
+// Furniture, props and vehicles are not rimmed.
 // Colour #c4aa78 is grandpa_khaki light in the 48-colour family palette
-// (and in the 3349 palette). Warm plaster, lighter than the evening wall
-// #6c4d33 (contrast 3.41), not skin and not near-white.
+// (and in the 3349 palette).
+//
+// Not a full ring (王 + 王子 2026-11-11). A candidate rim pixel must be:
+//   1. Transparent, 8-adjacent to the silhouette, and in the exterior
+//      region (4-connected flood from the padded canvas border). Enclosed
+//      holes (e.g. between arm and body) are not exterior, so they get no rim.
+//   2. Not in a 1 px channel (opaque on both left and right, or both above
+//      and below) — this also drops gaps open to the outside, e.g. between legs.
+//   3. Strictly above the floor-contact row (the sprite's lowest opaque row).
+//      No rim on or below that row, so the character does not look as if
+//      it is floating.
+//   4. Either (a) an upward-facing edge in the upper 40% of the opaque
+//      bbox — neighbouring opaque pixel is directly below; this is the top
+//      of the head and the shoulders — or (b) a light-facing side edge
+//      (opaque neighbour toward the anti-light side) over the remaining
+//      height. No rim on the back-lit side.
+// Light side is a world direction from the backdrop (manifest light_side,
+// overridable per screen in scenes.json), not sprite-local: a flipped
+// sprite still takes the rim on the world-lit side.
 const CHAR_RIM_HEX = '#c4aa78';
 const CHAR_RIM_RGB = [196, 170, 120];
 const CHAR_RIM_PAD = 1;
-const charRimCache = new WeakMap();
+const CHAR_RIM_TOP_FRAC = 0.40;
+const charRimCache = new WeakMap(); // im -> {left, right}
 
 function eveningLit() {
   if (activeKey === 'style_trial_mom' && styleTrialMom) return styleTrialMom.lighting === 'evening';
@@ -383,52 +401,111 @@ function rimActive() {
   return RIM && eveningLit();
 }
 
-function applyCharRim(im) {
+function worldLightSide() {
+  const scr = (typeof data !== 'undefined' && data && data.screens && activeKey) ? data.screens[activeKey] : null;
+  if (scr && (scr.light_side === 'left' || scr.light_side === 'right')) return scr.light_side;
+  const roomKey = eveningLit() ? 'room_evening' : 'room_daylight';
+  const room = (typeof manifest !== 'undefined' && manifest) ? manifest[roomKey] : null;
+  if (room && (room.light_side === 'left' || room.light_side === 'right')) return room.light_side;
+  return 'right';
+}
+
+function applyCharRim(im, localLight) {
   if (!im) return null;
-  const hit = charRimCache.get(im);
-  if (hit) return hit;
+  const side = (localLight === 'left') ? 'left' : 'right';
+  let slot = charRimCache.get(im);
+  if (slot && slot[side]) return slot[side];
   const w = im.width, h = im.height;
   const src = document.createElement('canvas');
   src.width = w; src.height = h;
   const sg = src.getContext('2d');
   sg.drawImage(im, 0, 0);
   const srcData = sg.getImageData(0, 0, w, h).data;
-  const outW = w + 2 * CHAR_RIM_PAD, outH = h + 2 * CHAR_RIM_PAD;
+  const pad = CHAR_RIM_PAD;
+  const outW = w + 2 * pad, outH = h + 2 * pad;
+  const opaque = new Uint8Array(outW * outH);
+  let y0 = h, y1 = -1;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (!srcData[(y * w + x) * 4 + 3]) continue;
+      opaque[(y + pad) * outW + (x + pad)] = 1;
+      if (y < y0) y0 = y;
+      if (y > y1) y1 = y;
+    }
+  }
+  // 4-connected exterior flood from the padded border.
+  const exterior = new Uint8Array(outW * outH);
+  const stack = [];
+  function tryPush(i) { if (!opaque[i] && !exterior[i]) { exterior[i] = 1; stack.push(i); } }
+  for (let x = 0; x < outW; x++) { tryPush(x); tryPush((outH - 1) * outW + x); }
+  for (let y = 0; y < outH; y++) { tryPush(y * outW); tryPush(y * outW + (outW - 1)); }
+  while (stack.length) {
+    const i = stack.pop();
+    const y = (i / outW) | 0, x = i - y * outW;
+    if (x > 0) tryPush(i - 1);
+    if (x + 1 < outW) tryPush(i + 1);
+    if (y > 0) tryPush(i - outW);
+    if (y + 1 < outH) tryPush(i + outW);
+  }
+  const N8 = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
+  const sideDirs = (side === 'right')
+    ? [[0, -1], [-1, -1], [1, -1]]  // body is to the left of a right-side rim pixel
+    : [[0, 1], [-1, 1], [1, 1]];
+  const cutoff = (y1 >= y0) ? (y0 + CHAR_RIM_TOP_FRAC * (y1 - y0)) : 0;
   const out = document.createElement('canvas');
   out.width = outW; out.height = outH;
   const og = out.getContext('2d');
   const id = og.createImageData(outW, outH);
   const px = id.data;
   const [rr, rg, rb] = CHAR_RIM_RGB;
-  const NEIGH = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
-  function srcA(x, y) {
-    if (x < 0 || y < 0 || x >= w || y >= h) return 0;
-    return srcData[(y * w + x) * 4 + 3];
-  }
-  // 8-connected outside ring so diagonal edges have no holes. Crisp, opaque, integer pixels.
-  for (let y = 0; y < h; y++) {
-    for (let x = 0; x < w; x++) {
-      if (!srcA(x, y)) continue;
-      for (const [dx, dy] of NEIGH) {
-        const nx = x + dx, ny = y + dy;
-        if (srcA(nx, ny)) continue;
-        const o = ((ny + CHAR_RIM_PAD) * outW + (nx + CHAR_RIM_PAD)) * 4;
+  if (y1 >= 0) {
+    for (let Y = 0; Y < outH; Y++) {
+      for (let X = 0; X < outW; X++) {
+        const i = Y * outW + X;
+        if (opaque[i] || !exterior[i]) continue;
+        const srcy = Y - pad;
+        if (srcy >= y1) continue; // on or below the floor-contact row
+        const leftOp = (X > 0 && opaque[i - 1]);
+        const rightOp = (X + 1 < outW && opaque[i + 1]);
+        const upOp = (Y > 0 && opaque[i - outW]);
+        const downOp = (Y + 1 < outH && opaque[i + outW]);
+        if ((leftOp && rightOp) || (upOp && downOp)) continue; // 1 px channel
+        let adj = false;
+        for (const [dy, dx] of N8) {
+          const ny = Y + dy, nx = X + dx;
+          if (ny < 0 || nx < 0 || ny >= outH || nx >= outW) continue;
+          if (opaque[ny * outW + nx]) { adj = true; break; }
+        }
+        if (!adj) continue;
+        let isTop = false;
+        if (srcy <= cutoff && downOp) isTop = true; // upward-facing: opaque directly below
+        let isSide = false;
+        for (const [dy, dx] of sideDirs) {
+          const ny = Y + dy, nx = X + dx;
+          if (ny < 0 || nx < 0 || ny >= outH || nx >= outW) continue;
+          if (opaque[ny * outW + nx]) { isSide = true; break; }
+        }
+        if (!isTop && !isSide) continue;
+        const o = i * 4;
         px[o] = rr; px[o + 1] = rg; px[o + 2] = rb; px[o + 3] = 255;
       }
     }
   }
   og.putImageData(id, 0, 0);
   og.imageSmoothingEnabled = false;
-  og.drawImage(im, CHAR_RIM_PAD, CHAR_RIM_PAD);
-  const baked = { canvas: out, pad: CHAR_RIM_PAD, srcW: w, srcH: h };
-  charRimCache.set(im, baked);
+  og.drawImage(im, pad, pad);
+  const baked = { canvas: out, pad: pad, srcW: w, srcH: h, localLight: side, feetRow: y1, topCutoff: cutoff };
+  if (!slot) { slot = {}; charRimCache.set(im, slot); }
+  slot[side] = baked;
   return baked;
 }
 
 // Draw a character sprite. When the evening rim is on, the destination is
-// shifted by 1 native pixel so the extra ring sits outside the silhouette
+// shifted by 1 native pixel so the extra edge sits outside the silhouette
 // without moving the body. Nearest-neighbour, integer sizes only.
-function drawCharSprite(g, im, dx, dy, dw, dh) {
+// Flip is a world-space scale(-1,1) already applied by the caller, or passed
+// in; light side stays a world direction.
+function drawCharSprite(g, im, dx, dy, dw, dh, flip) {
   if (!im) return;
   g.imageSmoothingEnabled = false;
   if (!rimActive()) {
@@ -436,7 +513,10 @@ function drawCharSprite(g, im, dx, dy, dw, dh) {
     else g.drawImage(im, dx, dy, dw, dh);
     return;
   }
-  const baked = applyCharRim(im);
+  if (flip == null && g.getTransform) flip = g.getTransform().a < 0;
+  const world = worldLightSide();
+  const local = flip ? (world === 'right' ? 'left' : 'right') : world;
+  const baked = applyCharRim(im, local);
   const pad = baked.pad;
   const sx = (dw == null) ? 1 : dw / baked.srcW;
   const sy = (dh == null) ? 1 : dh / baked.srcH;
@@ -445,7 +525,6 @@ function drawCharSprite(g, im, dx, dy, dw, dh) {
   if (dw == null) g.drawImage(baked.canvas, x, y);
   else g.drawImage(baked.canvas, x, y, Math.round(baked.canvas.width * sx), Math.round(baked.canvas.height * sy));
 }
-
 
 // offscreen native scene
 const off = document.createElement('canvas'); off.width = W; off.height = H;
@@ -2175,7 +2254,11 @@ function drawStyleTrialMomA4(now) {
   // expose for shoot.py
   window.goKey = goKey;
   window.RIM = RIM;
-  window.CHAR_RIM = { hex: CHAR_RIM_HEX, rgb: CHAR_RIM_RGB, pad: CHAR_RIM_PAD, placement: 'outside', palette: 'family #c4aa78 grandpa_khaki light (also in 3349)' };
+  window.CHAR_RIM = { hex: CHAR_RIM_HEX, rgb: CHAR_RIM_RGB, pad: CHAR_RIM_PAD, topFrac: CHAR_RIM_TOP_FRAC,
+    placement: 'exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels',
+    palette: 'family #c4aa78 grandpa_khaki light (also in 3349)',
+    lightSide: typeof worldLightSide === 'function' ? worldLightSide() : 'right' };
+  window.worldLightSide = worldLightSide;
   window.rimActive = rimActive;
   window.setDrawer = setDrawer;
   window.setPage = async (p) => {

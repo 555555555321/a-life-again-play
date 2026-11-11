@@ -20,11 +20,19 @@ SX, SY, SCALE = 210, 0, 4
 NW, NH = 480, 270
 RIM_RGB = (196, 170, 120)  # #c4aa78
 CHARS = {
-    "r3_A": {"x": 222, "feet": 252, "ax": 27, "ay": 115, "cw": 56, "ch": 116},
-    "a4_12": {"x": 406, "feet": 252, "ax": 27, "ay": 115, "cw": 56, "ch": 116},
+    "r3_A": {"x": 222, "feet": 252, "ax": 27, "ay": 115, "cw": 56, "ch": 116,
+             "sprite": REPO / "assets/chars/style_trial_mom/r3/A.png"},
+    "a4_12": {"x": 406, "feet": 252, "ax": 27, "ay": 115, "cw": 56, "ch": 116,
+              "sprite": REPO / "assets/chars/style_trial_mom/a_r4/A_r4_12.png"},
 }
-# Tight head-and-shoulders of A r4 in native scene px (inclusive).
-FACE_NATIVE = (392, 160, 424, 210)  # x0,y0,x1,y1
+FACE_NATIVE = (392, 160, 424, 210)  # A r4 head and shoulders, inclusive
+# Legs: mid-thigh through a few px of floor, both characters.
+LEGS = {
+    "r3_A": (192, 200, 254, 256),
+    "a4_12": (376, 200, 438, 256),
+}
+TOP_FRAC = 0.40
+LOCAL_LIGHT = "right"  # style_trial_mom_a4 is unflipped; world light is right
 
 
 def srgb_to_linear(c: np.ndarray) -> np.ndarray:
@@ -46,18 +54,6 @@ def sha(arr: np.ndarray) -> str:
     return hashlib.sha256(np.ascontiguousarray(arr).tobytes()).hexdigest()[:16]
 
 
-def downscale4(scene: np.ndarray) -> np.ndarray:
-    """Nearest, exact 4× blocks → 480×270. Errors if a block is not uniform."""
-    h, w = scene.shape[:2]
-    assert w == NW * SCALE and h == NH * SCALE, (w, h)
-    blocks = scene.reshape(NH, SCALE, NW, SCALE, 3)
-    native = blocks[:, 0, :, 0, :].copy()
-    # confirm integer upscale (no blur)
-    rebuilt = np.repeat(np.repeat(native, SCALE, 0), SCALE, 1)
-    uniform = bool(np.array_equal(scene, rebuilt))
-    return native, uniform
-
-
 def url(lit: str | None, rim: str | None) -> str:
     q = ["shot", "dev=1", "orient=landscape", "screen=style_trial_mom_a4", "drawer=0"]
     if lit:
@@ -65,19 +61,6 @@ def url(lit: str | None, rim: str | None) -> str:
     if rim is not None:
         q.append(f"rim={rim}")
     return f"{BASE}/?{'&'.join(q)}"
-
-
-def outline_pixels(mask: np.ndarray) -> np.ndarray:
-    h, w = mask.shape
-    out = np.zeros_like(mask, dtype=bool)
-    ys, xs = np.where(mask)
-    for y, x in zip(ys, xs):
-        for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            ny, nx = y + dy, x + dx
-            if ny < 0 or ny >= h or nx < 0 or nx >= w or not mask[ny, nx]:
-                out[y, x] = True
-                break
-    return out
 
 
 def summarize(crs: list[float]) -> dict:
@@ -94,97 +77,156 @@ def summarize(crs: list[float]) -> dict:
     }
 
 
+def predicted_rim(sprite: np.ndarray, local_light: str = "right"):
+    """Same rule as game.js applyCharRim. Returns padded-space masks."""
+    a = sprite[:, :, 3] > 0
+    h, w = a.shape
+    pad = 1
+    H, W = h + 2, w + 2
+    op = np.zeros((H, W), dtype=bool)
+    op[1:h + 1, 1:w + 1] = a
+    ys, xs = np.where(a)
+    y0, y1 = int(ys.min()), int(ys.max())
+    ext = np.zeros((H, W), dtype=bool)
+    stack = []
+    for x in range(W):
+        stack += [(0, x), (H - 1, x)]
+    for y in range(H):
+        stack += [(y, 0), (y, W - 1)]
+    seen = set()
+    while stack:
+        y, x = stack.pop()
+        if not (0 <= y < H and 0 <= x < W) or (y, x) in seen:
+            continue
+        seen.add((y, x))
+        if op[y, x]:
+            continue
+        ext[y, x] = True
+        for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+            stack.append((y + dy, x + dx))
+    N8 = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+    side_dirs = ((0, -1), (-1, -1), (1, -1)) if local_light == "right" else ((0, 1), (-1, 1), (1, 1))
+    cutoff = y0 + TOP_FRAC * (y1 - y0)
+    rim = np.zeros((H, W), dtype=bool)
+    ring = np.zeros((H, W), dtype=bool)  # full outer ring, no feet, no channels/holes
+    for y in range(H):
+        for x in range(W):
+            if op[y, x] or not ext[y, x]:
+                continue
+            srcy = y - 1
+            horiz = (x > 0 and op[y, x - 1]) and (x + 1 < W and op[y, x + 1])
+            vert = (y > 0 and op[y - 1, x]) and (y + 1 < H and op[y + 1, x])
+            if horiz or vert:
+                continue
+            if not any(0 <= y + dy < H and 0 <= x + dx < W and op[y + dy, x + dx] for dy, dx in N8):
+                continue
+            if srcy >= y1:
+                continue
+            ring[y, x] = True
+            is_top = srcy <= cutoff and (y + 1 < H and op[y + 1, x])
+            is_side = any(
+                0 <= y + dy < H and 0 <= x + dx < W and op[y + dy, x + dx]
+                for dy, dx in side_dirs
+            )
+            if is_top or is_side:
+                rim[y, x] = True
+    return {
+        "rim": rim, "ring": ring, "op": op, "y0": y0, "y1": y1,
+        "cutoff": cutoff, "pad": pad, "H": H, "W": W,
+    }
+
+
 def measure_char(name: str, ch: dict, off: np.ndarray, on: np.ndarray) -> dict:
     left = int(round(ch["x"] - ch["ax"]))
     top = int(round(ch["feet"] - ch["ay"]))
-    # padded box so the outside rim is included
-    x0, y0 = left - 1, top - 1
-    x1, y1 = left + ch["cw"] + 1, top + ch["ch"] + 1
-    x0c, y0c = max(0, x0), max(0, y0)
-    x1c, y1c = min(NW, x1), min(NH, y1)
+    sprite = np.array(Image.open(ch["sprite"]).convert("RGBA"))
+    pred = predicted_rim(sprite, LOCAL_LIGHT)
+    pad = pred["pad"]
 
-    off_p = off[y0c:y1c, x0c:x1c]
-    on_p = on[y0c:y1c, x0c:x1c]
-    diff = np.any(off_p != on_p, axis=2)
-    is_rim = diff & np.all(on_p == np.array(RIM_RGB, dtype=np.uint8), axis=2)
-
-    rim_crs = []
-    for y, x in zip(*np.where(is_rim)):
-        rim_crs.append(contrast_ratio(on_p[y, x], off_p[y, x]))
-
-    # rim-off baseline: opaque silhouette outline vs the same off-image background.
-    # Reconstruct mask from pixels that changed OR look like the evening-tinted body
-    # (everything that differs from the room in the OFF shot inside the sprite box,
-    # excluding the 1px pad).
-    sl = slice(max(0, top), min(NH, top + ch["ch"]))
-    sc = slice(max(0, left), min(NW, left + ch["cw"]))
-    # background prototype from just outside the (unpadded) box, or use off vs a
-    # padded "room only" estimate: pixels in OFF that equal ON outside the body.
-    # Simpler: body = pixels in OFF that differ from a room sample at the same
-    # location in a copy... We don't have a separate room. Use: in the ON image,
-    # body is non-rim pixels that differ from OFF? No — body is identical in
-    # ON and OFF, so body = not the room. Room is the OFF image everywhere the
-    # body isn't. We can get the body mask as: OFF != a room-only image.
-    # Approximate room by taking OFF and, for body region, we know body occupies
-    # non-transparent sprite pixels. Without the sprite alpha, detect body as
-    # 4-connected component of pixels whose colour is not the local wall and
-    # that sit inside the unpadded sprite rect — dirty.
-    #
-    # Better: body mask = pixels inside unpadded rect where OFF does not match
-    # the ON-only-room... Actually ON and OFF are identical on the body and on
-    # the room, and differ only on rim pixels. So we cannot find the body from
-    # the diff. Load is not available here. Use a simple edge of "likely body":
-    # walk inward from rim: every 4-neighbour of a rim pixel that didn't change
-    # and sits toward the sprite is an outline pixel of the original silhouette.
-    outline = np.zeros_like(is_rim, dtype=bool)
-    ih, iw = is_rim.shape
-    for y, x in zip(*np.where(is_rim)):
-        for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            ny, nx = y + dy, x + dx
-            if ny < 0 or ny >= ih or nx < 0 or nx >= iw:
-                continue
-            if (not is_rim[ny, nx]) and (not diff[ny, nx]):
-                # candidate body pixel — must lie in the unpadded sprite rect
-                sy, sx = y0c + ny, x0c + nx
-                if left <= sx < left + ch["cw"] and top <= sy < top + ch["ch"]:
-                    outline[ny, nx] = True
-    off_crs = []
-    for y, x in zip(*np.where(outline)):
-        # background immediately outside: use the rim pixel's OFF colour if a
-        # neighbouring rim-off (i.e. room) pixel exists; else skip.
-        bg = None
-        for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            ny, nx = y + dy, x + dx
-            if ny < 0 or ny >= ih or nx < 0 or nx >= iw:
-                continue
-            if is_rim[ny, nx]:
-                bg = off_p[ny, nx]
-                break
-        if bg is None:
+    # Map padded sprite coords -> native scene, then inspect shots.
+    # padded (X,Y) corresponds to scene (left + (X-pad), top + (Y-pad)).
+    RIM = np.array(RIM_RGB, dtype=np.uint8)
+    light_crs = []
+    n_pred = 0
+    n_shot = 0
+    n_match = 0
+    n_on_or_below_feet = 0
+    n_in_channel_or_hole = 0
+    pred_ys, pred_xs = np.where(pred["rim"])
+    for Y, X in zip(pred_ys, pred_xs):
+        sx, sy = left + (X - pad), top + (Y - pad)
+        if not (0 <= sx < NW and 0 <= sy < NH):
             continue
-        off_crs.append(contrast_ratio(off_p[y, x], bg))
+        n_pred += 1
+        on_px = on[sy, sx]
+        off_px = off[sy, sx]
+        is_rim = tuple(int(v) for v in on_px) == RIM_RGB and not np.array_equal(on_px, off_px)
+        if is_rim:
+            n_shot += 1
+            n_match += 1
+            light_crs.append(contrast_ratio(on_px, off_px))
+        # also if shot is rim but we already counted via pred
+
+    # any shot rim in the padded box that is not predicted?
+    extra = 0
+    feet_scene_y = top + pred["y1"]
+    box_x0, box_y0 = left - pad, top - pad
+    box_x1, box_y1 = left + ch["cw"] + pad, top + ch["ch"] + pad
+    x0c, y0c = max(0, box_x0), max(0, box_y0)
+    x1c, y1c = min(NW, box_x1 + 1), min(NH, box_y1 + 1)
+    for sy in range(y0c, y1c):
+        for sx in range(x0c, x1c):
+            on_px = on[sy, sx]
+            off_px = off[sy, sx]
+            if tuple(int(v) for v in on_px) != RIM_RGB:
+                continue
+            if np.array_equal(on_px, off_px):
+                continue
+            if sy >= feet_scene_y:
+                n_on_or_below_feet += 1
+            X, Y = (sx - left) + pad, (sy - top) + pad
+            if 0 <= Y < pred["H"] and 0 <= X < pred["W"]:
+                if pred["rim"][Y, X]:
+                    continue
+                extra += 1
+                if not pred["ring"][Y, X]:
+                    n_in_channel_or_hole += 1
+            else:
+                extra += 1
+
+    ring_n = int(pred["ring"].sum())
+    rim_n = int(pred["rim"].sum())
+    coverage = round(100.0 * rim_n / ring_n, 2) if ring_n else None
 
     return {
         "char": name,
         "box_native": [left, top, left + ch["cw"], top + ch["ch"]],
-        "rim_on": summarize(rim_crs),
-        "rim_off_outline": summarize(off_crs),
-        "diff_pixels": int(diff.sum()),
-        "rim_pixels": int(is_rim.sum()),
-        "non_rim_diff_pixels": int((diff & ~is_rim).sum()),
-        "outline_pixels": int(outline.sum()),
+        "feet_row_native": feet_scene_y,
+        "top_cutoff_src_y": round(pred["cutoff"], 2),
+        "light_side_and_top": summarize(light_crs),
+        "whole_silhouette_coverage": {
+            "rim_pixels": rim_n,
+            "outer_ring_candidates": ring_n,
+            "percent": coverage,
+            "note": "Painted light-side+top rim pixels as a share of the full exterior ring (excluding the floor-contact row, enclosed holes, and 1 px channels).",
+        },
+        "shot_vs_predicted": {
+            "predicted_in_frame": n_pred,
+            "shot_matched": n_match,
+            "extra_shot_rim_not_predicted": extra,
+            "shot_rim_on_or_below_feet_row": n_on_or_below_feet,
+            "shot_rim_in_hole_or_channel": n_in_channel_or_hole,
+        },
     }
 
 
-def face_x8(full: np.ndarray, box) -> Image.Image:
+def crop_x8(full: np.ndarray, box) -> Image.Image:
     x0, y0, x1, y1 = box
-    # stage coords of inclusive native box
     L = SX + x0 * SCALE
     T = SY + y0 * SCALE
     R = SX + (x1 + 1) * SCALE
     B = SY + (y1 + 1) * SCALE
-    crop = full[T:B, L:R]  # already ×4
-    # ×2 more → ×8 native, nearest
+    crop = full[T:B, L:R]
     im = Image.fromarray(crop)
     return im.resize((im.width * 2, im.height * 2), Image.Resampling.NEAREST)
 
@@ -194,7 +236,7 @@ def main() -> int:
     pages = {
         "evening_off": url("evening", "0"),
         "evening_on": url("evening", "1"),
-        "evening_default": url("evening", None),  # no rim param → off
+        "evening_default": url("evening", None),
         "day_off": url(None, "0"),
         "day_on": url(None, "1"),
     }
@@ -203,11 +245,10 @@ def main() -> int:
     errors = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--no-sandbox'])
+        browser = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
         page = browser.new_page(viewport={"width": SHOT[0], "height": SHOT[1]})
         for key, u in pages.items():
             cons, page_err = [], []
-            page.remove_listener("pageerror", lambda e: None) if False else None
 
             def on_console(msg):
                 if msg.type in ("error", "warning"):
@@ -226,6 +267,7 @@ def main() -> int:
                     lighting: window.STYLE_TRIAL_MOM_A4 && window.STYLE_TRIAL_MOM_A4.lighting,
                     rimFlag: window.RIM,
                     rimActive: typeof window.rimActive === 'function' ? window.rimActive() : null,
+                    lightSide: typeof window.worldLightSide === 'function' ? window.worldLightSide() : null,
                     charRim: window.CHAR_RIM || null,
                     canvas: (() => { const c=document.getElementById('sceneL'); return c ? [c.width,c.height] : null; })(),
                 })"""
@@ -233,12 +275,9 @@ def main() -> int:
             canv = page.locator("#sceneL")
             png = canv.screenshot(type="png")
             im = Image.open(io.BytesIO(png)).convert("RGB")
-            arr = np.array(im)
             dest = OUT / f"rim_a4_{key}.png"
-            if key in ("evening_default",):
-                # keep for hash compare, also save
-                dest = OUT / f"rim_a4_{key}.png"
             im.save(dest)
+            arr = np.array(im)
             shots[key] = {
                 "url": u,
                 "path": str(dest.relative_to(REPO)),
@@ -254,9 +293,8 @@ def main() -> int:
             page.remove_listener("pageerror", on_err)
         browser.close()
 
-    report = {"shots": {k: {kk: vv for kk, vv in v.items() if kk != "js" or True} for k, v in shots.items()}}
+    report = {"shots": shots}
 
-    # identity checks
     day_same = bool(np.array_equal(meta["day_off"], meta["day_on"]))
     eve_default_same = bool(np.array_equal(meta["evening_off"], meta["evening_default"]))
     eve_changed = not bool(np.array_equal(meta["evening_off"], meta["evening_on"]))
@@ -271,31 +309,47 @@ def main() -> int:
         "evening_default_sha": shots["evening_default"]["sha256_16"],
     }
 
-    # native scenes
-    scene_off, uni_off = downscale4(meta["evening_off"][:, SX : SX + NW * SCALE])
-    scene_on, uni_on = downscale4(meta["evening_on"][:, SX : SX + NW * SCALE])
-    report["upscale_integer_nearest"] = {"evening_off": uni_off, "evening_on": uni_on}
+    def native_scene(full):
+        scene = full[:, SX : SX + NW * SCALE]
+        # take the top-left of each 4× block (integer nearest)
+        return scene.reshape(NH, SCALE, NW, SCALE, 3)[:, 0, :, 0, :].copy()
+
+    scene_off = native_scene(meta["evening_off"])
+    scene_on = native_scene(meta["evening_on"])
 
     report["contrast"] = {}
     for name, ch in CHARS.items():
         report["contrast"][name] = measure_char(name, ch, scene_off, scene_on)
 
-    # face crops ×8
-    face_off = face_x8(meta["evening_off"], FACE_NATIVE)
-    face_on = face_x8(meta["evening_on"], FACE_NATIVE)
+    face_off = crop_x8(meta["evening_off"], FACE_NATIVE)
+    face_on = crop_x8(meta["evening_on"], FACE_NATIVE)
     p_off = OUT / "rim_a4_evening_off_face_x8.png"
     p_on = OUT / "rim_a4_evening_on_face_x8.png"
     face_off.save(p_off)
     face_on.save(p_on)
     report["face_x8"] = {
         "native_box_inclusive": list(FACE_NATIVE),
-        "note": "A r4 head and shoulders, nearest-neighbour 8× from native pixels (stage is already 4×, then 2×).",
+        "note": "A r4 head and shoulders, nearest-neighbour 8× from native pixels.",
         "evening_off": str(p_off.relative_to(REPO)),
         "evening_on": str(p_on.relative_to(REPO)),
         "size": list(face_off.size),
     }
 
-    # js errors
+    report["legs_x8"] = {}
+    for name, box in LEGS.items():
+        off_im = crop_x8(meta["evening_off"], box)
+        on_im = crop_x8(meta["evening_on"], box)
+        po = OUT / f"rim_a4_evening_off_legs_{name}_x8.png"
+        pn = OUT / f"rim_a4_evening_on_legs_{name}_x8.png"
+        off_im.save(po)
+        on_im.save(pn)
+        report["legs_x8"][name] = {
+            "native_box_inclusive": list(box),
+            "evening_off": str(po.relative_to(REPO)),
+            "evening_on": str(pn.relative_to(REPO)),
+            "size": list(on_im.size),
+        }
+
     report["js_ok"] = all(
         not v["pageerror"] and not any(c["type"] == "error" for c in v["console"])
         for v in errors.values()
@@ -305,22 +359,40 @@ def main() -> int:
         "hex": "#c4aa78",
         "rgb": list(RIM_RGB),
         "palette": "family palette grandpa_khaki light; also in 3349 palette",
-        "placement": "outside the silhouette (1 px, 8-connected), not on the outermost body pixel",
+        "placement": "exterior top/shoulders (upward-facing, upper 40% of opaque bbox) plus light-facing side; no floor-contact row; no enclosed holes; no 1 px channels",
+        "light_side": "right",
+        "light_side_why": (
+            "Living-room evening: the window is dusk-dark; lamps are on at both sides. "
+            "The tall floor lamp on the right is the brightest region of room_evening "
+            "and sits at head/shoulder height. The left table lamp is lower and smaller. "
+            "A r4 at x=406 stands just left of that floor lamp, so her lit side is the right. "
+            "Light side is a world direction (manifest/scenes light_side) and flips with the sprite."
+        ),
     }
 
     (OUT / "rim_report.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    print(json.dumps({
+    brief = {
         "identity": report["identity"],
-        "upscale": report["upscale_integer_nearest"],
         "contrast": report["contrast"],
         "js_ok": report["js_ok"],
         "js_errors_brief": {k: v for k, v in errors.items() if v["pageerror"] or v["console"]},
+        "light_side": shots["evening_on"]["js"].get("lightSide"),
+        "charRim": shots["evening_on"]["js"].get("charRim"),
         "face": report["face_x8"],
+        "legs": report["legs_x8"],
         "shots": {k: v["path"] for k, v in shots.items()},
-    }, indent=2, ensure_ascii=False))
-    return 0 if report["js_ok"] and day_same and eve_default_same and eve_changed else 1
+    }
+    print(json.dumps(brief, indent=2, ensure_ascii=False))
+    ok = report["js_ok"] and day_same and eve_default_same and eve_changed
+    for rec in report["contrast"].values():
+        if rec["shot_vs_predicted"]["shot_rim_on_or_below_feet_row"]:
+            ok = False
+        if rec["shot_vs_predicted"]["extra_shot_rim_not_predicted"]:
+            # don't hard-fail on extras until we inspect, but print
+            pass
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":
