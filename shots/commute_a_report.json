@@ -1,0 +1,76 @@
+{
+  "overlaps": {
+    "commute_a_bicycle_m0_day": [],
+    "commute_a_scooter_m0_day": [],
+    "commute_a_smallcar_m0_day": [],
+    "commute_a_smallcar_m0_evening": [],
+    "commute_a_smallcar_m0_mom": [],
+    "commute_a_weekend_beach_arrive": []
+  },
+  "art": {
+    "commute_a_bicycle_m0_day": "a",
+    "commute_a_scooter_m0_day": "a",
+    "commute_a_smallcar_m0_day": "a",
+    "commute_a_smallcar_m0_evening": "a",
+    "commute_a_smallcar_m0_mom": "a",
+    "commute_a_weekend_beach_arrive": "a"
+  },
+  "modes": {
+    "commute_a_bicycle_m0_day": "bike",
+    "commute_a_scooter_m0_day": "scooter",
+    "commute_a_smallcar_m0_day": "car",
+    "commute_a_smallcar_m0_evening": "car",
+    "commute_a_smallcar_m0_mom": "car",
+    "commute_a_weekend_beach_arrive": "car"
+  },
+  "variants": {
+    "commute_a_bicycle_m0_day": "day_dad",
+    "commute_a_scooter_m0_day": "day_dad",
+    "commute_a_smallcar_m0_day": "day_dad",
+    "commute_a_smallcar_m0_evening": "night_dad",
+    "commute_a_smallcar_m0_mom": "day_mom",
+    "commute_a_weekend_beach_arrive": "day_dad"
+  },
+  "labels": {
+    "commute_a_bicycle_m0_day": [],
+    "commute_a_scooter_m0_day": [],
+    "commute_a_smallcar_m0_day": [
+      "小型車車身條帶待王子"
+    ],
+    "commute_a_smallcar_m0_evening": [
+      "小型車車身條帶待王子"
+    ],
+    "commute_a_smallcar_m0_mom": [
+      "小型車車身條帶待王子"
+    ],
+    "commute_a_weekend_beach_arrive": [
+      "小型車車身條帶待王子"
+    ]
+  },
+  "cards": {
+    "commute_a_bicycle_m0_day": "",
+    "commute_a_scooter_m0_day": "",
+    "commute_a_smallcar_m0_day": "",
+    "commute_a_smallcar_m0_evening": "",
+    "commute_a_smallcar_m0_mom": "",
+    "commute_a_weekend_beach_arrive": "到達卡\n你把車停在防風林後面，走幾步就聽見海。風把衣服吹起來，你在沙上站了一會兒。"
+  },
+  "missing": {
+    "commute_a_bicycle_m0_day": [],
+    "commute_a_scooter_m0_day": [],
+    "commute_a_smallcar_m0_day": [],
+    "commute_a_smallcar_m0_evening": [],
+    "commute_a_smallcar_m0_mom": [],
+    "commute_a_weekend_beach_arrive": []
+  },
+  "errors": [],
+  "js_error_count": 0,
+  "overlap_hits": {
+    "commute_a_bicycle_m0_day": 0,
+    "commute_a_scooter_m0_day": 0,
+    "commute_a_smallcar_m0_day": 0,
+    "commute_a_smallcar_m0_evening": 0,
+    "commute_a_smallcar_m0_mom": 0,
+    "commute_a_weekend_beach_arrive": 0
+  }
+}

@@ -8,7 +8,7 @@
   const COLORS = ['red', 'blue', 'white', 'black', 'yellow', 'green'];
   const COLOR_ZH = ['紅', '藍', '白', '黑', '黃', '綠'];
   const WEEKEND_DESTS = ['beach', 'mountain', 'night_market', 'friend'];
-  const RIDERS = ['solo', 'partner', 'kid_seat', 'parents'];
+  const RIDERS = ['solo', 'partner', 'kid_seat', 'parents', 'family'];
   const ROAD_EVENTS = ['none', 'traffic', 'rain', 'lost', 'breakdown'];
   const TYPE_TO_MODE = {
     bicycle: 'bike', scooter: 'scooter',
@@ -170,6 +170,7 @@
       if (riders === 'solo') return { riders: 'solo', passengers: 0, kidSeat: false };
       if (riders === 'partner') return { riders: 'partner', passengers: 1, kidSeat: false };
       if (riders === 'kid_seat') return { riders: 'kid_seat', passengers: 1, kidSeat: true };
+      if (riders === 'family') return { riders: 'family', passengers: 1, kidSeat: false };
       return { riders: 'parents', passengers: 2, kidSeat: false };
     }
     if (passengersQ != null && passengersQ !== '') {
@@ -208,6 +209,52 @@
     return Object.prototype.hasOwnProperty.call(src, key) && src[key] != null && src[key] !== '';
   }
 
+
+  // Player age is never taken from the vehicle object (g.age is often the person).
+  // Car age = player age − car.boughtAge when that key is present; else null (wear alias / 0).
+  function playerAgeFromGameState(gameState) {
+    if (!gameState || typeof gameState !== 'object') return null;
+    const slots = [gameState.player, gameState.person, gameState.you];
+    for (let i = 0; i < slots.length; i++) {
+      const p = slots[i];
+      if (p && p.age != null && p.age !== '') {
+        const n = Number(p.age);
+        if (Number.isFinite(n)) return n;
+      }
+    }
+    if (gameState.age != null && gameState.age !== '') {
+      const n = Number(gameState.age);
+      if (Number.isFinite(n)) return n;
+    }
+    return null;
+  }
+  function boughtAgeFromGameState(gameState, g) {
+    const tryN = (v) => {
+      if (v == null || v === '') return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    };
+    const fromG = tryN(g && g.boughtAge);
+    if (fromG != null) return fromG;
+    const fromCar = tryN(gameState && gameState.car && gameState.car.boughtAge);
+    if (fromCar != null) return fromCar;
+    const owned = gameState && gameState.vehicle && gameState.vehicle.owned;
+    return tryN(owned && owned.boughtAge);
+  }
+  function carAgeFromGameState(gameState, g) {
+    // Explicit vehicle.carAge only — never g.age.
+    if (g && g.carAge != null && g.carAge !== '') {
+      const n = Number(g.carAge);
+      if (Number.isFinite(n) && n >= 0) return n;
+    }
+    const bought = boughtAgeFromGameState(gameState, g);
+    if (bought == null) return null;
+    const playerAge = playerAgeFromGameState(gameState);
+    if (playerAge == null || !Number.isFinite(playerAge)) return 0;
+    const age = playerAge - bought;
+    return Number.isFinite(age) && age >= 0 ? age : 0;
+  }
+
   // Small adapter: read has-car / tier / colour / durability from game state,
   // with dev query overrides. Real car code is being ported separately.
   function readCarState(qs, gameState) {
@@ -224,7 +271,7 @@
 
     const carAgeRaw = hasParam(qs, 'carage')
       ? param(qs, 'carage')
-      : (g && (g.carAge != null ? g.carAge : (g.age != null ? g.age : null)));
+      : carAgeFromGameState(gameState, g);
     const carAge = resolveCarAge({
       carAge: carAgeRaw,
       wear: (carAgeRaw == null || carAgeRaw === '') ? wear : null,
@@ -265,11 +312,22 @@
     }
 
     const riders = resolveRiders(param(qs, 'riders'), hasParam(qs, 'passengers') ? param(qs, 'passengers') : null);
-    // bike: no passengers. scooter: at most 1 (partner). bus: waiting, no in-vehicle riders.
+    // bike: no passengers. scooter: at most 1 (partner or family). bus: waiting, no in-vehicle riders.
+    // riders=family is a scooter-only baked variant (child in front, adult behind).
     let passengers = riders.passengers;
     let kidSeat = riders.kidSeat;
-    if (mode === 'bike' || mode === 'bus') { passengers = 0; kidSeat = false; }
+    let ridersKind = riders.riders;
+    if (mode !== 'scooter' && ridersKind === 'family') {
+      if (mode === 'car') { ridersKind = 'kid_seat'; passengers = 1; kidSeat = true; }
+      else { ridersKind = 'solo'; passengers = 0; kidSeat = false; }
+    }
+    if (mode === 'bike' || mode === 'bus') { passengers = 0; kidSeat = false; ridersKind = 'solo'; }
     if (mode === 'scooter') { passengers = Math.min(passengers, 1); kidSeat = false; }
+
+    let driver = param(qs, 'driver', 'dad');
+    if (driver !== 'mom') driver = 'dad';
+    let art = param(qs, 'art', '');
+    if (art !== 'a' && art !== 'old') art = '';
 
     const lit = param(qs, 'lit') === 'evening' || param(qs, 'lit') === 'night' ? 'evening' : 'daylight';
     let trip = param(qs, 'trip', 'work');
@@ -306,9 +364,11 @@
       breakdownAnnual: tripBreakdownProbability({ mode, hasCar, carAge, maint }) * TRIPS_PER_YEAR,
       breakdownP: tripBreakdownProbability({ mode, hasCar, carAge, maint }),
       tier: param(qs, 'tier', (g && g.tier) || 'middle'),
-      riders: (mode === 'bike' || mode === 'bus') ? 'solo' : (mode === 'scooter' && riders.riders === 'kid_seat' ? (passengers ? 'partner' : 'solo') : riders.riders),
+      riders: (mode === 'bike' || mode === 'bus') ? 'solo' : (mode === 'scooter' && ridersKind === 'kid_seat' ? (passengers ? 'partner' : 'solo') : ridersKind),
       passengers,
       kidSeat,
+      driver,
+      art,
       lighting: lit,
       headlights: lit === 'evening' && (mode === 'car' || mode === 'scooter'),
       trip,
@@ -326,11 +386,271 @@
     };
   }
 
+
+  const MODE_TO_KIND = { bike: 'bicycle', scooter: 'scooter', car: 'smallcar', bus: 'bus' };
+  const SMALLCAR_LAYER_ORDER = ['body', 'child_seat', 'passengers', 'driver'];
+  const BREAKDOWN_FALLBACK_CARD = { source: 'breakdown_fallback', title: '卡片（占位）', text: '文案待公主', id: null };
+  const PLACEHOLDER = {
+    work: '到公司的句子待公主補',
+    home: '到家的句子待公主補',
+    weekend: '週末到達句待公主補',
+  };
+
+  function vehicleKind(mode) {
+    return MODE_TO_KIND[mode] || mode;
+  }
+
+  function pxPerFrameFor(cfg, mode, model) {
+    const kind = vehicleKind(mode);
+    const models = cfg && cfg.vehicles && cfg.vehicles[kind] && cfg.vehicles[kind].models;
+    const m = models && models[String(model == null ? 0 : model)];
+    return m && Number.isFinite(Number(m.px_per_frame)) ? Number(m.px_per_frame) : 0;
+  }
+
+  // x movement in 480-space scene pixels. One animation frame ↔ px_per_frame of travel.
+  function travelPixels(elapsedMs, pxPerFrame, fps) {
+    const t = Number(elapsedMs);
+    const px = Number(pxPerFrame);
+    const f = Number(fps);
+    if (!Number.isFinite(t) || !Number.isFinite(px) || !Number.isFinite(f) || f <= 0) return 0;
+    return Math.max(0, t) / 1000 * f * px;
+  }
+
+  function bakedVariantChain(opts) {
+    const o = opts || {};
+    const time = o.headlights ? 'night' : 'day';
+    const driver = o.driver === 'mom' ? 'mom' : 'dad';
+    const names = [];
+    if (o.riders === 'family') {
+      names.push(time + '_' + driver + '_family');
+      names.push(time + '_' + driver);
+      return names;
+    }
+    const p = Math.max(0, Number(o.passengers) || 0);
+    if (p >= 1) {
+      const cap = o.mode === 'scooter' ? 1 : 3;
+      for (let n = Math.min(p, cap); n >= 1; n--) names.push(time + '_' + driver + '_p' + n);
+    }
+    names.push(time + '_' + driver);
+    return names;
+  }
+
+  function firstAvailable(names, available) {
+    if (!available) return names[0] || null;
+    for (let i = 0; i < names.length; i++) {
+      if (available.has(names[i]) || (typeof available.contains === 'function' && available.contains(names[i]))) return names[i];
+      if (Array.isArray(available) && available.indexOf(names[i]) >= 0) return names[i];
+    }
+    return null;
+  }
+
+  function hasAvail(available, name) {
+    if (!available || !name) return false;
+    if (typeof available.has === 'function') return available.has(name);
+    if (Array.isArray(available)) return available.indexOf(name) >= 0;
+    return !!available[name];
+  }
+
+  // pack=a plans. Bicycle/scooter: baked rider is the final design.
+  // Small car: layered body+driver+passengers when those files exist; otherwise baked interim.
+  function resolveArtPlan(opts) {
+    const o = opts || {};
+    const pack = o.pack || 'a';
+    const mode = o.mode;
+    const model = String(o.model == null ? 0 : o.model);
+    const kind = vehicleKind(mode);
+    const fps = (o.cfg && o.cfg.fps) || 8;
+    const px = pxPerFrameFor(o.cfg, mode, o.model);
+    const duskTint = o.lighting === 'evening' && !o.headlights;
+    const pending = [];
+    const labels = [];
+    if (pack === 'old' || mode === 'bus') {
+      return {
+        pack: pack === 'old' ? 'old' : pack,
+        compose: 'old_strip',
+        kind, model: Number(model),
+        layers: [], pending, labels,
+        px_per_frame: pack === 'a' ? px : null,
+        frames: pack === 'old' || mode === 'bus' ? 6 : 8,
+        scale: pack === 'old' || mode === 'bus' ? 2 : 1,
+        fps, duskTint: false, variant: null,
+      };
+    }
+    const time = o.headlights ? 'night' : 'day';
+    const driver = o.driver === 'mom' ? 'mom' : 'dad';
+    const available = o.available;
+
+    if (kind === 'smallcar') {
+      const bodyKey = 'layer:body:' + time;
+      if (hasAvail(available, bodyKey) || o.layeredAvailable) {
+        const layers = [];
+        SMALLCAR_LAYER_ORDER.forEach((role) => {
+          if (role === 'child_seat' && !o.kidSeat) return;
+          if (role === 'passengers' && !(o.passengers >= 1)) return;
+          const key = role === 'driver' ? ('layer:driver_' + driver + ':' + time)
+            : role === 'passengers' ? ('layer:passengers_p' + Math.min(3, o.passengers) + ':' + time)
+            : ('layer:' + role + ':' + time);
+          layers.push({
+            role,
+            key,
+            time,
+            driver: role === 'driver' ? driver : undefined,
+            passengers: role === 'passengers' ? Math.min(3, o.passengers) : undefined,
+            headsOnly: role === 'passengers' && o.passengers >= 3,
+            tint: duskTint ? 'evening' : null,
+          });
+        });
+        return {
+          pack: 'a', compose: 'layered', kind, model: Number(model),
+          layers, pending, labels, px_per_frame: px, frames: 8, scale: 1, fps,
+          duskTint, variant: null,
+        };
+      }
+      pending.push('smallcar_body_strip');
+      labels.push('小型車車身條帶待王子');
+    }
+
+    const chain = bakedVariantChain(o);
+    let chosen = firstAvailable(chain, available);
+    if (!chosen) chosen = chain[chain.length - 1];
+    const wantedFamily = o.riders === 'family' && kind === 'scooter';
+    const familyMissing = wantedFamily && !(chosen && chosen.indexOf('_family') >= 0);
+    if (familyMissing) {
+      pending.push('scooter_family');
+      labels.push('機車全家款待王子');
+    }
+    return {
+      pack: 'a',
+      compose: 'baked_rider',
+      kind, model: Number(model),
+      layers: [{
+        role: 'combined',
+        variant: chosen,
+        baked: true,
+        tint: duskTint ? 'evening' : null,
+        pathPattern: 'assets/vehicles/a/' + kind + '_m' + model + '/frames/' + chosen + '/f{frame}.png',
+      }],
+      pending, labels,
+      px_per_frame: px, frames: 8, scale: 1, fps,
+      duskTint, variant: chosen,
+      fallbackFrom: familyMissing ? 'family' : null,
+    };
+  }
+
+  function fieldMatches(entryVal, want) {
+    if (want == null || want === '') return true;
+    if (entryVal == null || entryVal === '') return true;
+    if (typeof entryVal === 'string' && entryVal.indexOf('|') >= 0) {
+      return entryVal.split('|').indexOf(String(want)) >= 0;
+    }
+    return entryVal === want;
+  }
+
+  function cardMatches(entry, filters) {
+    if (!entry) return false;
+    const keys = Object.keys(filters || {});
+    for (let i = 0; i < keys.length; i++) {
+      const k = keys[i];
+      if (!fieldMatches(entry[k], filters[k])) return false;
+    }
+    return true;
+  }
+
+  function pickCard(list, filters, seed, salt) {
+    if (!list || !list.length) return null;
+    const hits = list.filter((e) => cardMatches(e, filters));
+    if (!hits.length) return null;
+    const i = hashSeed(String(seed == null ? 'dev' : seed) + ':' + (salt || 'card')) % hits.length;
+    return hits[i];
+  }
+
+  function cardResult(source, entry, extra) {
+    const out = {
+      source,
+      id: entry && entry.id || null,
+      text: entry && entry.text || '',
+      title: extra && extra.title || null,
+      leads_to: entry && entry.leads_to || null,
+      eventText: extra && extra.eventText || null,
+      eventId: extra && extra.eventId || null,
+    };
+    if (extra) {
+      if (extra.placeholder) out.placeholder = extra.placeholder;
+      if (extra.fallback) out.fallback = extra.fallback;
+    }
+    return out;
+  }
+
+  function lookupArrivalCard(cards, state) {
+    const st = state || {};
+    const ev = (st.event && st.event.type) || st.eventType || 'none';
+    const trip = st.trip || 'work';
+    const mode = st.mode || 'car';
+    const riders = st.riders || 'solo';
+    const dest = st.dest || null;
+    const seed = st.seed;
+    if (ev === 'breakdown') return Object.assign({}, BREAKDOWN_FALLBACK_CARD);
+
+    const baseFilters = { mode, riders };
+    let eventEntry = null;
+    if (ev !== 'none' && ev !== 'breakdown' && cards && cards.events && cards.events[ev]) {
+      eventEntry = pickCard(cards.events[ev], { mode, riders, trip }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { mode, riders }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { riders }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { mode }, seed, 'event:' + ev);
+    }
+
+    if (trip === 'weekend') {
+      const destList = cards && cards.weekend && dest ? cards.weekend[dest] : null;
+      const arrive = pickCard(destList, { dest, riders, mode, trip: 'weekend' }, seed, 'arrive:' + dest)
+        || null;
+      // Do not silently use a car-only dest line for bike/scooter/bus.
+      if (!arrive) {
+        const text = PLACEHOLDER.weekend + '（' + (dest || '?') + '／' + mode + (riders !== 'solo' ? '／' + riders : '') + '）';
+        return cardResult('placeholder', { text }, {
+          placeholder: true,
+          eventText: eventEntry && eventEntry.text,
+          eventId: eventEntry && eventEntry.id,
+        });
+      }
+      return cardResult('arrive', arrive, {
+        eventText: eventEntry && eventEntry.text,
+        eventId: eventEntry && eventEntry.id,
+      });
+    }
+
+    const arriveList = trip === 'home'
+      ? (cards && cards.home_arrive)
+      : (cards && cards.work_arrive);
+    const arrive = pickCard(arriveList, { mode, riders }, seed, 'arrive:' + trip);
+    if (arrive) {
+      return cardResult('arrive', arrive, {
+        eventText: eventEntry && eventEntry.text,
+        eventId: eventEntry && eventEntry.id,
+      });
+    }
+
+    // No arrive-at-office/home line for this combo: use a matching road line if any.
+    const roadList = cards && cards[trip];
+    if (ev !== 'none' && ev !== 'breakdown') {
+      const road = pickCard(roadList, { mode, riders, event: ev }, seed, 'road:' + trip)
+        || pickCard(roadList, { mode, event: ev }, seed, 'road:' + trip)
+        || eventEntry;
+      if (road) return cardResult('road_line', road, { fallback: 'road_line' });
+    }
+    const text = (PLACEHOLDER[trip] || PLACEHOLDER.work);
+    return cardResult('placeholder', { text }, { placeholder: true });
+  }
+
   return {
     COLORS, COLOR_ZH, WEEKEND_DESTS, RIDERS, ROAD_EVENTS, TYPE_TO_MODE,
     hashSeed, rand01, shouldPlayCommute, shouldPlayTrip, pickNoCarMode, pickRoadEvent,
     wearIsOld, resolveCarAge, annualBreakdownRate, tripBreakdownProbability,
     simulateBreakdowns, resolveRiders, tripDurationMs, readCarState,
     TRIPS_PER_YEAR, MAINT_FACTOR, WEAR_OLD_AGE, WEAR_NEW_AGE,
+    playerAgeFromGameState, boughtAgeFromGameState, carAgeFromGameState,
+    MODE_TO_KIND, SMALLCAR_LAYER_ORDER, BREAKDOWN_FALLBACK_CARD,
+    vehicleKind, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
+    cardMatches, pickCard, lookupArrivalCard,
   };
 });
