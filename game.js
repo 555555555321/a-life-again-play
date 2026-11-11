@@ -9,8 +9,8 @@ const SHOT = qs.has('shot');
 const DEV = qs.has('dev') && qs.get('dev') !== '0'; // right-side missing/warn/drawer panel
 const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 
-// Year label: ONE shared rule (王). birth May 1998; 春→1998+age+1 else 1998+age; season from screen/event or 春.
-const BIRTH_YEAR = 1998;
+// Year label: ONE shared rule (王). birth May 2000; 春→2000+age+1 else 2000+age; season from screen/event or 春.
+const BIRTH_YEAR = 2000;
 const CN_DIGIT = '〇一二三四五六七八九';
 function cnYear(y) { return String(y).split('').map(d => CN_DIGIT[+d]).join('') + '年'; }
 function cnAge(a) {
@@ -21,13 +21,13 @@ function cornerLabel(age, season) {
   const a = (age == null ? 5 : +age);
   const s = season || '春';
   const by = (typeof data !== 'undefined' && data && data.birth_year != null) ? +data.birth_year : BIRTH_YEAR;
-  // Birth May 1998: 春 already past birthday → calendar year = birth+age+1; other seasons = birth+age.
+  // Birth May 2000: 春 already past birthday → calendar year = birth+age+1; other seasons = birth+age.
   const y = by + a + (s === '春' ? 1 : 0);
   return cnYear(y) + '・' + s + '・你' + cnAge(a);
 }
 function screenCorner(scr) {
   // DEV elders_stand: corner year is manually set until PR #19 merges.
-  // Do not call cornerLabel(0, '春') for that screen — it would print 一九九九年.
+  // Do not call cornerLabel(0, '春') for that screen — it would print 二〇〇一年.
   if (scr && scr._corner_hardcoded && scr.corner) return scr.corner;
   if (!scr) return cornerLabel((data && data.age), (data && data.season));
   if (scr.age != null) return cornerLabel(scr.age, scr.season || (data && data.season) || '春');

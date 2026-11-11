@@ -1,6 +1,6 @@
 {
   "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
-  "corner": "二〇〇四年・春・你五歲",
+  "corner": "二〇〇六年・春・你五歲",
   "family": "dad_works_mom_home",
   "order": [
     "talent",
@@ -59,7 +59,7 @@
           "flip": true
         }
       ],
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -107,7 +107,7 @@
           "anim": "你_等出門"
         }
       ],
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -157,7 +157,7 @@
           "flip": false
         }
       ],
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -601,7 +601,7 @@
           }
         }
       ],
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -615,7 +615,7 @@
         "繼續"
       ],
       "cast": [],
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "age": 5,
       "season": "春"
     },
@@ -624,7 +624,7 @@
       "origin_id": "TW-A1-05",
       "lighting": "daylight",
       "status": "鄰居家門口。",
-      "corner": "二〇〇〇年・春・你一歲",
+      "corner": "二〇〇二年・春・你一歲",
       "text": "爸爸牽著你站在鄰居家門口，陪你看那隻狗看了好久。",
       "buttons": [
         "繼續"
@@ -660,7 +660,7 @@
       "origin_id": "TW-A3-08",
       "lighting": "daylight",
       "status": "路邊。",
-      "corner": "二〇〇二年・春・你三歲",
+      "corner": "二〇〇四年・春・你三歲",
       "text": "路邊的紙箱裡有一隻小貓，你蹲下來看，牠也看著你。",
       "buttons": [
         "繼續"
@@ -689,7 +689,7 @@
       "origin_id": "TW-A1-07",
       "lighting": "daylight",
       "status": "客廳。",
-      "corner": "二〇〇〇年・春・你一歲",
+      "corner": "二〇〇二年・春・你一歲",
       "text": "家人把所有東西裝進紙箱，只有你的小被子一直留在外面，到新家第一個拿出來。",
       "buttons": [
         "繼續"
@@ -734,7 +734,7 @@
       "dev_only": true,
       "age": 5,
       "season": "春",
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "lighting": "daylight",
       "status": "走路試驗：上 C foot-lock，中 C constant-8，下舊 4 格。",
       "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。三排都站在地板上。上＝Trial C 腳鎖（r3）；中＝C 每格 8；下＝舊 walk 4 格。",
@@ -747,14 +747,14 @@
       "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。Corner year hardcoded until PR #19. Not in order.",
       "dev_only": true,
       "season": "春",
-      "corner": "一九九八年・春・你零歲",
+      "corner": "二〇〇〇年・春・你零歲",
       "lighting": "daylight",
       "status": "取名（字輩）",
       "text": "阿公說，照家裡的規矩，你這一代都有一個「宇」字，剩下一個字讓你爸媽挑。",
       "buttons": [],
       "cast": [],
       "_corner_hardcoded": true,
-      "_corner_note": "DEV only: year manually set until PR #19 merges. Do not call cornerLabel(0, 春) (that yields 一九九九年).",
+      "_corner_note": "DEV only: year manually set until PR #19 merges. Do not call cornerLabel(0, 春) (that yields 二〇〇一年).",
       "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫."
     },
     "pixelbolt_trial": {
@@ -774,7 +774,7 @@
       "dev_only": true,
       "season": "春",
       "age": 5,
-      "corner": "二〇〇四年・春・你五歲",
+      "corner": "二〇〇六年・春・你五歲",
       "lighting": "daylight",
       "status": "媽媽站姿畫風試畫（第 3 輪）。B 靠牆，方便看日間／夜間上衣對比。",
       "text": "",
@@ -792,8 +792,8 @@
     "animal_kitten",
     "animal_blanket"
   ],
-  "_corner_rule": "cornerLabel(age,season): birth May 1998; year = birth_year+age+1 if season==春 else birth_year+age; season from screen.season or event, else 春. Shared game.js cornerLabel().",
-  "birth_year": 1998,
+  "_corner_rule": "cornerLabel(age,season): birth May 2000; year = birth_year+age+1 if season==春 else birth_year+age; season from screen.season or event, else 春. Shared game.js cornerLabel().",
+  "birth_year": 2000,
   "age": 5,
   "season": "春"
 }

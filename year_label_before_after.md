@@ -1,9 +1,32 @@
-# Phone B 年分標籤 before/after
+# Phone B 年分標籤
 
-規則（王確認，生日 1998 年 5 月）：`season==春` → `year=1998+age+1`，否則 `year=1998+age`。
-實作：`game.js` 共用函式 `cornerLabel(age, season)`；每畫面 `scenes.json` 的 `age`/`season` 餵進去。
+## 2000 年 5 月出生（2026-11-11 主人決定）
+
+規則：生日 2000 年 5 月；`season==春` → `year=2000+age+1`，否則 `year=2000+age`。五月生日角標規則不變，只改出生年。
+實作：`game.js` 的 `BIRTH_YEAR` 與 `scenes.json` 的 `birth_year` 均為 2000；共用函式 `cornerLabel(age, season)`。
+
+| screen | season | age | before（出生 1998、五月規則） | after（出生 2000、五月規則） |
+|---|---|---:|---|---|
+| (global default) | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| talent | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| month_end | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| scissors | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| test_long | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| test_reader | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| animal_dog | 春 | 1 | 二〇〇〇年・春・你一歲 | 二〇〇二年・春・你一歲 |
+| animal_kitten | 春 | 3 | 二〇〇二年・春・你三歲 | 二〇〇四年・春・你三歲 |
+| animal_blanket | 春 | 1 | 二〇〇〇年・春・你一歲 | 二〇〇二年・春・你一歲 |
+| walk_test | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| style_trial_mom | 春 | 5 | 二〇〇四年・春・你五歲 | 二〇〇六年・春・你五歲 |
+| elders_stand（寫死角標，零歲春天顯示出生年） | 春 | 0 | 一九九八年・春・你零歲 | 二〇〇〇年・春・你零歲 |
+
+`elders_stand` 仍寫死角標，不呼叫 `cornerLabel(0, 春)`（依五月規則會得到 二〇〇一年）。
 
 對照 r9-logic：`game-calendar.js` 以 day0=1 月 1 日、年分偏移計日（分支上常數曾為 2000；UI 角標常另用出生年+age）。**不**內建「春→+1」的五月生日角標規則；Phone B 角標依五月生日規則單獨實作。
+
+## 歷史：改為 1998 年 5 月出生並套用五月規則
+
+以下是改出生年為 2000 之前的對照，保留作紀錄。當時規則（生日 1998 年 5 月）：`season==春` → `year=1998+age+1`，否則 `year=1998+age`。
 
 | screen | season | age | label before this morning (1998+age) | label now (May rule) |
 |---|---|---:|---|---|
