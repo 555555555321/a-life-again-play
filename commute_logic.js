@@ -475,12 +475,14 @@
   function familyAssetDir(model) {
     const m = String(model == null ? 0 : model);
     if (m === '0') return 'assets/vehicles/a/scooter_m0_family_v2';
+    if (m === '1') return 'assets/vehicles/a/scooter_m1_family_v2';
     return 'assets/vehicles/a/scooter_m' + m + '_family';
   }
 
   function familyMetricsKey(model) {
     const m = String(model == null ? 0 : model);
     if (m === '0') return 'scooter_m0_family_v2';
+    if (m === '1') return 'scooter_m1_family_v2';
     return 'scooter_m' + m + '_family';
   }
 
@@ -496,7 +498,7 @@
     }
     const baked = o.cfg && o.cfg.bakedMetrics;
     const key = familyMetricsKey(m);
-    const inBaked = !!(baked && (baked[key] || (m === '0' && baked.scooter_m0_family)));
+    const inBaked = !!(baked && (baked[key] || (m === '0' && baked.scooter_m0_family) || (m === '1' && baked.scooter_m1_family)));
     if (o.familyAvailable === true) return true;
     return inBaked;
   }
@@ -709,7 +711,7 @@
         const chosenFam = time + '_' + driver;
         const famDir = familyAssetDir(model);
         const bmKey = familyMetricsKey(model);
-        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics[bmKey] || (model === '0' && o.cfg.bakedMetrics.scooter_m0_family));
+        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics[bmKey] || (model === '0' && o.cfg.bakedMetrics.scooter_m0_family) || (model === '1' && o.cfg.bakedMetrics.scooter_m1_family));
         if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
         const famMet = applyVariantMetrics(o.cfg, famDir, chosenFam, { canvas, ground_row, origin, px_per_frame: pxUse });
         return {

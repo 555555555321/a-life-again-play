@@ -1,0 +1,50 @@
+{
+  "shots": [
+    {
+      "name": "corner_day0_2000-05-01",
+      "day": 0,
+      "expected": "二〇〇〇年・春・你零歲",
+      "corner": "二〇〇〇年・春・你零歲",
+      "stamp": "二〇〇〇年・春・你零歲",
+      "ready": "talent",
+      "full": "/workspace/a-life-again-play-year/shots/corner_day0_2000-05-01.png",
+      "crop": "/workspace/a-life-again-play-year/shots/corner_day0_2000-05-01_crop.png",
+      "size": [
+        1080,
+        2340
+      ],
+      "ok": true
+    },
+    {
+      "name": "corner_dec31_2000-12-31",
+      "day": 244,
+      "expected": "二〇〇〇年・冬・你零歲",
+      "corner": "二〇〇〇年・冬・你零歲",
+      "stamp": "二〇〇〇年・冬・你零歲",
+      "ready": "talent",
+      "full": "/workspace/a-life-again-play-year/shots/corner_dec31_2000-12-31.png",
+      "crop": "/workspace/a-life-again-play-year/shots/corner_dec31_2000-12-31_crop.png",
+      "size": [
+        1080,
+        2340
+      ],
+      "ok": true
+    },
+    {
+      "name": "corner_birthday_2005-05-01",
+      "day": 1825,
+      "expected": "二〇〇五年・春・你五歲",
+      "corner": "二〇〇五年・春・你五歲",
+      "stamp": "二〇〇五年・春・你五歲",
+      "ready": "talent",
+      "full": "/workspace/a-life-again-play-year/shots/corner_birthday_2005-05-01.png",
+      "crop": "/workspace/a-life-again-play-year/shots/corner_birthday_2005-05-01_crop.png",
+      "size": [
+        1080,
+        2340
+      ],
+      "ok": true
+    }
+  ],
+  "errors": []
+}

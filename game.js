@@ -11,30 +11,34 @@ const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 // Evening-only character rim light. URL ?rim=1 turns it on; default off. (王 2026-11-11)
 const RIM = qs.get('rim') === '1';
 
-// Year label: ONE shared rule (王). birth May 2000; 春→2000+age+1 else 2000+age; season from screen/event or 春.
-const BIRTH_YEAR = 2000;
-const CN_DIGIT = '〇一二三四五六七八九';
-function cnYear(y) { return String(y).split('').map(d => CN_DIGIT[+d]).join('') + '年'; }
-function cnAge(a) {
-  const m = {0:'零',1:'一',2:'二',3:'三',4:'四',5:'五',6:'六',7:'七',8:'八',9:'九',10:'十'};
-  return (m[a] != null ? m[a] : String(a)) + '歲';
-}
+// Year label: date-based rule aligned with A-Life-Again PR #19 (6ea7814).
+// Year and season both come from the calendar date, never from the season word.
+// Jan–Apr of age N = 2000+N+1; May–Dec = 2000+N. Age = floor(day/365).
+// Year/date numerals use 「〇」; corner age uses 「零」. See calendar.js.
+const BIRTH_YEAR = (typeof ALACalendar !== 'undefined') ? ALACalendar.PLAYER_BIRTH_DATE.year : 2000;
+function cnYear(y) { return ALACalendar.chineseYear(y) + '年'; }
+function cnAge(a) { return ALACalendar.chineseAge(a) + '歲'; }
 function cornerLabel(age, season) {
-  const a = (age == null ? 5 : +age);
-  const s = season || '春';
-  const by = (typeof data !== 'undefined' && data && data.birth_year != null) ? +data.birth_year : BIRTH_YEAR;
-  // Birth May 2000: 春 already past birthday → calendar year = birth+age+1; other seasons = birth+age.
-  const y = by + a + (s === '春' ? 1 : 0);
-  return cnYear(y) + '・' + s + '・你' + cnAge(a);
+  return ALACalendar.cornerLabel(age, season);
 }
 function screenCorner(scr) {
-  // DEV elders_stand: corner year is manually set until PR #19 merges.
-  // Do not call cornerLabel(0, '春') for that screen — it would print 二〇〇一年.
+  // Non-story DEV trials keep a hardcoded caption (not a date).
   if (scr && scr._corner_hardcoded && scr.corner) return scr.corner;
-  if (!scr) return cornerLabel((data && data.age), (data && data.season));
-  if (scr.age != null) return cornerLabel(scr.age, scr.season || (data && data.season) || '春');
-  if (scr.corner) return scr.corner;
-  return cornerLabel((data && data.age), (data && data.season));
+  const dayParam = qs.has('day') && qs.get('day') !== '' ? +qs.get('day') : null;
+  const src = scr || data || {};
+  const day = (dayParam != null && Number.isFinite(dayParam)) ? dayParam
+    : (src.day != null ? +src.day : (data && data.day != null ? +data.day : null));
+  if (day != null && Number.isFinite(day)) return ALACalendar.cornerStamp(day).label;
+  const age = (scr && scr.age != null) ? +scr.age : (data && data.age);
+  const month = (scr && scr.month != null) ? +scr.month : (data && data.month);
+  const season = (scr && scr.season) || (data && data.season) || '春';
+  const dayOfMonth = (scr && scr.dayOfMonth != null) ? +scr.dayOfMonth
+    : (data && data.dayOfMonth != null ? +data.dayOfMonth : 1);
+  if (age != null || month != null) {
+    return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
+  }
+  if (scr && scr.corner) return scr.corner;
+  return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
 }
 
 let drawerW = STOPS.includes(+qs.get('drawer')) ? +qs.get('drawer') : 0;
