@@ -130,7 +130,7 @@
     "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
     "card_slot": "抵達後顯示公主 arrival_cards.json 對到的句子。拋錨仍用原本的占位卡。到公司／到家若沒有專用句，改顯示路上句或「待公主補」。",
     "smallcar_body_strip": "小型車車身條與疊圖已交，讀 overlays/manifest.json。",
-    "scooter_family": "機車全家款 m0（v2）、m1、m2 已交。m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。"
+    "scooter_family": "機車全家款 m0（v2）、m1（v2，小孩坐油箱前）、m2 已交。m2 小孩手靠近大圓燈。"
   },
   "missing_originals": [],
   "weekend_dests": [
@@ -325,7 +325,7 @@
     "scooter": {
       "kind": "scooter",
       "compose": "baked_rider",
-      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 載客格含白天／夜晚 × 爸／媽（夜間開車燈）。畫布／ground／輪轂以各變體 anchors_{v}.json 為準（媽媽高 1 px，ground 與輪轂 y +1；m2 夜間較寬）。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2、scooter_m1_family、scooter_m2_family。",
+      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 載客格含白天／夜晚 × 爸／媽（夜間開車燈）。畫布／ground／輪轂以各變體 anchors_{v}.json 為準（媽媽高 1 px，ground 與輪轂 y +1；m2 夜間較寬）。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2、scooter_m1_family_v2、scooter_m2_family。",
       "models": {
         "0": {
           "id": "scooter_m0",
@@ -518,13 +518,13 @@
       "family_variant": {
         "status": "delivered_m0_m1_m2",
         "riders": "family",
-        "note": "小孩站在前面、大人在後面。m0 用 scooter_m0_family_v2；m1／m2 用 scooter_m1_family／scooter_m2_family。畫布／ground 讀各變體 anchors_{v}.json。已知弱點：m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。",
+        "note": "小孩在前面、大人在後面。m0 用 scooter_m0_family_v2；m1 用 scooter_m1_family_v2（小孩坐油箱前，膝蓋收起，腳不再穿過車架）；m2 用 scooter_m2_family。畫布／ground 讀各變體 anchors_{v}.json。已知弱點：m1 大人小腿靠近後輪、前臂靠近小孩頭髮；m2 小孩手靠近大圓燈。",
         "paths": {
           "0": "assets/vehicles/a/scooter_m0_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png",
-          "1": "assets/vehicles/a/scooter_m1_family/frames/{day|night}_{dad|mom}/f00.png–f07.png",
+          "1": "assets/vehicles/a/scooter_m1_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png",
           "2": "assets/vehicles/a/scooter_m2_family/frames/{day|night}_{dad|mom}/f00.png–f07.png"
         },
-        "path": "assets/vehicles/a/scooter_m{0:0_family_v2|1_family|2_family}/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+        "path": "assets/vehicles/a/scooter_m{0:0_family_v2|1:1_family_v2|2_family}/frames/{day|night}_{dad|mom}/f00.png–f07.png"
       }
     },
     "smallcar": {

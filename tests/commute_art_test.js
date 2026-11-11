@@ -24,7 +24,7 @@ const overlayManifests = {
 cfg.overlayManifests = overlayManifests;
 const v2 = require('../assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
 const famAnchors = require('../assets/vehicles/a/scooter_m0_family_v2/anchors_day_dad.json');
-const famM1Anchors = require('../assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+const famM1Anchors = require('../assets/vehicles/a/scooter_m1_family_v2/anchors_day_dad.json');
 const famM2Anchors = require('../assets/vehicles/a/scooter_m2_family/anchors_day_dad.json');
 const scoot0v2 = require('../assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
 const scoot2v2 = require('../assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
@@ -42,6 +42,7 @@ cfg.bakedMetrics = {
   bicycle_m2_v2: bakedFrom(v2),
   scooter_m0_family_v2: bakedFrom(famAnchors),
   scooter_m0_family: bakedFrom(famAnchors),
+  scooter_m1_family_v2: bakedFrom(famM1Anchors),
   scooter_m1_family: bakedFrom(famM1Anchors),
   scooter_m2_family: bakedFrom(famM2Anchors),
   scooter_m0_v2: bakedFrom(scoot0v2),
@@ -64,7 +65,7 @@ loadVariantAnchors('assets/vehicles/a/scooter_m0_v2', SCOOT_VARS);
 loadVariantAnchors('assets/vehicles/a/scooter_m1', SCOOT_VARS);
 loadVariantAnchors('assets/vehicles/a/scooter_m2_v2', SCOOT_VARS);
 loadVariantAnchors('assets/vehicles/a/scooter_m0_family_v2', FAM_VARS);
-loadVariantAnchors('assets/vehicles/a/scooter_m1_family', FAM_VARS);
+loadVariantAnchors('assets/vehicles/a/scooter_m1_family_v2', FAM_VARS);
 loadVariantAnchors('assets/vehicles/a/scooter_m2_family', FAM_VARS);
 
 // px/frame and canvas for small cars come from overlays/manifest.json, not the old composite.
@@ -175,7 +176,7 @@ assert.strictEqual(famM1.family, true);
 assert.strictEqual(famM1.fallbackFrom, null);
 assert.ok(!famM1.pending.includes('scooter_family'));
 assert.ok(!famM1.labels.includes('機車全家款待王子'));
-assert.strictEqual(famM1.assetDir, 'assets/vehicles/a/scooter_m1_family');
+assert.strictEqual(famM1.assetDir, 'assets/vehicles/a/scooter_m1_family_v2');
 assert.strictEqual(famM1.variant, 'day_dad');
 assert.deepStrictEqual(famM1.canvas, famM1Anchors.canvas);
 assert.strictEqual(famM1.ground_row, famM1Anchors.ground_row);
@@ -459,8 +460,8 @@ assert.strictEqual(dayDadP1m2.variant, 'day_dad_p1');
 const famM1Mom = assertVariantPlan({
   pack: 'a', mode: 'scooter', model: 1, driver: 'mom', lighting: 'daylight',
   passengers: 1, riders: 'family', cfg,
-}, 'assets/vehicles/a/scooter_m1_family/anchors_day_mom.json');
-assert.strictEqual(famM1Mom.assetDir, 'assets/vehicles/a/scooter_m1_family');
+}, 'assets/vehicles/a/scooter_m1_family_v2/anchors_day_mom.json');
+assert.strictEqual(famM1Mom.assetDir, 'assets/vehicles/a/scooter_m1_family_v2');
 assert.strictEqual(famM1Mom.family, true);
 
 const famM2NightMom = assertVariantPlan({
