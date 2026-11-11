@@ -848,7 +848,10 @@
       "lighting": "daylight",
       "status": "出門上班。",
       "text": "",
-      "buttons": ["重播", "跳過"],
+      "buttons": [
+        "重播",
+        "跳過"
+      ],
       "cast": []
     },
     "going_out": {
@@ -860,8 +863,22 @@
       "lighting": "daylight",
       "status": "要出門嗎？",
       "text": "選上班、下班，或週末開車去一個地方。",
-      "buttons": ["上班", "下班", "週末出遊・海邊", "週末出遊・山上", "週末出遊・夜市", "週末出遊・朋友家"],
+      "buttons": [
+        "上班",
+        "下班",
+        "週末出遊・海邊",
+        "週末出遊・山上",
+        "週末出遊・夜市",
+        "週末出遊・朋友家"
+      ],
       "cast": []
+    },
+    "messages": {
+      "age": 18,
+      "month": 1,
+      "season": "冬",
+      "lighting": "daylight",
+      "_note": "DEV ONLY 訊息 App 樣本。96×144 原圖最近鄰整數倍（直式 10×）。?dev=1&screen=messages&shot&fixture=list|compose|thread|photo|nosavings|dead|fade|incoming，可加 &gen=flip|smart|thin、&savings=。"
     }
   },
   "_test_order": [

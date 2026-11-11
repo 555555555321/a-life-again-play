@@ -6,6 +6,7 @@
 <style>
 @font-face{font-family:FP10;src:url(assets/fonts/fp10.ttf)}
 @font-face{font-family:NotoTC;src:url(assets/fonts/notosans_tc_subset.otf)}
+@font-face{font-family:FusionPixel8;src:url(assets/fonts/fusion-pixel-8px-proportional-zh_hant.ttf);font-display:block}
 html,body{margin:0;height:100%;background:#0b0a0d;overflow:hidden}
 body{display:flex;align-items:flex-start;justify-content:center;gap:40px}
 #wrap{position:relative}
@@ -26,6 +27,10 @@ body{display:flex;align-items:flex-start;justify-content:center;gap:40px}
 #phone #btns{position:absolute;left:60px;width:960px;bottom:100px;display:flex;flex-direction:column;gap:24px}
 #phone #btns button{height:144px;font:48px NotoTC;color:#f0e8d6;background:#1a161e;border:6px solid #d6c8ac;box-shadow:inset 0 0 0 3px #0a080c;cursor:pointer}
 #phone #btns button.sel{background:#463a3e}
+#phone.messages .scene-box{position:absolute;left:60px;top:120px;width:960px;height:1440px}
+#phone.messages canvas.scene{width:960px;height:1440px;image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+#phone.messages #corner,#phone.messages #status,#phone.messages #rule,#phone.messages #text,#phone.messages #pageind{display:none}
+#phone.messages #btns{display:none}
 #phone.reader .scene-box,#phone.reader #corner,#phone.reader #status,#phone.reader #rule{display:none}
 #phone.reader #text{top:120px;height:1800px}
 
@@ -103,5 +108,8 @@ body{display:flex;align-items:flex-start;justify-content:center;gap:40px}
 <script src="calendar.js"></script>
 <script src="commute_logic.js"></script>
 <script src="commute.js"></script>
+<script src="messages_text.js"></script>
+<script src="messages_logic.js"></script>
+<script src="messages.js"></script>
 <script src="game.js"></script>
 </body></html>
