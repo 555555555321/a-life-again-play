@@ -799,6 +799,29 @@
       "_corner_hardcoded": true,
       "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used."
     }
+    ,
+    "commute": {
+      "_note": "DEV ONLY 上下班／週末出遊開車畫面。舊畫風 240 圖 2× 最近鄰。?dev=1&orient=landscape&screen=commute 加上 &vehicle=none|bike|scooter|car|bus、&passengers=0..3、&riders=solo|partner|kid_seat|parents、&lit=evening、&trip=work|home|weekend、&dest=beach|mountain|night_market|friend、&wear=new|old、&rain=1、&event=traffic|rain|lost|breakdown、&force=1、&newcar=1、&seed=、&cut=1。Not in order.",
+      "dev_only": true,
+      "season": "秋",
+      "age": 25,
+      "lighting": "daylight",
+      "status": "出門上班。",
+      "text": "",
+      "buttons": ["重播", "跳過"],
+      "cast": []
+    },
+    "going_out": {
+      "_note": "DEV ONLY 出門選單：上班、下班、週末出遊（海邊／山上／夜市／朋友家）。目的地背景是占位，王子會畫，招牌不寫字。抵達卡片格等公主文案。?dev=1&orient=landscape&screen=going_out。Not in order.",
+      "dev_only": true,
+      "season": "秋",
+      "age": 25,
+      "lighting": "daylight",
+      "status": "要出門嗎？",
+      "text": "選上班、下班，或週末開車去一個地方。",
+      "buttons": ["上班", "下班", "週末出遊・海邊", "週末出遊・山上", "週末出遊・夜市", "週末出遊・朋友家"],
+      "cast": []
+    }
   },
   "_test_order": [
     "test_long",

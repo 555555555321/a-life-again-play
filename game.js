@@ -597,6 +597,28 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if ((activeKey === 'commute' || activeKey === 'going_out') && typeof drawCommuteNative === 'function') {
+    if (ORIENT === 'portrait') {
+      const c = document.getElementById('sceneP');
+      if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawCommuteNative(g, now); }
+    } else {
+      const c = document.getElementById('sceneL');
+      if (c) {
+        const og = off.getContext('2d');
+        og.imageSmoothingEnabled = false;
+        drawCommuteNative(og, now);
+        const dg = c.getContext('2d');
+        dg.imageSmoothingEnabled = false;
+        const SX = 210, SW = 1920, SH = 1080;
+        dg.clearRect(0, 0, 2340, 1080);
+        dg.drawImage(off, 0, 0, W, H, SX, 0, SW, SH);
+        dg.drawImage(c, SX, 0, 1, SH, 0, 0, SX, SH);
+        dg.drawImage(c, SX + SW - 1, 0, 1, SH, SX + SW, 0, 2340 - (SX + SW), SH);
+      }
+    }
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -2043,6 +2065,22 @@ function drawStyleTrialMomA4(now) {
         }
       };
       wireLit('btns'); wireLit('lbtns');
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'commute' || startKey === 'going_out') {
+    if (!DEV) {
+      console.warn(startKey + ' requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens[startKey] || {};
+      activeKey = startKey;
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, startKey);
+      if (startKey === 'going_out') await initGoingOut(lit, screenCorner(scr));
+      else await initCommute(lit, screenCorner(scr));
+      fit();
+      reflow();
+      renderAll();
       if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
     }
   } else if (startKey && data.screens[startKey]) await goKey(startKey, startPage);
