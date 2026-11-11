@@ -592,6 +592,11 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if (activeKey === 'style_trial_mom_a4' && styleTrialMomA4) {
+    drawStyleTrialMomA4(now);
+    requestAnimationFrame(loop);
+    return;
+  }
   if (ORIENT === 'portrait') {
     const c = document.getElementById('sceneP');
     if (c) { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; drawSceneNative(g, now); }
@@ -1782,6 +1787,95 @@ function drawStyleTrialMom(now) {
   }
 }
 
+// —— DEV style_trial_mom_a4: owner-picked A, round 4 (12 colours), at B’s wall slot ——
+// Separate screen so the r3 four-up is untouched. A r4 stands at the same wall
+// x=406 used by B, so coral/outline contrast is measured at the same spot.
+// r3 A is on the sofa gap (x=222) for a same-scale comparison. Evening tint
+// reuses STYLE_TRIAL_MOM_EVENING_MUL / stmTintEvening; PNGs are not modified.
+const STYLE_TRIAL_MOM_A4_VERSIONS = [
+  { id: 'r3_A',  label: 'r3 A',   src: 'assets/chars/style_trial_mom/r3/A.png',         x: 222 },
+  { id: 'a4_12', label: 'A 第4輪', src: 'assets/chars/style_trial_mom/a_r4/A_r4_12.png', x: 406 },
+];
+let styleTrialMomA4 = null;
+
+async function initStyleTrialMomA4(lighting) {
+  const lit = (lighting === 'evening') ? 'evening' : 'daylight';
+  const day = new Image(); day.src = 'assets/room_daylight.png';
+  const eve = new Image(); eve.src = 'assets/room_evening.png';
+  await Promise.all([day.decode(), eve.decode()]);
+  const versions = [];
+  for (const v of STYLE_TRIAL_MOM_A4_VERSIONS) {
+    const img = await load(v.src);
+    versions.push({ id: v.id, label: v.label, src: v.src, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img) });
+  }
+  styleTrialMomA4 = {
+    lighting: lit,
+    rooms: { daylight: day, evening: eve },
+    floorLine: STYLE_TRIAL_MOM_FLOOR,
+    facing: 'W as drawn (no flip)',
+    note: 'A r4 (12 colours) at x=406, the same wall slot B used. r3 A at x=222 (sofa) for comparison. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
+    eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
+    versions: versions,
+  };
+  window.STYLE_TRIAL_MOM_A4 = styleTrialMomA4;
+  stmA4RefreshLitButtons();
+}
+
+function stmA4Sprite(ch) {
+  return (styleTrialMomA4 && styleTrialMomA4.lighting === 'evening' && ch.imgEvening) ? ch.imgEvening : ch.img;
+}
+
+function stmA4RefreshLitButtons() {
+  if (!styleTrialMomA4) return;
+  for (const sel of ['btns', 'lbtns']) {
+    const box = document.getElementById(sel);
+    if (!box) continue;
+    for (const b of box.querySelectorAll('button')) {
+      const want = (b.textContent === '夜間') ? 'evening' : (b.textContent === '日間') ? 'daylight' : null;
+      if (want) b.classList.toggle('sel', styleTrialMomA4.lighting === want);
+    }
+  }
+}
+
+function stmA4SetLighting(lit) {
+  if (!styleTrialMomA4) return;
+  styleTrialMomA4.lighting = (lit === 'evening') ? 'evening' : 'daylight';
+  if (prepared) prepared.room = styleTrialMomA4.rooms[styleTrialMomA4.lighting];
+  const u = new URL(location.href);
+  if (styleTrialMomA4.lighting === 'evening') u.searchParams.set('lit', 'evening');
+  else u.searchParams.delete('lit');
+  history.replaceState(null, '', u.toString());
+  stmA4RefreshLitButtons();
+}
+
+function drawStyleTrialMomA4(now) {
+  if (!styleTrialMomA4) return;
+  const room = styleTrialMomA4.rooms[styleTrialMomA4.lighting] || (prepared && prepared.room);
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (!(ORIENT === 'landscape' && gL)) {
+    const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+    if (gP && room) {
+      gP.imageSmoothingEnabled = false;
+      gP.drawImage(room, 0, 0);
+      for (const ch of styleTrialMomA4.versions) {
+        gP.drawImage(stmA4Sprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
+      }
+    }
+    return;
+  }
+  gL.imageSmoothingEnabled = false;
+  gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+  if (room) gL.drawImage(room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+  gL.font = '28px NotoTC,sans-serif';
+  for (const ch of styleTrialMomA4.versions) {
+    const sx = 210 + ch.x * 4;
+    const sy = ch.feet * 4;
+    gL.drawImage(stmA4Sprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
+  }
+}
+
+
 (async () => {
   [manifest, data, actionIds] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
@@ -1917,6 +2011,34 @@ function drawStyleTrialMom(now) {
           b.textContent = label;
           if (styleTrialMom && styleTrialMom.lighting === id) b.classList.add('sel');
           b.onclick = () => stmSetLighting(id);
+          box.appendChild(b);
+        }
+      };
+      wireLit('btns'); wireLit('lbtns');
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'style_trial_mom_a4') {
+    if (!DEV) {
+      console.warn('style_trial_mom_a4 requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.style_trial_mom_a4;
+      activeKey = 'style_trial_mom_a4';
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, 'style_trial_mom_a4');
+      await initStyleTrialMomA4(lit);
+      fit();
+      reflow();
+      renderAll();
+      const wireLit = (sel) => {
+        const box = document.getElementById(sel);
+        if (!box) return;
+        box.innerHTML = '';
+        for (const [id, label] of [['daylight', '日間'], ['evening', '夜間']]) {
+          const b = document.createElement('button');
+          b.textContent = label;
+          if (styleTrialMomA4 && styleTrialMomA4.lighting === id) b.classList.add('sel');
+          b.onclick = () => stmA4SetLighting(id);
           box.appendChild(b);
         }
       };
