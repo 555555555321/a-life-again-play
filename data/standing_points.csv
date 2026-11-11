@@ -4,6 +4,7 @@
 # 例外：阿嬤改為 r4b（x=296，日間 82.52%，gate3_grandma_r4b_20261111）；阿公改為微駝 r2（x=292，日間 90.05%，gate3_grandpa_stoop_r2_20261111）。
 # 例外：爸爸走路本 PR 用分支上的舊 father_walk_c/walk_00（x=291，日間 92.75%，320/345，pr8_remeasure_sprites_20261111）。PR #4 換入 r3 後改為 83.77%。
 # status: pass | pending_redraw | pending_scene
+# pending_scene 九列（坐讀／同睡／寫畫貼）保留列，sprite_key 暫標 pending_r5c_r5d：等矮桌／棉被場景接進手機 B 時再掛已簽的 r5c／r5d 圖。
 group_id,sprite_key,scene,x,floor_y,day_B_excl_pct,source_report,status
 dad_walk,father_walk_c/walk_00,living_room,291,252,92.75,pr8_remeasure_sprites_20261111,pass
 grandpa,grandpa_stoop_r2/stand_f00,living_room,292,252,90.05,gate3_grandpa_stoop_r2_20261111,pass
@@ -13,12 +14,12 @@ hug_dad_toddler,hug/dad_toddler/hold_f00,living_room,301,252,83.15,gate3_recolou
 hug_mom_infant,hug/mom_infant/hold_f00,living_room,299,252,82.67,gate3_recolour_A_r3_20261111,pass
 hug_mom_toddler,hug/mom_toddler/hold_f00,living_room,300,252,81.36,gate3_recolour_A_r3_20261111,pass
 mom_A_r5c,style_trial_mom/a_r5c/A_r5c_12,living_room,295,252,82.13,gate3_recolour_A_20261111,pass
-action_sit_read_mom,actions_r3/sit_read_mom,bedroom_preview,200,216,83.33,gate3_actions_r3_20261111,pending_scene
-action_sit_read_dad,actions_r3/sit_read_dad,bedroom_preview,200,216,84.98,gate3_actions_r3_20261111,pending_scene
-action_sit_read_grandma,actions_r3/sit_read_grandma,bedroom_preview,200,216,72.30,gate3_actions_r3_20261111,pending_scene
-action_sit_read_grandpa,actions_r3/sit_read_grandpa,bedroom_preview,200,216,86.04,gate3_actions_r3_20261111,pending_scene
-action_cosleep_mom,actions_r3/cosleep_mom,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
-action_cosleep_dad,actions_r3/cosleep_dad,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
-action_write,actions_r3/write,living_room_preview,200,252,21.74,gate3_actions_r3_20261111,pending_scene
-action_draw,actions_r3/draw,living_room_preview,200,252,20.05,gate3_actions_r3_20261111,pending_scene
-action_sticker,actions_r3/sticker,living_room_preview,200,252,22.25,gate3_actions_r3_20261111,pending_scene
+action_sit_read_mom,pending_r5c_r5d,bedroom_preview,200,216,83.33,gate3_actions_r3_20261111,pending_scene
+action_sit_read_dad,pending_r5c_r5d,bedroom_preview,200,216,84.98,gate3_actions_r3_20261111,pending_scene
+action_sit_read_grandma,pending_r5c_r5d,bedroom_preview,200,216,72.30,gate3_actions_r3_20261111,pending_scene
+action_sit_read_grandpa,pending_r5c_r5d,bedroom_preview,200,216,86.04,gate3_actions_r3_20261111,pending_scene
+action_cosleep_mom,pending_r5c_r5d,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
+action_cosleep_dad,pending_r5c_r5d,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
+action_write,pending_r5c_r5d,living_room_preview,200,252,21.74,gate3_actions_r3_20261111,pending_scene
+action_draw,pending_r5c_r5d,living_room_preview,200,252,20.05,gate3_actions_r3_20261111,pending_scene
+action_sticker,pending_r5c_r5d,living_room_preview,200,252,22.25,gate3_actions_r3_20261111,pending_scene
