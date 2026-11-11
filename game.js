@@ -1238,24 +1238,107 @@ function wtApplyStage() {
   if (box) { box.style.width = '2340px'; box.style.height = h + 'px'; }
 }
 
-async function initWalkTest() {
-  const lighting = 'daylight';
-  const packC = await sprite('father_walk_c', lighting);
-  const packOld = await sprite('father', lighting);
-  const roomTall = new Image();
-  roomTall.src = 'assets/room_daylight_walk_test.png';
-  await roomTall.decode();
+async function wtMakeEveningRoom(roomDay) {
+  // Official room_evening covers the original 270-row living room.
+  // The walk_test floor extension (rows 270+) is the daylight tall room
+  // multiplied with the same render-time coefficient as style_trial_mom.
+  // PNGs are not modified.
+  const eve = new Image();
+  eve.src = 'assets/room_evening.png';
+  await eve.decode();
+  const w = roomDay.naturalWidth || roomDay.width;
+  const h = roomDay.naturalHeight || roomDay.height;
+  const c = document.createElement('canvas');
+  c.width = w;
+  c.height = h;
+  const g = c.getContext('2d');
+  g.drawImage(roomDay, 0, 0);
+  const d = g.getImageData(0, 0, w, h), px = d.data;
+  const [mr, mg, mb] = STYLE_TRIAL_MOM_EVENING_MUL;
+  for (let i = 0; i < px.length; i += 4) {
+    if (!px[i + 3]) continue;
+    px[i]     = Math.round(px[i]     * mr / 255);
+    px[i + 1] = Math.round(px[i + 1] * mg / 255);
+    px[i + 2] = Math.round(px[i + 2] * mb / 255);
+  }
+  g.putImageData(d, 0, 0);
+  g.drawImage(eve, 0, 0);
+  return c;
+}
+
+function wtEnsureTintCache() {
+  if (!walkTest || walkTest.tintMap) return;
+  const map = new Map();
+  const seen = new Set();
+  for (const lane of walkTest.lanes) {
+    const pack = lane.pack || {};
+    for (const key of ['idle', 'walk', 'turn', 'blink', 'idleSide']) {
+      const v = pack[key];
+      const list = !v ? [] : (Array.isArray(v) ? v : [v]);
+      for (const im of list) {
+        if (!im || seen.has(im)) continue;
+        seen.add(im);
+        map.set(im, stmTintEvening(im));
+      }
+    }
+  }
+  walkTest.tintMap = map;
+}
+
+function wtDrawnSprite(frame) {
+  if (!walkTest || walkTest.lighting !== 'evening' || !frame) return frame;
+  wtEnsureTintCache();
+  return walkTest.tintMap.get(frame) || frame;
+}
+
+function wtRefreshLitButtons() {
+  if (!walkTest) return;
+  for (const sel of ['btns', 'lbtns']) {
+    const box = document.getElementById(sel);
+    if (!box) continue;
+    for (const b of box.querySelectorAll('button')) {
+      const want = (b.textContent === '夜間') ? 'evening' : (b.textContent === '日間') ? 'daylight' : null;
+      if (want) b.classList.toggle('sel', walkTest.lighting === want);
+    }
+  }
+}
+
+function wtSetLighting(lit) {
+  if (!walkTest) return;
+  walkTest.lighting = (lit === 'evening') ? 'evening' : 'daylight';
+  walkTest.room = walkTest.rooms[walkTest.lighting] || walkTest.room;
+  if (prepared) prepared.room = walkTest.room;
+  const u = new URL(location.href);
+  if (walkTest.lighting === 'evening') u.searchParams.set('lit', 'evening');
+  else u.searchParams.delete('lit');
+  history.replaceState(null, '', u.toString());
+  wtRefreshLitButtons();
+  if (typeof renderAll === 'function') renderAll();
+}
+
+async function initWalkTest(lighting) {
+  const lit = (lighting === 'evening') ? 'evening' : 'daylight';
+  const packC = await sprite('father_walk_c', 'daylight');
+  const packOld = await sprite('father', 'daylight');
+  const roomDay = new Image();
+  roomDay.src = 'assets/room_daylight_walk_test.png';
+  await roomDay.decode();
+  const roomEve = await wtMakeEveningRoom(roomDay);
   // facing report
   walkTest = {
+    lighting: lit,
+    supportsEvening: true,
+    eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
     facingC: 'W',
     facingOld: 'W',
     walkDxC: WALK_DX_C,
     walkDxC_sum: WALK_DX_C.reduce((a, b) => a + b, 0),
-    room: roomTall,
+    rooms: { daylight: roomDay, evening: roomEve },
+    room: lit === 'evening' ? roomEve : roomDay,
     roomH: WT_ROOM_H,
     floorTop: WT_FLOOR_TOP,
     headH: WT_HEAD_H,
-    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies. C_lock uses WALK_DX_C foot-lock; C8 keeps constant 8. Three floor rows, dad ×4, floor band extended for this DEV screen only.',
+    note: 'C r2 and old both face WEST as drawn (no extra flip); flipX only for travel direction like base bodies. C_lock uses WALK_DX_C foot-lock; C8 keeps constant 8. Three floor rows, dad ×4, floor band extended for this DEV screen only. Evening: ?lit=evening applies STYLE_TRIAL_MOM_EVENING_MUL to sprites at render time; the tall room uses official room_evening for the top 270 rows and the same multiply on the extended floor. PNGs are not modified.',
     lanes: [
       { id: 'C_lock', label: 'C foot-lock', pack: packC, x0: 90, feet: WT_FEET[0], x1: 390, stride: WALK_DX_C, period: 125 },
       { id: 'C8', label: 'C constant-8', pack: packC, x0: 90, feet: WT_FEET[1], x1: 390, stride: 8, period: 125 },
@@ -1267,6 +1350,7 @@ async function initWalkTest() {
   window.WALK_TEST = walkTest;
   window.WALK_TEST_LOG = WALK_TEST_LOG;
   window.WALK_TEST_ALIGNS = () => (walkTest.lanes.find(l => l.id === 'C_lock') || {})._aligns || [];
+  wtRefreshLitButtons();
 }
 
 function wtPhaseMs(lane) {
@@ -1478,6 +1562,7 @@ function drawWalkTest(now) {
     for (const lane of walkTest.lanes) {
       const f = wtFrame(lane, now);
       wtApplyHold(lane, f, null);
+      const df = wtDrawnSprite(f);
       const ax = lane.pack.ax, ay = lane.pack.ay;
       const feetY = lane.feet;
       const x = lane.x;
@@ -1485,8 +1570,8 @@ function drawWalkTest(now) {
       gL.save();
       const sx = 210 + x * 4;
       const sy = feetY * 4;
-      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
-      else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(df, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+      else gL.drawImage(df, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
       gL.restore();
       // lane label on the floor under the feet — never over the sprite
       lane._labelBox = devFloorLabel(gL, lane.label, sx, feetY);
@@ -1537,10 +1622,11 @@ function drawWalkTest(now) {
     if (prepared && prepared.room) gP.drawImage(prepared.room, 0, 0);
     for (const lane of walkTest.lanes) {
       const f = wtFrame(lane, now);
+      const df = wtDrawnSprite(f);
       const ax = lane.pack.ax, ay = lane.pack.ay;
       gP.save();
-      if (lane.flip) { gP.translate(lane.x, 0); gP.scale(-1, 1); gP.drawImage(f, -ax, lane.feet - ay); }
-      else gP.drawImage(f, lane.x - ax, lane.feet - ay);
+      if (lane.flip) { gP.translate(lane.x, 0); gP.scale(-1, 1); gP.drawImage(df, -ax, lane.feet - ay); }
+      else gP.drawImage(df, lane.x - ax, lane.feet - ay);
       gP.restore();
     }
   }
@@ -1957,8 +2043,9 @@ function drawStyleTrialMomA4(now) {
       // prepare room only
       const scr = data.screens.walk_test;
       activeKey = 'walk_test';
-      prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'walk_test');
-      await initWalkTest();
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, 'walk_test');
+      await initWalkTest(lit);
       fit();
       reflow();
       renderAll();
@@ -1966,6 +2053,13 @@ function drawStyleTrialMomA4(now) {
         const box = document.getElementById(sel);
         if (!box) return;
         box.innerHTML = '';
+        for (const [id, label] of [['daylight', '日間'], ['evening', '夜間']]) {
+          const b = document.createElement('button');
+          b.textContent = label;
+          if (walkTest && walkTest.lighting === id) b.classList.add('sel');
+          b.onclick = () => wtSetLighting(id);
+          box.appendChild(b);
+        }
         const b = document.createElement('button');
         b.textContent = '重播';
         b.onclick = () => wtReset();

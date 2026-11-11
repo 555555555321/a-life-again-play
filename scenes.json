@@ -730,7 +730,7 @@
       "season": "春"
     },
     "walk_test": {
-      "_note": "DEV ONLY Trial C vs old dad walk. Reach via ?dev=1&screen=walk_test. Not in order.",
+      "_note": "DEV ONLY Trial C vs old dad walk. Reach via ?dev=1&screen=walk_test. Not in order. Optional &lit=evening (render-time room multiply on sprites; same coefficient as style_trial_mom).",
       "dev_only": true,
       "age": 5,
       "season": "春",
