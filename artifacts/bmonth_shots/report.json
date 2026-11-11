@@ -1,0 +1,50 @@
+{
+  "shots": [
+    {
+      "name": "play_naming_m01",
+      "month": 1,
+      "expected": "二〇〇〇年・冬・你零歲",
+      "corner": "二〇〇〇年・冬・你零歲",
+      "stamp": "二〇〇〇年・冬・你零歲",
+      "full": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m01.png",
+      "crop": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m01_crop.png"
+    },
+    {
+      "name": "play_naming_m05",
+      "month": 5,
+      "expected": "二〇〇〇年・春・你零歲",
+      "corner": "二〇〇〇年・春・你零歲",
+      "stamp": "二〇〇〇年・春・你零歲",
+      "full": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m05.png",
+      "crop": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m05_crop.png"
+    },
+    {
+      "name": "play_naming_m09",
+      "month": 9,
+      "expected": "二〇〇〇年・秋・你零歲",
+      "corner": "二〇〇〇年・秋・你零歲",
+      "stamp": "二〇〇〇年・秋・你零歲",
+      "full": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m09.png",
+      "crop": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m09_crop.png"
+    },
+    {
+      "name": "play_naming_m10",
+      "month": 10,
+      "expected": "二〇〇〇年・秋・你零歲",
+      "corner": "二〇〇〇年・秋・你零歲",
+      "stamp": "二〇〇〇年・秋・你零歲",
+      "full": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m10.png",
+      "crop": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m10_crop.png"
+    },
+    {
+      "name": "play_naming_m12",
+      "month": 12,
+      "expected": "二〇〇〇年・冬・你零歲",
+      "corner": "二〇〇〇年・冬・你零歲",
+      "stamp": "二〇〇〇年・冬・你零歲",
+      "full": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m12.png",
+      "crop": "/workspace/a-life-again-play-bmonth/artifacts/bmonth_shots/play_naming_m12_crop.png"
+    }
+  ],
+  "errors": []
+}

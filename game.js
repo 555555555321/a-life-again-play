@@ -11,34 +11,52 @@ const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
 // Evening-only character rim light. URL ?rim=1 turns it on; default off. (王 2026-11-11)
 const RIM = qs.get('rim') === '1';
 
-// Year label: date-based rule aligned with A-Life-Again PR #19 (6ea7814).
-// Year and season both come from the calendar date, never from the season word.
-// Jan–Apr of age N = 2000+N+1; May–Dec = 2000+N. Age = floor(day/365).
-// Year/date numerals use 「〇」; corner age uses 「零」. See calendar.js.
-const BIRTH_YEAR = (typeof ALACalendar !== 'undefined') ? ALACalendar.PLAYER_BIRTH_DATE.year : 2000;
+// Year label: date-based rule. Year and season come from the calendar date, never from the season word.
+// Before this life's birth month of age N, year = 2000+N+1; from the birth month on, year = 2000+N.
+// Age = floor(day/365). Year/date numerals use 「〇」; corner age uses 「零」. See calendar.js.
+// Birth month is drawn for a life (Taiwan 2000 weights); ?birthMonth= or ?seed= override; missing field = May.
+const BIRTH_YEAR = 2000;
+function lifeBirth() {
+  const raw = qs.get('birthMonth');
+  if (raw != null && raw !== '') return ALACalendar.resolveBirth({ month: +raw });
+  const seed = qs.get('seed');
+  if (seed != null && seed !== '' && typeof ALABirth !== 'undefined') {
+    return ALABirth.drawBirthDate(seed);
+  }
+  const field = (data && data.birth_month != null) ? data.birth_month
+    : (data && data.birth && data.birth.month != null) ? data.birth.month
+    : null;
+  return ALACalendar.resolveBirth(field == null ? null : { month: +field });
+}
+function readMonth(src) {
+  if (src == null || src.month == null || src.month === '' || src.month === 'birth') return null;
+  const n = +src.month;
+  return Number.isFinite(n) ? n : null;
+}
 function cnYear(y) { return ALACalendar.chineseYear(y) + '年'; }
 function cnAge(a) { return ALACalendar.chineseAge(a) + '歲'; }
 function cornerLabel(age, season) {
-  return ALACalendar.cornerLabel(age, season);
+  return ALACalendar.cornerLabel({ age, season, birth: lifeBirth() });
 }
 function screenCorner(scr) {
   // Non-story DEV trials keep a hardcoded caption (not a date).
   if (scr && scr._corner_hardcoded && scr.corner) return scr.corner;
+  const birth = lifeBirth();
   const dayParam = qs.has('day') && qs.get('day') !== '' ? +qs.get('day') : null;
   const src = scr || data || {};
   const day = (dayParam != null && Number.isFinite(dayParam)) ? dayParam
     : (src.day != null ? +src.day : (data && data.day != null ? +data.day : null));
-  if (day != null && Number.isFinite(day)) return ALACalendar.cornerStamp(day).label;
+  if (day != null && Number.isFinite(day)) return ALACalendar.cornerStamp(day, birth).label;
   const age = (scr && scr.age != null) ? +scr.age : (data && data.age);
-  const month = (scr && scr.month != null) ? +scr.month : (data && data.month);
+  const month = readMonth(scr) ?? readMonth(data);
   const season = (scr && scr.season) || (data && data.season) || '春';
   const dayOfMonth = (scr && scr.dayOfMonth != null) ? +scr.dayOfMonth
     : (data && data.dayOfMonth != null ? +data.dayOfMonth : 1);
   if (age != null || month != null) {
-    return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
+    return ALACalendar.cornerLabel({ age, month, season, dayOfMonth, birth });
   }
   if (scr && scr.corner) return scr.corner;
-  return ALACalendar.cornerLabel({ age, month, season, dayOfMonth });
+  return ALACalendar.cornerLabel({ age, month, season, dayOfMonth, birth });
 }
 
 let drawerW = STOPS.includes(+qs.get('drawer')) ? +qs.get('drawer') : 0;
@@ -328,7 +346,10 @@ async function prepareCue(cue, key) {
   const p = {key, lighting, cast: [], layers: [], cue};
   const roomId = 'room_' + lighting;
   p.room = manifest[roomId] ? await load(manifest[roomId].src) : (miss(roomId, '背景', key), null);
-  for (const m of cue.cast || []) {
+  for (const raw of cue.cast || []) {
+    const m = (typeof StandingPoints !== 'undefined')
+      ? StandingPoints.applyToCastMember(raw, StandingPoints.rows)
+      : raw;
     checkAnim(m.anim, key);
     let fr;
     if (isStandin(m.id)) {
@@ -1771,7 +1792,7 @@ async function initEldersStand() {
   const packGp = await sprite('grandpa', lighting);
   const packGm = await sprite('grandma', lighting);
   const packDad = await sprite('father', lighting);
-  // Signed r8 mom infant hold-breath (抱嬰兒・呼吸), not pickup. DEV only; default mother idle unchanged.
+  // Signed recolour r3 mom infant hold-breath (抱嬰兒・呼吸), not pickup. DEV only; default mother idle unchanged.
   const hold0 = await load('assets/chars/mother_hold_infant/hold_00.png');
   const hold1 = await load('assets/chars/mother_hold_infant/hold_01.png');
   const packMomHold = { anchor: true, ax: 27, ay: 115, canvasW: 56, canvasH: 116, idle: [hold0, hold1], blink: null, walk: [] };
@@ -1780,7 +1801,7 @@ async function initEldersStand() {
     floorTop: ES_FLOOR_TOP,
     facing: 'grandpa flipX (faces E, toward the parents); grandma/dad/mom face W as drawn',
     note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). Grandpa on the west side, flipped to face the parents. Mom uses signed r8 hold-breath frames.',
-    momHold: { src: ['assets/chars/mother_hold_infant/hold_00.png', 'assets/chars/mother_hold_infant/hold_01.png'], from: 'hug_set_20261110/frames/mom_infant/hold_f00.png + hold_f01.png (r8 signed, frozen)' },
+    momHold: { src: ['assets/chars/mother_hold_infant/hold_00.png', 'assets/chars/mother_hold_infant/hold_01.png'], from: 'recolour_A_20261111/r3/hug/mom_infant/hold_f00.png + hold_f01.png (signed hold-breath)' },
     chars: [
       { id: 'grandpa', label: 'grandpa', pack: packGp,      x: 126, feet: ES_FLOOR_LINE, flip: true,  breath: true },
       { id: 'grandma', label: 'grandma', pack: packGm,      x: 164, feet: ES_FLOOR_LINE, flip: false, breath: true },
@@ -2113,7 +2134,7 @@ function drawStyleTrialMomA4(now) {
 
 // —— DEV style_trial_mom_a5c: final mom A round 5 (A_r5c_12) at living-room x=295 ——
 // Separate screen so the official a4 trial (r4 at x=406) is not swapped.
-// Feet on floor_line 252, anchor (27,115). Clean range in 王子 standing_points is x=291–327; 295 is the recommended point.
+// Feet and x come from data/standing_points.csv (group mom_A_r5c). Fallback below is the previous hard-coded slot.
 const STYLE_TRIAL_MOM_A5C_VERSIONS = [
   { id: 'a5c_12', label: 'A 第5輪', src: 'assets/chars/style_trial_mom/a_r5c/A_r5c_12.png', x: 295 },
 ];
@@ -2126,15 +2147,20 @@ async function initStyleTrialMomA5c(lighting) {
   await Promise.all([day.decode(), eve.decode()]);
   const versions = [];
   for (const v of STYLE_TRIAL_MOM_A5C_VERSIONS) {
-    const img = await load(v.src);
-    versions.push({ id: v.id, label: v.label, src: v.src, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img) });
+    const placed = (typeof StandingPoints !== 'undefined')
+      ? StandingPoints.applyToVersion(v, 'mom_A_r5c', StandingPoints.rows)
+      : v;
+    const img = await load(placed.src);
+    versions.push({ id: placed.id, label: placed.label, src: placed.src, x: placed.x, feet: placed.feet || STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img), standing_group: 'mom_A_r5c' });
   }
+  const standX = (versions[0] && versions[0].x != null) ? versions[0].x : 295;
+  const standFeet = (versions[0] && versions[0].feet != null) ? versions[0].feet : STYLE_TRIAL_MOM_FLOOR;
   styleTrialMomA5c = {
     lighting: lit,
     rooms: { daylight: day, evening: eve },
-    floorLine: STYLE_TRIAL_MOM_FLOOR,
+    floorLine: standFeet,
     facing: 'W as drawn (no flip)',
-    note: 'Final mom A round 5 (A_r5c_12, 12 colours) at x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
+    note: 'Final mom A round 5 (A_r5c_12, 12 colours) at x=' + standX + ', feet ' + standFeet + ', anchor (27,115), from data/standing_points.csv (mom_A_r5c). Official style_trial_mom_a4 is unchanged. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
     eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
     versions: versions,
   };
@@ -2198,11 +2224,17 @@ function drawStyleTrialMomA5c(now) {
 
 
 (async () => {
-  [manifest, data, actionIds] = await Promise.all([
+  const standingCsvP = fetch('data/standing_points.csv', {cache: 'no-store'}).then(r => r.ok ? r.text() : '').catch(() => '');
+  [manifest, data, actionIds, standingCsv] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
     fetch('scenes.json').then(r => r.json()),
     fetch('assets/action_ids.json').then(r => r.json()),
+    standingCsvP,
   ]);
+  if (typeof StandingPoints !== 'undefined') {
+    StandingPoints.install(StandingPoints.parse(standingCsv || ''));
+    window.STANDING_POINTS = StandingPoints.rows;
+  }
   for (const e of actionIds.entries) entryById[e.id] = e;
   Object.assign(aliasToId, actionIds.alias_index || {});
   // also aliases on entries

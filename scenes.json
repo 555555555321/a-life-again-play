@@ -1,5 +1,5 @@
 {
-  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
+  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。 Cast members may set standing_group to a data/standing_points.csv group_id; prepareCue then uses that row's x and floor_y.",
   "corner": "二〇〇五年・春・你五歲",
   "family": "dad_works_mom_home",
   "order": [
@@ -62,7 +62,7 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5,
+      "month": "birth",
       "light_side": "right",
       "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
@@ -113,7 +113,7 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "scissors": {
       "lighting": "daylight",
@@ -164,7 +164,7 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "test_long": {
       "_note": "公主分頁示範 G04 ALA-GAP-20261025-G04-E014；原文見 /workspace/princess_pagination_demo/source.md。場景暫借客廳 daylight。‖ 分段與 marked.json 一致。",
@@ -609,7 +609,7 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "test_reader": {
       "_note": "閱讀頁：同一段 G04 示範原文。",
@@ -624,7 +624,7 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "animal_dog": {
       "_note": "TW-A1-05 雙薪／只有爸爸上班 variant；cue /workspace/w09_cues_20261109/cues.json。背景暫借客廳 daylight（phone B 無戶外圖）。",
@@ -661,7 +661,7 @@
       ],
       "age": 1,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "animal_kitten": {
       "_note": "TW-A3-08；cue cues.json。小貓在紙箱（back→kitten@(2,6) clipped→front）。背景暫借客廳 daylight（phone B 無路邊圖）。",
@@ -691,7 +691,7 @@
       ],
       "age": 3,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "animal_blanket": {
       "_note": "TW-A1-07；cue cues.json。紙箱空箱＋地板小被子（floor 版，箱外）。",
@@ -737,14 +737,14 @@
       ],
       "age": 1,
       "season": "春",
-      "month": 5
+      "month": "birth"
     },
     "walk_test": {
       "_note": "DEV ONLY Trial C vs old dad walk. Reach via ?dev=1&screen=walk_test. Not in order.",
       "dev_only": true,
       "age": 5,
       "season": "春",
-      "month": 5,
+      "month": "birth",
       "corner": "二〇〇五年・春・你五歲",
       "lighting": "daylight",
       "status": "走路試驗：上 C foot-lock，中 C constant-8，下舊 4 格。",
@@ -757,11 +757,11 @@
       "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "elders_stand": {
-      "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。角標用 day 0（2000-05-01）走日期規則。Not in order.",
+      "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。角標用 day 0（這一局生日（預設 2000-05-01））走日期規則。Not in order.",
       "dev_only": true,
       "age": 0,
       "season": "春",
-      "month": 5,
+      "month": "birth",
       "day": 0,
       "corner": "二〇〇〇年・春・你零歲",
       "lighting": "daylight",
@@ -792,7 +792,7 @@
       "dev_only": true,
       "season": "春",
       "age": 5,
-      "month": 5,
+      "month": "birth",
       "corner": "二〇〇五年・春・你五歲",
       "lighting": "daylight",
       "status": "媽媽站姿畫風試畫（第 3 輪）。B 靠牆，方便看日間／夜間上衣對比。",
@@ -823,10 +823,10 @@
       "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "style_trial_mom_a5c": {
-      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours) at living-room x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
+      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours). x and floor come from data/standing_points.csv group mom_A_r5c (default 295 / 252). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
       "dev_only": true,
       "lighting": "daylight",
-      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站在客廳 x=295（清潔範圍 291–327）。",
+      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站位讀 data/standing_points.csv（mom_A_r5c）。",
       "text": "",
       "buttons": [
         "日間",
@@ -888,9 +888,10 @@
     "animal_kitten",
     "animal_blanket"
   ],
-  "_corner_rule": "cornerLabel: A-Life-Again PR #19 date rule (calendar.js). Day 0 = 2000-05-01; age = floor(day/365); year and season come from the date, never from the season word. Jan–Apr of age N = 2000+N+1, May–Dec = 2000+N. Seasons: 3–5春 6–8夏 9–11秋 12–2冬. Year/date use 〇, corner age uses 零. Prefer screen.day or ?day=, else age+month, else default month for the season (春→5月, 夏→7月, 秋→10月, 冬→12月). Shared ALACalendar in calendar.js / game.js screenCorner().",
+  "_corner_rule": "cornerLabel: date rule (calendar.js). Day 0 is this life's birthday (year 2000, day 1 of the drawn month); missing birth_month / old data = May (month 5). age = floor(day/365); year and season come from the date, never from the season word. Before the birth month of age N = 2000+N+1, from the birth month on = 2000+N. Seasons: 3–5春 6–8夏 9–11秋 12–2冬. Year/date use 〇, corner age uses 零. Prefer screen.day or ?day=, else age+month, else birth month when the season matches (or a month in that season). Screens that used to hard-code \"month\": 5 as the 春/birthday default now use \"month\": \"birth\". ?birthMonth=1..12 or ?seed= sets this life's birthday. Shared ALACalendar in calendar.js / game.js screenCorner().",
   "birth_year": 2000,
   "age": 5,
   "season": "春",
-  "month": 5
+  "month": "birth",
+  "birth_month": 5
 }

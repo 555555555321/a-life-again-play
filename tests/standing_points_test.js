@@ -1,0 +1,100 @@
+#!/usr/bin/env node
+// Standing-points CSV: parse, apply to a cast member, and (with Playwright)
+// prove that changing the CSV moves the sprite on style_trial_mom_a5c.
+const assert = require('assert');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { spawn } = require('child_process');
+
+const ROOT = path.resolve(__dirname, '..');
+const SP = require('../standing_points.js');
+
+function pass(name) { console.log('PASS', name); }
+
+const csv = fs.readFileSync(path.join(ROOT, 'data/standing_points.csv'), 'utf8');
+const rows = SP.parse(csv);
+assert.ok(rows.length >= 8, 'expected family + action rows, got ' + rows.length);
+const mom = SP.lookup(rows, 'mom_A_r5c');
+assert.ok(mom, 'mom_A_r5c missing');
+assert.strictEqual(mom.x, 295);
+assert.strictEqual(mom.floor_y, 252);
+assert.strictEqual(mom.status, 'pass');
+assert.strictEqual(SP.lookup(rows, 'dad_walk').x, 291);
+assert.strictEqual(SP.lookup(rows, 'grandma').status, 'pass');
+assert.strictEqual(SP.lookup(rows, 'grandma').x, 296);
+assert.strictEqual(SP.lookup(rows, 'grandma').day_B_excl_pct, 82.52);
+assert.strictEqual(SP.lookup(rows, 'grandpa').status, 'pass');
+assert.strictEqual(SP.lookup(rows, 'grandpa').x, 292);
+assert.strictEqual(SP.lookup(rows, 'grandpa').day_B_excl_pct, 90.05);
+assert.strictEqual(SP.lookup(rows, 'action_write').status, 'pending_scene');
+assert.strictEqual(SP.lookup(rows, 'no_such'), null);
+pass('parse and lookup');
+
+const placed = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' }, rows);
+assert.strictEqual(placed.x, 295);
+assert.strictEqual(placed.feet, 252);
+const unchanged = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200 }, rows);
+assert.strictEqual(unchanged.x, 100);
+pass('applyToCastMember uses standing_group and leaves others alone');
+
+const okRow = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' }, rows);
+assert.strictEqual(okRow.x, 295);
+assert.strictEqual(okRow.feet, 252);
+// After merging signed PR #8, no CSV row is still pending_redraw (grandma is pass at x=296).
+// Keep the skip coverage with a test-local fixture row.
+const pendingRedrawFixture = Object.assign({}, SP.lookup(rows, 'mom_A_r5c'), {
+  group_id: 'synthetic_pending_redraw',
+  status: 'pending_redraw',
+  x: 333,
+  floor_y: 252,
+});
+assert.strictEqual(pendingRedrawFixture.status, 'pending_redraw');
+assert.strictEqual(pendingRedrawFixture.x, 333);
+const pendingRedrawRows = [pendingRedrawFixture];
+const pendingRedraw = SP.applyToCastMember({ id: 'fixture', x: 111, feet: 222, standing_group: 'synthetic_pending_redraw' }, pendingRedrawRows);
+assert.strictEqual(pendingRedraw.x, 111);
+assert.strictEqual(pendingRedraw.feet, 222);
+const pendingScene = SP.applyToCastMember({ id: 'child', x: 111, feet: 222, standing_group: 'action_write' }, rows);
+assert.strictEqual(pendingScene.x, 111);
+assert.strictEqual(pendingScene.feet, 222);
+const pendingVersion = SP.applyToVersion({ id: 'g', src: 'x', x: 111, feet: 222 }, 'synthetic_pending_redraw', pendingRedrawRows);
+assert.strictEqual(pendingVersion.x, 111);
+assert.strictEqual(pendingVersion.feet, 222);
+pass('pending_redraw / pending_scene are not applied; pass is');
+
+const passTemplate = Object.assign({}, SP.lookup(rows, 'mom_A_r5c'));
+const emptyStatusRows = [Object.assign({}, passTemplate, { status: '' })];
+const typoStatusRows = [Object.assign({}, passTemplate, { status: 'pas' })];
+const memberSeed = { id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' };
+const emptyApplied = SP.applyToCastMember(memberSeed, emptyStatusRows);
+assert.strictEqual(emptyApplied.x, 100);
+assert.strictEqual(emptyApplied.feet, 200);
+const typoApplied = SP.applyToCastMember(memberSeed, typoStatusRows);
+assert.strictEqual(typoApplied.x, 100);
+assert.strictEqual(typoApplied.feet, 200);
+const passApplied = SP.applyToCastMember(memberSeed, rows);
+assert.strictEqual(passApplied.x, 295);
+assert.strictEqual(passApplied.feet, 252);
+const typoVersion = SP.applyToVersion({ id: 'a5c_12', src: 'x', x: 100, feet: 200 }, 'mom_A_r5c', typoStatusRows);
+assert.strictEqual(typoVersion.x, 100);
+assert.strictEqual(typoVersion.feet, 200);
+pass('empty and typo statuses are not applied; pass is');
+
+const movedCsv = csv.replace(/^mom_A_r5c,([^,]+),([^,]+),295,/m, 'mom_A_r5c,$1,$2,310,');
+const movedRows = SP.parse(movedCsv);
+assert.strictEqual(SP.lookup(movedRows, 'mom_A_r5c').x, 310);
+const before = SP.applyToVersion({ id: 'a5c_12', src: 'x', x: 295, feet: 252 }, 'mom_A_r5c', rows);
+const after = SP.applyToVersion({ id: 'a5c_12', src: 'x', x: 295, feet: 252 }, 'mom_A_r5c', movedRows);
+assert.strictEqual(before.x, 295);
+assert.strictEqual(after.x, 310);
+assert.notStrictEqual(before.x, after.x);
+pass('changing the CSV moves the applied sprite x (unit)');
+
+const py = path.join(__dirname, 'standing_points_move_test.py');
+if (fs.existsSync(py)) {
+  const r = spawn(process.env.PYTHON || '/usr/bin/python3', [py], {stdio: 'inherit'});
+  r.on('exit', (code) => process.exit(code || 0));
+} else {
+  console.log('SKIP browser move test (tests/standing_points_move_test.py missing)');
+}
