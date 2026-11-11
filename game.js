@@ -8,6 +8,8 @@ const qs = new URLSearchParams(location.search);
 const SHOT = qs.has('shot');
 const DEV = qs.has('dev') && qs.get('dev') !== '0'; // right-side missing/warn/drawer panel
 const ORIENT = (qs.get('orient') === 'landscape') ? 'landscape' : 'portrait';
+// Evening-only character rim light. URL ?rim=1 turns it on; default off. (王 2026-11-11)
+const RIM = qs.get('rim') === '1';
 
 // Year label: ONE shared rule (王). birth May 2000; 春→2000+age+1 else 2000+age; season from screen/event or 春.
 const BIRTH_YEAR = 2000;
@@ -360,6 +362,90 @@ async function prepareCue(cue, key) {
 
 function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
+// Evening character rim: 1 px warm edge OUTSIDE the silhouette, only when
+// lit=evening AND rim=1. Applied in the shared draw path, at render time
+// (PNGs are never modified). Furniture, props and vehicles are not rimmed.
+// Colour #c4aa78 is grandpa_khaki light in the 48-colour family palette
+// (and in the 3349 palette). Warm plaster, lighter than the evening wall
+// #6c4d33 (contrast 3.41), not skin and not near-white.
+const CHAR_RIM_HEX = '#c4aa78';
+const CHAR_RIM_RGB = [196, 170, 120];
+const CHAR_RIM_PAD = 1;
+const charRimCache = new WeakMap();
+
+function eveningLit() {
+  if (activeKey === 'style_trial_mom' && styleTrialMom) return styleTrialMom.lighting === 'evening';
+  if (activeKey === 'style_trial_mom_a4' && styleTrialMomA4) return styleTrialMomA4.lighting === 'evening';
+  return !!(prepared && prepared.lighting === 'evening');
+}
+
+function rimActive() {
+  return RIM && eveningLit();
+}
+
+function applyCharRim(im) {
+  if (!im) return null;
+  const hit = charRimCache.get(im);
+  if (hit) return hit;
+  const w = im.width, h = im.height;
+  const src = document.createElement('canvas');
+  src.width = w; src.height = h;
+  const sg = src.getContext('2d');
+  sg.drawImage(im, 0, 0);
+  const srcData = sg.getImageData(0, 0, w, h).data;
+  const outW = w + 2 * CHAR_RIM_PAD, outH = h + 2 * CHAR_RIM_PAD;
+  const out = document.createElement('canvas');
+  out.width = outW; out.height = outH;
+  const og = out.getContext('2d');
+  const id = og.createImageData(outW, outH);
+  const px = id.data;
+  const [rr, rg, rb] = CHAR_RIM_RGB;
+  const NEIGH = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
+  function srcA(x, y) {
+    if (x < 0 || y < 0 || x >= w || y >= h) return 0;
+    return srcData[(y * w + x) * 4 + 3];
+  }
+  // 8-connected outside ring so diagonal edges have no holes. Crisp, opaque, integer pixels.
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (!srcA(x, y)) continue;
+      for (const [dx, dy] of NEIGH) {
+        const nx = x + dx, ny = y + dy;
+        if (srcA(nx, ny)) continue;
+        const o = ((ny + CHAR_RIM_PAD) * outW + (nx + CHAR_RIM_PAD)) * 4;
+        px[o] = rr; px[o + 1] = rg; px[o + 2] = rb; px[o + 3] = 255;
+      }
+    }
+  }
+  og.putImageData(id, 0, 0);
+  og.imageSmoothingEnabled = false;
+  og.drawImage(im, CHAR_RIM_PAD, CHAR_RIM_PAD);
+  const baked = { canvas: out, pad: CHAR_RIM_PAD, srcW: w, srcH: h };
+  charRimCache.set(im, baked);
+  return baked;
+}
+
+// Draw a character sprite. When the evening rim is on, the destination is
+// shifted by 1 native pixel so the extra ring sits outside the silhouette
+// without moving the body. Nearest-neighbour, integer sizes only.
+function drawCharSprite(g, im, dx, dy, dw, dh) {
+  if (!im) return;
+  g.imageSmoothingEnabled = false;
+  if (!rimActive()) {
+    if (dw == null) g.drawImage(im, dx, dy);
+    else g.drawImage(im, dx, dy, dw, dh);
+    return;
+  }
+  const baked = applyCharRim(im);
+  const pad = baked.pad;
+  const sx = (dw == null) ? 1 : dw / baked.srcW;
+  const sy = (dh == null) ? 1 : dh / baked.srcH;
+  const x = Math.round(dx - pad * sx);
+  const y = Math.round(dy - pad * sy);
+  if (dw == null) g.drawImage(baked.canvas, x, y);
+  else g.drawImage(baked.canvas, x, y, Math.round(baked.canvas.width * sx), Math.round(baked.canvas.height * sy));
+}
+
 
 // offscreen native scene
 const off = document.createElement('canvas'); off.width = W; off.height = H;
@@ -499,7 +585,7 @@ function drawSceneNative(g, now) {
       if (c.flip) { g.translate(c.x, 0); g.scale(-1, 1); }
       const ox = c.flip ? -ax : Math.round(c.x - ax);
       if (sitting && fr.chair) g.drawImage(fr.chair, ox, oy);
-      g.drawImage(f, ox, oy);
+      drawCharSprite(g, f, ox, oy);
       g.restore();
       // attach props: cue dx/dy/w/h is the intended on-screen box (from feet).
       // Old prop PNGs are full character-canvas sheets; draw only the opaque crop into that box.
@@ -539,7 +625,7 @@ function drawSceneNative(g, now) {
     g.save();
     const ox = c.flip ? Math.round(-cx) : Math.round(c.x - cx), oy = m.feet - bb.y1 - 1;
     if (c.flip) { g.translate(c.x, 0); g.scale(-1, 1); }
-    g.drawImage(f, ox, oy);
+    drawCharSprite(g, f, ox, oy);
     for (const P of c.props || []) if (P.im) {
       g.globalAlpha = c.alpha * (P.alpha || 1) * (transition && !c.leaving ? transK : 1);
       g.drawImage(P.im, ox, oy);
@@ -1485,8 +1571,8 @@ function drawWalkTest(now) {
       gL.save();
       const sx = 210 + x * 4;
       const sy = feetY * 4;
-      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
-      else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); drawCharSprite(gL, f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+      else drawCharSprite(gL, f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
       gL.restore();
       // lane label on the floor under the feet — never over the sprite
       lane._labelBox = devFloorLabel(gL, lane.label, sx, feetY);
@@ -1539,8 +1625,8 @@ function drawWalkTest(now) {
       const f = wtFrame(lane, now);
       const ax = lane.pack.ax, ay = lane.pack.ay;
       gP.save();
-      if (lane.flip) { gP.translate(lane.x, 0); gP.scale(-1, 1); gP.drawImage(f, -ax, lane.feet - ay); }
-      else gP.drawImage(f, lane.x - ax, lane.feet - ay);
+      if (lane.flip) { gP.translate(lane.x, 0); gP.scale(-1, 1); drawCharSprite(gP, f, -ax, lane.feet - ay); }
+      else drawCharSprite(gP, f, lane.x - ax, lane.feet - ay);
       gP.restore();
     }
   }
@@ -1607,8 +1693,8 @@ function drawEldersStand(now) {
         const f = esFrame(ch, now);
         const ax = ch.pack.ax, ay = ch.pack.ay;
         gP.save();
-        if (ch.flip) { gP.translate(ch.x, 0); gP.scale(-1, 1); gP.drawImage(f, -ax, ch.feet - ay); }
-        else gP.drawImage(f, ch.x - ax, ch.feet - ay);
+        if (ch.flip) { gP.translate(ch.x, 0); gP.scale(-1, 1); drawCharSprite(gP, f, -ax, ch.feet - ay); }
+        else drawCharSprite(gP, f, ch.x - ax, ch.feet - ay);
         gP.restore();
       }
     }
@@ -1625,8 +1711,8 @@ function drawEldersStand(now) {
     const sx = 210 + ch.x * 4;
     const sy = ch.feet * 4;
     gL.save();
-    if (ch.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
-    else gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+    if (ch.flip) { gL.translate(sx, 0); gL.scale(-1, 1); drawCharSprite(gL, f, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+    else drawCharSprite(gL, f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
     gL.restore();
     ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
@@ -1676,7 +1762,7 @@ function drawPixelboltTrial(now) {
       for (const ch of pixelboltTrial.chars) {
         const f = pbFrame(ch, now);
         const ax = ch.pack.ax, ay = ch.pack.ay;
-        gP.drawImage(f, ch.x - ax, ch.feet - ay);
+        drawCharSprite(gP, f, ch.x - ax, ch.feet - ay);
       }
     }
     return;
@@ -1691,7 +1777,7 @@ function drawPixelboltTrial(now) {
     const ax = ch.pack.ax, ay = ch.pack.ay;
     const sx = 210 + ch.x * 4;
     const sy = ch.feet * 4;
-    gL.drawImage(f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+    drawCharSprite(gL, f, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
     ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
 }
@@ -1792,7 +1878,7 @@ function drawStyleTrialMom(now) {
       gP.imageSmoothingEnabled = false;
       gP.drawImage(room, 0, 0);
       for (const ch of styleTrialMom.versions) {
-        gP.drawImage(stmSprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
+        drawCharSprite(gP, stmSprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
       }
     }
     return;
@@ -1804,7 +1890,7 @@ function drawStyleTrialMom(now) {
   for (const ch of styleTrialMom.versions) {
     const sx = 210 + ch.x * 4;
     const sy = ch.feet * 4;
-    gL.drawImage(stmSprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    drawCharSprite(gL, stmSprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
     ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
 }
@@ -1880,7 +1966,7 @@ function drawStyleTrialMomA4(now) {
       gP.imageSmoothingEnabled = false;
       gP.drawImage(room, 0, 0);
       for (const ch of styleTrialMomA4.versions) {
-        gP.drawImage(stmA4Sprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
+        drawCharSprite(gP, stmA4Sprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
       }
     }
     return;
@@ -1892,7 +1978,7 @@ function drawStyleTrialMomA4(now) {
   for (const ch of styleTrialMomA4.versions) {
     const sx = 210 + ch.x * 4;
     const sy = ch.feet * 4;
-    gL.drawImage(stmA4Sprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    drawCharSprite(gL, stmA4Sprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
     ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
   }
 }
@@ -2088,6 +2174,9 @@ function drawStyleTrialMomA4(now) {
 
   // expose for shoot.py
   window.goKey = goKey;
+  window.RIM = RIM;
+  window.CHAR_RIM = { hex: CHAR_RIM_HEX, rgb: CHAR_RIM_RGB, pad: CHAR_RIM_PAD, placement: 'outside', palette: 'family #c4aa78 grandpa_khaki light (also in 3349)' };
+  window.rimActive = rimActive;
   window.setDrawer = setDrawer;
   window.setPage = async (p) => {
     pageIdx = p;

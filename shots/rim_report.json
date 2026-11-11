@@ -1,0 +1,297 @@
+{
+  "shots": {
+    "evening_off": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a4&drawer=0&lit=evening&rim=0",
+      "path": "shots/rim_a4_evening_off.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "dfd1f4ce881ea77e",
+      "js": {
+        "ready": true,
+        "lighting": "evening",
+        "rimFlag": false,
+        "rimActive": false,
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "placement": "outside",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+        },
+        "canvas": [
+          2340,
+          1080
+        ]
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "evening_on": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a4&drawer=0&lit=evening&rim=1",
+      "path": "shots/rim_a4_evening_on.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "0bc0fda46e8b20c5",
+      "js": {
+        "ready": true,
+        "lighting": "evening",
+        "rimFlag": true,
+        "rimActive": true,
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "placement": "outside",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+        },
+        "canvas": [
+          2340,
+          1080
+        ]
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "evening_default": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a4&drawer=0&lit=evening",
+      "path": "shots/rim_a4_evening_default.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "dfd1f4ce881ea77e",
+      "js": {
+        "ready": true,
+        "lighting": "evening",
+        "rimFlag": false,
+        "rimActive": false,
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "placement": "outside",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+        },
+        "canvas": [
+          2340,
+          1080
+        ]
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "day_off": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a4&drawer=0&rim=0",
+      "path": "shots/rim_a4_day_off.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "54feca9c1f1c7566",
+      "js": {
+        "ready": true,
+        "lighting": "daylight",
+        "rimFlag": false,
+        "rimActive": false,
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "placement": "outside",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+        },
+        "canvas": [
+          2340,
+          1080
+        ]
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "day_on": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a4&drawer=0&rim=1",
+      "path": "shots/rim_a4_day_on.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "54feca9c1f1c7566",
+      "js": {
+        "ready": true,
+        "lighting": "daylight",
+        "rimFlag": true,
+        "rimActive": false,
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "placement": "outside",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)"
+        },
+        "canvas": [
+          2340,
+          1080
+        ]
+      },
+      "console": [],
+      "pageerror": []
+    }
+  },
+  "identity": {
+    "day_rim0_vs_rim1_identical": true,
+    "day_off_sha": "54feca9c1f1c7566",
+    "day_on_sha": "54feca9c1f1c7566",
+    "evening_rim_omitted_vs_rim0_identical": true,
+    "evening_rim0_vs_rim1_differ": true,
+    "evening_off_sha": "dfd1f4ce881ea77e",
+    "evening_on_sha": "0bc0fda46e8b20c5",
+    "evening_default_sha": "dfd1f4ce881ea77e"
+  },
+  "upscale_integer_nearest": {
+    "evening_off": false,
+    "evening_on": false
+  },
+  "contrast": {
+    "r3_A": {
+      "char": "r3_A",
+      "box_native": [
+        195,
+        137,
+        251,
+        253
+      ],
+      "rim_on": {
+        "n": 215,
+        "pct_ge_2": 100.0,
+        "pct_ge_1_5": 100.0,
+        "min": 5.0689,
+        "mean": 6.0602,
+        "max": 8.1023
+      },
+      "rim_off_outline": {
+        "n": 338,
+        "pct_ge_2": 0.0,
+        "pct_ge_1_5": 0.0,
+        "min": 1.0,
+        "mean": 1.1222,
+        "max": 1.4778
+      },
+      "diff_pixels": 271,
+      "rim_pixels": 215,
+      "non_rim_diff_pixels": 56,
+      "outline_pixels": 338,
+      "note": "215 of the differing native cells are a pure 1 px #c4aa78 rim; all 215 have contrast ≥ 2 vs the actual background. The other 60 cells sit over r3 A’s lower legs and the 1 px under the feet, where the screen status text 「位置 (x 406)」 overlays the sofa; those pixels are the caption composited on top of the rim, not a second rim colour. They are excluded from the rim_on figures."
+    },
+    "a4_12": {
+      "char": "a4_12",
+      "box_native": [
+        379,
+        137,
+        435,
+        253
+      ],
+      "rim_on": {
+        "n": 275,
+        "pct_ge_2": 100.0,
+        "pct_ge_1_5": 100.0,
+        "min": 3.4104,
+        "mean": 5.153,
+        "max": 7.9121
+      },
+      "rim_off_outline": {
+        "n": 423,
+        "pct_ge_2": 7.33,
+        "pct_ge_1_5": 16.08,
+        "min": 1.0,
+        "mean": 1.2883,
+        "max": 2.4378
+      },
+      "diff_pixels": 275,
+      "rim_pixels": 275,
+      "non_rim_diff_pixels": 0,
+      "outline_pixels": 423,
+      "note": "All 275 differing native cells are a pure 1 px #c4aa78 rim against the wall and plant. None are under the status text. Contrast vs the actual background in the rim-off shot: 100% ≥ 2, 100% ≥ 1.5, min 3.41 (the colour’s contrast to the evening wall #6c4d33), mean 5.15. With the rim off, the existing dark outline at the same stand point reaches ≥ 2 at only 7.33% of outline points and ≥ 1.5 at 16.08%."
+    }
+  },
+  "face_x8": {
+    "native_box_inclusive": [
+      392,
+      160,
+      424,
+      210
+    ],
+    "note": "A r4 head and shoulders, nearest-neighbour 8× from native pixels (stage is already 4×, then 2×).",
+    "evening_off": "shots/rim_a4_evening_off_face_x8.png",
+    "evening_on": "shots/rim_a4_evening_on_face_x8.png",
+    "size": [
+      264,
+      408
+    ]
+  },
+  "js_ok": true,
+  "js_errors": {
+    "evening_off": {
+      "console": [],
+      "pageerror": []
+    },
+    "evening_on": {
+      "console": [],
+      "pageerror": []
+    },
+    "evening_default": {
+      "console": [],
+      "pageerror": []
+    },
+    "day_off": {
+      "console": [],
+      "pageerror": []
+    },
+    "day_on": {
+      "console": [],
+      "pageerror": []
+    }
+  },
+  "colour": {
+    "hex": "#c4aa78",
+    "rgb": [
+      196,
+      170,
+      120
+    ],
+    "palette": "family palette grandpa_khaki light; also in 3349 palette",
+    "placement": "outside the silhouette (1 px, 8-connected), not on the outermost body pixel"
+  },
+  "upscale_integer_nearest_note": "4× blocks are uniform on pixel-art room and sprites (~98.3%). Non-uniform blocks are anti-aliased UI text (corner year label, screen status line, floor labels), not the rim.",
+  "limitations": [
+    "walk_test / elders_stand / pixelbolt_trial on main are daylight-only, so the rim is wired in their draw path but does not appear until those screens have evening lighting.",
+    "The one story screen with evening lighting is talent; it uses the shared drawSceneNative path and will get the rim when rim=1.",
+    "The rim is a 1 px ring outside the silhouette (8-connected), including under the feet and in 1 px gaps (for example between r3 A’s legs). It is not painted on the existing dark outline.",
+    "DEV floor labels and the screen status line can sit over the lowest rim pixels; contrast for those covered pixels is not meaningful. A r4 at x=406 is clear of the status line.",
+    "Evening still has no hard 80% / contrast-2 pass mark (王 2026-11-11). These numbers are for the owner to compare with rim=0.",
+    "No vehicles or furniture are rimmed. Chairs stay unrimmed in the shared path."
+  ]
+}
