@@ -108,7 +108,19 @@
       }
       await bakeScooter('scooter_m0_v2', 'assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
       await bakeScooter('scooter_m2_v2', 'assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
-      await bakeScooter('scooter_m1_family', 'assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+      const fam1 = await loadJson('assets/vehicles/a/scooter_m1_family_v2/anchors_day_dad.json')
+        || await loadJson('assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+      if (fam1) {
+        const fam1Met = {
+          source: 'anchors_day_dad',
+          canvas: fam1.canvas,
+          ground_row: fam1.ground_row,
+          px_per_frame: fam1.wheels && fam1.wheels[0] && fam1.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+        baked.scooter_m1_family_v2 = fam1Met;
+        baked.scooter_m1_family = fam1Met;
+      }
       await bakeScooter('scooter_m2_family', 'assets/vehicles/a/scooter_m2_family/anchors_day_dad.json');
       cfg.bakedMetrics = baked;
     }
@@ -122,7 +134,7 @@
         ['assets/vehicles/a/scooter_m1', scooterVars],
         ['assets/vehicles/a/scooter_m2_v2', scooterVars],
         ['assets/vehicles/a/scooter_m0_family_v2', familyVars],
-        ['assets/vehicles/a/scooter_m1_family', familyVars],
+        ['assets/vehicles/a/scooter_m1_family_v2', familyVars],
         ['assets/vehicles/a/scooter_m2_family', familyVars],
       ];
       for (let d = 0; d < variantDirs.length; d++) {
@@ -907,7 +919,7 @@
         cfg, available, overlayManifests: cfg.overlayManifests,
         familyAvailable: {
           0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
-          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          1: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m1_family_v2 || cfg.bakedMetrics.scooter_m1_family)),
           2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
         },
       });
@@ -982,7 +994,7 @@
         cfg, available, overlayManifests: cfg.overlayManifests,
         familyAvailable: {
           0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
-          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          1: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m1_family_v2 || cfg.bakedMetrics.scooter_m1_family)),
           2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
         },
       });
