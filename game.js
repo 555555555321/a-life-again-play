@@ -324,7 +324,10 @@ async function prepareCue(cue, key) {
   const p = {key, lighting, cast: [], layers: [], cue};
   const roomId = 'room_' + lighting;
   p.room = manifest[roomId] ? await load(manifest[roomId].src) : (miss(roomId, '背景', key), null);
-  for (const m of cue.cast || []) {
+  for (const raw of cue.cast || []) {
+    const m = (typeof StandingPoints !== 'undefined')
+      ? StandingPoints.applyToCastMember(raw, StandingPoints.rows)
+      : raw;
     checkAnim(m.anim, key);
     let fr;
     if (isStandin(m.id)) {
@@ -2099,7 +2102,7 @@ function drawStyleTrialMomA4(now) {
 
 // —— DEV style_trial_mom_a5c: final mom A round 5 (A_r5c_12) at living-room x=295 ——
 // Separate screen so the official a4 trial (r4 at x=406) is not swapped.
-// Feet on floor_line 252, anchor (27,115). Clean range in 王子 standing_points is x=291–327; 295 is the recommended point.
+// Feet and x come from data/standing_points.csv (group mom_A_r5c). Fallback below is the previous hard-coded slot.
 const STYLE_TRIAL_MOM_A5C_VERSIONS = [
   { id: 'a5c_12', label: 'A 第5輪', src: 'assets/chars/style_trial_mom/a_r5c/A_r5c_12.png', x: 295 },
 ];
@@ -2112,15 +2115,20 @@ async function initStyleTrialMomA5c(lighting) {
   await Promise.all([day.decode(), eve.decode()]);
   const versions = [];
   for (const v of STYLE_TRIAL_MOM_A5C_VERSIONS) {
-    const img = await load(v.src);
-    versions.push({ id: v.id, label: v.label, src: v.src, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img) });
+    const placed = (typeof StandingPoints !== 'undefined')
+      ? StandingPoints.applyToVersion(v, 'mom_A_r5c', StandingPoints.rows)
+      : v;
+    const img = await load(placed.src);
+    versions.push({ id: placed.id, label: placed.label, src: placed.src, x: placed.x, feet: placed.feet || STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img), standing_group: 'mom_A_r5c' });
   }
+  const standX = (versions[0] && versions[0].x != null) ? versions[0].x : 295;
+  const standFeet = (versions[0] && versions[0].feet != null) ? versions[0].feet : STYLE_TRIAL_MOM_FLOOR;
   styleTrialMomA5c = {
     lighting: lit,
     rooms: { daylight: day, evening: eve },
-    floorLine: STYLE_TRIAL_MOM_FLOOR,
+    floorLine: standFeet,
     facing: 'W as drawn (no flip)',
-    note: 'Final mom A round 5 (A_r5c_12, 12 colours) at x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
+    note: 'Final mom A round 5 (A_r5c_12, 12 colours) at x=' + standX + ', feet ' + standFeet + ', anchor (27,115), from data/standing_points.csv (mom_A_r5c). Official style_trial_mom_a4 is unchanged. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
     eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
     versions: versions,
   };
@@ -2184,11 +2192,17 @@ function drawStyleTrialMomA5c(now) {
 
 
 (async () => {
-  [manifest, data, actionIds] = await Promise.all([
+  const standingCsvP = fetch('data/standing_points.csv', {cache: 'no-store'}).then(r => r.ok ? r.text() : '').catch(() => '');
+  [manifest, data, actionIds, standingCsv] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
     fetch('scenes.json').then(r => r.json()),
     fetch('assets/action_ids.json').then(r => r.json()),
+    standingCsvP,
   ]);
+  if (typeof StandingPoints !== 'undefined') {
+    StandingPoints.install(StandingPoints.parse(standingCsv || ''));
+    window.STANDING_POINTS = StandingPoints.rows;
+  }
   for (const e of actionIds.entries) entryById[e.id] = e;
   Object.assign(aliasToId, actionIds.alias_index || {});
   // also aliases on entries

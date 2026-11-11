@@ -1,0 +1,22 @@
+# 家人／動作站位。x 為腳的場景座標，floor_y 為地面列。
+# 日間 B 不含觸地列，由正式檢查器（相反 4 鄰多數決）量得。
+# 客廳組用 gate3_recolour_A_r3_20261111 的正式選定 x（先卡上半身空牆，再取日間 B 最高）。
+# status: pass | pending_redraw | pending_scene
+group_id,sprite_key,scene,x,floor_y,day_B_excl_pct,source_report,status
+dad_walk,dad_walk/f00,living_room,291,252,83.77,gate3_recolour_A_r3_20261111,pass
+grandpa,grandpa/stand_f00,living_room,292,252,90.32,gate3_recolour_A_r3_20261111,pass
+grandma,grandma/stand_f00,living_room,296,252,76.73,gate3_recolour_A_r3_20261111,pending_redraw
+hug_dad_infant,hug/dad_infant/hold_f00,living_room,301,252,86.42,gate3_recolour_A_r3_20261111,pass
+hug_dad_toddler,hug/dad_toddler/hold_f00,living_room,301,252,83.15,gate3_recolour_A_r3_20261111,pass
+hug_mom_infant,hug/mom_infant/hold_f00,living_room,299,252,82.67,gate3_recolour_A_r3_20261111,pass
+hug_mom_toddler,hug/mom_toddler/hold_f00,living_room,300,252,81.36,gate3_recolour_A_r3_20261111,pass
+mom_A_r5c,style_trial_mom/a_r5c/A_r5c_12,living_room,295,252,82.13,gate3_recolour_A_20261111,pass
+action_sit_read_mom,actions_r3/sit_read_mom,bedroom_preview,200,216,83.33,gate3_actions_r3_20261111,pending_scene
+action_sit_read_dad,actions_r3/sit_read_dad,bedroom_preview,200,216,84.98,gate3_actions_r3_20261111,pending_scene
+action_sit_read_grandma,actions_r3/sit_read_grandma,bedroom_preview,200,216,72.30,gate3_actions_r3_20261111,pending_scene
+action_sit_read_grandpa,actions_r3/sit_read_grandpa,bedroom_preview,200,216,86.04,gate3_actions_r3_20261111,pending_scene
+action_cosleep_mom,actions_r3/cosleep_mom,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
+action_cosleep_dad,actions_r3/cosleep_dad,bedroom_preview,210,216,94.14,gate3_actions_r3_20261111,pending_scene
+action_write,actions_r3/write,living_room_preview,200,252,21.74,gate3_actions_r3_20261111,pending_scene
+action_draw,actions_r3/draw,living_room_preview,200,252,20.05,gate3_actions_r3_20261111,pending_scene
+action_sticker,actions_r3/sticker,living_room_preview,200,252,22.25,gate3_actions_r3_20261111,pending_scene

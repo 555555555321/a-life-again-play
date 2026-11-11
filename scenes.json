@@ -1,5 +1,5 @@
 {
-  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。",
+  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。 Cast members may set standing_group to a data/standing_points.csv group_id; prepareCue then uses that row's x and floor_y.",
   "corner": "二〇〇六年・春・你五歲",
   "family": "dad_works_mom_home",
   "order": [
@@ -812,10 +812,10 @@
       "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "style_trial_mom_a5c": {
-      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours) at living-room x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
+      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours). x and floor come from data/standing_points.csv group mom_A_r5c (default 295 / 252). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
       "dev_only": true,
       "lighting": "daylight",
-      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站在客廳 x=295（清潔範圍 291–327）。",
+      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站位讀 data/standing_points.csv（mom_A_r5c）。",
       "text": "",
       "buttons": [
         "日間",
@@ -836,7 +836,10 @@
       "lighting": "daylight",
       "status": "出門上班。",
       "text": "",
-      "buttons": ["重播", "跳過"],
+      "buttons": [
+        "重播",
+        "跳過"
+      ],
       "cast": []
     },
     "going_out": {
@@ -847,7 +850,14 @@
       "lighting": "daylight",
       "status": "要出門嗎？",
       "text": "選上班、下班，或週末開車去一個地方。",
-      "buttons": ["上班", "下班", "週末出遊・海邊", "週末出遊・山上", "週末出遊・夜市", "週末出遊・朋友家"],
+      "buttons": [
+        "上班",
+        "下班",
+        "週末出遊・海邊",
+        "週末出遊・山上",
+        "週末出遊・夜市",
+        "週末出遊・朋友家"
+      ],
       "cast": []
     }
   },
