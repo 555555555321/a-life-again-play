@@ -38,11 +38,35 @@
     return null;
   }
 
+  // pending_redraw / pending_scene are recorded only; do not move the cast.
+  function isPendingStatus(status) {
+    return status === 'pending_redraw' || status === 'pending_scene';
+  }
+
+  function warnPendingIfDev(row) {
+    let dev = false;
+    try {
+      if (typeof DEV !== 'undefined') dev = !!DEV;
+      else if (typeof location !== 'undefined' && typeof URLSearchParams !== 'undefined') {
+        const qs = new URLSearchParams(location.search || '');
+        dev = qs.has('dev') && qs.get('dev') !== '0';
+      }
+    } catch (_) {}
+    if (!dev) return;
+    if (typeof console !== 'undefined' && typeof console.warn === 'function') {
+      console.warn('StandingPoints: not applying standing_group "' + row.group_id + '" because status is ' + row.status);
+    }
+  }
+
   function applyToCastMember(member, rows) {
     if (!member) return member;
     const id = member.standing_group || member.standingGroup;
     const row = lookup(rows, id);
     if (!row) return member;
+    if (isPendingStatus(row.status)) {
+      warnPendingIfDev(row);
+      return member;
+    }
     const out = Object.assign({}, member);
     out.x = row.x;
     if (Number.isFinite(row.floor_y)) {
@@ -58,6 +82,10 @@
   function applyToVersion(version, groupId, rows) {
     const row = lookup(rows, groupId);
     if (!row || !version) return version;
+    if (isPendingStatus(row.status)) {
+      warnPendingIfDev(row);
+      return version;
+    }
     const out = Object.assign({}, version);
     out.x = row.x;
     if (Number.isFinite(row.floor_y)) out.feet = row.floor_y;

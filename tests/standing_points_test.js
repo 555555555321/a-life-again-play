@@ -33,6 +33,20 @@ const unchanged = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200 }, rows
 assert.strictEqual(unchanged.x, 100);
 pass('applyToCastMember uses standing_group and leaves others alone');
 
+const okRow = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' }, rows);
+assert.strictEqual(okRow.x, 295);
+assert.strictEqual(okRow.feet, 252);
+const pendingRedraw = SP.applyToCastMember({ id: 'grandma', x: 111, feet: 222, standing_group: 'grandma' }, rows);
+assert.strictEqual(pendingRedraw.x, 111);
+assert.strictEqual(pendingRedraw.feet, 222);
+const pendingScene = SP.applyToCastMember({ id: 'child', x: 111, feet: 222, standing_group: 'action_write' }, rows);
+assert.strictEqual(pendingScene.x, 111);
+assert.strictEqual(pendingScene.feet, 222);
+const pendingVersion = SP.applyToVersion({ id: 'g', src: 'x', x: 111, feet: 222 }, 'grandma', rows);
+assert.strictEqual(pendingVersion.x, 111);
+assert.strictEqual(pendingVersion.feet, 222);
+pass('pending_redraw / pending_scene are not applied; pass is');
+
 const movedCsv = csv.replace(/^mom_A_r5c,([^,]+),([^,]+),295,/m, 'mom_A_r5c,$1,$2,310,');
 const movedRows = SP.parse(movedCsv);
 assert.strictEqual(SP.lookup(movedRows, 'mom_A_r5c').x, 310);
