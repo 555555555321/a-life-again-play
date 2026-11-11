@@ -340,7 +340,7 @@
     "stride": 8,
     "lut_evening": "assets/luts/father_walk_c.evening.json",
     "stand": "爸爸_站",
-    "from": "walk_trialC_20261110 DEV only — do not replace default father walk",
+    "from": "walk_trialC_20261110 DEV only — do not replace default father walk; walk+turn replaced 2026-11-11 with 王子 recolour_A r2 (byte-identical). idle still trial C.",
     "frames": "assets/chars/father_walk_c/idle_0{i}.png",
     "n": 4,
     "facing_drawn": "W"
