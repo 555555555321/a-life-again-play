@@ -1,0 +1,45 @@
+{
+  "overlaps": {
+    "commute_day_car_p2": [],
+    "commute_evening_car_p2": [],
+    "commute_bike": [],
+    "commute_none_bike": [],
+    "commute_day_car_p2_arrive": [],
+    "commute_evening_car_p2_arrive": [],
+    "commute_weekend_beach": [],
+    "commute_wear_old": [],
+    "commute_scooter_rain": [],
+    "commute_bus": [],
+    "commute_going_out": [],
+    "commute_kid_seat": []
+  },
+  "modes": {
+    "commute_day_car_p2": "car",
+    "commute_evening_car_p2": "car",
+    "commute_bike": "bike",
+    "commute_none_bike": "bike",
+    "commute_day_car_p2_arrive": "car",
+    "commute_evening_car_p2_arrive": "car",
+    "commute_weekend_beach": "car",
+    "commute_wear_old": "car",
+    "commute_scooter_rain": "scooter",
+    "commute_bus": "bus",
+    "commute_going_out": "car",
+    "commute_kid_seat": "car"
+  },
+  "missing": {
+    "commute_day_car_p2": [],
+    "commute_evening_car_p2": [],
+    "commute_bike": [],
+    "commute_none_bike": [],
+    "commute_day_car_p2_arrive": [],
+    "commute_evening_car_p2_arrive": [],
+    "commute_weekend_beach": [],
+    "commute_wear_old": [],
+    "commute_scooter_rain": [],
+    "commute_bus": [],
+    "commute_going_out": [],
+    "commute_kid_seat": []
+  },
+  "errors": []
+}

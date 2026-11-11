@@ -1,0 +1,92 @@
+{
+  "note": "舊畫風 240×135 素材。畫面以 2 倍最近鄰放大到 480×270。王子稍後會用 A 版重畫腳踏車、機車、小型車；路徑集中在這裡，方便整包替換。",
+  "style": "old_240",
+  "native": {
+    "w": 240,
+    "h": 135
+  },
+  "scale": 2,
+  "fps": 8,
+  "art_fps_authored": 10,
+  "road_bottom_y_240": 102,
+  "parked_bottom_y_240": 114,
+  "type_map": {
+    "bicycle": "bike",
+    "scooter": "scooter",
+    "compact": "car",
+    "smallcar": "car",
+    "hatchback": "car",
+    "sedan": "car",
+    "truck": "car",
+    "van": "car",
+    "suv": "car",
+    "ev": "car",
+    "sports": "car",
+    "luxury": "car"
+  },
+  "default_art": {
+    "bike": {
+      "kind": "bicycle",
+      "model": 0,
+      "color": 0,
+      "file_stem": "bicycle_m0_c0"
+    },
+    "scooter": {
+      "kind": "scooter",
+      "model": 0,
+      "color": 0,
+      "file_stem": "scooter_m0_c0"
+    },
+    "car": {
+      "kind": "smallcar",
+      "model": 0,
+      "color": 0,
+      "file_stem": "smallcar_m0_c0",
+      "phone_stock_type": "compact"
+    },
+    "bus": {
+      "kind": "bus",
+      "placeholder": true,
+      "file_stem": "bus"
+    }
+  },
+  "paths": {
+    "road": "assets/vehicles/road/{stem}_{time}_strip.png",
+    "road_json": "assets/vehicles/road/{stem}_{time}_strip.json",
+    "parked": "assets/vehicles/parked/{stem}_{time}.png",
+    "parked_lights": "assets/vehicles/parked/{stem}_{time}_lights.png",
+    "overlay": "assets/vehicles/overlay/{kind}_m{model}_{overlay}_{time}.png",
+    "bg_street": "assets/vehicles/bg/street_normal_{time}.png",
+    "bg_home": "assets/vehicles/bg/menwai_normal_{time}.png",
+    "bg_office": "assets/vehicles/bg/office_park_{time}.png",
+    "bg_weekend": "assets/vehicles/bg/{dest}_{time}.png",
+    "rain": "assets/vehicles/placeholders/rain.png",
+    "bus_strip": "assets/vehicles/placeholders/bus_strip.png",
+    "rider": "assets/vehicles/placeholders/rider.png",
+    "kid_seat": "assets/vehicles/placeholders/kid_seat.png",
+    "dents": "assets/vehicles/placeholders/dents.png"
+  },
+  "placeholders": {
+    "office_park": "辦公室停車場背景尚未有圖，占位（無招牌字）。王子會畫。",
+    "beach": "海邊背景占位（無招牌字）。",
+    "mountain": "山上背景占位（無招牌字）。",
+    "night_market": "夜市背景占位（棚布無字）。",
+    "friend_home": "朋友家背景占位（無門牌字）。",
+    "bus": "公車尚未有行駛圖，占位。",
+    "rider": "主角騎乘／等車尚無成人騎姿，占位小人。",
+    "kid_seat": "後座兒童座椅尚無正式圖，占位。",
+    "dents": "舊車凹痕占位疊圖。",
+    "rain": "雨絲占位。車輛沒有雨刷格。",
+    "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
+    "card_slot": "抵達後的卡片格是占位，文案等公主。"
+  },
+  "missing_originals": [],
+  "weekend_dests": [
+    "beach",
+    "mountain",
+    "night_market",
+    "friend"
+  ],
+  "headlights": "evening uses night road strips / parked_*_lights when present (bicycle has no lights).",
+  "wipers": false
+}
