@@ -48,3 +48,12 @@ assets/vehicles/a/scooter_m{0|1|2}/frames/{day|night}_{dad|mom}_family/f00.png�
 ## 登錄新檔
 
 新檔複製進上述路徑後，把相對路徑加進 `assets/vehicles/a/manifest.json` 的 `extra` 陣列（例如 `smallcar_m0/body/day`、`scooter_m1/frames/day_dad_family`）。引擎只讀這份清單，不會去探測還不存在的檔。
+
+
+---
+
+## 已交（2026-11-11 第 9 節）
+
+王子已交出小型車 m0–m2 的 `overlays/`（含 `manifest.json`，這是尺寸／原點／px_per_frame 的唯一來源）、折疊車縮小騎士 `bicycle_m2_v2/`，以及 `scooter_m0_family/`。引擎在 `?dev=1` 試看畫面已接上，不再使用舊合成圖（車身矮 1 px，禁止混用）。背景暫時仍用舊 240 街景 ×2，行駛底 y=204、停放底 y=228。
+
+尚未交付、仍待補：機車 m1／m2 全家款；480 背景雖已畫在 ala 資料夾，先不換進正式路徑，等王子用同檔名替換。第 2 關簽名仍待小兵2號。

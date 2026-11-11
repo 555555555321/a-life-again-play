@@ -1,5 +1,5 @@
 {
-  "note": "Phone B 交通工具設定。舊包是 240×135、6 格、scale 2。A 包是 480 原生、8 格、scale 1（不可再乘 2，否則會變成 960）。預設用 A 包；?art=old 可退回舊包。腳踏車與機車的合成格（人已畫在車上）是定稿。小型車等王子交「只有車身的 8 格條帶＋對齊同一原點的駕駛／乘客疊圖」；目前暫用合成格，畫面上標「小型車車身條帶待王子」。",
+  "note": "Phone B 交通工具設定。舊包是 240×135、6 格、scale 2。A 包是 480 原生、8 格、scale 1。預設 art=a，僅接在 ?dev=1 試看畫面（第 2 關尚未簽）。小型車分層的尺寸／原點／px 以 overlays/manifest.json 為準。背景暫用舊 240 街景 ×2，行駛底 y=204、停放底 y=228；王子稍後會用同檔名換成 480 背景。",
   "fps": 8,
   "fps_note": "動畫格速與水平位移的唯一依據，commute.js 讀這個值，不再寫死。王子 A 批是 8 fps（REPORT.md）。舊路上條帶的 json 仍寫 fps 10，引擎其實一直用 8，那些 json 的 fps 會被忽略。小兵2號查到的不一致，以本欄為準。",
   "art_default": "a",
@@ -129,8 +129,8 @@
     "rain": "雨絲占位。車輛沒有雨刷格。",
     "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
     "card_slot": "抵達後顯示公主 arrival_cards.json 對到的句子。拋錨仍用原本的占位卡。到公司／到家若沒有專用句，改顯示路上句或「待公主補」。",
-    "smallcar_body_strip": "小型車只有車身的 8 格條帶待王子。在那之前用合成格。",
-    "scooter_family": "機車全家款（小孩在前、大人在後）待王子。缺檔時用單人合成格。"
+    "smallcar_body_strip": "小型車車身條與疊圖已交，讀 overlays/manifest.json。",
+    "scooter_family": "機車全家款目前只有 m0；m1/m2 待王子。"
   },
   "missing_originals": [],
   "weekend_dests": [
@@ -316,7 +316,9 @@
             "day_mom",
             "night_dad",
             "night_mom"
-          ]
+          ],
+          "active_dir": "assets/vehicles/a/bicycle_m2_v2",
+          "note": "v2 縮小騎士，畫布 42×52、ground 51。舊 bicycle_m2 合成圖保留但不再使用。"
         }
       }
     },
@@ -501,16 +503,16 @@
         }
       },
       "family_variant": {
-        "status": "pending_王子",
+        "status": "delivered_m0",
         "riders": "family",
-        "note": "小孩站在前面、大人在後面，與其他機車一樣是畫進行駛格的 8 格循環，不是分層。",
-        "path": "assets/vehicles/a/scooter_m{model}/frames/{day|night}_{dad|mom}_family/f00.png–f07.png"
+        "note": "小孩站在前面、大人在後面。目前只有 scooter_m0_family；m1/m2 缺檔時退回該款單人合成格。",
+        "path": "assets/vehicles/a/scooter_m0_family/frames/{day|night}_{dad|mom}/f00.png–f07.png"
       }
     },
     "smallcar": {
       "kind": "smallcar",
       "compose": "layered",
-      "compose_note": "A 版分層：車身條＋駕駛／乘客疊圖。車身條尚未交付，暫用含駕駛（與乘客）的合成格。",
+      "compose_note": "車身條＋疊圖，尺寸／原點／px_per_frame 一律讀 overlays/manifest.json。車身比舊合成圖高 1 px，禁止混用。乘客只出頭肩。",
       "models": {
         "0": {
           "id": "smallcar_m0",
@@ -564,7 +566,18 @@
             "day_mom",
             "night_dad",
             "night_mom"
-          ]
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m0/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m0/frames/",
+            "canvas": [
+              98,
+              45
+            ],
+            "ground_row": 44
+          },
+          "do_not_use_legacy_canvas": true
         },
         "1": {
           "id": "smallcar_m1",
@@ -618,7 +631,18 @@
             "day_mom",
             "night_dad",
             "night_mom"
-          ]
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m1/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m1/frames/",
+            "canvas": [
+              94,
+              49
+            ],
+            "ground_row": 48
+          },
+          "do_not_use_legacy_canvas": true
         },
         "2": {
           "id": "smallcar_m2",
@@ -672,11 +696,22 @@
             "day_mom",
             "night_dad",
             "night_mom"
-          ]
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m2/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m2/frames/",
+            "canvas": [
+              90,
+              47
+            ],
+            "ground_row": 46
+          },
+          "do_not_use_legacy_canvas": true
         }
       },
       "layered": {
-        "status": "pending_王子",
+        "status": "delivered_王子_20261111",
         "order": [
           "body",
           "child_seat",
@@ -685,11 +720,14 @@
         ],
         "heads_only_when": "passengers >= 3",
         "paths": {
-          "body": "assets/vehicles/a/smallcar_m{model}/body/{day|night}/f00.png–f07.png",
-          "driver": "assets/vehicles/a/smallcar_m{model}/driver_{dad|mom}/{day|night}/f00.png–f07.png",
-          "passengers": "assets/vehicles/a/smallcar_m{model}/passengers_p{1|2|3}/{day|night}/f00.png–f07.png",
-          "child_seat": "assets/vehicles/a/smallcar_m{model}/child_seat/{day|night}/f00.png–f07.png"
-        }
+          "manifest": "assets/vehicles/a/smallcar_m{model}/overlays/manifest.json",
+          "body": "assets/vehicles/a/smallcar_m{model}/overlays/body_{day|night}/f00.png–f07.png",
+          "driver": "assets/vehicles/a/smallcar_m{model}/overlays/driver_{dad|mom}/f00.png–f07.png",
+          "spouse": "assets/vehicles/a/smallcar_m{model}/overlays/passenger_spouse_{dad|mom}/f00.png–f07.png",
+          "child_seat": "assets/vehicles/a/smallcar_m{model}/overlays/child_seat/f00.png–f07.png",
+          "parents": "assets/vehicles/a/smallcar_m{model}/overlays/passengers_parents/f00.png–f07.png"
+        },
+        "metrics": "overlays/manifest.json is the single source of truth"
       }
     }
   }

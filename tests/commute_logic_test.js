@@ -187,6 +187,18 @@ const explicitCarAge = L.readCarState({ vehicle: 'car' }, { age: 40, vehicle: { 
 assert.strictEqual(explicitCarAge.carAge, 8);
 pass('carAge from boughtAge, never g.age');
 
+// 王: scooter uses the same breakdown rate as the car
+assert.strictEqual(
+  L.tripBreakdownProbability({ mode: 'scooter', carAge: 12 }),
+  L.tripBreakdownProbability({ mode: 'car', carAge: 12 })
+);
+assert.strictEqual(
+  L.tripBreakdownProbability({ mode: 'scooter', carAge: 1, maint: true }),
+  L.tripBreakdownProbability({ mode: 'car', carAge: 1, maint: true })
+);
+pass('scooter breakdown rate matches car');
+
+
 assert.deepStrictEqual(L.resolveRiders('family'), { riders: 'family', passengers: 1, kidSeat: false });
 const famScoot = L.readCarState({ vehicle: 'scooter', riders: 'family', driver: 'mom' });
 assert.strictEqual(famScoot.riders, 'family');

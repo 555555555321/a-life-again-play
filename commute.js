@@ -22,11 +22,12 @@
   function fps() { return (cfg && Number(cfg.fps)) || 8; }
   function eveningMul() { return (cfg && cfg.evening_mul) || [142, 115, 83]; }
   function pad2(i) { return (i < 10 ? '0' : '') + i; }
-  function aFramePath(kind, model, variant, i) {
-    return 'assets/vehicles/a/' + kind + '_m' + model + '/frames/' + variant + '/f' + pad2(i) + '.png';
+  function aFramePath(kind, model, variant, i, assetDir) {
+    const root = assetDir || ('assets/vehicles/a/' + kind + '_m' + model);
+    return root + '/frames/' + variant + '/f' + pad2(i) + '.png';
   }
-  function aLayerPath(kind, model, folder, time, i) {
-    return 'assets/vehicles/a/' + kind + '_m' + model + '/' + folder + '/' + time + '/f' + pad2(i) + '.png';
+  function aOverlayPath(model, folder, i) {
+    return 'assets/vehicles/a/smallcar_m' + model + '/overlays/' + folder + '/f' + pad2(i) + '.png';
   }
   function tintEvening(img, mul) {
     if (!img) return null;
@@ -50,9 +51,49 @@
     return (frames || []).map((im) => im ? tintEvening(im) : null);
   }
   function modelCfg(state) {
-    const kind = (state.artPlan && state.artPlan.kind) || (root.CommuteLogic && root.CommuteLogic.vehicleKind(state.mode));
+    const plan = state && state.artPlan;
+    if (plan && (plan.ground_row != null || plan.canvas)) {
+      return { canvas: plan.canvas, ground_row: plan.ground_row, origin: plan.origin };
+    }
+    const kind = (plan && plan.kind) || (root.CommuteLogic && root.CommuteLogic.vehicleKind(state.mode));
     const models = cfg && cfg.vehicles && cfg.vehicles[kind] && cfg.vehicles[kind].models;
     return (models && models[String(state.model == null ? 0 : state.model)]) || null;
+  }
+
+  async function loadArtMetrics() {
+    if (!cfg) return;
+    if (!cfg.overlayManifests) {
+      const over = {};
+      for (let m = 0; m < 3; m++) {
+        const man = await loadJson('assets/vehicles/a/smallcar_m' + m + '/overlays/manifest.json');
+        if (man) over[String(m)] = man;
+      }
+      cfg.overlayManifests = over;
+    }
+    if (!cfg.bakedMetrics) {
+      const baked = {};
+      const v2 = await loadJson('assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
+      if (v2) {
+        baked.bicycle_m2_v2 = {
+          source: 'anchors_day_dad',
+          canvas: v2.canvas,
+          ground_row: v2.ground_row,
+          px_per_frame: v2.wheels && v2.wheels[0] && v2.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+      }
+      const fam = await loadJson('assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
+      if (fam) {
+        baked.scooter_m0_family = {
+          source: 'anchors_day_dad',
+          canvas: fam.canvas,
+          ground_row: fam.ground_row,
+          px_per_frame: fam.wheels && fam.wheels[0] && fam.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+      }
+      cfg.bakedMetrics = baked;
+    }
   }
 
   function artTime(state, role) {
@@ -86,8 +127,9 @@
   function destBgName(dest) { return dest === 'friend' ? 'friend_home' : dest; }
 
   async function ensureCfg() {
-    if (cfg) return cfg;
-    cfg = await (await fetch('assets/vehicles/config.json')).json();
+    if (cfg && cfg.overlayManifests) return cfg;
+    if (!cfg) cfg = await (await fetch('assets/vehicles/config.json')).json();
+    await loadArtMetrics();
     return cfg;
   }
   async function ensureCards() {
@@ -123,14 +165,14 @@
     }
     return available;
   }
-  async function loadAFrames(kind, model, variant, n) {
+  async function loadAFrames(kind, model, variant, n, assetDir) {
     const frames = [];
-    for (let i = 0; i < n; i++) frames.push(await tryImg(aFramePath(kind, model, variant, i)));
+    for (let i = 0; i < n; i++) frames.push(await tryImg(aFramePath(kind, model, variant, i, assetDir)));
     return frames;
   }
-  async function loadALayer(kind, model, folder, time, n) {
+  async function loadOverlayFrames(model, folder, n) {
     const frames = [];
-    for (let i = 0; i < n; i++) frames.push(await tryImg(aLayerPath(kind, model, folder, time, i)));
+    for (let i = 0; i < n; i++) frames.push(await tryImg(aOverlayPath(model, folder, i)));
     return frames;
   }
 
@@ -189,15 +231,13 @@
       if (plan.compose === 'layered') {
         for (let i = 0; i < plan.layers.length; i++) {
           const layer = plan.layers[i];
-          let folder = layer.role;
-          if (layer.role === 'driver') folder = 'driver_' + (layer.driver || 'dad');
-          if (layer.role === 'passengers') folder = 'passengers_p' + (layer.passengers || 1);
-          const frames = await loadALayer(kind, model, folder, layer.time || 'day', n);
+          const folder = layer.folder;
+          const frames = await loadOverlayFrames(model, folder, n);
           imgs.aLayers[layer.role] = frames;
           if (layer.tint === 'evening') imgs.aLayersTint[layer.role] = tintSet(frames);
         }
       } else if (plan.layers && plan.layers[0] && plan.layers[0].variant) {
-        const frames = await loadAFrames(kind, model, plan.layers[0].variant, n);
+        const frames = await loadAFrames(kind, model, plan.layers[0].variant, n, plan.assetDir);
         imgs.aFrames = frames;
         if (plan.duskTint || (plan.layers[0].tint === 'evening')) imgs.aFramesTint = tintSet(frames);
       }
@@ -323,6 +363,8 @@
       const m = state.model != null ? state.model : 0;
       bits.push('款 m' + m);
       bits.push(state.driver === 'mom' ? '媽媽開' : '爸爸開');
+      if (state.artPlan && state.artPlan.compose === 'layered') bits.push('分層疊圖');
+      if (state.artPlan && state.artPlan.family) bits.push('全家款');
       if (state.artPlan && state.artPlan.px_per_frame) {
         bits.push('每格 ' + Number(state.artPlan.px_per_frame).toFixed(2) + ' px');
       }
@@ -335,7 +377,7 @@
     if (state.carAge != null) bits.push('車齡 ' + (Number.isInteger(state.carAge) ? state.carAge : Number(state.carAge).toFixed(1)) + ' 年');
     if (state.maint) bits.push('有保養（拋錨×0.7）');
     if (state.newCar) bits.push('新車日（較長）');
-    if (state.kidSeat) bits.push('兒童座椅（占位）');
+    if (state.kidSeat) bits.push((state.artPlan && state.artPlan.compose === 'layered') ? '兒童座椅' : '兒童座椅（占位）');
     if (state.riders === 'parents') bits.push('父母同行');
     if (state.riders === 'partner') bits.push('伴侶同行');
     if (state.rain || (mot && mot.ev.rain)) bits.push('雨（無雨刷格）');
@@ -774,6 +816,7 @@
   }
 
   async function initCommute(lighting, corner) {
+    // A-pack 8-frame / layered art is wired only on ?dev=1 test screens (gate 2 still pending).
     await ensureCfg();
     await ensureCards();
     const qs = qsNow();
@@ -782,7 +825,12 @@
     // Use &vehicle=none for the no-car path (scooter / bike / bus).
     if (!qs.get('vehicle') && !root.COMMUTE_GAME_STATE) qs.set('vehicle', 'car');
     const state = Logic.readCarState(qs, root.COMMUTE_GAME_STATE || null);
-    if (lighting === 'evening') { state.lighting = 'evening'; state.headlights = state.mode === 'car' || state.mode === 'scooter'; }
+    if (lighting === 'evening') {
+      state.lighting = 'evening';
+      if (!qs.has('headlights') || qs.get('headlights') === '') {
+        state.headlights = state.mode === 'car' || state.mode === 'scooter';
+      }
+    }
     // Dev screen always plays the sequence unless &cut=1. shouldPlayCommute() is still computed (see state.play, &force=1).
     const startCut = qs.get('cut') === '1';
     state._corner = corner || '';
@@ -795,7 +843,8 @@
         pack: 'a', mode: state.mode, model: state.model, driver: state.driver,
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
-        cfg, available,
+        cfg, available, overlayManifests: cfg.overlayManifests,
+        familyAvailable: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m0_family),
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
@@ -865,7 +914,8 @@
         pack: 'a', mode: state.mode, model: state.model, driver: state.driver,
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
-        cfg, available,
+        cfg, available, overlayManifests: cfg.overlayManifests,
+        familyAvailable: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m0_family),
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });

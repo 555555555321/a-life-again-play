@@ -16,10 +16,51 @@ assert.strictEqual(cfg.packs.old.scale, 2);
 assert.strictEqual(cfg.packs.old.frames, 6);
 pass('config fps=8 is the single source of truth; A scale 1 / old scale 2');
 
+const overlayManifests = {
+  0: require('../assets/vehicles/a/smallcar_m0/overlays/manifest.json'),
+  1: require('../assets/vehicles/a/smallcar_m1/overlays/manifest.json'),
+  2: require('../assets/vehicles/a/smallcar_m2/overlays/manifest.json'),
+};
+cfg.overlayManifests = overlayManifests;
+const v2 = require('../assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
+const famAnchors = require('../assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
+cfg.bakedMetrics = {
+  bicycle_m2_v2: {
+    source: 'anchors_day_dad',
+    canvas: v2.canvas,
+    ground_row: v2.ground_row,
+    px_per_frame: v2.wheels[0].px_per_frame,
+    origin: [0, 0],
+  },
+  scooter_m0_family: {
+    source: 'anchors_day_dad',
+    canvas: famAnchors.canvas,
+    ground_row: famAnchors.ground_row,
+    px_per_frame: famAnchors.wheels[0].px_per_frame,
+    origin: [0, 0],
+  },
+};
+
+// px/frame and canvas for small cars come from overlays/manifest.json, not the old composite.
+for (const m of [0, 1, 2]) {
+  const man = overlayManifests[m];
+  const got = L.pxPerFrameFor(cfg, 'car', m);
+  assert.ok(Math.abs(got - man.px_per_frame) < 1e-12, 'car m' + m + ' px ' + got);
+  const met = L.metricsFor(cfg, 'car', m);
+  assert.strictEqual(met.source, 'overlay_manifest');
+  assert.deepStrictEqual(met.canvas, man.canvas);
+  assert.strictEqual(met.ground_row, man.ground_row);
+  assert.ok(met.canvas[1] === man.canvas[1], 'must use 1px-taller overlay canvas, not old composite');
+}
+assert.deepStrictEqual(overlayManifests[0].canvas, [98, 46]);
+assert.deepStrictEqual(overlayManifests[1].canvas, [94, 50]);
+assert.deepStrictEqual(overlayManifests[2].canvas, [90, 48]);
+assert.notStrictEqual(overlayManifests[0].canvas[1], 45, 'never the old 45-tall composite');
+
 const PX = {
   bicycle: [7.0685834705770345, 7.0685834705770345, 5.497787143782138],
   scooter: [5.497787143782138, 7.0685834705770345, 5.497787143782138],
-  smallcar: [5.497787143782138, 5.497787143782138, 7.0685834705770345],
+  smallcar: [overlayManifests[0].px_per_frame, overlayManifests[1].px_per_frame, overlayManifests[2].px_per_frame],
 };
 const modeOf = { bicycle: 'bike', scooter: 'scooter', smallcar: 'car' };
 for (const kind of Object.keys(PX)) {
@@ -28,13 +69,10 @@ for (const kind of Object.keys(PX)) {
     assert.ok(Math.abs(got - PX[kind][m]) < 1e-12, kind + ' m' + m + ' ' + got);
   }
 }
-// 1s at 8 fps moves 8 × px_per_frame scene pixels (wheel rotation matches travel).
 assert.ok(Math.abs(L.travelPixels(1000, PX.bicycle[0], 8) - 8 * PX.bicycle[0]) < 1e-12);
 assert.ok(Math.abs(L.travelPixels(125, PX.smallcar[0], 8) - PX.smallcar[0]) < 1e-12);
 assert.strictEqual(L.travelPixels(0, PX.bicycle[0], 8), 0);
-pass('px_per_frame table from REPORT.md + travelPixels = fps × px × seconds');
-
-assert.deepStrictEqual(L.SMALLCAR_LAYER_ORDER, ['body', 'child_seat', 'passengers', 'driver']);
+pass('px_per_frame and canvas from overlay manifests / REPORT.md');
 
 const bakedBike = L.resolveArtPlan({
   pack: 'a', mode: 'bike', model: 0, driver: 'mom', lighting: 'daylight',
@@ -43,9 +81,15 @@ const bakedBike = L.resolveArtPlan({
 assert.strictEqual(bakedBike.compose, 'baked_rider');
 assert.strictEqual(bakedBike.variant, 'day_mom');
 assert.strictEqual(bakedBike.scale, 1);
-assert.strictEqual(bakedBike.frames, 8);
-assert.strictEqual(bakedBike.layers[0].role, 'combined');
-assert.ok(!bakedBike.pending.length);
+
+const bikeV2 = L.resolveArtPlan({
+  pack: 'a', mode: 'bike', model: 2, driver: 'dad', lighting: 'daylight',
+  passengers: 0, cfg, available: new Set(['day_dad', 'day_mom', 'night_dad', 'night_mom']),
+});
+assert.strictEqual(bikeV2.assetDir, 'assets/vehicles/a/bicycle_m2_v2');
+assert.deepStrictEqual(bikeV2.canvas, [42, 52]);
+assert.strictEqual(bikeV2.ground_row, 51);
+assert.ok(Math.abs(bikeV2.px_per_frame - v2.wheels[0].px_per_frame) < 1e-12);
 
 const eveBike = L.resolveArtPlan({
   pack: 'a', mode: 'bike', model: 0, driver: 'dad', lighting: 'evening', headlights: false,
@@ -53,7 +97,6 @@ const eveBike = L.resolveArtPlan({
 });
 assert.strictEqual(eveBike.duskTint, true);
 assert.strictEqual(eveBike.variant, 'day_dad');
-assert.strictEqual(eveBike.layers[0].tint, 'evening');
 
 const nightScoot = L.resolveArtPlan({
   pack: 'a', mode: 'scooter', model: 1, driver: 'dad', lighting: 'evening', headlights: true,
@@ -69,55 +112,81 @@ const scootP1 = L.resolveArtPlan({
 });
 assert.strictEqual(scootP1.variant, 'day_dad_p1');
 
-const famMissing = L.resolveArtPlan({
-  pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'daylight',
-  passengers: 1, riders: 'family', cfg,
-  available: new Set(['day_dad', 'day_dad_p1']),
-});
-assert.strictEqual(famMissing.variant, 'day_dad');
-assert.strictEqual(famMissing.fallbackFrom, 'family');
-assert.ok(famMissing.pending.includes('scooter_family'));
-assert.ok(famMissing.labels.includes('機車全家款待王子'));
-
 const famHit = L.resolveArtPlan({
   pack: 'a', mode: 'scooter', model: 0, driver: 'mom', lighting: 'daylight',
-  passengers: 1, riders: 'family', cfg,
-  available: new Set(['day_mom', 'day_mom_family']),
+  passengers: 1, riders: 'family', cfg, familyAvailable: true,
 });
-assert.strictEqual(famHit.variant, 'day_mom_family');
+assert.strictEqual(famHit.variant, 'day_mom');
+assert.strictEqual(famHit.assetDir, 'assets/vehicles/a/scooter_m0_family');
+assert.strictEqual(famHit.family, true);
 assert.ok(!famHit.pending.includes('scooter_family'));
+assert.deepStrictEqual(famHit.canvas, [52, 50]);
 
-const carInterim = L.resolveArtPlan({
+const famM1 = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 1, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'family', cfg, familyAvailable: true,
+  available: new Set(['day_dad']),
+});
+assert.strictEqual(famM1.fallbackFrom, 'family');
+assert.ok(famM1.pending.includes('scooter_family'));
+assert.ok(famM1.assetDir.indexOf('scooter_m1') >= 0);
+
+const carPartner = L.resolveArtPlan({
   pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
-  passengers: 2, riders: 'parents', cfg,
-  available: new Set(['day_dad', 'day_dad_p1', 'day_dad_p2', 'day_dad_p3']),
+  passengers: 1, riders: 'partner', cfg, overlayManifests,
 });
-assert.strictEqual(carInterim.compose, 'baked_rider');
-assert.strictEqual(carInterim.variant, 'day_dad_p2');
-assert.ok(carInterim.pending.includes('smallcar_body_strip'));
-assert.ok(carInterim.labels.includes('小型車車身條帶待王子'));
+assert.strictEqual(carPartner.compose, 'layered');
+assert.strictEqual(carPartner.metricsSource, 'overlay_manifest');
+assert.deepStrictEqual(carPartner.canvas, [98, 46]);
+assert.strictEqual(carPartner.ground_row, 45);
+assert.deepStrictEqual(carPartner.layers.map((x) => x.folder), ['body_day', 'passenger_spouse_mom', 'driver_dad']);
+assert.ok(carPartner.layers[1].headsOnly);
+assert.ok(!carPartner.pending.length);
+assert.ok(!carPartner.variant, 'must not use old baked composites');
 
-const carLayered = L.resolveArtPlan({
-  pack: 'a', mode: 'car', model: 0, driver: 'mom', lighting: 'daylight',
-  passengers: 3, riders: 'parents', kidSeat: false, cfg, layeredAvailable: true,
-  available: new Set(['layer:body:day', 'layer:driver_mom:day', 'layer:passengers_p3:day']),
+const carParentsEve = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 2, driver: 'mom', lighting: 'evening', headlights: true,
+  passengers: 2, riders: 'parents', cfg, overlayManifests,
 });
-assert.strictEqual(carLayered.compose, 'layered');
-assert.deepStrictEqual(carLayered.layers.map((x) => x.role), ['body', 'passengers', 'driver']);
-assert.strictEqual(carLayered.layers[1].headsOnly, true);
-assert.strictEqual(carLayered.layers[2].driver, 'mom');
-assert.ok(!carLayered.pending.includes('smallcar_body_strip'));
+assert.deepStrictEqual(carParentsEve.layers.map((x) => x.folder), ['body_night', 'passengers_parents', 'driver_mom']);
+assert.strictEqual(carParentsEve.layers[0].tint, null);
+assert.strictEqual(carParentsEve.layers[1].tint, 'evening');
+assert.deepStrictEqual(carParentsEve.canvas, [90, 48]);
 
-const carKidLayered = L.resolveArtPlan({
+const carKid = L.resolveArtPlan({
   pack: 'a', mode: 'car', model: 1, driver: 'dad', lighting: 'daylight',
-  passengers: 1, riders: 'kid_seat', kidSeat: true, cfg, layeredAvailable: true,
+  passengers: 1, riders: 'kid_seat', kidSeat: true, cfg, overlayManifests,
 });
-assert.deepStrictEqual(carKidLayered.layers.map((x) => x.role), ['body', 'child_seat', 'passengers', 'driver']);
+assert.deepStrictEqual(carKid.layers.map((x) => x.folder), ['body_day', 'child_seat', 'driver_dad']);
+assert.deepStrictEqual(carKid.canvas, [94, 50]);
+
+const noMan = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
+  cfg: { fps: 8, vehicles: cfg.vehicles, overlayManifests: {} },
+  available: new Set(['day_dad', 'day_dad_p2']),
+});
+assert.strictEqual(noMan.compose, 'missing');
+assert.ok(noMan.pending.includes('smallcar_overlay_manifest'));
 
 const oldPlan = L.resolveArtPlan({ pack: 'old', mode: 'car', model: 0, cfg });
 assert.strictEqual(oldPlan.compose, 'old_strip');
 assert.strictEqual(oldPlan.scale, 2);
-pass('layer composition: baked bike/scooter final, family fallback, smallcar interim vs layered order');
+const scootNightP1 = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'partner', cfg,
+  available: new Set(['day_dad', 'day_dad_p1', 'night_dad', 'night_mom']),
+});
+assert.strictEqual(scootNightP1.variant, 'night_dad');
+assert.ok(scootNightP1.pending.includes('baked_passenger_variant'));
+const scootDuskP1 = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'evening', headlights: false,
+  passengers: 1, riders: 'partner', cfg,
+  available: new Set(['day_dad', 'day_dad_p1', 'night_dad']),
+});
+assert.strictEqual(scootDuskP1.variant, 'day_dad_p1');
+assert.strictEqual(scootDuskP1.duskTint, true);
+pass('layer composition: overlay manifests, v2 folding bike, scooter family, never mix old composites');
+
 
 // Card lookup coverage: every keys-combo resolves or falls back deterministically.
 const trips = cards.keys.trip;

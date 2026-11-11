@@ -89,6 +89,7 @@
   function tripBreakdownProbability(opts) {
     const o = opts || {};
     const mode = o.mode || (o.hasCar ? 'car' : 'bike');
+    // 王 2026-11-11: scooter uses the same age-banded rate as the car for now.
     if (mode !== 'car' && mode !== 'scooter') return 0;
     const age = o.carAge != null ? o.carAge : resolveCarAge(o);
     return annualBreakdownRate(age, o.maint) / TRIPS_PER_YEAR;
@@ -370,7 +371,9 @@
       driver,
       art,
       lighting: lit,
-      headlights: lit === 'evening' && (mode === 'car' || mode === 'scooter'),
+      headlights: hasParam(qs, 'headlights')
+        ? param(qs, 'headlights') !== '0'
+        : lit === 'evening' && (mode === 'car' || mode === 'scooter'),
       trip,
       dest: trip === 'weekend' ? dest : null,
       dir: trip === 'home' ? 'home' : 'out',
@@ -400,11 +403,52 @@
     return MODE_TO_KIND[mode] || mode;
   }
 
-  function pxPerFrameFor(cfg, mode, model) {
+  function metricsFor(cfg, mode, model, extra) {
     const kind = vehicleKind(mode);
+    const m = String(model == null ? 0 : model);
+    const over = (extra && extra.overlayManifests) || (cfg && cfg.overlayManifests) || {};
+    if (kind === 'smallcar' && over[m] && over[m].px_per_frame != null) {
+      const man = over[m];
+      return {
+        source: 'overlay_manifest',
+        canvas: man.canvas,
+        origin: man.origin,
+        ground_row: man.ground_row,
+        px_per_frame: Number(man.px_per_frame),
+        frames: man.frames || 8,
+      };
+    }
+    const baked = cfg && cfg.bakedMetrics;
+    const bakedKey = (kind === 'bicycle' && m === '2') ? 'bicycle_m2_v2'
+      : (kind === 'scooter' && extra && extra.familyDir) ? 'scooter_m0_family'
+      : (kind + '_m' + m);
+    const bm = baked && (baked[bakedKey] || baked[kind + '_m' + m]);
+    if (bm && bm.px_per_frame != null) {
+      return {
+        source: bm.source || 'baked_anchors',
+        canvas: bm.canvas,
+        origin: bm.origin || [0, 0],
+        ground_row: bm.ground_row,
+        px_per_frame: Number(bm.px_per_frame),
+        frames: 8,
+      };
+    }
     const models = cfg && cfg.vehicles && cfg.vehicles[kind] && cfg.vehicles[kind].models;
-    const m = models && models[String(model == null ? 0 : model)];
-    return m && Number.isFinite(Number(m.px_per_frame)) ? Number(m.px_per_frame) : 0;
+    const entry = models && models[m];
+    if (entry && Number.isFinite(Number(entry.px_per_frame))) {
+      return {
+        source: 'config',
+        canvas: entry.canvas,
+        origin: entry.origin && (entry.origin.x != null ? [entry.origin.x, entry.origin.y] : entry.origin),
+        ground_row: entry.ground_row,
+        px_per_frame: Number(entry.px_per_frame),
+        frames: entry.frames || 8,
+      };
+    }
+    return { source: 'none', canvas: null, origin: [0, 0], ground_row: null, px_per_frame: 0, frames: 8 };
+  }
+  function pxPerFrameFor(cfg, mode, model, extra) {
+    return metricsFor(cfg, mode, model, extra).px_per_frame;
   }
 
   // x movement in 480-space scene pixels. One animation frame ↔ px_per_frame of travel.
@@ -451,8 +495,8 @@
     return !!available[name];
   }
 
-  // pack=a plans. Bicycle/scooter: baked rider is the final design.
-  // Small car: layered body+driver+passengers when those files exist; otherwise baked interim.
+  // pack=a plans (DEV screens only until gate 2). Bicycle/scooter: baked rider is final.
+  // Small car: body strip + stackable overlays from overlays/manifest.json. Never mix with old composites (1 px taller).
   function resolveArtPlan(opts) {
     const o = opts || {};
     const pack = o.pack || 'a';
@@ -460,10 +504,12 @@
     const model = String(o.model == null ? 0 : o.model);
     const kind = vehicleKind(mode);
     const fps = (o.cfg && o.cfg.fps) || 8;
-    const px = pxPerFrameFor(o.cfg, mode, o.model);
     const duskTint = o.lighting === 'evening' && !o.headlights;
+    const evePeople = o.lighting === 'evening';
     const pending = [];
     const labels = [];
+    const met = metricsFor(o.cfg, mode, o.model, o);
+    const px = met.px_per_frame;
     if (pack === 'old' || mode === 'bus') {
       return {
         pack: pack === 'old' ? 'old' : pack,
@@ -479,45 +525,86 @@
     const time = o.headlights ? 'night' : 'day';
     const driver = o.driver === 'mom' ? 'mom' : 'dad';
     const available = o.available;
+    const over = ((o.overlayManifests || (o.cfg && o.cfg.overlayManifests) || {})[model]);
 
     if (kind === 'smallcar') {
-      const bodyKey = 'layer:body:' + time;
-      if (hasAvail(available, bodyKey) || o.layeredAvailable) {
+      if (over) {
+        const peopleTint = evePeople ? 'evening' : null;
         const layers = [];
-        SMALLCAR_LAYER_ORDER.forEach((role) => {
-          if (role === 'child_seat' && !o.kidSeat) return;
-          if (role === 'passengers' && !(o.passengers >= 1)) return;
-          const key = role === 'driver' ? ('layer:driver_' + driver + ':' + time)
-            : role === 'passengers' ? ('layer:passengers_p' + Math.min(3, o.passengers) + ':' + time)
-            : ('layer:' + role + ':' + time);
-          layers.push({
-            role,
-            key,
-            time,
-            driver: role === 'driver' ? driver : undefined,
-            passengers: role === 'passengers' ? Math.min(3, o.passengers) : undefined,
-            headsOnly: role === 'passengers' && o.passengers >= 3,
-            tint: duskTint ? 'evening' : null,
-          });
+        layers.push({
+          role: 'body',
+          folder: time === 'night' ? 'body_night' : 'body_day',
+          tint: (time === 'day' && evePeople) ? 'evening' : null,
         });
+        if (o.kidSeat) {
+          layers.push({ role: 'child_seat', folder: 'child_seat', tint: peopleTint, headsOnly: true });
+        }
+        if (o.riders === 'parents') {
+          layers.push({ role: 'passengers_parents', folder: 'passengers_parents', tint: peopleTint, headsOnly: true });
+        } else if ((o.passengers >= 1) && o.riders !== 'kid_seat') {
+          const spouse = driver === 'mom' ? 'passenger_spouse_dad' : 'passenger_spouse_mom';
+          layers.push({ role: 'spouse', folder: spouse, tint: peopleTint, headsOnly: true });
+        }
+        layers.push({ role: 'driver', folder: 'driver_' + driver, tint: peopleTint, driver: driver });
         return {
           pack: 'a', compose: 'layered', kind, model: Number(model),
-          layers, pending, labels, px_per_frame: px, frames: 8, scale: 1, fps,
-          duskTint, variant: null,
+          layers, pending, labels,
+          assetDir: 'assets/vehicles/a/smallcar_m' + model + '/overlays',
+          canvas: over.canvas, origin: over.origin, ground_row: over.ground_row,
+          px_per_frame: Number(over.px_per_frame), frames: over.frames || 8, scale: 1, fps,
+          duskTint, variant: null, metricsSource: 'overlay_manifest',
         };
       }
-      pending.push('smallcar_body_strip');
-      labels.push('小型車車身條帶待王子');
+      // Do not fall back to the old 1 px-shorter composites.
+      pending.push('smallcar_overlay_manifest');
+      labels.push('小型車分層 manifest 缺失');
+      return {
+        pack: 'a', compose: 'missing', kind, model: Number(model),
+        layers: [], pending, labels, px_per_frame: px, frames: 8, scale: 1, fps,
+        duskTint, variant: null,
+      };
     }
 
-    const chain = bakedVariantChain(o);
-    let chosen = firstAvailable(chain, available);
-    if (!chosen) chosen = chain[chain.length - 1];
+    let assetDir = 'assets/vehicles/a/' + kind + '_m' + model;
+    let canvas = met.canvas, origin = met.origin, ground_row = met.ground_row;
+    let pxUse = px;
     const wantedFamily = o.riders === 'family' && kind === 'scooter';
-    const familyMissing = wantedFamily && !(chosen && chosen.indexOf('_family') >= 0);
-    if (familyMissing) {
+    if (kind === 'bicycle' && model === '2') {
+      assetDir = 'assets/vehicles/a/bicycle_m2_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.bicycle_m2_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
+    if (wantedFamily) {
+      const famReady = model === '0' && o.familyAvailable !== false;
+      if (famReady) {
+        const chosenFam = time + '_' + driver;
+        const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m0_family;
+        if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+        return {
+          pack: 'a', compose: 'baked_rider', kind, model: Number(model),
+          layers: [{
+            role: 'combined', variant: chosenFam, baked: true,
+            tint: duskTint ? 'evening' : null,
+            pathPattern: 'assets/vehicles/a/scooter_m0_family/frames/' + chosenFam + '/f{frame}.png',
+          }],
+          pending, labels,
+          assetDir: 'assets/vehicles/a/scooter_m0_family',
+          canvas, origin, ground_row,
+          px_per_frame: pxUse, frames: 8, scale: 1, fps,
+          duskTint, variant: chosenFam, fallbackFrom: null, family: true,
+        };
+      }
       pending.push('scooter_family');
       labels.push('機車全家款待王子');
+    }
+
+    const chain = wantedFamily ? [time + '_' + driver] : bakedVariantChain(o);
+    let chosen = firstAvailable(chain, available);
+    if (!chosen) chosen = chain[chain.length - 1];
+    const wanted = chain[0];
+    if (wanted && chosen && wanted !== chosen) {
+      pending.push('baked_passenger_variant');
+      labels.push('夜間載客合成格待王子');
     }
     return {
       pack: 'a',
@@ -528,12 +615,14 @@
         variant: chosen,
         baked: true,
         tint: duskTint ? 'evening' : null,
-        pathPattern: 'assets/vehicles/a/' + kind + '_m' + model + '/frames/' + chosen + '/f{frame}.png',
+        pathPattern: assetDir + '/frames/' + chosen + '/f{frame}.png',
       }],
       pending, labels,
-      px_per_frame: px, frames: 8, scale: 1, fps,
+      assetDir,
+      canvas, origin, ground_row,
+      px_per_frame: pxUse, frames: 8, scale: 1, fps,
       duskTint, variant: chosen,
-      fallbackFrom: familyMissing ? 'family' : null,
+      fallbackFrom: wantedFamily ? 'family' : null,
     };
   }
 
@@ -650,7 +739,7 @@
     TRIPS_PER_YEAR, MAINT_FACTOR, WEAR_OLD_AGE, WEAR_NEW_AGE,
     playerAgeFromGameState, boughtAgeFromGameState, carAgeFromGameState,
     MODE_TO_KIND, SMALLCAR_LAYER_ORDER, BREAKDOWN_FALLBACK_CARD,
-    vehicleKind, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
+    vehicleKind, metricsFor, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
     cardMatches, pickCard, lookupArrivalCard,
   };
 });

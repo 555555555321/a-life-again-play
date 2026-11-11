@@ -1,0 +1,1330 @@
+{
+  "vehicle": "smallcar",
+  "model": 2,
+  "model_desc": "short-tail hatchback",
+  "canvas": [
+    90,
+    48
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "origin_note": "所有層與車身條共用此畫布左上角，直接對齊疊加。",
+  "ground_row": 47,
+  "facing": "right",
+  "frames": 8,
+  "fps": 8,
+  "px_per_frame": 7.0685834705770345,
+  "dx_per_frame": [
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345,
+    7.0685834705770345
+  ],
+  "wheels": [
+    {
+      "hub_xy": [
+        13,
+        38
+      ],
+      "r_draw_px": 8,
+      "r_roll_px": 9,
+      "circumference_px": 56.548667764616276,
+      "px_per_frame": 7.0685834705770345
+    },
+    {
+      "hub_xy": [
+        69,
+        38
+      ],
+      "r_draw_px": 8,
+      "r_roll_px": 9,
+      "circumference_px": 56.548667764616276,
+      "px_per_frame": 7.0685834705770345
+    }
+  ],
+  "evening": "黃昏不另畫。白天層乘 [142,115,83]/255；燈請用 body_night 的頭燈／尾燈像素，或著色時保護這些色。",
+  "evening_mul": [
+    142,
+    115,
+    83
+  ],
+  "body": {
+    "day": "body_day/",
+    "night": "body_night/",
+    "day_strip": "body_day_strip_x4.png",
+    "night_strip": "body_night_strip_x4.png",
+    "also_native_strip": "body_day_strip.png"
+  },
+  "overlays": {
+    "driver_dad": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        42,
+        12,
+        53,
+        26
+      ],
+      "content_bbox_per_frame": [
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          13,
+          53,
+          27
+        ],
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          12,
+          53,
+          26
+        ],
+        [
+          42,
+          13,
+          53,
+          27
+        ]
+      ],
+      "frames_dir": "driver_dad/",
+      "strip": "driver_dad_strip_x4.png",
+      "head_anchors_per_frame": [
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            13
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            12
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            42,
+            13
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        }
+      ],
+      "bob": "HEAD_BOB+BODY_BOB baked",
+      "native_strip": "driver_dad_strip.png"
+    },
+    "driver_mom": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        41,
+        12,
+        54,
+        27
+      ],
+      "content_bbox_per_frame": [
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          13,
+          54,
+          28
+        ],
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          12,
+          54,
+          27
+        ],
+        [
+          41,
+          13,
+          54,
+          28
+        ]
+      ],
+      "frames_dir": "driver_mom/",
+      "strip": "driver_mom_strip_x4.png",
+      "head_anchors_per_frame": [
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            13
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            12
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        },
+        {
+          "head_xy": [
+            41,
+            13
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            48,
+            12
+          ]
+        }
+      ],
+      "bob": "HEAD_BOB+BODY_BOB baked",
+      "native_strip": "driver_mom_strip.png"
+    },
+    "passenger_spouse_dad": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        30,
+        9,
+        41,
+        23
+      ],
+      "content_bbox_per_frame": [
+        [
+          30,
+          9,
+          41,
+          23
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ],
+        [
+          30,
+          9,
+          41,
+          23
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ],
+        [
+          30,
+          8,
+          41,
+          22
+        ]
+      ],
+      "frames_dir": "passenger_spouse_dad/",
+      "strip": "passenger_spouse_dad_strip_x4.png",
+      "head_anchors_per_frame": [
+        {
+          "head_xy": [
+            30,
+            9
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            9
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            30,
+            8
+          ],
+          "head_size": [
+            12,
+            12
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        }
+      ],
+      "bob": "PASS_BOB+BODY_BOB baked",
+      "native_strip": "passenger_spouse_dad_strip.png"
+    },
+    "passenger_spouse_mom": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        29,
+        9,
+        42,
+        24
+      ],
+      "content_bbox_per_frame": [
+        [
+          29,
+          9,
+          42,
+          24
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ],
+        [
+          29,
+          9,
+          42,
+          24
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ],
+        [
+          29,
+          8,
+          42,
+          23
+        ]
+      ],
+      "frames_dir": "passenger_spouse_mom/",
+      "strip": "passenger_spouse_mom_strip_x4.png",
+      "head_anchors_per_frame": [
+        {
+          "head_xy": [
+            29,
+            9
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            9
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        },
+        {
+          "head_xy": [
+            29,
+            8
+          ],
+          "head_size": [
+            14,
+            13
+          ],
+          "anchor": [
+            36,
+            8
+          ]
+        }
+      ],
+      "bob": "PASS_BOB+BODY_BOB baked",
+      "native_strip": "passenger_spouse_mom_strip.png"
+    },
+    "child_seat": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        14,
+        6,
+        28,
+        22
+      ],
+      "content_bbox_per_frame": [
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ],
+        [
+          14,
+          6,
+          28,
+          22
+        ]
+      ],
+      "frames_dir": "child_seat/",
+      "strip": "child_seat_strip_x4.png",
+      "head_anchors_per_frame": [
+        {
+          "head_xy": [
+            17,
+            8
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            8
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        },
+        {
+          "head_xy": [
+            17,
+            7
+          ],
+          "head_size": [
+            12,
+            11
+          ],
+          "anchor": [
+            23,
+            7
+          ],
+          "seat_box": [
+            14,
+            6,
+            26,
+            21
+          ]
+        }
+      ],
+      "bob": "PASS_BOB+BODY_BOB baked",
+      "native_strip": "child_seat_strip.png"
+    },
+    "passengers_parents": {
+      "offset_xy": [
+        0,
+        0
+      ],
+      "content_bbox_f00": [
+        17,
+        7,
+        44,
+        24
+      ],
+      "content_bbox_per_frame": [
+        [
+          17,
+          7,
+          44,
+          24
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ],
+        [
+          17,
+          7,
+          44,
+          24
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ],
+        [
+          17,
+          6,
+          44,
+          23
+        ]
+      ],
+      "frames_dir": "passengers_parents/",
+      "strip": "passengers_parents_strip_x4.png",
+      "head_anchors_per_frame": [
+        [
+          {
+            "head_xy": [
+              17,
+              7
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              9
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              7
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              9
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ],
+        [
+          {
+            "head_xy": [
+              17,
+              6
+            ],
+            "head_size": [
+              16,
+              15
+            ],
+            "anchor": [
+              25,
+              6
+            ]
+          },
+          {
+            "head_xy": [
+              29,
+              8
+            ],
+            "head_size": [
+              15,
+              13
+            ],
+            "anchor": [
+              36,
+              8
+            ]
+          }
+        ]
+      ],
+      "bob": "PASS_BOB+BODY_BOB baked",
+      "native_strip": "passengers_parents_strip.png"
+    }
+  },
+  "passengers_are_head_and_shoulders_only": true,
+  "notes": [
+    "駕駛可換 dad／mom。",
+    "passenger_spouse_mom 配 driver_dad；passenger_spouse_dad 配 driver_mom。",
+    "child_seat 含座椅殼與小孩頭。",
+    "passengers_parents 是阿公＋阿嬤兩個頭，用已上全家色盤的長輩站姿翻成朝右後裁頭。",
+    "舊的 smallcar_m*/ 合成圖（含已畫進去的駕駛）未改、未刪。"
+  ]
+}
