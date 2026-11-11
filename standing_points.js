@@ -38,11 +38,42 @@
     return null;
   }
 
+  // Apply a row only when status is exactly "pass".
+  // Empty, missing, misspelled, pending_redraw, and pending_scene are not applied.
+  function isPassStatus(status) {
+    return status === 'pass';
+  }
+
+  function warnSkipIfDev(row) {
+    let dev = false;
+    try {
+      if (typeof DEV !== 'undefined') dev = !!DEV;
+      else if (typeof location !== 'undefined' && typeof URLSearchParams !== 'undefined') {
+        const qs = new URLSearchParams(location.search || '');
+        dev = qs.has('dev') && qs.get('dev') !== '0';
+      }
+    } catch (_) {}
+    if (!dev) return;
+    if (typeof console !== 'undefined' && typeof console.warn === 'function') {
+      const st = row.status;
+      const known = st === 'pending_redraw' || st === 'pending_scene';
+      const label = (st == null || st === '') ? JSON.stringify(st) : st;
+      const why = known
+        ? ('status is ' + st)
+        : ('status is not pass (' + label + ')');
+      console.warn('StandingPoints: not applying standing_group "' + row.group_id + '" because ' + why);
+    }
+  }
+
   function applyToCastMember(member, rows) {
     if (!member) return member;
     const id = member.standing_group || member.standingGroup;
     const row = lookup(rows, id);
     if (!row) return member;
+    if (!isPassStatus(row.status)) {
+      warnSkipIfDev(row);
+      return member;
+    }
     const out = Object.assign({}, member);
     out.x = row.x;
     if (Number.isFinite(row.floor_y)) {
@@ -58,6 +89,10 @@
   function applyToVersion(version, groupId, rows) {
     const row = lookup(rows, groupId);
     if (!row || !version) return version;
+    if (!isPassStatus(row.status)) {
+      warnSkipIfDev(row);
+      return version;
+    }
     const out = Object.assign({}, version);
     out.x = row.x;
     if (Number.isFinite(row.floor_y)) out.feet = row.floor_y;
