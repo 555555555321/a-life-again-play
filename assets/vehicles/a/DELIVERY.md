@@ -75,8 +75,8 @@ assets/vehicles/a/scooter_m{0|1|2}/frames/{day|night}_{dad|mom}_family/f00.png�
 王子補齊先前缺的機車載客／全家款與小型車三人位置，舊檔未改。引擎已接上，缺檔占位字已拿掉（「夜間載客合成格待王子」「機車全家款待王子」僅在檔案真的不在時才出現）。
 
 1. 機車載客格：m0、m1、m2、m0_v2、m2_v2 現有 `night_dad_p1`、`day_mom_p1`、`night_mom_p1`（夜間開車燈）；m2_v2 另有 `day_dad_p1`。媽媽款高 1 px，ground 與輪轂 y +1。畫布／ground／輪轂一律讀該變體的 `anchors_{v}.json`，不寫死數字。
-2. 機車全家款：新增 `scooter_m1_family/`、`scooter_m2_family/`，白天／夜晚 × 爸／媽。m0 仍用 `scooter_m0_family_v2`。
+2. 機車全家款：新增 `scooter_m1_family/`、`scooter_m2_family/`，白天／夜晚 × 爸／媽。m0 仍用 `scooter_m0_family_v2`。m1 已改接 `scooter_m1_family_v2`（小孩坐油箱前；舊 `scooter_m1_family/` 保留但不再使用）。
 3. 小型車三人：各款 `overlays/manifest.json` 已更新兒童座椅、祖父母、m2 駕駛位置與頭錨點（像素已畫進 PNG，`offset_xy` 仍為 `[0,0]`，引擎不另外平移）。`body_bob_px` 仍為 `[0,0,1,0,0,0,1,0]`。開發預覽用 `riders=partner&kidseat=1`。
 
-已知畫面上的弱點（不加占位字）：m1 全家款小孩的腳會穿過車架；m2 全家款小孩的手靠近大圓燈。
+已知畫面上的弱點（不加占位字）：m1 全家款 v2 大人小腿靠近後輪、前臂靠近小孩頭髮；m2 全家款小孩的手靠近大圓燈。
 
