@@ -370,12 +370,12 @@
     "turn_n": 0,
     "stride": 0,
     "stand": "阿公_站",
-    "from": "elders_stand_20261110 r5 阿公 stand+breath DEV only",
+    "from": "recolour_A_20261111 grandpa_stoop_r2 stand_f00/f01 (signed, height 88)",
     "frames": "assets/chars/grandpa/stand_0{i}.png",
     "n": 2,
     "view_idle": "34v",
     "facing_drawn": "W",
-    "height_px": 90,
+    "height_px": 88,
     "dev_only": true
   },
   "grandma": {
@@ -399,12 +399,12 @@
     "turn_n": 0,
     "stride": 0,
     "stand": "阿嬤_站",
-    "from": "elders_stand_20261110 r5 阿嬤 stand+breath DEV only",
+    "from": "recolour_A_20261111 r4b 阿嬤 stand_f00/f01 (signed, height 86)",
     "frames": "assets/chars/grandma/stand_0{i}.png",
     "n": 2,
     "view_idle": "34v",
     "facing_drawn": "W",
-    "height_px": 88,
+    "height_px": 86,
     "dev_only": true
   }
 }

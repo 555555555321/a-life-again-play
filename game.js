@@ -1760,7 +1760,7 @@ async function initEldersStand() {
   const packGp = await sprite('grandpa', lighting);
   const packGm = await sprite('grandma', lighting);
   const packDad = await sprite('father', lighting);
-  // Signed r8 mom infant hold-breath (抱嬰兒・呼吸), not pickup. DEV only; default mother idle unchanged.
+  // Signed recolour r3 mom infant hold-breath (抱嬰兒・呼吸), not pickup. DEV only; default mother idle unchanged.
   const hold0 = await load('assets/chars/mother_hold_infant/hold_00.png');
   const hold1 = await load('assets/chars/mother_hold_infant/hold_01.png');
   const packMomHold = { anchor: true, ax: 27, ay: 115, canvasW: 56, canvasH: 116, idle: [hold0, hold1], blink: null, walk: [] };
@@ -1769,7 +1769,7 @@ async function initEldersStand() {
     floorTop: ES_FLOOR_TOP,
     facing: 'grandpa flipX (faces E, toward the parents); grandma/dad/mom face W as drawn',
     note: 'Same game scale (×4, anchor (27,115), feet on floor_line 252). Grandpa on the west side, flipped to face the parents. Mom uses signed r8 hold-breath frames.',
-    momHold: { src: ['assets/chars/mother_hold_infant/hold_00.png', 'assets/chars/mother_hold_infant/hold_01.png'], from: 'hug_set_20261110/frames/mom_infant/hold_f00.png + hold_f01.png (r8 signed, frozen)' },
+    momHold: { src: ['assets/chars/mother_hold_infant/hold_00.png', 'assets/chars/mother_hold_infant/hold_01.png'], from: 'recolour_A_20261111/r3/hug/mom_infant/hold_f00.png + hold_f01.png (signed hold-breath)' },
     chars: [
       { id: 'grandpa', label: 'grandpa', pack: packGp,      x: 126, feet: ES_FLOOR_LINE, flip: true,  breath: true },
       { id: 'grandma', label: 'grandma', pack: packGm,      x: 164, feet: ES_FLOOR_LINE, flip: false, breath: true },

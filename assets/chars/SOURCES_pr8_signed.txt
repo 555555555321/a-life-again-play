@@ -1,0 +1,54 @@
+# Signed sprites copied into Phone B for PR #8.
+# sha256 is of the file in this repo after copy; it matches the source byte-for-byte.
+# dad_walk r3 is not included; it goes in PR #4.
+# Pickup hug frames were not signed for stand points and were not copied.
+
+replace	assets/chars/grandma/stand_00.png	1351b1d177a0359612b8258827c318e460fc8baeac40281c19c4f97701e4dde2	/workspace/ala/r8_art/王子/recolour_A_20261111/r4b/grandma/stand_f00.png
+replace	assets/chars/grandma/stand_01.png	ef7e0cf2e86b4a49472a9e268b0b36679e59662e7ecdf7f0a18208bdf505f14b	/workspace/ala/r8_art/王子/recolour_A_20261111/r4b/grandma/stand_f01.png
+replace	assets/chars/grandpa/stand_00.png	a70dbee32ac6f7ea517dbbcd4102e1dde9462a86ed863a07e1b74369402dabed	/workspace/ala/r8_art/王子/recolour_A_20261111/grandpa_stoop_r2/stand_f00.png
+replace	assets/chars/grandpa/stand_01.png	2436b2ecc1d67c4fe46ca4f82d85dd6fdd0d67a2899ba73181fb951510634bb1	/workspace/ala/r8_art/王子/recolour_A_20261111/grandpa_stoop_r2/stand_f01.png
+replace	assets/chars/mother_hold_infant/hold_00.png	5de54c950151cf8183092c549d7d437c72cfe8371142e259edfb17f2ac730daf	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_infant/hold_f00.png
+replace	assets/chars/mother_hold_infant/hold_01.png	8293524b6892a0de0353a9ed27e90ed36098470634750db114e59cb3fbfa2ac1	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_infant/hold_f01.png
+add	assets/chars/mother_hold_toddler/hold_00.png	1b28a2a83c8c17c7b6e195a292e33880c27d775492d5ce1a7140af31363e166f	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_toddler/hold_f00.png
+add	assets/chars/mother_hold_toddler/hold_01.png	8dd89dd0577cf528fe2aff17c35370a99715ba0a464a81cd8bb3309e049f0003	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_toddler/hold_f01.png
+add	assets/chars/father_hold_infant/hold_00.png	fdf69482c9bdfdfb5e2eb91067648b7062e74d35d712e817e4fab99389302cc8	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_infant/hold_f00.png
+add	assets/chars/father_hold_infant/hold_01.png	553099b163b0a3ccfa342df6988e223c924985fc101c0aba0542c76b9d4b01f4	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_infant/hold_f01.png
+add	assets/chars/father_hold_toddler/hold_00.png	be2d8866c0603b8528d79027a25c28ac3e16b761de9a0d1ff270eeffb99739b6	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_toddler/hold_f00.png
+add	assets/chars/father_hold_toddler/hold_01.png	1092737dd41ed161b3b02558120032c63686ff53800802c562ee108b3dc9a202	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_toddler/hold_f01.png
+add	assets/chars/actions_r3/sit_read_mom/f00.png	441947a1c3cd4b4cf00444e46493b17b7421964760ff3e2ea918039302c0a4c2	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/mom/frames/f00.png
+add	assets/chars/actions_r3/sit_read_mom/f01.png	c82c2a6dee93cf45ae74dde128058f2417f2eee31e37b50b276e24a197e820e6	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/mom/frames/f01.png
+add	assets/chars/actions_r3/sit_read_mom/f02.png	9c3b17bda25eb9fffa052aca3e48c966c1f75ebe588b4050c7f87acc2bae2585	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/mom/frames/f02.png
+add	assets/chars/actions_r3/sit_read_mom/f03.png	441947a1c3cd4b4cf00444e46493b17b7421964760ff3e2ea918039302c0a4c2	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/mom/frames/f03.png
+add	assets/chars/actions_r3/sit_read_dad/f00.png	5088f74e45dc0b5377a1506182b971d6b0049fc896881dc395ad58e13fe94e3d	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/dad/frames/f00.png
+add	assets/chars/actions_r3/sit_read_dad/f01.png	4cf4882aea19b1c2b0828d57cee022007d8c30610327f3965a4cf3895bc1c4a5	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/dad/frames/f01.png
+add	assets/chars/actions_r3/sit_read_dad/f02.png	7126a1761c194d9893d39cd78f063303f48772eda628bb9297a00a74f30603e6	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/dad/frames/f02.png
+add	assets/chars/actions_r3/sit_read_dad/f03.png	5088f74e45dc0b5377a1506182b971d6b0049fc896881dc395ad58e13fe94e3d	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/dad/frames/f03.png
+add	assets/chars/actions_r3/sit_read_grandma/f00.png	0b9836e2b97537ef2bd963d0d08f0b5e920b780c27e738323afb135da3c1ffb7	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandma/frames/f00.png
+add	assets/chars/actions_r3/sit_read_grandma/f01.png	ea9c48486fb2aa5c8edf7a02c9caae375a0211382eeea359e17aec2b13bf4063	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandma/frames/f01.png
+add	assets/chars/actions_r3/sit_read_grandma/f02.png	2a05fd2382bf06c38a1eadde47bb9b25f7c2263aba2f823fa5d49b2e7c944334	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandma/frames/f02.png
+add	assets/chars/actions_r3/sit_read_grandma/f03.png	0b9836e2b97537ef2bd963d0d08f0b5e920b780c27e738323afb135da3c1ffb7	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandma/frames/f03.png
+add	assets/chars/actions_r3/sit_read_grandpa/f00.png	2961775aad377f85b914a8cd3fe1395f833d75eaaa65d2ff2653dc55a56a5e13	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandpa/frames/f00.png
+add	assets/chars/actions_r3/sit_read_grandpa/f01.png	07b79f790b73d2c098a923c17227a2c68e2bd77614b84bfab28764b5fa0e5a82	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandpa/frames/f01.png
+add	assets/chars/actions_r3/sit_read_grandpa/f02.png	f36e4043c90aec13879a296422042b27175d83490a20d76ec53b68082e87903f	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandpa/frames/f02.png
+add	assets/chars/actions_r3/sit_read_grandpa/f03.png	2961775aad377f85b914a8cd3fe1395f833d75eaaa65d2ff2653dc55a56a5e13	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_sit_read/grandpa/frames/f03.png
+add	assets/chars/actions_r3/cosleep_mom/f00.png	a90e3f6a637f68a41e0117d32881f0182ebe1bb3190d9c8280841eef88278405	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/mom/frames/f00.png
+add	assets/chars/actions_r3/cosleep_mom/f01.png	6fb67dc15a277504d97f55aff8bd0642179b1e9d7c26102b099dfe38e0523921	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/mom/frames/f01.png
+add	assets/chars/actions_r3/cosleep_mom/f02.png	fdb32a9e4ba9078e6a0a9bbde9369d18772610b42559f3c1c93aeed209c16edb	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/mom/frames/f02.png
+add	assets/chars/actions_r3/cosleep_mom/f03.png	224ca2ee834ddddd31b948708112f682a75af6eceeaf3d5b6c7a5517c63d601f	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/mom/frames/f03.png
+add	assets/chars/actions_r3/cosleep_dad/f00.png	a40fe721b761449224708abf5234206ffc5ab6524016bac28a43b7aa6e4598b7	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/dad/frames/f00.png
+add	assets/chars/actions_r3/cosleep_dad/f01.png	28fed61e74e05ae197bb3af590d1ac58c4d09c1b3af292587be6dfe88cfeca49	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/dad/frames/f01.png
+add	assets/chars/actions_r3/cosleep_dad/f02.png	cd84a2bde73b3cbe63876f0cba235de17c428a882a69e31988d92cbbd5845100	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/dad/frames/f02.png
+add	assets/chars/actions_r3/cosleep_dad/f03.png	a30d90e8f75d5651e9fece955e1618fd4d0d4700a0cdf9438ddc4f6eca70a6d4	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action1_lie_sleep/dad/frames/f03.png
+add	assets/chars/actions_r3/write/f00.png	1c1bb17495dce7342054f56ae968486a032621231dd01d6c9b7ca40ecdf2ad59	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/write/frames/f00.png
+add	assets/chars/actions_r3/write/f01.png	fbbc6825a647cc7022b46f0beb74a20e06c94d55622e26e6514f4db1c5cf926f	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/write/frames/f01.png
+add	assets/chars/actions_r3/write/f02.png	98e2c8e264a7a7f247ad4e9029e8bf71bf1d0b8a5e38b60f06072e3d8a550bb4	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/write/frames/f02.png
+add	assets/chars/actions_r3/write/f03.png	30cff67c346e7bd1c82568b1889caff6076892d70fedfd1d3ad45bcf282de4a1	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/write/frames/f03.png
+add	assets/chars/actions_r3/draw/f00.png	a35976953aec16220f2273faeafd020d4e05730211790f073f6895d82e0c306f	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/draw/frames/f00.png
+add	assets/chars/actions_r3/draw/f01.png	536634a6ccd46910760198feeb236f63eb01c11dffa32a7c841ed8e5b29cdf7e	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/draw/frames/f01.png
+add	assets/chars/actions_r3/draw/f02.png	5cc49b93f999a55a83081b90c3e6c7cd1a9e59ceb1ad84d23bb9ee2d3a5fccb2	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/draw/frames/f02.png
+add	assets/chars/actions_r3/draw/f03.png	b6754c5c76a69acf95107966e4102ecc209401ed0d1d7ff1a6328e92c07ecd2a	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/draw/frames/f03.png
+add	assets/chars/actions_r3/sticker/f00.png	cd847cca0c636d56dd03b734dc5aed43abe700c2cc05fc87ea3ac0337d3dcb93	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/stick/frames/f00.png
+add	assets/chars/actions_r3/sticker/f01.png	8127b20404d55de3bcad74cc82f6458c3991a3b23cd2cc66216858369dcb41ca	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/stick/frames/f01.png
+add	assets/chars/actions_r3/sticker/f02.png	2b44cab788371d1fdaba74221ab2aeb5066f0e9e5c9651b85fb82daf77550b6b	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/stick/frames/f02.png
+add	assets/chars/actions_r3/sticker/f03.png	56b8cbcec1016f7ee4dbd73eda7b6dd4531600342acbafa34f7e4f3943d7cec5	/workspace/ala/r8_art/王子/actions_draft_20261111/r3/action2_write/stick/frames/f03.png
+unchanged_already_signed	assets/chars/style_trial_mom/a_r5c/A_r5c_12.png	d2cef574c0bf0754020e0a724a06862f0a619660c63bae655c4522ab2350bfe4	/workspace/ala/r8_art/王子/style_trial_mom_20261110/a_r5c/A_r5c_12.png
