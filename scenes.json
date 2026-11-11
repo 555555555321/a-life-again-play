@@ -62,7 +62,9 @@
       "corner": "二〇〇五年・春・你五歲",
       "age": 5,
       "season": "春",
-      "month": 5
+      "month": 5,
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "month_end": {
       "lighting": "daylight",
@@ -750,7 +752,9 @@
       "buttons": [
         "重播"
       ],
-      "cast": []
+      "cast": [],
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "elders_stand": {
       "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。角標用 day 0（2000-05-01）走日期規則。Not in order.",
@@ -765,7 +769,9 @@
       "text": "阿公說，照家裡的規矩，你這一代都有一個「宇」字，剩下一個字讓你爸媽挑。",
       "buttons": [],
       "cast": [],
-      "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫."
+      "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "pixelbolt_trial": {
       "_note": "DEV ONLY Pixelbolt 試驗：原圖媽媽站姿 vs Pixelbolt 第1格 vs 2格呼吸。?dev=1&screen=pixelbolt_trial。Not in order.",
@@ -777,7 +783,9 @@
       "cast": [],
       "corner": "工具試驗・非劇情",
       "_corner_hardcoded": true,
-      "_corner_note": "DEV tool trial: not a story date. Hardcoded so cornerLabel() is not used."
+      "_corner_note": "DEV tool trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "style_trial_mom": {
       "_note": "DEV ONLY mom standing style trial. Paths come from STYLE_TRIAL_MOM_SRC_DIR in game.js (currently r3). ?dev=1&orient=landscape&screen=style_trial_mom. Optional &lit=evening. Not in order.",
@@ -793,7 +801,9 @@
         "日間",
         "夜間"
       ],
-      "cast": []
+      "cast": [],
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
     },
     "style_trial_mom_a4": {
       "_note": "DEV ONLY mom style A round 4 (12 colours) at B’s wall slot x=406, plus r3 A at x=222. Evening tint same as style_trial_mom. ?dev=1&orient=landscape&screen=style_trial_mom_a4. Optional &lit=evening. Not in order.",
@@ -808,9 +818,27 @@
       "cast": [],
       "corner": "畫風試驗・非劇情",
       "_corner_hardcoded": true,
-      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used."
-    }
-    ,
+      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "style_trial_mom_a5c": {
+      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours) at living-room x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站在客廳 x=295（清潔範圍 291–327）。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": [],
+      "corner": "畫風試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
     "commute": {
       "_note": "DEV ONLY 上下班／週末出遊開車畫面。舊畫風 240 圖 2× 最近鄰。?dev=1&orient=landscape&screen=commute 加上 &vehicle=none|bike|scooter|car|bus、&passengers=0..3、&riders=solo|partner|kid_seat|parents、&lit=evening、&trip=work|home|weekend、&dest=beach|mountain|night_market|friend、&wear=new|old、&rain=1、&event=traffic|rain|lost|breakdown、&force=1、&newcar=1、&seed=、&cut=1。Not in order.",
       "dev_only": true,
