@@ -368,27 +368,36 @@ function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 // Colour #c4aa78 is grandpa_khaki light in the 48-colour family palette
 // (and in the 3349 palette).
 //
-// Not a full ring (王 + 王子 2026-11-11). A candidate rim pixel must be:
+// Not a full ring (王 + 王子 2026-11-11, tightened 王/王子/小兵2號).
+// A candidate rim pixel must be:
 //   1. Transparent, 8-adjacent to the silhouette, and in the exterior
 //      region (4-connected flood from the padded canvas border). Enclosed
 //      holes (e.g. between arm and body) are not exterior, so they get no rim.
 //   2. Not in a 1 px channel (opaque on both left and right, or both above
 //      and below) — this also drops gaps open to the outside, e.g. between legs.
 //   3. Strictly above the floor-contact row (the sprite's lowest opaque row).
-//      No rim on or below that row, so the character does not look as if
-//      it is floating.
-//   4. Either (a) an upward-facing edge in the upper 40% of the opaque
-//      bbox — neighbouring opaque pixel is directly below; this is the top
-//      of the head and the shoulders — or (b) a light-facing side edge
-//      (opaque neighbour toward the anti-light side) over the remaining
-//      height. No rim on the back-lit side.
+//   4. Either (a) an upward-facing, unoccluded-above edge in the upper 30%
+//      of the opaque bbox (head and shoulder crown: opaque directly below,
+//      and no opaque pixel above in the same column), or (b) a light-facing
+//      side edge that is the outermost contour toward the light: an opaque
+//      neighbour toward the anti-light side, AND scanning along the same
+//      row TOWARD the light (world direction, already flipped into
+//      localLight) meets no opaque sprite pixel. A gap wider than 1 px
+//      between the back-lit arm and the body used to count as a right-facing
+//      edge (the arm sat to the left of the gap pixel); the unoccluded
+//      scan drops those. Scanning the other way (toward the back-lit side)
+//      would keep the stray left-hand dots, so that is not the test.
+//   5. Below the waist, light-side pixels are drawn only on alternate rows
+//      (the first row below the waist is skipped). The waist is 55% down
+//      the opaque bbox; there is no clear belt pinch on these sprites.
 // Light side is a world direction from the backdrop (manifest light_side,
 // overridable per screen in scenes.json), not sprite-local: a flipped
 // sprite still takes the rim on the world-lit side.
 const CHAR_RIM_HEX = '#c4aa78';
 const CHAR_RIM_RGB = [196, 170, 120];
 const CHAR_RIM_PAD = 1;
-const CHAR_RIM_TOP_FRAC = 0.40;
+const CHAR_RIM_TOP_FRAC = 0.30;
+const CHAR_RIM_WAIST_FRAC = 0.55;
 const charRimCache = new WeakMap(); // im -> {left, right}
 
 function eveningLit() {
@@ -453,6 +462,20 @@ function applyCharRim(im, localLight) {
     ? [[0, -1], [-1, -1], [1, -1]]  // body is to the left of a right-side rim pixel
     : [[0, 1], [-1, 1], [1, 1]];
   const cutoff = (y1 >= y0) ? (y0 + CHAR_RIM_TOP_FRAC * (y1 - y0)) : 0;
+  const waistY = (y1 >= y0) ? Math.round(y0 + CHAR_RIM_WAIST_FRAC * (y1 - y0)) : 0;
+  const towardLight = (side === 'right') ? 1 : -1; // sprite-local +x; localLight already includes flip
+  function unoccludedTowardLight(X, Y) {
+    for (let nx = X + towardLight; nx >= 0 && nx < outW; nx += towardLight) {
+      if (opaque[Y * outW + nx]) return false;
+    }
+    return true;
+  }
+  function unoccludedAbove(X, Y) {
+    for (let ny = Y - 1; ny >= 0; ny--) {
+      if (opaque[ny * outW + X]) return false;
+    }
+    return true;
+  }
   const out = document.createElement('canvas');
   out.width = outW; out.height = outH;
   const og = out.getContext('2d');
@@ -479,12 +502,17 @@ function applyCharRim(im, localLight) {
         }
         if (!adj) continue;
         let isTop = false;
-        if (srcy <= cutoff && downOp) isTop = true; // upward-facing: opaque directly below
+        if (srcy <= cutoff && downOp && unoccludedAbove(X, Y)) isTop = true;
         let isSide = false;
         for (const [dy, dx] of sideDirs) {
           const ny = Y + dy, nx = X + dx;
           if (ny < 0 || nx < 0 || ny >= outH || nx >= outW) continue;
           if (opaque[ny * outW + nx]) { isSide = true; break; }
+        }
+        if (isSide) {
+          if (!unoccludedTowardLight(X, Y)) isSide = false;
+          // Below the waist: only every other row (first row below waist skipped).
+          else if (srcy > waistY && ((srcy - waistY) % 2 === 1)) isSide = false;
         }
         if (!isTop && !isSide) continue;
         const o = i * 4;
@@ -495,7 +523,7 @@ function applyCharRim(im, localLight) {
   og.putImageData(id, 0, 0);
   og.imageSmoothingEnabled = false;
   og.drawImage(im, pad, pad);
-  const baked = { canvas: out, pad: pad, srcW: w, srcH: h, localLight: side, feetRow: y1, topCutoff: cutoff };
+  const baked = { canvas: out, pad: pad, srcW: w, srcH: h, localLight: side, feetRow: y1, topCutoff: cutoff, waistY: waistY };
   if (!slot) { slot = {}; charRimCache.set(im, slot); }
   slot[side] = baked;
   return baked;
@@ -2374,8 +2402,8 @@ function drawStyleTrialMomA5c(now) {
   // expose for shoot.py
   window.goKey = goKey;
   window.RIM = RIM;
-  window.CHAR_RIM = { hex: CHAR_RIM_HEX, rgb: CHAR_RIM_RGB, pad: CHAR_RIM_PAD, topFrac: CHAR_RIM_TOP_FRAC,
-    placement: 'exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels',
+  window.CHAR_RIM = { hex: CHAR_RIM_HEX, rgb: CHAR_RIM_RGB, pad: CHAR_RIM_PAD, topFrac: CHAR_RIM_TOP_FRAC, waistFrac: CHAR_RIM_WAIST_FRAC,
+    placement: 'unoccluded head/shoulder crown (upper 30%) + outermost light-facing side, faded below waist, no feet row, no holes or 1px channels',
     palette: 'family #c4aa78 grandpa_khaki light (also in 3349)',
     lightSide: typeof worldLightSide === 'function' ? worldLightSide() : 'right' };
   window.worldLightSide = worldLightSide;

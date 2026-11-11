@@ -75,14 +75,7 @@
       "day_max_outline_one_in": 83.56,
       "evening_outline_only": 24.89,
       "evening_max_outline_one_in": 28.89
-    },
-    "four_numbers_counts": {
-      "day_outline_only": "144/225",
-      "day_max_outline_one_in": "188/225",
-      "evening_outline_only": "56/225",
-      "evening_max_outline_one_in": "65/225"
-    },
-    "vs_wangzi": "王子's 64% / 84% / 25% / 29% at x=295 (225 edges) were measured on A_r5_12.png (CSV: 144/225, 189/225, 56/225, 66/225). Independently recomputed on the same Phone B rooms and rule, A_r5_12 matches that CSV exactly. Final A_r5c_12 shares the same alpha (225 outline points) but differs in 300 colour pixels, so outline-only is unchanged (144/225 = 64.00% day, 56/225 = 24.89% evening) while max(outline, one-in) is one point lower: day 188/225 = 83.56% (not 189/225 = 84.00%), evening 65/225 = 28.89% (not 66/225 = 29.33%)."
+    }
   },
   "gate3_r5_for_comparison": {
     "note": "A_r5_12.png, the sprite 王子's CSV was built from. Alpha matches r5c; 300 colour pixels differ.",
@@ -146,8 +139,9 @@
             120
           ],
           "pad": 1,
-          "topFrac": 0.4,
-          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "topFrac": 0.3,
+          "waistFrac": 0.55,
+          "placement": "unoccluded head/shoulder crown (upper 30%) + outermost light-facing side, faded below waist, no feet row, no holes or 1px channels",
           "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
           "lightSide": "right"
         },
@@ -163,7 +157,7 @@
         2340,
         1080
       ],
-      "sha256_16": "f91e876767b40e69",
+      "sha256_16": "af931147270f1574",
       "js": {
         "ready": true,
         "lighting": "evening",
@@ -185,8 +179,9 @@
             120
           ],
           "pad": 1,
-          "topFrac": 0.4,
-          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "topFrac": 0.3,
+          "waistFrac": 0.55,
+          "placement": "unoccluded head/shoulder crown (upper 30%) + outermost light-facing side, faded below waist, no feet row, no holes or 1px channels",
           "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
           "lightSide": "right"
         },
@@ -224,8 +219,9 @@
             120
           ],
           "pad": 1,
-          "topFrac": 0.4,
-          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "topFrac": 0.3,
+          "waistFrac": 0.55,
+          "placement": "unoccluded head/shoulder crown (upper 30%) + outermost light-facing side, faded below waist, no feet row, no holes or 1px channels",
           "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
           "lightSide": "right"
         },
@@ -263,8 +259,9 @@
             120
           ],
           "pad": 1,
-          "topFrac": 0.4,
-          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "topFrac": 0.3,
+          "waistFrac": 0.55,
+          "placement": "unoccluded head/shoulder crown (upper 30%) + outermost light-facing side, faded below waist, no feet row, no holes or 1px channels",
           "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
           "lightSide": "right"
         },
@@ -280,32 +277,35 @@
     "day_on_sha": "0223de2b16fd7d37",
     "evening_rim0_vs_rim1_differ": true,
     "evening_off_sha": "f48e6aa3be68cf64",
-    "evening_on_sha": "f91e876767b40e69"
+    "evening_on_sha": "af931147270f1574"
   },
   "rim_evening_x295": {
     "light_side_and_top": {
-      "n": 134,
+      "n": 107,
       "pct_ge_2": 100.0,
       "pct_ge_1_5": 100.0,
       "min": 3.4104,
-      "mean": 5.3927,
+      "mean": 5.1664,
       "max": 7.9121
     },
     "whole_silhouette_coverage": {
-      "rim_pixels": 134,
+      "rim_pixels": 107,
       "outer_ring_candidates": 244,
-      "percent": 54.92
+      "percent": 43.85
     },
     "shot_vs_predicted": {
-      "predicted_in_frame": 134,
-      "shot_matched": 134,
+      "predicted_in_frame": 107,
+      "shot_matched": 107,
       "extra_shot_rim_not_predicted": 0,
       "shot_rim_on_or_below_feet_row": 0
     },
     "feet_row_native": 252,
-    "top_cutoff_src_y": 62.2,
+    "top_cutoff_src_y": 53.4,
     "light_side": "right",
-    "note": "All 134 predicted light-side+top rim pixels are visible in the shot (the floor label sits below the feet, not over the rim). Contrast vs the actual evening background: 100% ≥ 2, 100% ≥ 1.5, min 3.41, mean 5.39. Coverage of the full exterior ring (no feet row, no holes, no 1 px channels) is 54.92% (134/244). Zero rim on or below the floor-contact row (scene y=252) and zero in the leg gap."
+    "waist_src_y": 75,
+    "waist_frac": 0.55,
+    "top_frac": 0.3,
+    "waist_rule": "55% of the opaque bbox (y0=27, y1=115 -> waistY=75). No belt pinch: opaque span stays 26-27 px until the hands end at y=87. Light-side pixels below the waist are kept only on alternate rows; the first row below the waist is skipped ((srcy-waistY)%2==1 is dropped)."
   },
   "crops_x8": {
     "face": {
@@ -373,5 +373,20 @@
   "light_side": {
     "value": "right",
     "why": "Living-room evening: the window is dusk-dark; lamps are on at both sides. The tall floor lamp on the right is the brightest region of room_evening and sits at head/shoulder height. The left table lamp is lower and smaller. x=295 is left of that floor lamp (and left of the table), so the character's lit side is still the right. World direction; a flip would keep the world-right side."
+  },
+  "stray_left_hand": {
+    "cause": "Open gap wider than 1 px between the left (back-lit) arm and the torso at sprite (16,87) and (17,87), just under the left fingertips. The hole flood and 1-px-channel rules missed it (the gap is open to the outside and at y=87 is two pixels wide). Those transparent pixels had the arm directly to their left, so the right-facing (light-side) neighbour test treated them as a lit edge. They are well below the top cutoff, so they were not isTop.",
+    "fix": "A light-side rim pixel is kept only if a same-row scan TOWARD the light (to the canvas edge on the light side; world direction, localLight already includes flip) meets no opaque sprite pixel — only the outermost light-side contour. Scanning toward the back-lit side would KEEP the stray dots (and also (17,43)/(18,43)), so that phrasing is the wrong direction. The same unoccluded idea is applied to the top rim: nothing opaque above in the same column, so an upward-facing edge inside a notch is not lit.",
+    "removed_sprite_xy": [
+      [
+        16,
+        87
+      ],
+      [
+        17,
+        87
+      ]
+    ],
+    "present_in_new_shots": false
   }
 }

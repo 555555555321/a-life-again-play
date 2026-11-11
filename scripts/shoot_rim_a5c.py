@@ -32,7 +32,8 @@ STAND_X = 295
 SHOT = 2340, 1080
 SX, SCALE, NW, NH = 210, 4, 480, 270
 RIM_RGB = (196, 170, 120)
-TOP_FRAC = 0.40
+TOP_FRAC = 0.30
+WAIST_FRAC = 0.55
 LOCAL_LIGHT = "right"  # unflipped, world light is right
 # Inclusive native scene boxes for 8× crops
 FACE_BOX = (286, 160, 308, 196)
@@ -214,7 +215,9 @@ def predicted_rim(sprite: np.ndarray, local_light: str = "right"):
             stack.append((y + dy, x + dx))
     N8 = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
     side_dirs = ((0, -1), (-1, -1), (1, -1)) if local_light == "right" else ((0, 1), (-1, 1), (1, 1))
+    toward = 1 if local_light == "right" else -1
     cutoff = y0 + TOP_FRAC * (y1 - y0)
+    waist_y = int(round(y0 + WAIST_FRAC * (y1 - y0)))
     rim = np.zeros((H, W), dtype=bool)
     ring = np.zeros((H, W), dtype=bool)
     for y in range(H):
@@ -231,14 +234,24 @@ def predicted_rim(sprite: np.ndarray, local_light: str = "right"):
             if srcy >= y1:
                 continue
             ring[y, x] = True
-            is_top = srcy <= cutoff and (y + 1 < H and op[y + 1, x])
+            above_clear = not any(op[ny, x] for ny in range(0, y))
+            is_top = srcy <= cutoff and (y + 1 < H and op[y + 1, x]) and above_clear
             is_side = any(
                 0 <= y + dy < H and 0 <= x + dx < W and op[y + dy, x + dx]
                 for dy, dx in side_dirs
             )
+            if is_side:
+                nx = x + toward
+                while 0 <= nx < W:
+                    if op[y, nx]:
+                        is_side = False
+                        break
+                    nx += toward
+                if is_side and srcy > waist_y and ((srcy - waist_y) % 2 == 1):
+                    is_side = False
             if is_top or is_side:
                 rim[y, x] = True
-    return {"rim": rim, "ring": ring, "y0": y0, "y1": y1, "cutoff": cutoff, "pad": pad, "H": H, "W": W}
+    return {"rim": rim, "ring": ring, "y0": y0, "y1": y1, "cutoff": cutoff, "waist_y": waist_y, "pad": pad, "H": H, "W": W}
 
 
 def summarize(crs):
