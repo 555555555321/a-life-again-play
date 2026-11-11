@@ -394,6 +394,7 @@ const charRimCache = new WeakMap(); // im -> {left, right}
 function eveningLit() {
   if (activeKey === 'style_trial_mom' && styleTrialMom) return styleTrialMom.lighting === 'evening';
   if (activeKey === 'style_trial_mom_a4' && styleTrialMomA4) return styleTrialMomA4.lighting === 'evening';
+  if (activeKey === 'style_trial_mom_a5c' && styleTrialMomA5c) return styleTrialMomA5c.lighting === 'evening';
   return !!(prepared && prepared.lighting === 'evening');
 }
 
@@ -759,6 +760,11 @@ function loop(now) {
   }
   if (activeKey === 'style_trial_mom_a4' && styleTrialMomA4) {
     drawStyleTrialMomA4(now);
+    requestAnimationFrame(loop);
+    return;
+  }
+  if (activeKey === 'style_trial_mom_a5c' && styleTrialMomA5c) {
+    drawStyleTrialMomA5c(now);
     requestAnimationFrame(loop);
     return;
   }
@@ -2063,6 +2069,92 @@ function drawStyleTrialMomA4(now) {
 }
 
 
+// —— DEV style_trial_mom_a5c: final mom A round 5 (A_r5c_12) at living-room x=295 ——
+// Separate screen so the official a4 trial (r4 at x=406) is not swapped.
+// Feet on floor_line 252, anchor (27,115). Clean range in 王子 standing_points is x=291–327; 295 is the recommended point.
+const STYLE_TRIAL_MOM_A5C_VERSIONS = [
+  { id: 'a5c_12', label: 'A 第5輪', src: 'assets/chars/style_trial_mom/a_r5c/A_r5c_12.png', x: 295 },
+];
+let styleTrialMomA5c = null;
+
+async function initStyleTrialMomA5c(lighting) {
+  const lit = (lighting === 'evening') ? 'evening' : 'daylight';
+  const day = new Image(); day.src = 'assets/room_daylight.png';
+  const eve = new Image(); eve.src = 'assets/room_evening.png';
+  await Promise.all([day.decode(), eve.decode()]);
+  const versions = [];
+  for (const v of STYLE_TRIAL_MOM_A5C_VERSIONS) {
+    const img = await load(v.src);
+    versions.push({ id: v.id, label: v.label, src: v.src, x: v.x, feet: STYLE_TRIAL_MOM_FLOOR, flip: false, ax: 27, ay: 115, img: img, imgEvening: stmTintEvening(img) });
+  }
+  styleTrialMomA5c = {
+    lighting: lit,
+    rooms: { daylight: day, evening: eve },
+    floorLine: STYLE_TRIAL_MOM_FLOOR,
+    facing: 'W as drawn (no flip)',
+    note: 'Final mom A round 5 (A_r5c_12, 12 colours) at x=295, feet 252, anchor (27,115). Official style_trial_mom_a4 is unchanged. Evening uses the room multiply on sprites at render time; PNGs are not modified.',
+    eveningMul: STYLE_TRIAL_MOM_EVENING_MUL,
+    versions: versions,
+  };
+  window.STYLE_TRIAL_MOM_A5C = styleTrialMomA5c;
+  stmA5cRefreshLitButtons();
+}
+
+function stmA5cSprite(ch) {
+  return (styleTrialMomA5c && styleTrialMomA5c.lighting === 'evening' && ch.imgEvening) ? ch.imgEvening : ch.img;
+}
+
+function stmA5cRefreshLitButtons() {
+  if (!styleTrialMomA5c) return;
+  for (const sel of ['btns', 'lbtns']) {
+    const box = document.getElementById(sel);
+    if (!box) continue;
+    for (const b of box.querySelectorAll('button')) {
+      const want = (b.textContent === '夜間') ? 'evening' : (b.textContent === '日間') ? 'daylight' : null;
+      if (want) b.classList.toggle('sel', styleTrialMomA5c.lighting === want);
+    }
+  }
+}
+
+function stmA5cSetLighting(lit) {
+  if (!styleTrialMomA5c) return;
+  styleTrialMomA5c.lighting = (lit === 'evening') ? 'evening' : 'daylight';
+  if (prepared) prepared.room = styleTrialMomA5c.rooms[styleTrialMomA5c.lighting];
+  const u = new URL(location.href);
+  if (styleTrialMomA5c.lighting === 'evening') u.searchParams.set('lit', 'evening');
+  else u.searchParams.delete('lit');
+  history.replaceState(null, '', u.toString());
+  stmA5cRefreshLitButtons();
+}
+
+function drawStyleTrialMomA5c(now) {
+  if (!styleTrialMomA5c) return;
+  const room = styleTrialMomA5c.rooms[styleTrialMomA5c.lighting] || (prepared && prepared.room);
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (!(ORIENT === 'landscape' && gL)) {
+    const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+    if (gP && room) {
+      gP.imageSmoothingEnabled = false;
+      gP.drawImage(room, 0, 0);
+      for (const ch of styleTrialMomA5c.versions) {
+        drawCharSprite(gP, stmA5cSprite(ch), ch.x - ch.ax, ch.feet - ch.ay);
+      }
+    }
+    return;
+  }
+  gL.imageSmoothingEnabled = false;
+  gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+  if (room) gL.drawImage(room, 0, 0, 480, 270, 210, 0, 1920, 1080);
+  gL.font = '28px NotoTC,sans-serif';
+  for (const ch of styleTrialMomA5c.versions) {
+    const sx = 210 + ch.x * 4;
+    const sy = ch.feet * 4;
+    drawCharSprite(gL, stmA5cSprite(ch), sx - ch.ax * 4, sy - ch.ay * 4, 56 * 4, 116 * 4);
+    ch._labelBox = devFloorLabel(gL, ch.label, sx, ch.feet);
+  }
+}
+
+
 (async () => {
   [manifest, data, actionIds] = await Promise.all([
     fetch('manifest.json').then(r => r.json()),
@@ -2226,6 +2318,34 @@ function drawStyleTrialMomA4(now) {
           b.textContent = label;
           if (styleTrialMomA4 && styleTrialMomA4.lighting === id) b.classList.add('sel');
           b.onclick = () => stmA4SetLighting(id);
+          box.appendChild(b);
+        }
+      };
+      wireLit('btns'); wireLit('lbtns');
+      if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'style_trial_mom_a5c') {
+    if (!DEV) {
+      console.warn('style_trial_mom_a5c requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.style_trial_mom_a5c;
+      activeKey = 'style_trial_mom_a5c';
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, 'style_trial_mom_a5c');
+      await initStyleTrialMomA5c(lit);
+      fit();
+      reflow();
+      renderAll();
+      const wireLit = (sel) => {
+        const box = document.getElementById(sel);
+        if (!box) return;
+        box.innerHTML = '';
+        for (const [id, label] of [['daylight', '日間'], ['evening', '夜間']]) {
+          const b = document.createElement('button');
+          b.textContent = label;
+          if (styleTrialMomA5c && styleTrialMomA5c.lighting === id) b.classList.add('sel');
+          b.onclick = () => stmA5cSetLighting(id);
           box.appendChild(b);
         }
       };

@@ -1,0 +1,377 @@
+{
+  "sprite_final": "A_r5c_12.png",
+  "official_a4_untouched": true,
+  "wangzi_claimed_x295": {
+    "source": "standing_points.csv / verify_r5.py for A_r5_12 (not r5c); n=225",
+    "day_outline_only": 64.0,
+    "day_max_outline_one_in": 84.0,
+    "evening_outline_only": 25.0,
+    "evening_max_outline_one_in": 29.0
+  },
+  "clean_stand_range": "x=291–327 from a_r5/standing_points.csv; x=295 is is_recommended",
+  "gate3_r5c": {
+    "sprite": "/workspace/a-life-again-play-rim/assets/chars/style_trial_mom/a_r5c/A_r5c_12.png",
+    "sha256": "d2cef574c0bf0754020e0a724a06862f0a619660c63bae655c4522ab2350bfe4",
+    "canvas": [
+      56,
+      116
+    ],
+    "opaque": 1931,
+    "opaque_bbox": [
+      13,
+      27,
+      45,
+      115
+    ],
+    "outline_n": 225,
+    "inward_missing": 0,
+    "stand_x": 295,
+    "feet": 252,
+    "anchor": [
+      27,
+      115
+    ],
+    "placement": {
+      "left": 268,
+      "top": 137
+    },
+    "rooms": {
+      "daylight": "assets/room_daylight.png",
+      "evening": "assets/room_evening.png",
+      "day_sha256": "61f6ff57b0255febfc23557a367d6be79e7465af1cfd218d74b7d175e4e817d4",
+      "eve_sha256": "e09fe9c2a4773f8e73a8f9a95eeedda0e4f72f2689cc275c25d6127fdfd763b7"
+    },
+    "evening_multiply": [
+      142,
+      115,
+      83
+    ],
+    "inward_rule": "N4: step opposite each transparent/off-canvas neighbour; if several, the majority inward pixel",
+    "contrast_equation": "(Ymax+0.05)/(Ymin+0.05) WCAG relative luminance; background is the actual room pixel at the outline coordinate",
+    "day": {
+      "n": 225,
+      "outline_only_ge2": 144,
+      "outline_only_pct": 64.0,
+      "max_outline_one_in_ge2": 188,
+      "max_outline_one_in_pct": 83.56,
+      "outline_min": 1.0401,
+      "max_min": 1.0401,
+      "outline_mean": 3.1706,
+      "max_mean": 3.54
+    },
+    "evening": {
+      "n": 225,
+      "outline_only_ge2": 56,
+      "outline_only_pct": 24.89,
+      "max_outline_one_in_ge2": 65,
+      "max_outline_one_in_pct": 28.89,
+      "outline_min": 1.0041,
+      "max_min": 1.0052,
+      "outline_mean": 1.5613,
+      "max_mean": 1.7353
+    },
+    "four_numbers_pct": {
+      "day_outline_only": 64.0,
+      "day_max_outline_one_in": 83.56,
+      "evening_outline_only": 24.89,
+      "evening_max_outline_one_in": 28.89
+    },
+    "four_numbers_counts": {
+      "day_outline_only": "144/225",
+      "day_max_outline_one_in": "188/225",
+      "evening_outline_only": "56/225",
+      "evening_max_outline_one_in": "65/225"
+    },
+    "vs_wangzi": "王子's 64% / 84% / 25% / 29% at x=295 (225 edges) were measured on A_r5_12.png (CSV: 144/225, 189/225, 56/225, 66/225). Independently recomputed on the same Phone B rooms and rule, A_r5_12 matches that CSV exactly. Final A_r5c_12 shares the same alpha (225 outline points) but differs in 300 colour pixels, so outline-only is unchanged (144/225 = 64.00% day, 56/225 = 24.89% evening) while max(outline, one-in) is one point lower: day 188/225 = 83.56% (not 189/225 = 84.00%), evening 65/225 = 28.89% (not 66/225 = 29.33%)."
+  },
+  "gate3_r5_for_comparison": {
+    "note": "A_r5_12.png, the sprite 王子's CSV was built from. Alpha matches r5c; 300 colour pixels differ.",
+    "sha256": "6d1d542c8532e5c020c3b5e27c6faa437055adf8846e38f86385f2fed05f0fa3",
+    "four_numbers_pct": {
+      "day_outline_only": 64.0,
+      "day_max_outline_one_in": 84.0,
+      "evening_outline_only": 24.89,
+      "evening_max_outline_one_in": 29.33
+    },
+    "day": {
+      "n": 225,
+      "outline_only_ge2": 144,
+      "outline_only_pct": 64.0,
+      "max_outline_one_in_ge2": 189,
+      "max_outline_one_in_pct": 84.0,
+      "outline_min": 1.0401,
+      "max_min": 1.0401,
+      "outline_mean": 3.1706,
+      "max_mean": 3.5576
+    },
+    "evening": {
+      "n": 225,
+      "outline_only_ge2": 56,
+      "outline_only_pct": 24.89,
+      "max_outline_one_in_ge2": 66,
+      "max_outline_one_in_pct": 29.33,
+      "outline_min": 1.0041,
+      "max_min": 1.0052,
+      "outline_mean": 1.5613,
+      "max_mean": 1.7429
+    }
+  },
+  "shots": {
+    "evening_off": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a5c&drawer=0&lit=evening&rim=0",
+      "path": "shots/rim_a5c_evening_off.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "f48e6aa3be68cf64",
+      "js": {
+        "ready": true,
+        "lighting": "evening",
+        "versions": [
+          {
+            "id": "a5c_12",
+            "x": 295,
+            "src": "assets/chars/style_trial_mom/a_r5c/A_r5c_12.png"
+          }
+        ],
+        "rimFlag": false,
+        "rimActive": false,
+        "lightSide": "right",
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
+        },
+        "a4_still_r4": true
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "evening_on": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a5c&drawer=0&lit=evening&rim=1",
+      "path": "shots/rim_a5c_evening_on.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "f91e876767b40e69",
+      "js": {
+        "ready": true,
+        "lighting": "evening",
+        "versions": [
+          {
+            "id": "a5c_12",
+            "x": 295,
+            "src": "assets/chars/style_trial_mom/a_r5c/A_r5c_12.png"
+          }
+        ],
+        "rimFlag": true,
+        "rimActive": true,
+        "lightSide": "right",
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
+        },
+        "a4_still_r4": true
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "day_off": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a5c&drawer=0&rim=0",
+      "path": "shots/rim_a5c_day_off.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "0223de2b16fd7d37",
+      "js": {
+        "ready": true,
+        "lighting": "daylight",
+        "versions": [
+          {
+            "id": "a5c_12",
+            "x": 295,
+            "src": "assets/chars/style_trial_mom/a_r5c/A_r5c_12.png"
+          }
+        ],
+        "rimFlag": false,
+        "rimActive": false,
+        "lightSide": "right",
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
+        },
+        "a4_still_r4": true
+      },
+      "console": [],
+      "pageerror": []
+    },
+    "day_on": {
+      "url": "http://127.0.0.1:8793/?shot&dev=1&orient=landscape&screen=style_trial_mom_a5c&drawer=0&rim=1",
+      "path": "shots/rim_a5c_day_on.png",
+      "size": [
+        2340,
+        1080
+      ],
+      "sha256_16": "0223de2b16fd7d37",
+      "js": {
+        "ready": true,
+        "lighting": "daylight",
+        "versions": [
+          {
+            "id": "a5c_12",
+            "x": 295,
+            "src": "assets/chars/style_trial_mom/a_r5c/A_r5c_12.png"
+          }
+        ],
+        "rimFlag": true,
+        "rimActive": false,
+        "lightSide": "right",
+        "charRim": {
+          "hex": "#c4aa78",
+          "rgb": [
+            196,
+            170,
+            120
+          ],
+          "pad": 1,
+          "topFrac": 0.4,
+          "placement": "exterior top/shoulders + light-facing side, no feet row, no holes or 1px channels",
+          "palette": "family #c4aa78 grandpa_khaki light (also in 3349)",
+          "lightSide": "right"
+        },
+        "a4_still_r4": true
+      },
+      "console": [],
+      "pageerror": []
+    }
+  },
+  "identity": {
+    "day_rim0_vs_rim1_identical": true,
+    "day_off_sha": "0223de2b16fd7d37",
+    "day_on_sha": "0223de2b16fd7d37",
+    "evening_rim0_vs_rim1_differ": true,
+    "evening_off_sha": "f48e6aa3be68cf64",
+    "evening_on_sha": "f91e876767b40e69"
+  },
+  "rim_evening_x295": {
+    "light_side_and_top": {
+      "n": 134,
+      "pct_ge_2": 100.0,
+      "pct_ge_1_5": 100.0,
+      "min": 3.4104,
+      "mean": 5.3927,
+      "max": 7.9121
+    },
+    "whole_silhouette_coverage": {
+      "rim_pixels": 134,
+      "outer_ring_candidates": 244,
+      "percent": 54.92
+    },
+    "shot_vs_predicted": {
+      "predicted_in_frame": 134,
+      "shot_matched": 134,
+      "extra_shot_rim_not_predicted": 0,
+      "shot_rim_on_or_below_feet_row": 0
+    },
+    "feet_row_native": 252,
+    "top_cutoff_src_y": 62.2,
+    "light_side": "right",
+    "note": "All 134 predicted light-side+top rim pixels are visible in the shot (the floor label sits below the feet, not over the rim). Contrast vs the actual evening background: 100% ≥ 2, 100% ≥ 1.5, min 3.41, mean 5.39. Coverage of the full exterior ring (no feet row, no holes, no 1 px channels) is 54.92% (134/244). Zero rim on or below the floor-contact row (scene y=252) and zero in the leg gap."
+  },
+  "crops_x8": {
+    "face": {
+      "native_box_inclusive": [
+        286,
+        160,
+        308,
+        196
+      ],
+      "evening_off": "shots/rim_a5c_evening_off_face_x8.png",
+      "evening_on": "shots/rim_a5c_evening_on_face_x8.png",
+      "size": [
+        184,
+        296
+      ]
+    },
+    "hands": {
+      "native_box_inclusive": [
+        278,
+        212,
+        314,
+        230
+      ],
+      "evening_off": "shots/rim_a5c_evening_off_hands_x8.png",
+      "evening_on": "shots/rim_a5c_evening_on_hands_x8.png",
+      "size": [
+        296,
+        152
+      ]
+    },
+    "legs": {
+      "native_box_inclusive": [
+        264,
+        200,
+        326,
+        256
+      ],
+      "evening_off": "shots/rim_a5c_evening_off_legs_x8.png",
+      "evening_on": "shots/rim_a5c_evening_on_legs_x8.png",
+      "size": [
+        504,
+        456
+      ]
+    }
+  },
+  "js_ok": true,
+  "js_errors": {
+    "evening_off": {
+      "console": [],
+      "pageerror": []
+    },
+    "evening_on": {
+      "console": [],
+      "pageerror": []
+    },
+    "day_off": {
+      "console": [],
+      "pageerror": []
+    },
+    "day_on": {
+      "console": [],
+      "pageerror": []
+    }
+  },
+  "light_side": {
+    "value": "right",
+    "why": "Living-room evening: the window is dusk-dark; lamps are on at both sides. The tall floor lamp on the right is the brightest region of room_evening and sits at head/shoulder height. The left table lamp is lower and smaller. x=295 is left of that floor lamp (and left of the table), so the character's lit side is still the right. World direction; a flip would keep the world-right side."
+  }
+}
