@@ -403,12 +403,52 @@
     return MODE_TO_KIND[mode] || mode;
   }
 
+
+  var BODY_BOB_KEY = 'body_bob_px';
+
+  function zeroBob(n) {
+    const out = [];
+    const len = n > 0 ? n : 8;
+    for (let i = 0; i < len; i++) out.push(0);
+    return out;
+  }
+
+  // Read per-frame body drop from overlays/manifest.json. Never a hardcoded sequence.
+  // Missing or empty body_bob_px → all zeros and missing=true (dev warning is the caller's job).
+  function readBodyBobPx(man) {
+    const frames = (man && Number(man.frames)) || 8;
+    const arr = man && man[BODY_BOB_KEY];
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return { px: zeroBob(frames), missing: true };
+    }
+    const px = [];
+    for (let i = 0; i < arr.length; i++) {
+      const v = Number(arr[i]);
+      px.push(Number.isFinite(v) ? v : 0);
+    }
+    return { px, missing: false };
+  }
+
+  // Body PNGs already contain the bounce. Apply the manifest offset only to
+  // driver / passenger / child-seat overlays (not body, not baked scooter/bike frames).
+  function layerDrawOffsetY(planOrMan, role, frameIndex) {
+    if (!role || role === 'body' || role === 'combined') return 0;
+    const bob = readBodyBobPx(planOrMan);
+    if (!bob.px.length) return 0;
+    const i = Number(frameIndex);
+    const n = bob.px.length;
+    const idx = Number.isFinite(i) ? ((i % n) + n) % n : 0;
+    return bob.px[idx] || 0;
+  }
+
+
   function metricsFor(cfg, mode, model, extra) {
     const kind = vehicleKind(mode);
     const m = String(model == null ? 0 : model);
     const over = (extra && extra.overlayManifests) || (cfg && cfg.overlayManifests) || {};
     if (kind === 'smallcar' && over[m] && over[m].px_per_frame != null) {
       const man = over[m];
+      const bob = readBodyBobPx(man);
       return {
         source: 'overlay_manifest',
         canvas: man.canvas,
@@ -416,11 +456,15 @@
         ground_row: man.ground_row,
         px_per_frame: Number(man.px_per_frame),
         frames: man.frames || 8,
+        body_bob_px: bob.px,
+        body_bob_missing: bob.missing,
       };
     }
     const baked = cfg && cfg.bakedMetrics;
     const bakedKey = (kind === 'bicycle' && m === '2') ? 'bicycle_m2_v2'
-      : (kind === 'scooter' && extra && extra.familyDir) ? 'scooter_m0_family'
+      : (kind === 'scooter' && extra && extra.familyDir) ? 'scooter_m0_family_v2'
+      : (kind === 'scooter' && m === '0') ? 'scooter_m0_v2'
+      : (kind === 'scooter' && m === '2') ? 'scooter_m2_v2'
       : (kind + '_m' + m);
     const bm = baked && (baked[bakedKey] || baked[kind + '_m' + m]);
     if (bm && bm.px_per_frame != null) {
@@ -546,6 +590,8 @@
           layers.push({ role: 'spouse', folder: spouse, tint: peopleTint, headsOnly: true });
         }
         layers.push({ role: 'driver', folder: 'driver_' + driver, tint: peopleTint, driver: driver });
+        const bob = readBodyBobPx(over);
+        if (bob.missing) labels.push('body_bob_px 缺失');
         return {
           pack: 'a', compose: 'layered', kind, model: Number(model),
           layers, pending, labels,
@@ -553,6 +599,7 @@
           canvas: over.canvas, origin: over.origin, ground_row: over.ground_row,
           px_per_frame: Number(over.px_per_frame), frames: over.frames || 8, scale: 1, fps,
           duskTint, variant: null, metricsSource: 'overlay_manifest',
+          body_bob_px: bob.px, body_bob_missing: bob.missing,
         };
       }
       // Do not fall back to the old 1 px-shorter composites.
@@ -574,21 +621,31 @@
       const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.bicycle_m2_v2;
       if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
     }
+    if (kind === 'scooter' && model === '0') {
+      assetDir = 'assets/vehicles/a/scooter_m0_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m0_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
+    if (kind === 'scooter' && model === '2') {
+      assetDir = 'assets/vehicles/a/scooter_m2_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m2_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
     if (wantedFamily) {
       const famReady = model === '0' && o.familyAvailable !== false;
       if (famReady) {
         const chosenFam = time + '_' + driver;
-        const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m0_family;
+        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics.scooter_m0_family_v2 || o.cfg.bakedMetrics.scooter_m0_family);
         if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
         return {
           pack: 'a', compose: 'baked_rider', kind, model: Number(model),
           layers: [{
             role: 'combined', variant: chosenFam, baked: true,
             tint: duskTint ? 'evening' : null,
-            pathPattern: 'assets/vehicles/a/scooter_m0_family/frames/' + chosenFam + '/f{frame}.png',
+            pathPattern: 'assets/vehicles/a/scooter_m0_family_v2/frames/' + chosenFam + '/f{frame}.png',
           }],
           pending, labels,
-          assetDir: 'assets/vehicles/a/scooter_m0_family',
+          assetDir: 'assets/vehicles/a/scooter_m0_family_v2',
           canvas, origin, ground_row,
           px_per_frame: pxUse, frames: 8, scale: 1, fps,
           duskTint, variant: chosenFam, fallbackFrom: null, family: true,
@@ -740,6 +797,7 @@
     playerAgeFromGameState, boughtAgeFromGameState, carAgeFromGameState,
     MODE_TO_KIND, SMALLCAR_LAYER_ORDER, BREAKDOWN_FALLBACK_CARD,
     vehicleKind, metricsFor, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
+    BODY_BOB_KEY, readBodyBobPx, layerDrawOffsetY,
     cardMatches, pickCard, lookupArrivalCard,
   };
 });

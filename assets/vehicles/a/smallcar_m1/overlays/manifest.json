@@ -10,7 +10,7 @@
     0,
     0
   ],
-  "origin_note": "所有層與車身條共用此畫布左上角，直接對齊疊加。",
+  "origin_note": "所有層與車身條共用畫布左上原點 (0,0)。疊圖不要直接對齊貼上：每一格先把 overlay 往下移 body_bob_px[i]，再與該格車身合成。",
   "ground_row": 49,
   "facing": "right",
   "frames": 8,
@@ -239,7 +239,7 @@
           ]
         }
       ],
-      "bob": "HEAD_BOB+BODY_BOB baked",
+      "bob": "HEAD_BOB only; engine also applies body_bob_px",
       "native_strip": "driver_dad_strip.png"
     },
     "driver_mom": {
@@ -419,7 +419,7 @@
           ]
         }
       ],
-      "bob": "HEAD_BOB+BODY_BOB baked",
+      "bob": "HEAD_BOB only; engine also applies body_bob_px",
       "native_strip": "driver_mom_strip.png"
     },
     "passenger_spouse_dad": {
@@ -599,7 +599,7 @@
           ]
         }
       ],
-      "bob": "PASS_BOB+BODY_BOB baked",
+      "bob": "PASS_BOB only (child_seat backrest is static); engine also applies body_bob_px",
       "native_strip": "passenger_spouse_dad_strip.png"
     },
     "passenger_spouse_mom": {
@@ -779,7 +779,7 @@
           ]
         }
       ],
-      "bob": "PASS_BOB+BODY_BOB baked",
+      "bob": "PASS_BOB only (child_seat backrest is static); engine also applies body_bob_px",
       "native_strip": "passenger_spouse_mom_strip.png"
     },
     "child_seat": {
@@ -1007,7 +1007,7 @@
           ]
         }
       ],
-      "bob": "PASS_BOB+BODY_BOB baked",
+      "bob": "PASS_BOB only (child_seat backrest is static); engine also applies body_bob_px",
       "native_strip": "child_seat_strip.png"
     },
     "passengers_parents": {
@@ -1315,7 +1315,7 @@
           }
         ]
       ],
-      "bob": "PASS_BOB+BODY_BOB baked",
+      "bob": "PASS_BOB only (child_seat backrest is static); engine also applies body_bob_px",
       "native_strip": "passengers_parents_strip.png"
     }
   },
@@ -1325,6 +1325,20 @@
     "passenger_spouse_mom 配 driver_dad；passenger_spouse_dad 配 driver_mom。",
     "child_seat 含座椅殼與小孩頭。",
     "passengers_parents 是阿公＋阿嬤兩個頭，用已上全家色盤的長輩站姿翻成朝右後裁頭。",
-    "舊的 smallcar_m*/ 合成圖（含已畫進去的駕駛）未改、未刪。"
-  ]
+    "舊的 smallcar_m*/ 合成圖（含已畫進去的駕駛）未改、未刪。",
+    "body_bob_px 是車身每格下降量，疊圖條沒有預先烤進去；引擎依此清單位移。",
+    "各 overlay 的 bob 欄只描述該層自己的頭／乘客起伏，不含車身起伏。"
+  ],
+  "body_bob_px": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "body_bob_axis": "y_down",
+  "body_bob_note": "從 body_day 車頂實測（相對 f00，y 往下為正）。車身條已含這段起伏；疊圖條不含。引擎請把各 overlay 該格往下移 body_bob_px[i] 再疊上。駕駛層另含 HEAD_BOB，乘客／兒童座椅層另含 PASS_BOB（只有頭在動）。"
 }

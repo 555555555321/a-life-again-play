@@ -130,7 +130,7 @@
     "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
     "card_slot": "抵達後顯示公主 arrival_cards.json 對到的句子。拋錨仍用原本的占位卡。到公司／到家若沒有專用句，改顯示路上句或「待公主補」。",
     "smallcar_body_strip": "小型車車身條與疊圖已交，讀 overlays/manifest.json。",
-    "scooter_family": "機車全家款目前只有 m0；m1/m2 待王子。"
+    "scooter_family": "機車全家款目前只有 m0（scooter_m0_family_v2）；m1/m2 待王子。"
   },
   "missing_originals": [],
   "weekend_dests": [
@@ -325,7 +325,7 @@
     "scooter": {
       "kind": "scooter",
       "compose": "baked_rider",
-      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 riders=family（小孩在前、大人在後）另出一套檔，尚未交付；缺檔時退回單人合成格。",
+      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2；m1/m2 全家款缺檔時退回該款單人合成格。",
       "models": {
         "0": {
           "id": "scooter_m0",
@@ -381,9 +381,14 @@
             "day_dad",
             "day_dad_p1",
             "day_mom",
+            "day_mom_p1",
             "night_dad",
-            "night_mom"
-          ]
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
+          ],
+          "active_dir": "assets/vehicles/a/scooter_m0_v2",
+          "note": "v2 實心輪加相位標記，每幀轉 45°。畫布／ground 與舊版相同。舊 scooter_m0 合成圖保留但不再使用。"
         },
         "1": {
           "id": "scooter_m1",
@@ -497,22 +502,27 @@
             "day_dad",
             "day_dad_p1",
             "day_mom",
+            "day_mom_p1",
             "night_dad",
-            "night_mom"
-          ]
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
+          ],
+          "active_dir": "assets/vehicles/a/scooter_m2_v2",
+          "note": "v2 實心輪加相位標記，每幀轉 45°。畫布／ground 與舊版相同。舊 scooter_m2 合成圖保留但不再使用。"
         }
       },
       "family_variant": {
-        "status": "delivered_m0",
+        "status": "delivered_m0_v2",
         "riders": "family",
-        "note": "小孩站在前面、大人在後面。目前只有 scooter_m0_family；m1/m2 缺檔時退回該款單人合成格。",
-        "path": "assets/vehicles/a/scooter_m0_family/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+        "note": "小孩站在前面、大人在後面。使用 scooter_m0_family_v2（輪面相位標記）；舊 scooter_m0_family 保留但不再使用。m1/m2 缺檔時退回該款單人合成格。",
+        "path": "assets/vehicles/a/scooter_m0_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png"
       }
     },
     "smallcar": {
       "kind": "smallcar",
       "compose": "layered",
-      "compose_note": "車身條＋疊圖，尺寸／原點／px_per_frame 一律讀 overlays/manifest.json。車身比舊合成圖高 1 px，禁止混用。乘客只出頭肩。",
+      "compose_note": "車身條＋疊圖，尺寸／原點／px_per_frame／body_bob_px 一律讀 overlays/manifest.json。車身比舊合成圖高 1 px，禁止混用。乘客只出頭肩。疊圖不含車身起伏；引擎依 body_bob_px 把駕駛／乘客／兒童座椅往下移。",
       "models": {
         "0": {
           "id": "smallcar_m0",
@@ -522,12 +532,12 @@
           "px_per_frame": 5.497787143782138,
           "canvas": [
             98,
-            45
+            46
           ],
-          "ground_row": 44,
+          "ground_row": 45,
           "origin": {
             "x": 0,
-            "y": 44
+            "y": 45
           },
           "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
           "wheels": [
@@ -535,7 +545,7 @@
               "index": 0,
               "hub_xy": [
                 21,
-                37
+                38
               ],
               "r_draw_px": 8,
               "r_roll_px": 7,
@@ -547,7 +557,7 @@
               "index": 1,
               "hub_xy": [
                 77,
-                37
+                38
               ],
               "r_draw_px": 8,
               "r_roll_px": 7,
@@ -587,12 +597,12 @@
           "px_per_frame": 5.497787143782138,
           "canvas": [
             94,
-            49
+            50
           ],
-          "ground_row": 48,
+          "ground_row": 49,
           "origin": {
             "x": 0,
-            "y": 48
+            "y": 49
           },
           "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
           "wheels": [
@@ -600,7 +610,7 @@
               "index": 0,
               "hub_xy": [
                 19,
-                41
+                42
               ],
               "r_draw_px": 8,
               "r_roll_px": 7,
@@ -612,7 +622,7 @@
               "index": 1,
               "hub_xy": [
                 73,
-                41
+                42
               ],
               "r_draw_px": 8,
               "r_roll_px": 7,
@@ -652,12 +662,12 @@
           "px_per_frame": 7.0685834705770345,
           "canvas": [
             90,
-            47
+            48
           ],
-          "ground_row": 46,
+          "ground_row": 47,
           "origin": {
             "x": 0,
-            "y": 46
+            "y": 47
           },
           "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
           "wheels": [
@@ -665,7 +675,7 @@
               "index": 0,
               "hub_xy": [
                 13,
-                37
+                38
               ],
               "r_draw_px": 8,
               "r_roll_px": 9,
@@ -677,7 +687,7 @@
               "index": 1,
               "hub_xy": [
                 69,
-                37
+                38
               ],
               "r_draw_px": 8,
               "r_roll_px": 9,
@@ -727,7 +737,8 @@
           "child_seat": "assets/vehicles/a/smallcar_m{model}/overlays/child_seat/f00.png–f07.png",
           "parents": "assets/vehicles/a/smallcar_m{model}/overlays/passengers_parents/f00.png–f07.png"
         },
-        "metrics": "overlays/manifest.json is the single source of truth"
+        "metrics": "overlays/manifest.json is the single source of truth for canvas, origin, ground_row, px_per_frame, and body_bob_px",
+        "body_bob_px_key": "body_bob_px"
       }
     }
   }

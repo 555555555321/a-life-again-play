@@ -23,22 +23,24 @@ const overlayManifests = {
 };
 cfg.overlayManifests = overlayManifests;
 const v2 = require('../assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
-const famAnchors = require('../assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
+const famAnchors = require('../assets/vehicles/a/scooter_m0_family_v2/anchors_day_dad.json');
+const scoot0v2 = require('../assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
+const scoot2v2 = require('../assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
+function bakedFrom(anchors) {
+  return {
+    source: 'anchors_day_dad',
+    canvas: anchors.canvas,
+    ground_row: anchors.ground_row,
+    px_per_frame: anchors.wheels[0].px_per_frame,
+    origin: [0, 0],
+  };
+}
 cfg.bakedMetrics = {
-  bicycle_m2_v2: {
-    source: 'anchors_day_dad',
-    canvas: v2.canvas,
-    ground_row: v2.ground_row,
-    px_per_frame: v2.wheels[0].px_per_frame,
-    origin: [0, 0],
-  },
-  scooter_m0_family: {
-    source: 'anchors_day_dad',
-    canvas: famAnchors.canvas,
-    ground_row: famAnchors.ground_row,
-    px_per_frame: famAnchors.wheels[0].px_per_frame,
-    origin: [0, 0],
-  },
+  bicycle_m2_v2: bakedFrom(v2),
+  scooter_m0_family_v2: bakedFrom(famAnchors),
+  scooter_m0_family: bakedFrom(famAnchors),
+  scooter_m0_v2: bakedFrom(scoot0v2),
+  scooter_m2_v2: bakedFrom(scoot2v2),
 };
 
 // px/frame and canvas for small cars come from overlays/manifest.json, not the old composite.
@@ -56,6 +58,19 @@ assert.deepStrictEqual(overlayManifests[0].canvas, [98, 46]);
 assert.deepStrictEqual(overlayManifests[1].canvas, [94, 50]);
 assert.deepStrictEqual(overlayManifests[2].canvas, [90, 48]);
 assert.notStrictEqual(overlayManifests[0].canvas[1], 45, 'never the old 45-tall composite');
+assert.strictEqual(L.BODY_BOB_KEY, 'body_bob_px');
+for (const m of [0, 1, 2]) {
+  const man = overlayManifests[m];
+  const entry = cfg.vehicles.smallcar.models[String(m)];
+  assert.strictEqual(entry.ground_row, man.ground_row, 'config ground_row must match new-body manifest m' + m);
+  assert.deepStrictEqual(entry.canvas, man.canvas);
+  assert.strictEqual(entry.origin.y, man.ground_row);
+  assert.ok(Array.isArray(man.body_bob_px) && man.body_bob_px.length === 8);
+  assert.strictEqual(entry.legacy_composite.ground_row, man.ground_row - 1, 'legacy stays 1 px shorter');
+  const met = L.metricsFor(cfg, 'car', m);
+  assert.deepStrictEqual(met.body_bob_px, man.body_bob_px);
+  assert.strictEqual(met.body_bob_missing, false);
+}
 
 const PX = {
   bicycle: [7.0685834705770345, 7.0685834705770345, 5.497787143782138],
@@ -111,13 +126,14 @@ const scootP1 = L.resolveArtPlan({
   available: new Set(['day_dad', 'day_dad_p1']),
 });
 assert.strictEqual(scootP1.variant, 'day_dad_p1');
+assert.strictEqual(scootP1.assetDir, 'assets/vehicles/a/scooter_m0_v2');
 
 const famHit = L.resolveArtPlan({
   pack: 'a', mode: 'scooter', model: 0, driver: 'mom', lighting: 'daylight',
   passengers: 1, riders: 'family', cfg, familyAvailable: true,
 });
 assert.strictEqual(famHit.variant, 'day_mom');
-assert.strictEqual(famHit.assetDir, 'assets/vehicles/a/scooter_m0_family');
+assert.strictEqual(famHit.assetDir, 'assets/vehicles/a/scooter_m0_family_v2');
 assert.strictEqual(famHit.family, true);
 assert.ok(!famHit.pending.includes('scooter_family'));
 assert.deepStrictEqual(famHit.canvas, [52, 50]);
@@ -178,6 +194,22 @@ const scootNightP1 = L.resolveArtPlan({
 });
 assert.strictEqual(scootNightP1.variant, 'night_dad');
 assert.ok(scootNightP1.pending.includes('baked_passenger_variant'));
+assert.strictEqual(scootNightP1.assetDir, 'assets/vehicles/a/scooter_m0_v2');
+const scootNightP1v2 = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'evening', headlights: true,
+  passengers: 1, riders: 'partner', cfg,
+  available: new Set(['day_dad', 'day_dad_p1', 'night_dad', 'night_dad_p1', 'night_mom', 'night_mom_p1']),
+});
+assert.strictEqual(scootNightP1v2.variant, 'night_dad_p1');
+assert.ok(!scootNightP1v2.pending.includes('baked_passenger_variant'));
+assert.strictEqual(scootNightP1v2.assetDir, 'assets/vehicles/a/scooter_m0_v2');
+const scootM2 = L.resolveArtPlan({
+  pack: 'a', mode: 'scooter', model: 2, driver: 'mom', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg,
+  available: new Set(['day_mom', 'day_mom_p1']),
+});
+assert.strictEqual(scootM2.assetDir, 'assets/vehicles/a/scooter_m2_v2');
+assert.strictEqual(scootM2.variant, 'day_mom_p1');
 const scootDuskP1 = L.resolveArtPlan({
   pack: 'a', mode: 'scooter', model: 0, driver: 'dad', lighting: 'evening', headlights: false,
   passengers: 1, riders: 'partner', cfg,
@@ -187,6 +219,55 @@ assert.strictEqual(scootDuskP1.variant, 'day_dad_p1');
 assert.strictEqual(scootDuskP1.duskTint, true);
 pass('layer composition: overlay manifests, v2 folding bike, scooter family, never mix old composites');
 
+
+// body_bob_px comes from the overlay manifest, never a hardcoded array, and
+// is applied only to driver / passenger / child-seat layers (not the body).
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'driver', 0), 0);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'driver', 2), 1);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'spouse', 6), 1);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'child_seat', 2), 1);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'passengers_parents', 2), 1);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'body', 2), 0);
+assert.strictEqual(L.layerDrawOffsetY(overlayManifests[0], 'combined', 2), 0);
+
+const mutatedMan = JSON.parse(JSON.stringify(overlayManifests));
+mutatedMan[0] = Object.assign({}, mutatedMan[0], { body_bob_px: [0, 0, 4, 0, 0, 0, 5, 0] });
+const mutatedCfg = Object.assign({}, cfg, { overlayManifests: mutatedMan });
+const planMut = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'partner', kidSeat: true, cfg: mutatedCfg, overlayManifests: mutatedMan,
+});
+assert.deepStrictEqual(planMut.body_bob_px, [0, 0, 4, 0, 0, 0, 5, 0]);
+assert.strictEqual(planMut.body_bob_missing, false);
+assert.ok(!planMut.labels.includes('body_bob_px 缺失'));
+assert.strictEqual(L.layerDrawOffsetY(planMut, 'driver', 2), 4);
+assert.strictEqual(L.layerDrawOffsetY(planMut, 'spouse', 6), 5);
+assert.strictEqual(L.layerDrawOffsetY(planMut, 'child_seat', 2), 4);
+assert.strictEqual(L.layerDrawOffsetY(planMut, 'body', 2), 0);
+assert.strictEqual(L.layerDrawOffsetY(planMut, 'driver', 0), 0);
+// A hardcoded [0,0,1,0,0,0,1,0] in JS would fail the 4 / 5 assertions above.
+assert.notDeepStrictEqual(planMut.body_bob_px, overlayManifests[0].body_bob_px);
+
+const noBobMan = JSON.parse(JSON.stringify(overlayManifests));
+delete noBobMan[0].body_bob_px;
+const noBobCfg = Object.assign({}, cfg, { overlayManifests: noBobMan });
+const planMissing = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg: noBobCfg, overlayManifests: noBobMan,
+});
+assert.strictEqual(planMissing.body_bob_missing, true);
+assert.deepStrictEqual(planMissing.body_bob_px, [0, 0, 0, 0, 0, 0, 0, 0]);
+assert.ok(planMissing.labels.includes('body_bob_px 缺失'));
+assert.strictEqual(L.layerDrawOffsetY(planMissing, 'driver', 2), 0);
+assert.strictEqual(L.readBodyBobPx({}).missing, true);
+assert.deepStrictEqual(L.readBodyBobPx({ frames: 8 }).px, [0, 0, 0, 0, 0, 0, 0, 0]);
+const planReal = L.resolveArtPlan({
+  pack: 'a', mode: 'car', model: 0, driver: 'dad', lighting: 'daylight',
+  passengers: 1, riders: 'partner', cfg, overlayManifests,
+});
+assert.deepStrictEqual(planReal.body_bob_px, overlayManifests[0].body_bob_px);
+assert.strictEqual(planReal.body_bob_missing, false);
+pass('body_bob_px is read from the manifest; mutating the fixture changes overlay y; body layer stays 0');
 
 // Card lookup coverage: every keys-combo resolves or falls back deterministically.
 const trips = cards.keys.trip;

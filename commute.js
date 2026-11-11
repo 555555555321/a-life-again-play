@@ -82,16 +82,32 @@
           origin: [0, 0],
         };
       }
-      const fam = await loadJson('assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
+      const fam = await loadJson('assets/vehicles/a/scooter_m0_family_v2/anchors_day_dad.json')
+        || await loadJson('assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
       if (fam) {
-        baked.scooter_m0_family = {
+        const famMet = {
           source: 'anchors_day_dad',
           canvas: fam.canvas,
           ground_row: fam.ground_row,
           px_per_frame: fam.wheels && fam.wheels[0] && fam.wheels[0].px_per_frame,
           origin: [0, 0],
         };
+        baked.scooter_m0_family_v2 = famMet;
+        baked.scooter_m0_family = famMet;
       }
+      async function bakeScooter(key, path) {
+        const a = await loadJson(path);
+        if (!a) return;
+        baked[key] = {
+          source: 'anchors_day_dad',
+          canvas: a.canvas,
+          ground_row: a.ground_row,
+          px_per_frame: a.wheels && a.wheels[0] && a.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+      }
+      await bakeScooter('scooter_m0_v2', 'assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
+      await bakeScooter('scooter_m2_v2', 'assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
       cfg.bakedMetrics = baked;
     }
   }
@@ -450,13 +466,18 @@
   }
 
   function groundOffset(im, state) {
+    const plan = state && state.artPlan;
     const mc = modelCfg(state);
-    if (im && mc && mc.canvas && mc.ground_row != null) {
-      return mc.ground_row + (im.height - mc.canvas[1]);
+    const canvas = (plan && plan.canvas) || (mc && mc.canvas);
+    const ground = (plan && plan.ground_row != null) ? plan.ground_row : (mc && mc.ground_row);
+    if (im && canvas && ground != null) {
+      return ground + (im.height - canvas[1]);
     }
     if (im) return im.height - 1;
-    return (mc && mc.ground_row) || 0;
+    return ground || 0;
   }
+
+  let warnedBodyBob = false;
 
   function drawAVehicle(g, state, imgs, x240, yBottom, elapsed, opts) {
     const frozen = opts.frozen, flip = opts.flip, parked = opts.parked;
@@ -464,10 +485,16 @@
     const xS = Math.round(x240 * SCALE);
     const yRoad = Math.round(yBottom * SCALE);
     const dark = state.wear === 'old';
-    const drawOne = (im) => {
+    if (plan && plan.compose === 'layered' && plan.body_bob_missing && !warnedBodyBob) {
+      warnedBodyBob = true;
+      console.warn('body_bob_px missing in overlays/manifest.json; overlay body-bob treated as 0');
+    }
+    const drawOne = (im, role, frameI) => {
       if (!im) return null;
       const go = groundOffset(im, state);
-      const yS = yRoad - go;
+      const Logic = root.CommuteLogic;
+      const bobY = (Logic && Logic.layerDrawOffsetY) ? Logic.layerDrawOffsetY(plan, role, frameI) : 0;
+      const yS = yRoad - go + bobY;
       let src = im;
       if (dark) {
         const c = document.createElement('canvas');
@@ -481,7 +508,7 @@
         src = c;
       }
       blitScene(g, src, xS, yS, src.width, src.height, 0, 0, flip, 1);
-      return { x: xS, y: yS, w: im.width, h: im.height, scene: true };
+      return { x: xS, y: yS, w: im.width, h: im.height, scene: true, frame: frameI, role: role, bobY: bobY };
     };
     let box = null;
     if (plan && plan.compose === 'layered' && imgs.aLayers) {
@@ -490,8 +517,10 @@
         const role = layers[i].role;
         const useTint = layers[i].tint === 'evening' && imgs.aLayersTint && imgs.aLayersTint[role];
         const frames = useTint ? imgs.aLayersTint[role] : imgs.aLayers[role];
-        const im = frameFromSet(frames, elapsed, frozen, parked);
-        const b = drawOne(im);
+        const n = (frames && frames.length) || (plan && plan.frames) || 8;
+        const fi = (frozen || parked) ? 0 : frameIndex(elapsed, n, false);
+        const im = frames && (frames[fi] || frames[0]) || null;
+        const b = drawOne(im, role, fi);
         if (b) box = box || b;
       }
     } else {
@@ -844,7 +873,7 @@
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
         cfg, available, overlayManifests: cfg.overlayManifests,
-        familyAvailable: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m0_family),
+        familyAvailable: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
@@ -915,7 +944,7 @@
         lighting: state.lighting, headlights: state.headlights,
         passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
         cfg, available, overlayManifests: cfg.overlayManifests,
-        familyAvailable: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m0_family),
+        familyAvailable: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
       });
     } else {
       state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });

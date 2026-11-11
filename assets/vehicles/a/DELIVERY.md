@@ -57,3 +57,12 @@ assets/vehicles/a/scooter_m{0|1|2}/frames/{day|night}_{dad|mom}_family/f00.png�
 王子已交出小型車 m0–m2 的 `overlays/`（含 `manifest.json`，這是尺寸／原點／px_per_frame 的唯一來源）、折疊車縮小騎士 `bicycle_m2_v2/`，以及 `scooter_m0_family/`。引擎在 `?dev=1` 試看畫面已接上，不再使用舊合成圖（車身矮 1 px，禁止混用）。背景暫時仍用舊 240 街景 ×2，行駛底 y=204、停放底 y=228。
 
 尚未交付、仍待補：機車 m1／m2 全家款；480 背景雖已畫在 ala 資料夾，先不換進正式路徑，等王子用同檔名替換。第 2 關簽名仍待小兵2號。
+
+---
+
+## 已交（2026-11-11 第 10–11 節）
+
+- 小型車 `overlays/manifest.json` 頂層有 `body_bob_px: [0,0,1,0,0,0,1,0]`（f02、f06 下降 1 px）。疊圖只留頭的動作；引擎依此陣列把駕駛／乘客／兒童座椅往下移，車身條已含起伏所以不再移一次。
+- m0 兒童座椅椅背已收在車頂下。
+- `config.json` 小型車 canvas／ground_row／輪轂 y 已改成新車身數字（m0 98×46／45／38，m1 94×50／49／42，m2 90×48／47／38）。舊合成圖數字留在 `legacy_composite`。
+- 機車輪面相位標記：`scooter_m0_v2`、`scooter_m2_v2`、`scooter_m0_family_v2` 取代先前合成圖（舊資料夾保留）。每格轉 45°。m0／m2 的 v2 已含白天／夜晚 × 爸／媽載客格。
