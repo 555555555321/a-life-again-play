@@ -1,15 +1,29 @@
 {
-  "note": "舊畫風 240×135 素材。畫面以 2 倍最近鄰放大到 480×270。王子稍後會用 A 版重畫腳踏車、機車、小型車；路徑集中在這裡，方便整包替換。",
+  "note": "Phone B 交通工具設定。舊包是 240×135、6 格、scale 2。A 包是 480 原生、8 格、scale 1。預設 art=a，僅接在 ?dev=1 試看畫面（第 2 關尚未簽）。小型車分層的尺寸／原點／px 以 overlays/manifest.json 為準。背景暫用舊 240 街景 ×2，行駛底 y=204、停放底 y=228；王子稍後會用同檔名換成 480 背景。",
+  "fps": 8,
+  "fps_note": "動畫格速與水平位移的唯一依據，commute.js 讀這個值，不再寫死。王子 A 批是 8 fps（REPORT.md）。舊路上條帶的 json 仍寫 fps 10，引擎其實一直用 8，那些 json 的 fps 會被忽略。小兵2號查到的不一致，以本欄為準。",
+  "art_default": "a",
+  "art_param": "art=a|old（預設 a；A 包檔案載不到就退回 old）",
+  "driver_param": "driver=dad|mom（預設 dad；腳踏車／機車用選檔，小型車分層圖到了也用同一參數）",
+  "evening_mul": [
+    142,
+    115,
+    83
+  ],
+  "evening_mul_note": "黃昏＝白天格乘上這組係數（與 game.js 室內傍晚相同），不當場另畫黃昏圖。有頭燈時改用夜晚格（燈已畫在格上）。",
   "style": "old_240",
   "native": {
     "w": 240,
     "h": 135
   },
   "scale": 2,
-  "fps": 8,
+  "scale_note": "頂層 scale/style/native 是舊包的相容欄位。實際繪製以 packs[art].scale 為準。",
   "art_fps_authored": 10,
+  "art_fps_authored_note": "僅記錄舊條帶 json 當初寫的 10，不被使用。",
   "road_bottom_y_240": 102,
   "parked_bottom_y_240": 114,
+  "road_bottom_y_480": 204,
+  "parked_bottom_y_480": 228,
   "type_map": {
     "bicycle": "bike",
     "scooter": "scooter",
@@ -66,6 +80,42 @@
     "kid_seat": "assets/vehicles/placeholders/kid_seat.png",
     "dents": "assets/vehicles/placeholders/dents.png"
   },
+  "a_paths": {
+    "baked": "assets/vehicles/a/{kind}_m{model}/frames/{variant}/f{frame}.png",
+    "body": "assets/vehicles/a/smallcar_m{model}/body/{time}/f{frame}.png",
+    "driver": "assets/vehicles/a/smallcar_m{model}/driver_{driver}/{time}/f{frame}.png",
+    "passengers": "assets/vehicles/a/smallcar_m{model}/passengers_p{n}/{time}/f{frame}.png",
+    "child_seat": "assets/vehicles/a/smallcar_m{model}/child_seat/{time}/f{frame}.png",
+    "scooter_family": "assets/vehicles/a/scooter_m{model}/frames/{time}_{driver}_family/f{frame}.png",
+    "arrival_cards": "assets/vehicles/arrival_cards.json"
+  },
+  "packs": {
+    "old": {
+      "id": "old",
+      "style": "old_240",
+      "native": {
+        "w": 240,
+        "h": 135
+      },
+      "scale": 2,
+      "frames": 6,
+      "road_bottom_y": 204,
+      "parked_bottom_y": 228
+    },
+    "a": {
+      "id": "a",
+      "style": "a_480",
+      "native": {
+        "w": 480,
+        "h": 270
+      },
+      "scale": 1,
+      "frames": 8,
+      "road_bottom_y": 204,
+      "parked_bottom_y": 228,
+      "source": "/workspace/ala/r8_art/王子/vehicles_480_20261111/（只複製 frames 與 anchors，未改原檔）"
+    }
+  },
   "placeholders": {
     "office_park": "辦公室停車場背景尚未有圖，占位（無招牌字）。王子會畫。",
     "beach": "海邊背景占位（無招牌字）。",
@@ -78,7 +128,9 @@
     "dents": "舊車凹痕占位疊圖。",
     "rain": "雨絲占位。車輛沒有雨刷格。",
     "smoke": "拋錨／舊車煙由程式畫，標「煙（占位）」。",
-    "card_slot": "抵達後的卡片格是占位，文案等公主。"
+    "card_slot": "抵達後顯示公主 arrival_cards.json 對到的句子。拋錨仍用原本的占位卡。到公司／到家若沒有專用句，改顯示路上句或「待公主補」。",
+    "smallcar_body_strip": "小型車車身條與疊圖已交，讀 overlays/manifest.json。",
+    "scooter_family": "機車全家款 m0（v2）、m1、m2 已交。m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。"
   },
   "missing_originals": [],
   "weekend_dests": [
@@ -88,5 +140,615 @@
     "friend"
   ],
   "headlights": "evening uses night road strips / parked_*_lights when present (bicycle has no lights).",
-  "wipers": false
+  "wipers": false,
+  "vehicles": {
+    "bicycle": {
+      "kind": "bicycle",
+      "compose": "baked_rider",
+      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 腳踏車不載客。",
+      "models": {
+        "0": {
+          "id": "bicycle_m0",
+          "desc": "城市低跨",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 7.0685834705770345,
+          "canvas": [
+            50,
+            56
+          ],
+          "ground_row": 55,
+          "origin": {
+            "x": 0,
+            "y": 55
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                11,
+                46
+              ],
+              "r_draw_px": 10,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                37,
+                46
+              ],
+              "r_draw_px": 10,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            }
+          ],
+          "seat_xy": [
+            15,
+            32
+          ],
+          "hand_xy": [
+            31,
+            30
+          ],
+          "variants": [
+            "day_dad",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ]
+        },
+        "1": {
+          "id": "bicycle_m1",
+          "desc": "登山",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 7.0685834705770345,
+          "canvas": [
+            52,
+            58
+          ],
+          "ground_row": 57,
+          "origin": {
+            "x": 0,
+            "y": 57
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                11,
+                48
+              ],
+              "r_draw_px": 10,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                39,
+                48
+              ],
+              "r_draw_px": 10,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            }
+          ],
+          "seat_xy": [
+            17,
+            32
+          ],
+          "hand_xy": [
+            37,
+            30
+          ],
+          "variants": [
+            "day_dad",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ]
+        },
+        "2": {
+          "id": "bicycle_m2",
+          "desc": "折疊",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 5.497787143782138,
+          "canvas": [
+            42,
+            60
+          ],
+          "ground_row": 59,
+          "origin": {
+            "x": 0,
+            "y": 59
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                9,
+                52
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                31,
+                52
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            }
+          ],
+          "seat_xy": [
+            13,
+            32
+          ],
+          "hand_xy": [
+            27,
+            30
+          ],
+          "variants": [
+            "day_dad",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ],
+          "active_dir": "assets/vehicles/a/bicycle_m2_v2",
+          "note": "v2 縮小騎士，畫布 42×52、ground 51。舊 bicycle_m2 合成圖保留但不再使用。"
+        }
+      }
+    },
+    "scooter": {
+      "kind": "scooter",
+      "compose": "baked_rider",
+      "compose_note": "8 格、駕駛已畫在車格裡，是定稿。爸爸／媽媽用 driver=dad|mom 選檔，不是分層。 m0／m2 使用輪面相位標記 v2（每格轉 45°）；舊合成圖保留但不再使用。 載客格含白天／夜晚 × 爸／媽（夜間開車燈）。畫布／ground／輪轂以各變體 anchors_{v}.json 為準（媽媽高 1 px，ground 與輪轂 y +1；m2 夜間較寬）。 riders=family（小孩在前、大人在後）用 scooter_m0_family_v2、scooter_m1_family、scooter_m2_family。",
+      "models": {
+        "0": {
+          "id": "scooter_m0",
+          "desc": "低跨機車",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 5.497787143782138,
+          "canvas": [
+            52,
+            58
+          ],
+          "ground_row": 57,
+          "origin": {
+            "x": 0,
+            "y": 57
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                13,
+                50
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                43,
+                50
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            }
+          ],
+          "seat_xy": [
+            17,
+            32
+          ],
+          "hand_xy": [
+            37,
+            22
+          ],
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_mom",
+            "day_mom_p1",
+            "night_dad",
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
+          ],
+          "active_dir": "assets/vehicles/a/scooter_m0_v2",
+          "note": "v2 實心輪加相位標記，每幀轉 45°。畫布／ground 與舊版相同。舊 scooter_m0 合成圖保留但不再使用。"
+        },
+        "1": {
+          "id": "scooter_m1",
+          "desc": "檔車",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 7.0685834705770345,
+          "canvas": [
+            60,
+            60
+          ],
+          "ground_row": 59,
+          "origin": {
+            "x": 0,
+            "y": 59
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                13,
+                50
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                49,
+                50
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            }
+          ],
+          "seat_xy": [
+            13,
+            32
+          ],
+          "hand_xy": [
+            41,
+            24
+          ],
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_mom",
+            "day_mom_p1",
+            "night_dad",
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
+          ]
+        },
+        "2": {
+          "id": "scooter_m2",
+          "desc": "圓燈復古",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 5.497787143782138,
+          "canvas": [
+            48,
+            60
+          ],
+          "ground_row": 59,
+          "origin": {
+            "x": 0,
+            "y": 59
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                13,
+                52
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                39,
+                52
+              ],
+              "r_draw_px": 6,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            }
+          ],
+          "seat_xy": [
+            17,
+            32
+          ],
+          "hand_xy": [
+            37,
+            24
+          ],
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_mom",
+            "day_mom_p1",
+            "night_dad",
+            "night_dad_p1",
+            "night_mom",
+            "night_mom_p1"
+          ],
+          "active_dir": "assets/vehicles/a/scooter_m2_v2",
+          "note": "v2 實心輪加相位標記，每幀轉 45°。畫布／ground 與舊版相同。舊 scooter_m2 合成圖保留但不再使用。"
+        }
+      },
+      "family_variant": {
+        "status": "delivered_m0_m1_m2",
+        "riders": "family",
+        "note": "小孩站在前面、大人在後面。m0 用 scooter_m0_family_v2；m1／m2 用 scooter_m1_family／scooter_m2_family。畫布／ground 讀各變體 anchors_{v}.json。已知弱點：m1 小孩腳會穿過車架；m2 小孩手靠近大圓燈。",
+        "paths": {
+          "0": "assets/vehicles/a/scooter_m0_family_v2/frames/{day|night}_{dad|mom}/f00.png–f07.png",
+          "1": "assets/vehicles/a/scooter_m1_family/frames/{day|night}_{dad|mom}/f00.png–f07.png",
+          "2": "assets/vehicles/a/scooter_m2_family/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+        },
+        "path": "assets/vehicles/a/scooter_m{0:0_family_v2|1_family|2_family}/frames/{day|night}_{dad|mom}/f00.png–f07.png"
+      }
+    },
+    "smallcar": {
+      "kind": "smallcar",
+      "compose": "layered",
+      "compose_note": "車身條＋疊圖，尺寸／原點／px_per_frame／body_bob_px 一律讀 overlays/manifest.json。車身比舊合成圖高 1 px，禁止混用。乘客只出頭肩。疊圖不含車身起伏；引擎依 body_bob_px 把駕駛／乘客／兒童座椅往下移。",
+      "models": {
+        "0": {
+          "id": "smallcar_m0",
+          "desc": "圓潤",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 5.497787143782138,
+          "canvas": [
+            98,
+            46
+          ],
+          "ground_row": 45,
+          "origin": {
+            "x": 0,
+            "y": 45
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                21,
+                38
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                77,
+                38
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            }
+          ],
+          "seat_xy": null,
+          "hand_xy": null,
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_dad_p2",
+            "day_dad_p3",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m0/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m0/frames/",
+            "canvas": [
+              98,
+              45
+            ],
+            "ground_row": 44
+          },
+          "do_not_use_legacy_canvas": true
+        },
+        "1": {
+          "id": "smallcar_m1",
+          "desc": "方正",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 5.497787143782138,
+          "canvas": [
+            94,
+            50
+          ],
+          "ground_row": 49,
+          "origin": {
+            "x": 0,
+            "y": 49
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                19,
+                42
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                73,
+                42
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 7,
+              "circumference_px": 43.982297150257104,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 5.497787143782138
+            }
+          ],
+          "seat_xy": null,
+          "hand_xy": null,
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_dad_p2",
+            "day_dad_p3",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m1/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m1/frames/",
+            "canvas": [
+              94,
+              49
+            ],
+            "ground_row": 48
+          },
+          "do_not_use_legacy_canvas": true
+        },
+        "2": {
+          "id": "smallcar_m2",
+          "desc": "短尾掀背",
+          "frames": 8,
+          "scale": 1,
+          "px_per_frame": 7.0685834705770345,
+          "canvas": [
+            90,
+            48
+          ],
+          "ground_row": 47,
+          "origin": {
+            "x": 0,
+            "y": 47
+          },
+          "origin_note": "原點是畫布左緣、輪胎著地那一列。所有分層（未來小型車）與合成格共用這個原點，對齊後畫在路面列 204。",
+          "wheels": [
+            {
+              "index": 0,
+              "hub_xy": [
+                13,
+                38
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            },
+            {
+              "index": 1,
+              "hub_xy": [
+                69,
+                38
+              ],
+              "r_draw_px": 8,
+              "r_roll_px": 9,
+              "circumference_px": 56.548667764616276,
+              "revolutions_per_loop": 1,
+              "px_per_frame": 7.0685834705770345
+            }
+          ],
+          "seat_xy": null,
+          "hand_xy": null,
+          "variants": [
+            "day_dad",
+            "day_dad_p1",
+            "day_dad_p2",
+            "day_dad_p3",
+            "day_mom",
+            "night_dad",
+            "night_mom"
+          ],
+          "metrics_from": "assets/vehicles/a/smallcar_m2/overlays/manifest.json",
+          "legacy_composite": {
+            "note": "舊合成格已保留但引擎不再使用（畫布矮 1 px，不能跟新條帶疊）。",
+            "dir": "assets/vehicles/a/smallcar_m2/frames/",
+            "canvas": [
+              90,
+              47
+            ],
+            "ground_row": 46
+          },
+          "do_not_use_legacy_canvas": true
+        }
+      },
+      "layered": {
+        "status": "delivered_王子_20261111",
+        "order": [
+          "body",
+          "child_seat",
+          "passengers",
+          "driver"
+        ],
+        "heads_only_when": "passengers >= 3",
+        "paths": {
+          "manifest": "assets/vehicles/a/smallcar_m{model}/overlays/manifest.json",
+          "body": "assets/vehicles/a/smallcar_m{model}/overlays/body_{day|night}/f00.png–f07.png",
+          "driver": "assets/vehicles/a/smallcar_m{model}/overlays/driver_{dad|mom}/f00.png–f07.png",
+          "spouse": "assets/vehicles/a/smallcar_m{model}/overlays/passenger_spouse_{dad|mom}/f00.png–f07.png",
+          "child_seat": "assets/vehicles/a/smallcar_m{model}/overlays/child_seat/f00.png–f07.png",
+          "parents": "assets/vehicles/a/smallcar_m{model}/overlays/passengers_parents/f00.png–f07.png"
+        },
+        "metrics": "overlays/manifest.json is the single source of truth for canvas, origin, ground_row, px_per_frame, and body_bob_px",
+        "body_bob_px_key": "body_bob_px",
+        "three_person": "positions and head_anchors live in overlays/manifest.json (pixels already placed in the PNGs; offset_xy is [0,0]). body_bob_px is unchanged. Dev preview: riders=partner&kidseat=1."
+      }
+    }
+  }
 }

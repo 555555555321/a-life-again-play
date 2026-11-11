@@ -1,0 +1,1190 @@
+{
+  "pages": {
+    "commute_a_missing_scooter_m0_night_p1_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 0,
+      "variant": "night_dad_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        52,
+        58
+      ],
+      "ground_row": 57,
+      "assetDir": "assets/vehicles/a/scooter_m0_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m0_night_p1_dad.png"
+    },
+    "commute_a_missing_scooter_m0_night_p1_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 0,
+      "variant": "night_mom_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        52,
+        59
+      ],
+      "ground_row": 58,
+      "assetDir": "assets/vehicles/a/scooter_m0_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m0_night_p1_mom.png"
+    },
+    "commute_a_missing_scooter_m1_night_p1_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 1,
+      "variant": "night_dad_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        61,
+        60
+      ],
+      "ground_row": 59,
+      "assetDir": "assets/vehicles/a/scooter_m1",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_night_p1_dad.png"
+    },
+    "commute_a_missing_scooter_m1_night_p1_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 1,
+      "variant": "night_mom_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        61,
+        61
+      ],
+      "ground_row": 60,
+      "assetDir": "assets/vehicles/a/scooter_m1",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_night_p1_mom.png"
+    },
+    "commute_a_missing_scooter_m2_night_p1_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 2,
+      "variant": "night_dad_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        60
+      ],
+      "ground_row": 59,
+      "assetDir": "assets/vehicles/a/scooter_m2_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_night_p1_dad.png"
+    },
+    "commute_a_missing_scooter_m2_night_p1_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 2,
+      "variant": "night_mom_p1",
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        61
+      ],
+      "ground_row": 60,
+      "assetDir": "assets/vehicles/a/scooter_m2_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_night_p1_mom.png"
+    },
+    "commute_a_missing_scooter_m1_family_day_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 1,
+      "variant": "day_dad",
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        52
+      ],
+      "ground_row": 51,
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_family_day_dad.png"
+    },
+    "commute_a_missing_scooter_m1_family_day_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 1,
+      "variant": "day_mom",
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        53
+      ],
+      "ground_row": 52,
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_family_day_mom.png"
+    },
+    "commute_a_missing_scooter_m1_family_night_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 1,
+      "variant": "night_dad",
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        52
+      ],
+      "ground_row": 51,
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_family_night_dad.png"
+    },
+    "commute_a_missing_scooter_m1_family_night_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 1,
+      "variant": "night_mom",
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        53
+      ],
+      "ground_row": 52,
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m1_family_night_mom.png"
+    },
+    "commute_a_missing_scooter_m2_family_day_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 2,
+      "variant": "day_dad",
+      "compose": "baked_rider",
+      "canvas": [
+        48,
+        52
+      ],
+      "ground_row": 51,
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_family_day_dad.png"
+    },
+    "commute_a_missing_scooter_m2_family_day_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 2,
+      "variant": "day_mom",
+      "compose": "baked_rider",
+      "canvas": [
+        48,
+        53
+      ],
+      "ground_row": 52,
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_family_day_mom.png"
+    },
+    "commute_a_missing_scooter_m2_family_night_dad": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "dad",
+      "model": 2,
+      "variant": "night_dad",
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        52
+      ],
+      "ground_row": 51,
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_family_night_dad.png"
+    },
+    "commute_a_missing_scooter_m2_family_night_mom": {
+      "art": "a",
+      "mode": "scooter",
+      "driver": "mom",
+      "model": 2,
+      "variant": "night_mom",
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        53
+      ],
+      "ground_row": 52,
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "missing": [],
+      "path": "shots/commute_a_missing_scooter_m2_family_night_mom.png"
+    }
+  },
+  "crops": {
+    "commute_a_missing_scooter_m0_night_p1_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 147,
+        "w": 52,
+        "h": 58
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        52,
+        58
+      ],
+      "ground_row": 57,
+      "variant": "night_dad_p1",
+      "assetDir": "assets/vehicles/a/scooter_m0_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_dad_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        143,
+        232,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m0_night_p1_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m0_night_p1_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m0_night_p1_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m0_night_p1_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 146,
+        "w": 52,
+        "h": 59
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        52,
+        59
+      ],
+      "ground_row": 58,
+      "variant": "night_mom_p1",
+      "assetDir": "assets/vehicles/a/scooter_m0_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_mom_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        142,
+        232,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m0_night_p1_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m0_night_p1_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m0_night_p1_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_night_p1_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 145,
+        "w": 61,
+        "h": 60
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        61,
+        60
+      ],
+      "ground_row": 59,
+      "variant": "night_dad_p1",
+      "assetDir": "assets/vehicles/a/scooter_m1",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_dad_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        141,
+        241,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_night_p1_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_night_p1_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_night_p1_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_night_p1_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 144,
+        "w": 61,
+        "h": 61
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        61,
+        61
+      ],
+      "ground_row": 60,
+      "variant": "night_mom_p1",
+      "assetDir": "assets/vehicles/a/scooter_m1",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_mom_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        140,
+        241,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_night_p1_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_night_p1_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_night_p1_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_night_p1_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 145,
+        "w": 50,
+        "h": 60
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        60
+      ],
+      "ground_row": 59,
+      "variant": "night_dad_p1",
+      "assetDir": "assets/vehicles/a/scooter_m2_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_dad_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        141,
+        230,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_night_p1_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_night_p1_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_night_p1_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_night_p1_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 144,
+        "w": 50,
+        "h": 61
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        61
+      ],
+      "ground_row": 60,
+      "variant": "night_mom_p1",
+      "assetDir": "assets/vehicles/a/scooter_m2_v2",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_mom_p1",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        140,
+        230,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_night_p1_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_night_p1_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_night_p1_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_family_day_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 153,
+        "w": 60,
+        "h": 52
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        52
+      ],
+      "ground_row": 51,
+      "variant": "day_dad",
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_day_dad",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        149,
+        240,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_family_day_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_family_day_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_family_day_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_family_day_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 152,
+        "w": 60,
+        "h": 53
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        53
+      ],
+      "ground_row": 52,
+      "variant": "day_mom",
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_day_mom",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        148,
+        240,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_family_day_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_family_day_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_family_day_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_family_night_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 153,
+        "w": 60,
+        "h": 52
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        52
+      ],
+      "ground_row": 51,
+      "variant": "night_dad",
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_dad",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        149,
+        240,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_family_night_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_family_night_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_family_night_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m1_family_night_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 152,
+        "w": 60,
+        "h": 53
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        60,
+        53
+      ],
+      "ground_row": 52,
+      "variant": "night_mom",
+      "assetDir": "assets/vehicles/a/scooter_m1_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_mom",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        148,
+        240,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m1_family_night_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m1_family_night_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m1_family_night_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_family_day_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 153,
+        "w": 48,
+        "h": 52
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        48,
+        52
+      ],
+      "ground_row": 51,
+      "variant": "day_dad",
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_day_dad",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        149,
+        228,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_family_day_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_family_day_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_family_day_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_family_day_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 152,
+        "w": 48,
+        "h": 53
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        48,
+        53
+      ],
+      "ground_row": 52,
+      "variant": "day_mom",
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_day_mom",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        148,
+        228,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_family_day_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_family_day_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_family_day_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_family_night_dad_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 153,
+        "w": 50,
+        "h": 52
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        52
+      ],
+      "ground_row": 51,
+      "variant": "night_dad",
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_dad",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        149,
+        230,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_family_night_dad_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_family_night_dad_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_family_night_dad_f02_8x.png"
+      }
+    },
+    "commute_a_missing_scooter_m2_family_night_mom_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 152,
+        "w": 50,
+        "h": 53
+      },
+      "compose": "baked_rider",
+      "canvas": [
+        50,
+        53
+      ],
+      "ground_row": 52,
+      "variant": "night_mom",
+      "assetDir": "assets/vehicles/a/scooter_m2_family",
+      "family": true,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "combined"
+      ],
+      "body_bob_px": null,
+      "metricsSource": "anchors_night_mom",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        148,
+        230,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_scooter_m2_family_night_mom_f02_scene.png",
+        "x1": "shots/commute_a_missing_scooter_m2_family_night_mom_f02_1x.png",
+        "x8": "shots/commute_a_missing_scooter_m2_family_night_mom_f02_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m0_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m0/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m0_f02_scene.png",
+        "x1": "shots/commute_a_missing_car3_m0_f02_1x.png",
+        "x8": "shots/commute_a_missing_car3_m0_f02_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m0_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m0/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 6,
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m0_f06_scene.png",
+        "x1": "shots/commute_a_missing_car3_m0_f06_1x.png",
+        "x8": "shots/commute_a_missing_car3_m0_f06_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m1_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 155,
+        "w": 94,
+        "h": 50
+      },
+      "compose": "layered",
+      "canvas": [
+        94,
+        50
+      ],
+      "ground_row": 49,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m1/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        151,
+        274,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m1_f02_scene.png",
+        "x1": "shots/commute_a_missing_car3_m1_f02_1x.png",
+        "x8": "shots/commute_a_missing_car3_m1_f02_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m1_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 155,
+        "w": 94,
+        "h": 50
+      },
+      "compose": "layered",
+      "canvas": [
+        94,
+        50
+      ],
+      "ground_row": 49,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m1/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 6,
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        151,
+        274,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m1_f06_scene.png",
+        "x1": "shots/commute_a_missing_car3_m1_f06_1x.png",
+        "x8": "shots/commute_a_missing_car3_m1_f06_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m2_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 157,
+        "w": 90,
+        "h": 48
+      },
+      "compose": "layered",
+      "canvas": [
+        90,
+        48
+      ],
+      "ground_row": 47,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m2/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 2,
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        153,
+        270,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m2_f02_scene.png",
+        "x1": "shots/commute_a_missing_car3_m2_f02_1x.png",
+        "x8": "shots/commute_a_missing_car3_m2_f02_8x.png"
+      }
+    },
+    "commute_a_missing_car3_m2_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 157,
+        "w": 90,
+        "h": 48
+      },
+      "compose": "layered",
+      "canvas": [
+        90,
+        48
+      ],
+      "ground_row": 47,
+      "variant": null,
+      "assetDir": "assets/vehicles/a/smallcar_m2/overlays",
+      "family": null,
+      "labels": [],
+      "pending": [],
+      "layers": [
+        "body_day",
+        "child_seat",
+        "passenger_spouse_mom",
+        "driver_dad"
+      ],
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "metricsSource": "overlay_manifest",
+      "missing": [],
+      "frameComputed": 6,
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        153,
+        270,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_missing_car3_m2_f06_scene.png",
+        "x1": "shots/commute_a_missing_car3_m2_f06_1x.png",
+        "x8": "shots/commute_a_missing_car3_m2_f06_8x.png"
+      }
+    }
+  },
+  "js_errors": [],
+  "js_error_count": 0,
+  "errors": [],
+  "leftover_pending_labels": []
+}

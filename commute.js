@@ -1,17 +1,148 @@
-// Phone B DEV commute / weekend-drive scene. Old 240-art drawn at 2× nearest-neighbour.
-// Paths live in assets/vehicles/config.json so 王子 can swap style A later.
+// Phone B DEV commute / weekend-drive scene.
+// Old 240-art at 2×, or A-pack 480 native 8-frame at scale 1. config.fps is the sole frame-rate.
+// Paths live in assets/vehicles/config.json.
 (function (root) {
-  const SCALE = 2;
-  const FPS = 8;
+  const SCALE = 2; // 240 layout / old art / backgrounds → 480 scene
   const W480 = 480, H270 = 270;
   const loadImg = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => no(new Error(src)); i.src = src; });
   const tryImg = src => loadImg(src).catch(() => null);
+  async function urlExists(src) {
+    try {
+      const r = await fetch(src, { method: 'GET' });
+      return r.ok;
+    } catch (e) { return false; }
+  }
 
   let cfg = null;
+  let cards = null;
   let commute = null;
   let goingOut = null;
 
   function qsNow() { return new URLSearchParams(location.search); }
+  function fps() { return (cfg && Number(cfg.fps)) || 8; }
+  function eveningMul() { return (cfg && cfg.evening_mul) || [142, 115, 83]; }
+  function pad2(i) { return (i < 10 ? '0' : '') + i; }
+  function aFramePath(kind, model, variant, i, assetDir) {
+    const root = assetDir || ('assets/vehicles/a/' + kind + '_m' + model);
+    return root + '/frames/' + variant + '/f' + pad2(i) + '.png';
+  }
+  function aOverlayPath(model, folder, i) {
+    return 'assets/vehicles/a/smallcar_m' + model + '/overlays/' + folder + '/f' + pad2(i) + '.png';
+  }
+  function tintEvening(img, mul) {
+    if (!img) return null;
+    const c = document.createElement('canvas');
+    c.width = img.width; c.height = img.height;
+    const g = c.getContext('2d');
+    g.imageSmoothingEnabled = false;
+    g.drawImage(img, 0, 0);
+    const d = g.getImageData(0, 0, c.width, c.height), px = d.data;
+    const [mr, mg, mb] = mul || eveningMul();
+    for (let i = 0; i < px.length; i += 4) {
+      if (!px[i + 3]) continue;
+      px[i]     = Math.round(px[i]     * mr / 255);
+      px[i + 1] = Math.round(px[i + 1] * mg / 255);
+      px[i + 2] = Math.round(px[i + 2] * mb / 255);
+    }
+    g.putImageData(d, 0, 0);
+    return c;
+  }
+  function tintSet(frames) {
+    return (frames || []).map((im) => im ? tintEvening(im) : null);
+  }
+  function modelCfg(state) {
+    const plan = state && state.artPlan;
+    if (plan && (plan.ground_row != null || plan.canvas)) {
+      return { canvas: plan.canvas, ground_row: plan.ground_row, origin: plan.origin };
+    }
+    const kind = (plan && plan.kind) || (root.CommuteLogic && root.CommuteLogic.vehicleKind(state.mode));
+    const models = cfg && cfg.vehicles && cfg.vehicles[kind] && cfg.vehicles[kind].models;
+    return (models && models[String(state.model == null ? 0 : state.model)]) || null;
+  }
+
+  async function loadArtMetrics() {
+    if (!cfg) return;
+    if (!cfg.overlayManifests) {
+      const over = {};
+      for (let m = 0; m < 3; m++) {
+        const man = await loadJson('assets/vehicles/a/smallcar_m' + m + '/overlays/manifest.json');
+        if (man) over[String(m)] = man;
+      }
+      cfg.overlayManifests = over;
+    }
+    if (!cfg.bakedMetrics) {
+      const baked = {};
+      const v2 = await loadJson('assets/vehicles/a/bicycle_m2_v2/anchors_day_dad.json');
+      if (v2) {
+        baked.bicycle_m2_v2 = {
+          source: 'anchors_day_dad',
+          canvas: v2.canvas,
+          ground_row: v2.ground_row,
+          px_per_frame: v2.wheels && v2.wheels[0] && v2.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+      }
+      const fam = await loadJson('assets/vehicles/a/scooter_m0_family_v2/anchors_day_dad.json')
+        || await loadJson('assets/vehicles/a/scooter_m0_family/anchors_day_dad.json');
+      if (fam) {
+        const famMet = {
+          source: 'anchors_day_dad',
+          canvas: fam.canvas,
+          ground_row: fam.ground_row,
+          px_per_frame: fam.wheels && fam.wheels[0] && fam.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+        baked.scooter_m0_family_v2 = famMet;
+        baked.scooter_m0_family = famMet;
+      }
+      async function bakeScooter(key, path) {
+        const a = await loadJson(path);
+        if (!a) return;
+        baked[key] = {
+          source: 'anchors_day_dad',
+          canvas: a.canvas,
+          ground_row: a.ground_row,
+          px_per_frame: a.wheels && a.wheels[0] && a.wheels[0].px_per_frame,
+          origin: [0, 0],
+        };
+      }
+      await bakeScooter('scooter_m0_v2', 'assets/vehicles/a/scooter_m0_v2/anchors_day_dad.json');
+      await bakeScooter('scooter_m2_v2', 'assets/vehicles/a/scooter_m2_v2/anchors_day_dad.json');
+      await bakeScooter('scooter_m1_family', 'assets/vehicles/a/scooter_m1_family/anchors_day_dad.json');
+      await bakeScooter('scooter_m2_family', 'assets/vehicles/a/scooter_m2_family/anchors_day_dad.json');
+      cfg.bakedMetrics = baked;
+    }
+    if (!cfg.variantMetrics) {
+      const Logic = root.CommuteLogic;
+      const variantMetrics = {};
+      const scooterVars = ['day_dad','day_dad_p1','day_mom','day_mom_p1','night_dad','night_dad_p1','night_mom','night_mom_p1'];
+      const familyVars = ['day_dad','day_mom','night_dad','night_mom'];
+      const variantDirs = [
+        ['assets/vehicles/a/scooter_m0_v2', scooterVars],
+        ['assets/vehicles/a/scooter_m1', scooterVars],
+        ['assets/vehicles/a/scooter_m2_v2', scooterVars],
+        ['assets/vehicles/a/scooter_m0_family_v2', familyVars],
+        ['assets/vehicles/a/scooter_m1_family', familyVars],
+        ['assets/vehicles/a/scooter_m2_family', familyVars],
+      ];
+      for (let d = 0; d < variantDirs.length; d++) {
+        const dir = variantDirs[d][0];
+        const names = variantDirs[d][1];
+        for (let i = 0; i < names.length; i++) {
+          const v = names[i];
+          const a = await loadJson(dir + '/anchors_' + v + '.json');
+          if (!a) continue;
+          const met = Logic && Logic.metricsFromAnchorDoc
+            ? Logic.metricsFromAnchorDoc(a, 'anchors_' + v)
+            : { source: 'anchors_' + v, canvas: a.canvas, ground_row: a.ground_row, origin: a.origin || [0, 0],
+                px_per_frame: a.wheels && a.wheels[0] && a.wheels[0].px_per_frame, wheels: a.wheels };
+          const key = Logic && Logic.variantMetricsKey ? Logic.variantMetricsKey(dir, v) : (dir + ':' + v);
+          variantMetrics[key] = met;
+        }
+      }
+      cfg.variantMetrics = variantMetrics;
+    }
+  }
 
   function artTime(state, role) {
     const eve = state.lighting === 'evening';
@@ -44,9 +175,53 @@
   function destBgName(dest) { return dest === 'friend' ? 'friend_home' : dest; }
 
   async function ensureCfg() {
-    if (cfg) return cfg;
-    cfg = await (await fetch('assets/vehicles/config.json')).json();
+    if (cfg && cfg.overlayManifests && cfg.bakedMetrics && cfg.variantMetrics) return cfg;
+    if (!cfg) cfg = await (await fetch('assets/vehicles/config.json')).json();
+    await loadArtMetrics();
     return cfg;
+  }
+  async function ensureCards() {
+    if (cards) return cards;
+    cards = await loadJson('assets/vehicles/arrival_cards.json');
+    if (!cards) cards = { work: [], home: [], weekend: {}, events: { breakdown: [] } };
+    return cards;
+  }
+  async function resolvePackId(qs) {
+    const req = qs && (typeof qs.get === 'function' ? qs.get('art') : qs.art);
+    if (req === 'old') return 'old';
+    if (await urlExists(aFramePath('bicycle', 0, 'day_dad', 0))) return 'a';
+    return 'old';
+  }
+  async function probeAvailable(kind, model) {
+    const available = new Set();
+    const variants = (((((cfg || {}).vehicles || {})[kind] || {}).models || {})[String(model)] || {}).variants || [];
+    variants.forEach((v) => available.add(v));
+    const manifest = await loadJson('assets/vehicles/a/manifest.json') || { extra: [] };
+    const extra = manifest.extra || [];
+    const prefix = kind + '_m' + model + '/';
+    for (let i = 0; i < extra.length; i++) {
+      const rel = extra[i];
+      if (!rel || rel.indexOf(prefix) !== 0) continue;
+      const rest = rel.slice(prefix.length); // e.g. frames/day_dad_family or body/day
+      if (rest.indexOf('frames/') === 0) {
+        const variant = rest.slice('frames/'.length).split('/')[0];
+        if (variant) available.add(variant);
+      } else {
+        const parts = rest.split('/'); // body/day  or driver_dad/night
+        if (parts.length >= 2) available.add('layer:' + parts[0] + ':' + parts[1]);
+      }
+    }
+    return available;
+  }
+  async function loadAFrames(kind, model, variant, n, assetDir) {
+    const frames = [];
+    for (let i = 0; i < n; i++) frames.push(await tryImg(aFramePath(kind, model, variant, i, assetDir)));
+    return frames;
+  }
+  async function loadOverlayFrames(model, folder, n) {
+    const frames = [];
+    for (let i = 0; i < n; i++) frames.push(await tryImg(aOverlayPath(model, folder, i)));
+    return frames;
   }
 
   async function gatherImages(state) {
@@ -94,6 +269,27 @@
     await take('rain', 'assets/vehicles/placeholders/rain.png', true);
     await take('rider', 'assets/vehicles/placeholders/rider.png', true);
     if (state.kidSeat) await take('kidSeat', 'assets/vehicles/placeholders/kid_seat.png', true);
+    if (state.art === 'a' && state.artPlan && state.artPlan.compose !== 'old_strip') {
+      const plan = state.artPlan;
+      const kind = plan.kind;
+      const model = plan.model;
+      const n = plan.frames || 8;
+      imgs.aLayers = {};
+      imgs.aLayersTint = {};
+      if (plan.compose === 'layered') {
+        for (let i = 0; i < plan.layers.length; i++) {
+          const layer = plan.layers[i];
+          const folder = layer.folder;
+          const frames = await loadOverlayFrames(model, folder, n);
+          imgs.aLayers[layer.role] = frames;
+          if (layer.tint === 'evening') imgs.aLayersTint[layer.role] = tintSet(frames);
+        }
+      } else if (plan.layers && plan.layers[0] && plan.layers[0].variant) {
+        const frames = await loadAFrames(kind, model, plan.layers[0].variant, n, plan.assetDir);
+        imgs.aFrames = frames;
+        if (plan.duskTint || (plan.layers[0].tint === 'evening')) imgs.aFramesTint = tintSet(frames);
+      }
+    }
     imgs.missing = missing;
     return imgs;
   }
@@ -190,17 +386,17 @@
 
   function frameIndex(elapsed, n, frozen) {
     if (frozen) return 0;
-    return Math.floor((elapsed / 1000) * FPS) % n;
+    return Math.floor((elapsed / 1000) * fps()) % n;
   }
 
   function bobPx(elapsed, frozen) {
     if (frozen) return 0;
-    const f = Math.floor((elapsed / 1000) * FPS);
+    const f = Math.floor((elapsed / 1000) * fps());
     return (f % 2) ? -1 : 0;
   }
   function swayPx(elapsed, frozen) {
     if (frozen) return 0;
-    const f = Math.floor((elapsed / 1000) * FPS + 1);
+    const f = Math.floor((elapsed / 1000) * fps() + 1);
     return (f % 2) ? 1 : 0;
   }
 
@@ -210,13 +406,26 @@
     else if (state.trip === 'home') bits.push('下班回家');
     else bits.push('出門上班');
     bits.push(modeLabel(state));
-    bits.push('舊畫風 2×');
-    if (state.lighting === 'evening') bits.push(state.headlights ? '傍晚・頭燈' : '傍晚');
+    if (state.art === 'a') {
+      bits.push('A 版 480・scale 1');
+      const m = state.model != null ? state.model : 0;
+      bits.push('款 m' + m);
+      bits.push(state.driver === 'mom' ? '媽媽開' : '爸爸開');
+      if (state.artPlan && state.artPlan.compose === 'layered') bits.push('分層疊圖');
+      if (state.artPlan && state.artPlan.family) bits.push('全家款');
+      if (state.artPlan && state.artPlan.px_per_frame) {
+        bits.push('每格 ' + Number(state.artPlan.px_per_frame).toFixed(2) + ' px');
+      }
+      if (state.artPlan && state.artPlan.labels) bits.push.apply(bits, state.artPlan.labels);
+    } else {
+      bits.push('舊畫風 2×');
+    }
+    if (state.lighting === 'evening') bits.push(state.headlights ? '傍晚・頭燈' : (state.art === 'a' ? '傍晚・白天格調色' : '傍晚'));
     if (state.wear === 'old') bits.push('舊車（占位：暗漆＋凹痕）');
     if (state.carAge != null) bits.push('車齡 ' + (Number.isInteger(state.carAge) ? state.carAge : Number(state.carAge).toFixed(1)) + ' 年');
     if (state.maint) bits.push('有保養（拋錨×0.7）');
     if (state.newCar) bits.push('新車日（較長）');
-    if (state.kidSeat) bits.push('兒童座椅（占位）');
+    if (state.kidSeat) bits.push((state.artPlan && state.artPlan.compose === 'layered') ? '兒童座椅' : '兒童座椅（占位）');
     if (state.riders === 'parents') bits.push('父母同行');
     if (state.riders === 'partner') bits.push('伴侶同行');
     if (state.rain || (mot && mot.ev.rain)) bits.push('雨（無雨刷格）');
@@ -263,7 +472,105 @@
     return { w: 48, h: 21, n: 1 };
   }
 
+  function blitScene(g, img, x, y, fw, fh, sx, sy, flip, scale) {
+    if (!img) return;
+    const w = fw || img.width, h = fh || img.height;
+    const sc = scale == null ? 1 : scale;
+    g.imageSmoothingEnabled = false;
+    const dx = Math.round(x), dy = Math.round(y);
+    const dw = Math.round(w * sc), dh = Math.round(h * sc);
+    if (flip) {
+      g.save();
+      g.translate(dx + dw, dy);
+      g.scale(-1, 1);
+      g.drawImage(img, sx || 0, sy || 0, w, h, 0, 0, dw, dh);
+      g.restore();
+    } else {
+      g.drawImage(img, sx || 0, sy || 0, w, h, dx, dy, dw, dh);
+    }
+  }
+
+  function frameFromSet(frames, elapsed, frozen, parked) {
+    if (!frames || !frames.length) return null;
+    if (parked || frozen) return frames[0] || null;
+    const n = frames.length;
+    return frames[frameIndex(elapsed, n, false)] || frames[0] || null;
+  }
+
+  function groundOffset(im, state) {
+    const plan = state && state.artPlan;
+    const mc = modelCfg(state);
+    const canvas = (plan && plan.canvas) || (mc && mc.canvas);
+    const ground = (plan && plan.ground_row != null) ? plan.ground_row : (mc && mc.ground_row);
+    if (im && canvas && ground != null) {
+      return ground + (im.height - canvas[1]);
+    }
+    if (im) return im.height - 1;
+    return ground || 0;
+  }
+
+  let warnedBodyBob = false;
+
+  function drawAVehicle(g, state, imgs, x240, yBottom, elapsed, opts) {
+    const frozen = opts.frozen, flip = opts.flip, parked = opts.parked;
+    const plan = state.artPlan;
+    const xS = Math.round(x240 * SCALE);
+    const yRoad = Math.round(yBottom * SCALE);
+    const dark = state.wear === 'old';
+    if (plan && plan.compose === 'layered' && plan.body_bob_missing && !warnedBodyBob) {
+      warnedBodyBob = true;
+      console.warn('body_bob_px missing in overlays/manifest.json; overlay body-bob treated as 0');
+    }
+    const drawOne = (im, role, frameI) => {
+      if (!im) return null;
+      const go = groundOffset(im, state);
+      const Logic = root.CommuteLogic;
+      const bobY = (Logic && Logic.layerDrawOffsetY) ? Logic.layerDrawOffsetY(plan, role, frameI) : 0;
+      const yS = yRoad - go + bobY;
+      let src = im;
+      if (dark) {
+        const c = document.createElement('canvas');
+        c.width = im.width; c.height = im.height;
+        const cg = c.getContext('2d');
+        cg.imageSmoothingEnabled = false;
+        cg.drawImage(im, 0, 0);
+        cg.globalCompositeOperation = 'source-atop';
+        cg.fillStyle = 'rgba(0,0,0,0.30)';
+        cg.fillRect(0, 0, c.width, c.height);
+        src = c;
+      }
+      blitScene(g, src, xS, yS, src.width, src.height, 0, 0, flip, 1);
+      return { x: xS, y: yS, w: im.width, h: im.height, scene: true, frame: frameI, role: role, bobY: bobY };
+    };
+    let box = null;
+    if (plan && plan.compose === 'layered' && imgs.aLayers) {
+      const layers = plan.layers || [];
+      for (let i = 0; i < layers.length; i++) {
+        const role = layers[i].role;
+        const useTint = layers[i].tint === 'evening' && imgs.aLayersTint && imgs.aLayersTint[role];
+        const frames = useTint ? imgs.aLayersTint[role] : imgs.aLayers[role];
+        const n = (frames && frames.length) || (plan && plan.frames) || 8;
+        const fi = (frozen || parked) ? 0 : frameIndex(elapsed, n, false);
+        const im = frames && (frames[fi] || frames[0]) || null;
+        const b = drawOne(im, role, fi);
+        if (b) box = box || b;
+      }
+    } else {
+      const useTint = (plan && plan.duskTint) && imgs.aFramesTint;
+      const frames = useTint ? imgs.aFramesTint : imgs.aFrames;
+      const im = frameFromSet(frames, elapsed, frozen, parked);
+      box = drawOne(im);
+    }
+    if (opts.smoke && state.mode === 'car' && box) {
+      drawSmoke(g, box.x / SCALE, box.y / SCALE, { w: box.w / SCALE, h: box.h / SCALE }, elapsed, flip);
+    }
+    return box || { x: xS, y: yRoad - 20, w: 20, h: 20, scene: true };
+  }
+
   function drawVehicle(g, state, imgs, x240, yBottom, elapsed, opts) {
+    if (state.art === 'a' && state.artPlan && state.artPlan.compose !== 'old_strip' && state.mode !== 'bus') {
+      return drawAVehicle(g, state, imgs, x240, yBottom, elapsed, opts);
+    }
     const frozen = opts.frozen, flip = opts.flip, parked = opts.parked;
     const bob = bobPx(elapsed, frozen || parked);
     const sway = swayPx(elapsed, frozen || parked);
@@ -388,7 +695,15 @@
       x = roadX;
       y = roadY;
       let u = mot.u;
-      if (ev.lost) {
+      if (state.art === 'a' && state.artPlan && state.artPlan.px_per_frame && state.mode !== 'bus') {
+        const elapsedRoad = Math.max(0, mot.travelT - (mot.p.intro || 0));
+        // travelPixels is in 480-space; layout scroll is in 240 units (drawBg multiplies by SCALE).
+        scroll = root.CommuteLogic.travelPixels(elapsedRoad, state.artPlan.px_per_frame, fps()) / SCALE;
+        if (ev.lost) {
+          const lt = (mot.t - (mot.p.lostAt || 0)) / (mot.p.lostMs || 1);
+          scroll += Math.sin(lt * Math.PI * 2) * 40;
+        }
+      } else if (ev.lost) {
         // wander: back-and-forth scroll
         const lt = (mot.t - (mot.p.lostAt || 0)) / (mot.p.lostMs || 1);
         scroll = (0.4 * (mot.p.road || 1) / 8) + Math.sin(lt * Math.PI * 2) * 40;
@@ -437,6 +752,22 @@
     };
   }
 
+  function escapeHtml(str) {
+    return String(str == null ? '' : str).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+  function arrivalCardHtml(card) {
+    const c = card || { source: 'placeholder', title: '卡片（占位）', text: '文案待公主' };
+    const title = c.title || (c.source === 'placeholder' ? '到達卡' : (c.source === 'breakdown_fallback' ? '卡片（占位）' : '到達卡'));
+    const text = c.text || '';
+    const ev = c.eventText && c.eventText !== text ? c.eventText : '';
+    let html = '<div style="border:3px solid #d6c8ac;outline:3px solid #0a080c;background:#1a161e;color:#f0e8d6;padding:14px 18px;margin:0 0 20px;font-size:28px;line-height:1.45">';
+    html += '<div style="color:#d6c8ac;font-size:22px;margin-bottom:6px">' + escapeHtml(title) + '</div>';
+    html += '<div>' + escapeHtml(text) + '</div>';
+    if (ev) html += '<div style="color:#b0a492;font-size:24px;margin-top:8px">' + escapeHtml(ev) + '</div>';
+    html += '</div>';
+    return html;
+  }
+
   function applyCaption(state, mot) {
     const cap = captionText(state, mot);
     const el = document.getElementById('caption');
@@ -452,8 +783,9 @@
       const menu = commute && commute.goingOut;
       const arrived = !menu && mot && (mot.phase === 'arrive' || mot.phase === 'done' || (commute && commute.cut));
       if (arrived) {
-        box.innerHTML = '<div style="border:3px solid #d6c8ac;outline:3px solid #0a080c;background:#1a161e;color:#f0e8d6;padding:14px 18px;margin:0 0 20px;font-size:28px;line-height:1.45">卡片（占位）<div style="color:#b0a492;font-size:24px;margin-top:6px">文案待公主</div></div>';
-      } else if (box.dataset.commuteCard === '1' || box.innerHTML.indexOf('卡片（占位）') >= 0) {
+        const card = root.CommuteLogic.lookupArrivalCard(cards, state);
+        box.innerHTML = arrivalCardHtml(card);
+      } else if (box.dataset.commuteCard === '1' || box.innerHTML.indexOf('到達卡') >= 0 || box.innerHTML.indexOf('卡片（占位）') >= 0) {
         box.innerHTML = '';
       }
       box.dataset.commuteCard = arrived ? '1' : '0';
@@ -483,7 +815,10 @@
     const vb = drawVehicle(g, state, imgs, lay.x, lay.y, elapsed, {
       frozen: lay.frozen, flip: lay.flip, parked: lay.parked, smoke: lay.smoke || lay.ev.breakdown,
     });
-    if (vb) boxes.push({ name: 'vehicle', x: vb.x * SCALE, y: vb.y * SCALE, w: vb.w * SCALE, h: vb.h * SCALE });
+    if (vb) {
+      if (vb.scene) boxes.push({ name: 'vehicle', x: vb.x, y: vb.y, w: vb.w, h: vb.h });
+      else boxes.push({ name: 'vehicle', x: vb.x * SCALE, y: vb.y * SCALE, w: vb.w * SCALE, h: vb.h * SCALE });
+    }
     if (state.rain || lay.ev.rain) drawRain(g, imgs, elapsed);
     // Card slot is drawn in the text drawer (applyCaption), not on the canvas, so it cannot overlap the vehicle or the year tag.
     commute.boxes = boxes;
@@ -542,19 +877,45 @@
   }
 
   async function initCommute(lighting, corner) {
+    // A-pack 8-frame / layered art is wired only on ?dev=1 test screens (gate 2 still pending).
     await ensureCfg();
+    await ensureCards();
     const qs = qsNow();
     const Logic = root.CommuteLogic;
     // Dev default: if no vehicle query and no ported car state, show an owned compact car so the screen is watchable.
     // Use &vehicle=none for the no-car path (scooter / bike / bus).
     if (!qs.get('vehicle') && !root.COMMUTE_GAME_STATE) qs.set('vehicle', 'car');
     const state = Logic.readCarState(qs, root.COMMUTE_GAME_STATE || null);
-    if (lighting === 'evening') { state.lighting = 'evening'; state.headlights = state.mode === 'car' || state.mode === 'scooter'; }
+    if (lighting === 'evening') {
+      state.lighting = 'evening';
+      if (!qs.has('headlights') || qs.get('headlights') === '') {
+        state.headlights = state.mode === 'car' || state.mode === 'scooter';
+      }
+    }
     // Dev screen always plays the sequence unless &cut=1. shouldPlayCommute() is still computed (see state.play, &force=1).
     const startCut = qs.get('cut') === '1';
     state._corner = corner || '';
+    const packId = await resolvePackId(qs);
+    state.art = packId;
+    if (packId === 'a' && state.mode !== 'bus') {
+      const kind = Logic.vehicleKind(state.mode);
+      const available = await probeAvailable(kind, state.model);
+      state.artPlan = Logic.resolveArtPlan({
+        pack: 'a', mode: state.mode, model: state.model, driver: state.driver,
+        lighting: state.lighting, headlights: state.headlights,
+        passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
+        cfg, available, overlayManifests: cfg.overlayManifests,
+        familyAvailable: {
+          0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
+        },
+      });
+    } else {
+      state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
+    }
     const imgs = await gatherImages(state);
-    commute = { state, imgs, t0: performance.now(), cut: startCut, finished: false, boxes: [], cfg };
+    commute = { state, imgs, t0: performance.now(), cut: startCut, finished: false, boxes: [], cfg, cards };
     goingOut = null;
     wireSkip();
     wireReplayButtons();
@@ -602,12 +963,32 @@
 
   async function initGoingOut(lighting, corner) {
     await ensureCfg();
+    await ensureCards();
     const qs = qsNow();
     const Logic = root.CommuteLogic;
     if (!qs.get('vehicle') && !root.COMMUTE_GAME_STATE) qs.set('vehicle', 'car');
     const state = Logic.readCarState(qs, root.COMMUTE_GAME_STATE || null);
     if (lighting === 'evening') { state.lighting = 'evening'; state.headlights = false; }
     state._corner = corner || '';
+    const packId = await resolvePackId(qs);
+    state.art = packId;
+    if (packId === 'a' && state.mode !== 'bus') {
+      const kind = Logic.vehicleKind(state.mode);
+      const available = await probeAvailable(kind, state.model);
+      state.artPlan = Logic.resolveArtPlan({
+        pack: 'a', mode: state.mode, model: state.model, driver: state.driver,
+        lighting: state.lighting, headlights: state.headlights,
+        passengers: state.passengers, riders: state.riders, kidSeat: state.kidSeat,
+        cfg, available, overlayManifests: cfg.overlayManifests,
+        familyAvailable: {
+          0: !!(cfg.bakedMetrics && (cfg.bakedMetrics.scooter_m0_family_v2 || cfg.bakedMetrics.scooter_m0_family)),
+          1: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m1_family),
+          2: !!(cfg.bakedMetrics && cfg.bakedMetrics.scooter_m2_family),
+        },
+      });
+    } else {
+      state.artPlan = Logic.resolveArtPlan({ pack: 'old', mode: state.mode, model: state.model, cfg });
+    }
     const timeB = artTime(state, 'bg');
     const home = await tryImg(`assets/vehicles/bg/menwai_normal_${timeB}.png`);
     goingOut = { state, home, lighting: state.lighting };
@@ -657,14 +1038,16 @@
     'orient=landscape',
     'lit=evening',
     'vehicle=none|bike|scooter|car|bus',
+    'art=a|old (default a if A-pack files load, else old)',
+    'driver=dad|mom',
     'passengers=0..3',
-    'riders=solo|partner|kid_seat|parents',
+    'riders=solo|partner|kid_seat|parents|family (family is scooter-only, m0–m2). Car: riders=partner&kidseat=1 is driver+spouse+child seat',
     'wear=new|old (alias: old→carage=12, new→carage=0)',
     'carage=<years> (0–3 / 4–9 / 10+ breakdown bands)',
     'maint=1 (insurance/maintenance, breakdown rate × 0.7)',
     'durability=0..100',
     'color=0..5 (art currently ships c0 only)',
-    'model=0..2 (art currently ships m0 only)',
+    'model=0..2 (A pack ships m0–m2)',
     'trip=work|home|weekend',
     'dest=beach|mountain|night_market|friend',
     'rain=1',
