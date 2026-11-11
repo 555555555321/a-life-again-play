@@ -573,7 +573,8 @@ function compositeLandscape(dest, now) {
 function loop(now) {
   if (!prepared) { requestAnimationFrame(loop); return; }
   if (activeKey === 'walk_test' && walkTest) {
-    drawWalkTest(now);
+    try { drawWalkTest(now); }
+    catch (err) { console.error('drawWalkTest', err); }
     requestAnimationFrame(loop);
     return;
   }
@@ -1491,10 +1492,16 @@ function wtAdvance(lane, now) {
   }
 }
 
+function wtPhaseClock(now, t0, periodMs, mod) {
+  const dt = (now == null || t0 == null) ? 0 : (now - t0);
+  const i = Math.floor((dt < 0 ? 0 : dt) / periodMs);
+  return ((i % mod) + mod) % mod;
+}
+
 function wtFrame(lane, now) {
   const p = lane.pack;
   if (lane.phase === 'stand') {
-    const phase = Math.floor((now - lane.phaseT0) / 100) % 24;
+    const phase = wtPhaseClock(now, lane.phaseT0, 100, 24);
     if (phase >= 20 && p.blink) return p.blink;
     return p.idle[Math.min(p.idle.length - 1, Math.floor(phase / 6))];
   }
@@ -1506,7 +1513,7 @@ function wtFrame(lane, now) {
   if (lane.phase === 'walk') return p.walk[lane.frame];
   if (lane.phase === 'stop_side') return p.idleSide || p.idle[0];
   // stop: idle_34v
-  const phase = Math.floor((now - lane.phaseT0) / 100) % 24;
+  const phase = wtPhaseClock(now, lane.phaseT0, 100, 24);
   if (phase >= 20 && p.blink) return p.blink;
   return p.idle[Math.min(p.idle.length - 1, Math.floor(phase / 6))];
 }
@@ -1562,7 +1569,7 @@ function drawWalkTest(now) {
     for (const lane of walkTest.lanes) {
       const f = wtFrame(lane, now);
       wtApplyHold(lane, f, null);
-      const df = wtDrawnSprite(f);
+      const df = wtDrawnSprite(f) || f;
       const ax = lane.pack.ax, ay = lane.pack.ay;
       const feetY = lane.feet;
       const x = lane.x;
@@ -1570,8 +1577,10 @@ function drawWalkTest(now) {
       gL.save();
       const sx = 210 + x * 4;
       const sy = feetY * 4;
-      if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(df, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
-      else gL.drawImage(df, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+      if (df) {
+        if (lane.flip) { gL.translate(sx, 0); gL.scale(-1, 1); gL.drawImage(df, -ax * 4, sy - ay * 4, 56 * 4, 116 * 4); }
+        else gL.drawImage(df, sx - ax * 4, sy - ay * 4, 56 * 4, 116 * 4);
+      }
       gL.restore();
       // lane label on the floor under the feet — never over the sprite
       lane._labelBox = devFloorLabel(gL, lane.label, sx, feetY);
