@@ -1,0 +1,583 @@
+{
+  "frames": {
+    "commute_a_bob_m0_partner_f00": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "spouse",
+        "driver"
+      ],
+      "frameComputed": 0,
+      "bobAtFrame": 0,
+      "missing": [],
+      "elapsed_ms": 1000,
+      "frame": 0,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_partner_f00_scene.png",
+        "x1": "shots/commute_a_bob_m0_partner_f00_1x.png",
+        "x8": "shots/commute_a_bob_m0_partner_f00_8x.png"
+      }
+    },
+    "commute_a_bob_m0_partner_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "spouse",
+        "driver"
+      ],
+      "frameComputed": 2,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_partner_f02_scene.png",
+        "x1": "shots/commute_a_bob_m0_partner_f02_1x.png",
+        "x8": "shots/commute_a_bob_m0_partner_f02_8x.png"
+      }
+    },
+    "commute_a_bob_m0_partner_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "spouse",
+        "driver"
+      ],
+      "frameComputed": 6,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_partner_f06_scene.png",
+        "x1": "shots/commute_a_bob_m0_partner_f06_1x.png",
+        "x8": "shots/commute_a_bob_m0_partner_f06_8x.png"
+      }
+    },
+    "commute_a_bob_m0_kid_f00": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 0,
+      "bobAtFrame": 0,
+      "missing": [],
+      "elapsed_ms": 1000,
+      "frame": 0,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_kid_f00_scene.png",
+        "x1": "shots/commute_a_bob_m0_kid_f00_1x.png",
+        "x8": "shots/commute_a_bob_m0_kid_f00_8x.png"
+      }
+    },
+    "commute_a_bob_m0_kid_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 2,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_kid_f02_scene.png",
+        "x1": "shots/commute_a_bob_m0_kid_f02_1x.png",
+        "x8": "shots/commute_a_bob_m0_kid_f02_8x.png"
+      }
+    },
+    "commute_a_bob_m0_kid_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 159,
+        "w": 98,
+        "h": 46
+      },
+      "compose": "layered",
+      "canvas": [
+        98,
+        46
+      ],
+      "ground_row": 45,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 6,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        155,
+        278,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m0_kid_f06_scene.png",
+        "x1": "shots/commute_a_bob_m0_kid_f06_1x.png",
+        "x8": "shots/commute_a_bob_m0_kid_f06_8x.png"
+      }
+    },
+    "commute_a_bob_m1_parents_f00": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 155,
+        "w": 94,
+        "h": 50
+      },
+      "compose": "layered",
+      "canvas": [
+        94,
+        50
+      ],
+      "ground_row": 49,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "passengers_parents",
+        "driver"
+      ],
+      "frameComputed": 0,
+      "bobAtFrame": 0,
+      "missing": [],
+      "elapsed_ms": 1000,
+      "frame": 0,
+      "crop_box": [
+        172,
+        151,
+        274,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m1_parents_f00_scene.png",
+        "x1": "shots/commute_a_bob_m1_parents_f00_1x.png",
+        "x8": "shots/commute_a_bob_m1_parents_f00_8x.png"
+      }
+    },
+    "commute_a_bob_m1_parents_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 155,
+        "w": 94,
+        "h": 50
+      },
+      "compose": "layered",
+      "canvas": [
+        94,
+        50
+      ],
+      "ground_row": 49,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "passengers_parents",
+        "driver"
+      ],
+      "frameComputed": 2,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        151,
+        274,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m1_parents_f02_scene.png",
+        "x1": "shots/commute_a_bob_m1_parents_f02_1x.png",
+        "x8": "shots/commute_a_bob_m1_parents_f02_8x.png"
+      }
+    },
+    "commute_a_bob_m1_parents_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 155,
+        "w": 94,
+        "h": 50
+      },
+      "compose": "layered",
+      "canvas": [
+        94,
+        50
+      ],
+      "ground_row": 49,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "passengers_parents",
+        "driver"
+      ],
+      "frameComputed": 6,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        151,
+        274,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m1_parents_f06_scene.png",
+        "x1": "shots/commute_a_bob_m1_parents_f06_1x.png",
+        "x8": "shots/commute_a_bob_m1_parents_f06_8x.png"
+      }
+    },
+    "commute_a_bob_m2_kid_f00": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 157,
+        "w": 90,
+        "h": 48
+      },
+      "compose": "layered",
+      "canvas": [
+        90,
+        48
+      ],
+      "ground_row": 47,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 0,
+      "bobAtFrame": 0,
+      "missing": [],
+      "elapsed_ms": 1000,
+      "frame": 0,
+      "crop_box": [
+        172,
+        153,
+        270,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m2_kid_f00_scene.png",
+        "x1": "shots/commute_a_bob_m2_kid_f00_1x.png",
+        "x8": "shots/commute_a_bob_m2_kid_f00_8x.png"
+      }
+    },
+    "commute_a_bob_m2_kid_f02": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 157,
+        "w": 90,
+        "h": 48
+      },
+      "compose": "layered",
+      "canvas": [
+        90,
+        48
+      ],
+      "ground_row": 47,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 2,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1250,
+      "frame": 2,
+      "crop_box": [
+        172,
+        153,
+        270,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m2_kid_f02_scene.png",
+        "x1": "shots/commute_a_bob_m2_kid_f02_1x.png",
+        "x8": "shots/commute_a_bob_m2_kid_f02_8x.png"
+      }
+    },
+    "commute_a_bob_m2_kid_f06": {
+      "box": {
+        "name": "vehicle",
+        "x": 176,
+        "y": 157,
+        "w": 90,
+        "h": 48
+      },
+      "compose": "layered",
+      "canvas": [
+        90,
+        48
+      ],
+      "ground_row": 47,
+      "body_bob_px": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "body_bob_missing": false,
+      "labels": [],
+      "layers": [
+        "body",
+        "child_seat",
+        "driver"
+      ],
+      "frameComputed": 6,
+      "bobAtFrame": 1,
+      "missing": [],
+      "elapsed_ms": 1750,
+      "frame": 6,
+      "crop_box": [
+        172,
+        153,
+        270,
+        209
+      ],
+      "paths": {
+        "scene": "shots/commute_a_bob_m2_kid_f06_scene.png",
+        "x1": "shots/commute_a_bob_m2_kid_f06_1x.png",
+        "x8": "shots/commute_a_bob_m2_kid_f06_8x.png"
+      }
+    }
+  },
+  "js_errors": [],
+  "js_error_count": 0,
+  "errors": []
+}
