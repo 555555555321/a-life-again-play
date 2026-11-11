@@ -1,11 +1,12 @@
 # 家人／動作站位。x 為腳的場景座標，floor_y 為地面列。
 # 日間 B 不含觸地列，由正式檢查器（相反 4 鄰多數決）量得。
 # 客廳組用 gate3_recolour_A_r3_20261111 的正式選定 x（先卡上半身空牆，再取日間 B 最高）。
+# 例外：阿嬤改為 r4b（x=296，日間 82.52%，gate3_grandma_r4b_20261111）；阿公改為微駝 r2（x=292，日間 90.05%，gate3_grandpa_stoop_r2_20261111）。
 # status: pass | pending_redraw | pending_scene
 group_id,sprite_key,scene,x,floor_y,day_B_excl_pct,source_report,status
 dad_walk,dad_walk/f00,living_room,291,252,83.77,gate3_recolour_A_r3_20261111,pass
-grandpa,grandpa/stand_f00,living_room,292,252,90.32,gate3_recolour_A_r3_20261111,pass
-grandma,grandma/stand_f00,living_room,296,252,76.73,gate3_recolour_A_r3_20261111,pending_redraw
+grandpa,grandpa_stoop_r2/stand_f00,living_room,292,252,90.05,gate3_grandpa_stoop_r2_20261111,pass
+grandma,grandma_r4b/stand_f00,living_room,296,252,82.52,gate3_grandma_r4b_20261111,pass
 hug_dad_infant,hug/dad_infant/hold_f00,living_room,301,252,86.42,gate3_recolour_A_r3_20261111,pass
 hug_dad_toddler,hug/dad_toddler/hold_f00,living_room,301,252,83.15,gate3_recolour_A_r3_20261111,pass
 hug_mom_infant,hug/mom_infant/hold_f00,living_room,299,252,82.67,gate3_recolour_A_r3_20261111,pass
