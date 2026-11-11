@@ -1,0 +1,1093 @@
+{
+  "sprite": "/workspace/ala/r8_art/王子/style_trial_mom_20261110/a_r4/A_r4_12.png",
+  "palette": "/workspace/ala/codex_r3/anim-r1/assets/pixel/variety/palette.txt",
+  "palette_size": 3349,
+  "method": {
+    "outline": "opaque pixel with at least one transparent or out-of-canvas N4 neighbour",
+    "near_black": "exact #151218 or CIELAB L* < 15 (D65 sRGB, Y=0.2126R+0.7152G+0.0722B)",
+    "contrast_ratio": "WCAG (Ymax+0.05)/(Ymin+0.05) after sRGB linearization",
+    "evening_multiply": [
+      142,
+      115,
+      83
+    ],
+    "evening_multiply_note": "Same room multiply as style_trial_mom / stmTintEvening: Math.round(c * mul / 255). Recovers beige wall (194,171,157) → (108,77,51). PNGs are not modified.",
+    "wall_swatch": "single room pixel at native (396,140); this is 王子’s method, and is 24 px above the sprite head at x=406 (body y 164–252)",
+    "ingame": "each pixel vs the actual room pixel behind it when the sprite is placed at x=406, feet 252, anchor (27,115), no flip"
+  },
+  "size": [
+    56,
+    116
+  ],
+  "size_ok": true,
+  "height": 89,
+  "height_ok": true,
+  "feet_row": 115,
+  "feet_row_ok": true,
+  "feet_x": [
+    17,
+    34
+  ],
+  "bbox": [
+    13,
+    27,
+    45,
+    115
+  ],
+  "anchor_nominal": [
+    27,
+    115
+  ],
+  "opaque": 1931,
+  "colours": 12,
+  "colour_hex": [
+    "#2d2526",
+    "#3d3132",
+    "#45454a",
+    "#60402c",
+    "#646467",
+    "#672c33",
+    "#7d7d7e",
+    "#c86a52",
+    "#c99470",
+    "#d38666",
+    "#e8b98f",
+    "#f6d2b0"
+  ],
+  "colour_count_ok": true,
+  "off_palette_count": 0,
+  "off_palette": [],
+  "on_palette_ok": true,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "n4_components": 1,
+  "component_sizes": [
+    1931
+  ],
+  "single_blob": true,
+  "stray_pixels_8n": 0,
+  "outline_pixels": 225,
+  "near_black_outline_pixels": 0,
+  "exact_151218_pixels": 0,
+  "near_black_outline_fraction": "0/225",
+  "near_black_outline_percent": 0.0,
+  "wall_sample_native_xy": [
+    396,
+    140
+  ],
+  "wall_rgb": {
+    "day": [
+      194,
+      171,
+      157
+    ],
+    "evening": [
+      108,
+      77,
+      51
+    ]
+  },
+  "evening_multiply": [
+    142,
+    115,
+    83
+  ],
+  "placement": {
+    "x": 406,
+    "feet": 252,
+    "flip": false,
+    "facing": "W",
+    "bbox": {
+      "x0": 392,
+      "x1": 424,
+      "y0": 164,
+      "y1": 252
+    },
+    "floor_prop_overlap": []
+  },
+  "overlap": {
+    "char_vs_char": false,
+    "char_vs_floor_props": [],
+    "plant_is_scenery_behind_right_shoulder": true,
+    "labels_below_feet_no_overlap": true,
+    "ok_vs_floor_props": true,
+    "note": "A r4 at x=406, bbox [392,164,424,252], same slot as B. Table ends at x=391 so the bbox does not overlap the table. Plant sits behind the right shoulder (scenery); feet are on clear floor. r3 A at x=222, bbox [208,164,240,252], clear of the stool (244–286). Labels sit below the feet and do not overlap a figure or each other."
+  },
+  "contrast_vs_wall_swatch": {
+    "day": {
+      "outline": {
+        "n": 225,
+        "mean_contrast_ratio": 5.281969577859824,
+        "min_contrast_ratio": 4.2371083183026785,
+        "max_contrast_ratio": 6.840865434449679,
+        "n_below_2": 0,
+        "mean_dL": -47.36735599571106,
+        "min_dL": -55.978089091731036,
+        "max_dL": -41.33152612360059,
+        "mean_L_src": 24.20761570397539,
+        "mean_L_bg": 71.57497169968644,
+        "min_at": {
+          "cr": 4.2371083183026785,
+          "src_hex": "#60402c",
+          "bg_hex": "#c2ab9d",
+          "px": [
+            14,
+            81
+          ],
+          "src": [
+            96,
+            64,
+            44
+          ],
+          "bg": [
+            194,
+            171,
+            157
+          ]
+        }
+      },
+      "tones": {
+        "light": {
+          "n": 0,
+          "present": false,
+          "note": "not present in 12-colour sprite"
+        },
+        "mid": {
+          "n": 300,
+          "src": [
+            211,
+            134,
+            102
+          ],
+          "src_hex": "#d38666",
+          "bg": [
+            194,
+            171,
+            157
+          ],
+          "bg_hex": "#c2ab9d",
+          "contrast_ratio": 1.3030812876995725,
+          "dL": -8.349301842328813,
+          "L_src": 63.22566985735763,
+          "L_bg": 71.57497169968644
+        },
+        "dark": {
+          "n": 475,
+          "src": [
+            200,
+            106,
+            82
+          ],
+          "src_hex": "#c86a52",
+          "bg": [
+            194,
+            171,
+            157
+          ],
+          "bg_hex": "#c2ab9d",
+          "contrast_ratio": 1.7033767620821396,
+          "dL": -16.30067822972208,
+          "L_src": 55.27429346996436,
+          "L_bg": 71.57497169968644
+        },
+        "outline_brick": {
+          "n": 110,
+          "src": [
+            103,
+            44,
+            51
+          ],
+          "src_hex": "#672c33",
+          "bg": [
+            194,
+            171,
+            157
+          ],
+          "bg_hex": "#c2ab9d",
+          "contrast_ratio": 4.839756186334369,
+          "dL": -45.05799325131749,
+          "L_src": 26.516978448368953,
+          "L_bg": 71.57497169968644
+        }
+      }
+    },
+    "evening": {
+      "outline": {
+        "n": 225,
+        "mean_contrast_ratio": 2.222071950485917,
+        "min_contrast_ratio": 2.060035567770646,
+        "max_contrast_ratio": 2.437812465820878,
+        "n_below_2": 0,
+        "mean_dL": -25.152395407748262,
+        "min_dL": -29.74088456403225,
+        "max_dL": -21.834321016044278,
+        "mean_L_src": 10.316427116556634,
+        "mean_L_bg": 35.4688225243049,
+        "min_at": {
+          "cr": 2.060035567770646,
+          "src_hex": "#351d0e",
+          "bg_hex": "#6c4d33",
+          "px": [
+            14,
+            81
+          ],
+          "src": [
+            53,
+            29,
+            14
+          ],
+          "bg": [
+            108,
+            77,
+            51
+          ]
+        }
+      },
+      "tones": {
+        "light": {
+          "n": 0,
+          "present": false,
+          "note": "not present in 12-colour sprite"
+        },
+        "mid": {
+          "n": 300,
+          "src": [
+            117,
+            60,
+            33
+          ],
+          "src_hex": "#753c21",
+          "bg": [
+            108,
+            77,
+            51
+          ],
+          "bg_hex": "#6c4d33",
+          "contrast_ratio": 1.1329232197290595,
+          "dL": -3.382556605516669,
+          "L_src": 32.08626591878823,
+          "L_bg": 35.4688225243049
+        },
+        "dark": {
+          "n": 475,
+          "src": [
+            111,
+            48,
+            27
+          ],
+          "src_hex": "#6f301b",
+          "bg": [
+            108,
+            77,
+            51
+          ],
+          "bg_hex": "#6c4d33",
+          "contrast_ratio": 1.2991117290355136,
+          "dL": -7.161467465169096,
+          "L_src": 28.3073550591358,
+          "L_bg": 35.4688225243049
+        },
+        "outline_brick": {
+          "n": 110,
+          "src": [
+            57,
+            20,
+            17
+          ],
+          "src_hex": "#391411",
+          "bg": [
+            108,
+            77,
+            51
+          ],
+          "bg_hex": "#6c4d33",
+          "contrast_ratio": 2.142518764339089,
+          "dL": -23.44052653814823,
+          "L_src": 12.028295986156667,
+          "L_bg": 35.4688225243049
+        }
+      }
+    }
+  },
+  "contrast_ingame_at_x406": {
+    "day": {
+      "outline_vs_actual": {
+        "n": 225,
+        "mean_contrast_ratio": 2.7576403121595563,
+        "min_contrast_ratio": 1.040077989011493,
+        "max_contrast_ratio": 6.840865434449679,
+        "n_below_2": 66,
+        "mean_dL": -25.012701248475523,
+        "min_dL": -55.978089091731036,
+        "max_dL": 8.552817432806755,
+        "mean_L_src": 24.20761570397539,
+        "mean_L_bg": 49.22031695245091,
+        "min_at": {
+          "cr": 1.040077989011493,
+          "src_hex": "#672c33",
+          "bg_hex": "#4e372d",
+          "px": [
+            35,
+            64
+          ],
+          "scene": [
+            414,
+            201
+          ],
+          "src": [
+            103,
+            44,
+            51
+          ],
+          "bg": [
+            78,
+            55,
+            45
+          ]
+        }
+      },
+      "outline_vs_actual_on_exact_wall": {
+        "n": 31,
+        "mean_contrast_ratio": 6.195346322154418,
+        "min_contrast_ratio": 4.839756186334369,
+        "max_contrast_ratio": 6.840865434449679,
+        "n_below_2": 0,
+        "mean_dL": -52.455477530307306,
+        "min_dL": -55.978089091731036,
+        "max_dL": -45.05799325131749,
+        "mean_L_src": 19.11949416937913,
+        "mean_L_bg": 71.57497169968644,
+        "min_at": {
+          "cr": 4.839756186334369,
+          "src_hex": "#672c33",
+          "bg_hex": "#c2ab9d",
+          "px": [
+            19,
+            43
+          ],
+          "scene": [
+            398,
+            180
+          ],
+          "src": [
+            103,
+            44,
+            51
+          ],
+          "bg": [
+            194,
+            171,
+            157
+          ]
+        }
+      },
+      "bg_behind_outline": [
+        [
+          "#986a4a",
+          112
+        ],
+        [
+          "#c2ab9d",
+          31
+        ],
+        [
+          "#614d3a",
+          17
+        ],
+        [
+          "#83573d",
+          15
+        ],
+        [
+          "#95847c",
+          11
+        ],
+        [
+          "#865b43",
+          7
+        ],
+        [
+          "#a39891",
+          5
+        ],
+        [
+          "#655b5a",
+          4
+        ],
+        [
+          "#47332a",
+          4
+        ],
+        [
+          "#684a38",
+          4
+        ],
+        [
+          "#92725d",
+          3
+        ],
+        [
+          "#8c6247",
+          2
+        ],
+        [
+          "#795743",
+          2
+        ],
+        [
+          "#362926",
+          2
+        ],
+        [
+          "#3a302c",
+          1
+        ],
+        [
+          "#453936",
+          1
+        ],
+        [
+          "#978983",
+          1
+        ],
+        [
+          "#4e372d",
+          1
+        ],
+        [
+          "#78533d",
+          1
+        ],
+        [
+          "#594337",
+          1
+        ]
+      ],
+      "tones": {
+        "light": {
+          "n": 0,
+          "present": false,
+          "note": "not present in 12-colour sprite (light #e0a060 merged into mid #d38666)"
+        },
+        "mid": {
+          "n": 300,
+          "vs_actual": {
+            "n": 300,
+            "mean_contrast_ratio": 1.4599349170537026,
+            "min_contrast_ratio": 1.0116377650933206,
+            "max_contrast_ratio": 2.808014494023235,
+            "n_below_2": 272,
+            "mean_dL": 6.158714981940419,
+            "min_dL": -9.935733488425882,
+            "max_dL": 28.981454842492205,
+            "mean_L_src": 63.22566985735763,
+            "mean_L_bg": 57.06695487541722,
+            "min_at": {
+              "cr": 1.0116377650933206,
+              "src_hex": "#d38666",
+              "bg_hex": "#a39891",
+              "scene": [
+                414,
+                180
+              ],
+              "src": [
+                211,
+                134,
+                102
+              ],
+              "bg": [
+                163,
+                152,
+                145
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 65,
+            "mean_contrast_ratio": 1.3030812876995725,
+            "min_contrast_ratio": 1.3030812876995725,
+            "max_contrast_ratio": 1.3030812876995725,
+            "n_below_2": 65,
+            "mean_dL": -8.349301842328813,
+            "min_dL": -8.349301842328813,
+            "max_dL": -8.349301842328813,
+            "mean_L_src": 63.22566985735762,
+            "mean_L_bg": 71.57497169968644,
+            "min_at": {
+              "cr": 1.3030812876995725,
+              "src_hex": "#d38666",
+              "bg_hex": "#c2ab9d",
+              "scene": [
+                409,
+                180
+              ],
+              "src": [
+                211,
+                134,
+                102
+              ],
+              "bg": [
+                194,
+                171,
+                157
+              ]
+            }
+          }
+        },
+        "dark": {
+          "n": 475,
+          "vs_actual": {
+            "n": 475,
+            "mean_contrast_ratio": 1.5956019037589104,
+            "min_contrast_ratio": 1.0408098791931695,
+            "max_contrast_ratio": 3.754500599090151,
+            "n_below_2": 409,
+            "mean_dL": 7.407479335747912,
+            "min_dL": -17.88710987581915,
+            "max_dL": 37.310132454402165,
+            "mean_L_src": 55.27429346996436,
+            "mean_L_bg": 47.86681413421645,
+            "min_at": {
+              "cr": 1.0408098791931695,
+              "src_hex": "#c86a52",
+              "bg_hex": "#95847c",
+              "scene": [
+                396,
+                188
+              ],
+              "src": [
+                200,
+                106,
+                82
+              ],
+              "bg": [
+                149,
+                132,
+                124
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 41,
+            "mean_contrast_ratio": 1.7033767620821394,
+            "min_contrast_ratio": 1.7033767620821396,
+            "max_contrast_ratio": 1.7033767620821396,
+            "n_below_2": 41,
+            "mean_dL": -16.30067822972208,
+            "min_dL": -16.30067822972208,
+            "max_dL": -16.30067822972208,
+            "mean_L_src": 55.27429346996436,
+            "mean_L_bg": 71.57497169968644,
+            "min_at": {
+              "cr": 1.7033767620821396,
+              "src_hex": "#c86a52",
+              "bg_hex": "#c2ab9d",
+              "scene": [
+                404,
+                180
+              ],
+              "src": [
+                200,
+                106,
+                82
+              ],
+              "bg": [
+                194,
+                171,
+                157
+              ]
+            }
+          }
+        },
+        "outline_brick": {
+          "n": 110,
+          "vs_actual": {
+            "n": 110,
+            "mean_contrast_ratio": 2.2886050631380415,
+            "min_contrast_ratio": 1.040077989011493,
+            "max_contrast_ratio": 4.839756186334369,
+            "n_below_2": 55,
+            "mean_dL": -19.632134532701247,
+            "min_dL": -45.05799325131749,
+            "max_dL": 8.552817432806755,
+            "mean_L_src": 26.516978448368953,
+            "mean_L_bg": 46.149112981070196,
+            "min_at": {
+              "cr": 1.040077989011493,
+              "src_hex": "#672c33",
+              "bg_hex": "#4e372d",
+              "scene": [
+                414,
+                201
+              ],
+              "src": [
+                103,
+                44,
+                51
+              ],
+              "bg": [
+                78,
+                55,
+                45
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 10,
+            "mean_contrast_ratio": 4.839756186334369,
+            "min_contrast_ratio": 4.839756186334369,
+            "max_contrast_ratio": 4.839756186334369,
+            "n_below_2": 0,
+            "mean_dL": -45.05799325131749,
+            "min_dL": -45.05799325131749,
+            "max_dL": -45.05799325131749,
+            "mean_L_src": 26.516978448368953,
+            "mean_L_bg": 71.57497169968644,
+            "min_at": {
+              "cr": 4.839756186334369,
+              "src_hex": "#672c33",
+              "bg_hex": "#c2ab9d",
+              "scene": [
+                398,
+                180
+              ],
+              "src": [
+                103,
+                44,
+                51
+              ],
+              "bg": [
+                194,
+                171,
+                157
+              ]
+            }
+          }
+        }
+      }
+    },
+    "evening": {
+      "outline_vs_actual": {
+        "n": 225,
+        "mean_contrast_ratio": 1.5279796063271607,
+        "min_contrast_ratio": 1.0040832478695492,
+        "max_contrast_ratio": 2.437812465820878,
+        "n_below_2": 194,
+        "mean_dL": -13.760053542565215,
+        "min_dL": -29.74088456403225,
+        "max_dL": 3.72013747179442,
+        "mean_L_src": 10.316427116556634,
+        "mean_L_bg": 24.07648065912185,
+        "min_at": {
+          "cr": 1.0040832478695492,
+          "src_hex": "#391411",
+          "bg_hex": "#2b1c11",
+          "px": [
+            41,
+            49
+          ],
+          "scene": [
+            420,
+            186
+          ],
+          "src": [
+            57,
+            20,
+            17
+          ],
+          "bg": [
+            43,
+            28,
+            17
+          ]
+        }
+      },
+      "outline_vs_actual_on_exact_wall": {
+        "n": 31,
+        "mean_contrast_ratio": 2.342556433084817,
+        "min_contrast_ratio": 2.142518764339089,
+        "max_contrast_ratio": 2.437812465820878,
+        "n_below_2": 0,
+        "mean_dL": -27.708511007295467,
+        "min_dL": -29.74088456403225,
+        "max_dL": -23.44052653814823,
+        "mean_L_src": 7.76031151700943,
+        "mean_L_bg": 35.4688225243049,
+        "min_at": {
+          "cr": 2.142518764339089,
+          "src_hex": "#391411",
+          "bg_hex": "#6c4d33",
+          "px": [
+            19,
+            43
+          ],
+          "scene": [
+            398,
+            180
+          ],
+          "src": [
+            57,
+            20,
+            17
+          ],
+          "bg": [
+            108,
+            77,
+            51
+          ]
+        }
+      },
+      "bg_behind_outline": [
+        [
+          "#563118",
+          112
+        ],
+        [
+          "#6c4d33",
+          31
+        ],
+        [
+          "#3a2512",
+          17
+        ],
+        [
+          "#4b2913",
+          15
+        ],
+        [
+          "#553d28",
+          11
+        ],
+        [
+          "#4d2b15",
+          7
+        ],
+        [
+          "#242216",
+          5
+        ],
+        [
+          "#3c2b1d",
+          4
+        ],
+        [
+          "#2c1a0d",
+          4
+        ],
+        [
+          "#3d2312",
+          4
+        ],
+        [
+          "#53351e",
+          3
+        ],
+        [
+          "#502e17",
+          2
+        ],
+        [
+          "#462915",
+          2
+        ],
+        [
+          "#23150c",
+          2
+        ],
+        [
+          "#26180e",
+          1
+        ],
+        [
+          "#2b1c11",
+          1
+        ],
+        [
+          "#563f2a",
+          1
+        ],
+        [
+          "#301b0e",
+          1
+        ],
+        [
+          "#462713",
+          1
+        ],
+        [
+          "#362011",
+          1
+        ]
+      ],
+      "tones": {
+        "light": {
+          "n": 0,
+          "present": false,
+          "note": "not present in 12-colour sprite (light #e0a060 merged into mid #d38666)"
+        },
+        "mid": {
+          "n": 300,
+          "vs_actual": {
+            "n": 300,
+            "mean_contrast_ratio": 1.2629994311462613,
+            "min_contrast_ratio": 1.1329232197290595,
+            "max_contrast_ratio": 1.843292961008978,
+            "n_below_2": 300,
+            "mean_dL": 4.731442308562618,
+            "min_dL": -3.382556605516669,
+            "max_dL": 18.99652600256514,
+            "mean_L_src": 32.08626591878823,
+            "mean_L_bg": 27.354823610225612,
+            "min_at": {
+              "cr": 1.1329232197290595,
+              "src_hex": "#753c21",
+              "bg_hex": "#6c4d33",
+              "scene": [
+                409,
+                180
+              ],
+              "src": [
+                117,
+                60,
+                33
+              ],
+              "bg": [
+                108,
+                77,
+                51
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 73,
+            "mean_contrast_ratio": 1.1329232197290595,
+            "min_contrast_ratio": 1.1329232197290595,
+            "max_contrast_ratio": 1.1329232197290595,
+            "n_below_2": 73,
+            "mean_dL": -3.382556605516669,
+            "min_dL": -3.382556605516669,
+            "max_dL": -3.382556605516669,
+            "mean_L_src": 32.08626591878823,
+            "mean_L_bg": 35.4688225243049,
+            "min_at": {
+              "cr": 1.1329232197290595,
+              "src_hex": "#753c21",
+              "bg_hex": "#6c4d33",
+              "scene": [
+                409,
+                180
+              ],
+              "src": [
+                117,
+                60,
+                33
+              ],
+              "bg": [
+                108,
+                77,
+                51
+              ]
+            }
+          }
+        },
+        "dark": {
+          "n": 475,
+          "vs_actual": {
+            "n": 475,
+            "mean_contrast_ratio": 1.272021468716371,
+            "min_contrast_ratio": 1.0121134914757672,
+            "max_contrast_ratio": 1.7858423865713153,
+            "n_below_2": 475,
+            "mean_dL": 5.64034628099049,
+            "min_dL": -7.161467465169096,
+            "max_dL": 19.999196544773554,
+            "mean_L_src": 28.307355059135805,
+            "mean_L_bg": 22.66700877814531,
+            "min_at": {
+              "cr": 1.0121134914757672,
+              "src_hex": "#6f301b",
+              "bg_hex": "#563f2a",
+              "scene": [
+                410,
+                189
+              ],
+              "src": [
+                111,
+                48,
+                27
+              ],
+              "bg": [
+                86,
+                63,
+                42
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 43,
+            "mean_contrast_ratio": 1.2991117290355136,
+            "min_contrast_ratio": 1.2991117290355136,
+            "max_contrast_ratio": 1.2991117290355136,
+            "n_below_2": 43,
+            "mean_dL": -7.161467465169096,
+            "min_dL": -7.161467465169096,
+            "max_dL": -7.161467465169096,
+            "mean_L_src": 28.3073550591358,
+            "mean_L_bg": 35.4688225243049,
+            "min_at": {
+              "cr": 1.2991117290355136,
+              "src_hex": "#6f301b",
+              "bg_hex": "#6c4d33",
+              "scene": [
+                404,
+                180
+              ],
+              "src": [
+                111,
+                48,
+                27
+              ],
+              "bg": [
+                108,
+                77,
+                51
+              ]
+            }
+          }
+        },
+        "outline_brick": {
+          "n": 110,
+          "vs_actual": {
+            "n": 110,
+            "mean_contrast_ratio": 1.3790760853831627,
+            "min_contrast_ratio": 1.0040832478695492,
+            "max_contrast_ratio": 2.142518764339089,
+            "n_below_2": 100,
+            "mean_dL": -9.855113364288675,
+            "min_dL": -23.44052653814823,
+            "max_dL": 3.72013747179442,
+            "mean_L_src": 12.028295986156667,
+            "mean_L_bg": 21.88340935044534,
+            "min_at": {
+              "cr": 1.0040832478695492,
+              "src_hex": "#391411",
+              "bg_hex": "#2b1c11",
+              "scene": [
+                420,
+                186
+              ],
+              "src": [
+                57,
+                20,
+                17
+              ],
+              "bg": [
+                43,
+                28,
+                17
+              ]
+            }
+          },
+          "vs_exact_wall_behind": {
+            "n": 10,
+            "mean_contrast_ratio": 2.142518764339089,
+            "min_contrast_ratio": 2.142518764339089,
+            "max_contrast_ratio": 2.142518764339089,
+            "n_below_2": 0,
+            "mean_dL": -23.44052653814823,
+            "min_dL": -23.44052653814823,
+            "max_dL": -23.44052653814823,
+            "mean_L_src": 12.028295986156667,
+            "mean_L_bg": 35.4688225243049,
+            "min_at": {
+              "cr": 2.142518764339089,
+              "src_hex": "#391411",
+              "bg_hex": "#6c4d33",
+              "scene": [
+                398,
+                180
+              ],
+              "src": [
+                57,
+                20,
+                17
+              ],
+              "bg": [
+                108,
+                77,
+                51
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "wangzi_claim": {
+    "method": "all 225 outline pixels vs single wall swatch at (396,140); evening uses room multiply [142,115,83] with JS Math.round",
+    "day_min": 4.23710832,
+    "evening_min": 2.06003557,
+    "measured_day_min": 4.2371083183026785,
+    "measured_evening_min": 2.060035567770646,
+    "day_match": true,
+    "evening_match": true,
+    "verdict": "CONFIRMED",
+    "note": "Independent recompute of all 225 outline pixels vs the single wall swatch at (396,140), evening via [142,115,83] multiply and JS Math.round, matches 王子’s mins to 1e-8: day 4.23710832, evening 2.06003557. The min is the hair/shoe brown #60402c (evening tint #351d0e) at sprite (14,81), not the new #672c33 outline brick. This swatch sits on empty wall 24 px above the sprite’s head, so it is a colour-vs-swatch figure, not the contrast of every in-game silhouette pixel at x=406."
+  },
+  "pass_fail": {
+    "target": "outline min contrast ratio >= 2 in both lights",
+    "vs_wall_swatch_day": true,
+    "vs_wall_swatch_evening": true,
+    "vs_wall_swatch": "PASS",
+    "vs_wall_swatch_mins": {
+      "day": 4.2371083183026785,
+      "evening": 2.060035567770646
+    },
+    "vs_ingame_actual_backdrop_day": false,
+    "vs_ingame_actual_backdrop_evening": false,
+    "vs_ingame_actual_backdrop_at_x406": "FAIL",
+    "vs_ingame_actual_mins": {
+      "day": 1.040077989011493,
+      "evening": 1.0040832478695492,
+      "n_below_2_day": 66,
+      "n_below_2_evening": 194
+    },
+    "note": "The gate number 王子 designed (outline vs wall swatch (396,140)) PASSES in both lights. In-game at the same wall slot B used (x=406), only 31/225 outline pixels actually sit on that exact beige; those 31 also pass (day min 4.84, evening min 2.14). The other outline pixels fall on the plant, darker wall, or baseboard, so the in-game min drops to 1.04 day and 1.00 evening (66 and 194 pixels below 2:1). Top mid #d38666 vs the same wall swatch stays weak (day 1.30, evening 1.13); 12-colour has no light #e0a060."
+  },
+  "face_hair_readability": {
+    "day_1to1": "PASS. Eyes, brows, nose and mouth are readable at game scale (×4). Hair silhouette is clear against the beige wall. Against the plant (right hair/shoulder) the dark hair and leaves sit close together, but the face itself is fine.",
+    "evening_1to1": "PASS, with a weak right edge. Sprites take the room multiply (no day-bright glow). Features stay readable. Hair still separates from the brown wall on the left; the right hair/outline nearly merges with the dark plant (matches the in-game min CR ≈ 1.00). Coral mid vs wall is also weak (CR 1.13) but the top still reads as a top.",
+    "vs_r3_A": "r3 A (sofa) keeps the shoulder highlight #e0a060; A r4 12-colour merged that into mid #d38666, so the blouse is flatter. A r4 outline is the darker official #672c33 (r3 A used #9c5749). Neither face is unreadable in either light."
+  },
+  "shots": {
+    "day_820": "shots/style_trial_mom_a4_820.png",
+    "day_820_crop": "shots/style_trial_mom_a4_820_crop.png",
+    "day_820_face": "shots/style_trial_mom_a4_820_face.png",
+    "evening_820": "shots/style_trial_mom_a4_evening_820.png",
+    "evening_820_crop": "shots/style_trial_mom_a4_evening_820_crop.png",
+    "evening_820_face": "shots/style_trial_mom_a4_evening_820_face.png",
+    "crop_box_on_2340x1080_stage": [
+      440,
+      0,
+      1520,
+      1080
+    ],
+    "face_box_on_2340x1080_stage": [
+      1316,
+      640,
+      1520,
+      880
+    ],
+    "note": "Drawer 820, ?shot, #stage 2340×1080. Crop is a 1080×1080 1:1 window that includes r3 A and A r4 up to the panel edge. Face crop is a tight 1:1 of A r4 head and shoulders."
+  },
+  "screen": {
+    "id": "style_trial_mom_a4",
+    "url_query": "?dev=1&orient=landscape&screen=style_trial_mom_a4",
+    "url_query_evening": "?dev=1&orient=landscape&screen=style_trial_mom_a4&lit=evening",
+    "a4_x": 406,
+    "r3_A_x": 222,
+    "evening_tint": "reuses STYLE_TRIAL_MOM_EVENING_MUL / stmTintEvening at render time"
+  }
+}

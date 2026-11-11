@@ -783,6 +783,21 @@
         "夜間"
       ],
       "cast": []
+    },
+    "style_trial_mom_a4": {
+      "_note": "DEV ONLY mom style A round 4 (12 colours) at B’s wall slot x=406, plus r3 A at x=222. Evening tint same as style_trial_mom. ?dev=1&orient=landscape&screen=style_trial_mom_a4. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "媽媽畫風 A 第 4 輪（12 色）。右站在與 B 相同的牆前位置（x 406），左為 r3 A 對照。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": [],
+      "corner": "畫風試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used."
     }
   },
   "_test_order": [
