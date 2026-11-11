@@ -8,7 +8,7 @@
   const COLORS = ['red', 'blue', 'white', 'black', 'yellow', 'green'];
   const COLOR_ZH = ['紅', '藍', '白', '黑', '黃', '綠'];
   const WEEKEND_DESTS = ['beach', 'mountain', 'night_market', 'friend'];
-  const RIDERS = ['solo', 'partner', 'kid_seat', 'parents'];
+  const RIDERS = ['solo', 'partner', 'kid_seat', 'parents', 'family'];
   const ROAD_EVENTS = ['none', 'traffic', 'rain', 'lost', 'breakdown'];
   const TYPE_TO_MODE = {
     bicycle: 'bike', scooter: 'scooter',
@@ -89,6 +89,7 @@
   function tripBreakdownProbability(opts) {
     const o = opts || {};
     const mode = o.mode || (o.hasCar ? 'car' : 'bike');
+    // 王 2026-11-11: scooter uses the same age-banded rate as the car for now.
     if (mode !== 'car' && mode !== 'scooter') return 0;
     const age = o.carAge != null ? o.carAge : resolveCarAge(o);
     return annualBreakdownRate(age, o.maint) / TRIPS_PER_YEAR;
@@ -170,6 +171,7 @@
       if (riders === 'solo') return { riders: 'solo', passengers: 0, kidSeat: false };
       if (riders === 'partner') return { riders: 'partner', passengers: 1, kidSeat: false };
       if (riders === 'kid_seat') return { riders: 'kid_seat', passengers: 1, kidSeat: true };
+      if (riders === 'family') return { riders: 'family', passengers: 1, kidSeat: false };
       return { riders: 'parents', passengers: 2, kidSeat: false };
     }
     if (passengersQ != null && passengersQ !== '') {
@@ -208,6 +210,52 @@
     return Object.prototype.hasOwnProperty.call(src, key) && src[key] != null && src[key] !== '';
   }
 
+
+  // Player age is never taken from the vehicle object (g.age is often the person).
+  // Car age = player age − car.boughtAge when that key is present; else null (wear alias / 0).
+  function playerAgeFromGameState(gameState) {
+    if (!gameState || typeof gameState !== 'object') return null;
+    const slots = [gameState.player, gameState.person, gameState.you];
+    for (let i = 0; i < slots.length; i++) {
+      const p = slots[i];
+      if (p && p.age != null && p.age !== '') {
+        const n = Number(p.age);
+        if (Number.isFinite(n)) return n;
+      }
+    }
+    if (gameState.age != null && gameState.age !== '') {
+      const n = Number(gameState.age);
+      if (Number.isFinite(n)) return n;
+    }
+    return null;
+  }
+  function boughtAgeFromGameState(gameState, g) {
+    const tryN = (v) => {
+      if (v == null || v === '') return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    };
+    const fromG = tryN(g && g.boughtAge);
+    if (fromG != null) return fromG;
+    const fromCar = tryN(gameState && gameState.car && gameState.car.boughtAge);
+    if (fromCar != null) return fromCar;
+    const owned = gameState && gameState.vehicle && gameState.vehicle.owned;
+    return tryN(owned && owned.boughtAge);
+  }
+  function carAgeFromGameState(gameState, g) {
+    // Explicit vehicle.carAge only — never g.age.
+    if (g && g.carAge != null && g.carAge !== '') {
+      const n = Number(g.carAge);
+      if (Number.isFinite(n) && n >= 0) return n;
+    }
+    const bought = boughtAgeFromGameState(gameState, g);
+    if (bought == null) return null;
+    const playerAge = playerAgeFromGameState(gameState);
+    if (playerAge == null || !Number.isFinite(playerAge)) return 0;
+    const age = playerAge - bought;
+    return Number.isFinite(age) && age >= 0 ? age : 0;
+  }
+
   // Small adapter: read has-car / tier / colour / durability from game state,
   // with dev query overrides. Real car code is being ported separately.
   function readCarState(qs, gameState) {
@@ -224,7 +272,7 @@
 
     const carAgeRaw = hasParam(qs, 'carage')
       ? param(qs, 'carage')
-      : (g && (g.carAge != null ? g.carAge : (g.age != null ? g.age : null)));
+      : carAgeFromGameState(gameState, g);
     const carAge = resolveCarAge({
       carAge: carAgeRaw,
       wear: (carAgeRaw == null || carAgeRaw === '') ? wear : null,
@@ -265,11 +313,27 @@
     }
 
     const riders = resolveRiders(param(qs, 'riders'), hasParam(qs, 'passengers') ? param(qs, 'passengers') : null);
-    // bike: no passengers. scooter: at most 1 (partner). bus: waiting, no in-vehicle riders.
+    // bike: no passengers. scooter: at most 1 (partner or family). bus: waiting, no in-vehicle riders.
+    // riders=family is a scooter-only baked variant (child in front, adult behind).
+    // Car: &riders=partner&kidseat=1 (or kid=1) is driver + spouse + child seat.
     let passengers = riders.passengers;
     let kidSeat = riders.kidSeat;
-    if (mode === 'bike' || mode === 'bus') { passengers = 0; kidSeat = false; }
+    let ridersKind = riders.riders;
+    if (mode !== 'scooter' && ridersKind === 'family') {
+      if (mode === 'car') { ridersKind = 'kid_seat'; passengers = 1; kidSeat = true; }
+      else { ridersKind = 'solo'; passengers = 0; kidSeat = false; }
+    }
+    if (mode === 'bike' || mode === 'bus') { passengers = 0; kidSeat = false; ridersKind = 'solo'; }
     if (mode === 'scooter') { passengers = Math.min(passengers, 1); kidSeat = false; }
+    if (mode === 'car' && ridersKind === 'partner' && (param(qs, 'kidseat') === '1' || param(qs, 'kid') === '1')) {
+      kidSeat = true;
+      passengers = Math.max(passengers, 2);
+    }
+
+    let driver = param(qs, 'driver', 'dad');
+    if (driver !== 'mom') driver = 'dad';
+    let art = param(qs, 'art', '');
+    if (art !== 'a' && art !== 'old') art = '';
 
     const lit = param(qs, 'lit') === 'evening' || param(qs, 'lit') === 'night' ? 'evening' : 'daylight';
     let trip = param(qs, 'trip', 'work');
@@ -306,11 +370,15 @@
       breakdownAnnual: tripBreakdownProbability({ mode, hasCar, carAge, maint }) * TRIPS_PER_YEAR,
       breakdownP: tripBreakdownProbability({ mode, hasCar, carAge, maint }),
       tier: param(qs, 'tier', (g && g.tier) || 'middle'),
-      riders: (mode === 'bike' || mode === 'bus') ? 'solo' : (mode === 'scooter' && riders.riders === 'kid_seat' ? (passengers ? 'partner' : 'solo') : riders.riders),
+      riders: (mode === 'bike' || mode === 'bus') ? 'solo' : (mode === 'scooter' && ridersKind === 'kid_seat' ? (passengers ? 'partner' : 'solo') : ridersKind),
       passengers,
       kidSeat,
+      driver,
+      art,
       lighting: lit,
-      headlights: lit === 'evening' && (mode === 'car' || mode === 'scooter'),
+      headlights: hasParam(qs, 'headlights')
+        ? param(qs, 'headlights') !== '0'
+        : lit === 'evening' && (mode === 'car' || mode === 'scooter'),
       trip,
       dest: trip === 'weekend' ? dest : null,
       dir: trip === 'home' ? 'home' : 'out',
@@ -326,11 +394,493 @@
     };
   }
 
+
+  const MODE_TO_KIND = { bike: 'bicycle', scooter: 'scooter', car: 'smallcar', bus: 'bus' };
+  const SMALLCAR_LAYER_ORDER = ['body', 'child_seat', 'passengers', 'driver'];
+  const BREAKDOWN_FALLBACK_CARD = { source: 'breakdown_fallback', title: '卡片（占位）', text: '文案待公主', id: null };
+  const PLACEHOLDER = {
+    work: '到公司的句子待公主補',
+    home: '到家的句子待公主補',
+    weekend: '週末到達句待公主補',
+  };
+
+  function vehicleKind(mode) {
+    return MODE_TO_KIND[mode] || mode;
+  }
+
+
+  var BODY_BOB_KEY = 'body_bob_px';
+
+  function zeroBob(n) {
+    const out = [];
+    const len = n > 0 ? n : 8;
+    for (let i = 0; i < len; i++) out.push(0);
+    return out;
+  }
+
+  // Read per-frame body drop from overlays/manifest.json. Never a hardcoded sequence.
+  // Missing or empty body_bob_px → all zeros and missing=true (dev warning is the caller's job).
+  function readBodyBobPx(man) {
+    const frames = (man && Number(man.frames)) || 8;
+    const arr = man && man[BODY_BOB_KEY];
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return { px: zeroBob(frames), missing: true };
+    }
+    const px = [];
+    for (let i = 0; i < arr.length; i++) {
+      const v = Number(arr[i]);
+      px.push(Number.isFinite(v) ? v : 0);
+    }
+    return { px, missing: false };
+  }
+
+  // Body PNGs already contain the bounce. Apply the manifest offset only to
+  // driver / passenger / child-seat overlays (not body, not baked scooter/bike frames).
+  function layerDrawOffsetY(planOrMan, role, frameIndex) {
+    if (!role || role === 'body' || role === 'combined') return 0;
+    const bob = readBodyBobPx(planOrMan);
+    if (!bob.px.length) return 0;
+    const i = Number(frameIndex);
+    const n = bob.px.length;
+    const idx = Number.isFinite(i) ? ((i % n) + n) % n : 0;
+    return bob.px[idx] || 0;
+  }
+
+
+
+  function metricsFromAnchorDoc(doc, source) {
+    if (!doc) return null;
+    const px = doc.wheels && doc.wheels[0] && doc.wheels[0].px_per_frame;
+    return {
+      source: source || 'anchors',
+      canvas: doc.canvas,
+      origin: doc.origin || [0, 0],
+      ground_row: doc.ground_row,
+      px_per_frame: px != null ? Number(px) : null,
+      wheels: doc.wheels || null,
+    };
+  }
+
+  function variantMetricsKey(assetDir, variant) {
+    return String(assetDir || '') + ':' + String(variant || '');
+  }
+
+  function lookupVariantMetrics(cfg, assetDir, variant) {
+    if (!variant) return null;
+    const vm = cfg && cfg.variantMetrics;
+    if (!vm) return null;
+    return vm[variantMetricsKey(assetDir, variant)] || vm[variant] || null;
+  }
+
+  function familyAssetDir(model) {
+    const m = String(model == null ? 0 : model);
+    if (m === '0') return 'assets/vehicles/a/scooter_m0_family_v2';
+    return 'assets/vehicles/a/scooter_m' + m + '_family';
+  }
+
+  function familyMetricsKey(model) {
+    const m = String(model == null ? 0 : model);
+    if (m === '0') return 'scooter_m0_family_v2';
+    return 'scooter_m' + m + '_family';
+  }
+
+  function isFamilyReady(opts, model) {
+    const o = opts || {};
+    if (o.familyAvailable === false) return false;
+    const m = String(model == null ? 0 : model);
+    if (Array.isArray(o.familyAvailable)) return o.familyAvailable.map(String).indexOf(m) >= 0;
+    if (o.familyAvailable && typeof o.familyAvailable === 'object') {
+      const v = o.familyAvailable[m];
+      if (v === false) return false;
+      if (v) return true;
+    }
+    const baked = o.cfg && o.cfg.bakedMetrics;
+    const key = familyMetricsKey(m);
+    const inBaked = !!(baked && (baked[key] || (m === '0' && baked.scooter_m0_family)));
+    if (o.familyAvailable === true) return true;
+    return inBaked;
+  }
+
+  function applyVariantMetrics(cfg, assetDir, variant, cur) {
+    const out = cur || {};
+    const vm = lookupVariantMetrics(cfg, assetDir, variant);
+    if (!vm) return out;
+    if (vm.canvas) out.canvas = vm.canvas;
+    if (vm.ground_row != null) out.ground_row = vm.ground_row;
+    if (vm.origin) out.origin = vm.origin;
+    if (vm.px_per_frame != null && Number.isFinite(Number(vm.px_per_frame))) out.px_per_frame = Number(vm.px_per_frame);
+    if (vm.wheels) out.wheels = vm.wheels;
+    if (vm.source) out.metricsSource = vm.source;
+    return out;
+  }
+
+  function metricsFor(cfg, mode, model, extra) {
+    const kind = vehicleKind(mode);
+    const m = String(model == null ? 0 : model);
+    const over = (extra && extra.overlayManifests) || (cfg && cfg.overlayManifests) || {};
+    if (kind === 'smallcar' && over[m] && over[m].px_per_frame != null) {
+      const man = over[m];
+      const bob = readBodyBobPx(man);
+      return {
+        source: 'overlay_manifest',
+        canvas: man.canvas,
+        origin: man.origin,
+        ground_row: man.ground_row,
+        px_per_frame: Number(man.px_per_frame),
+        frames: man.frames || 8,
+        body_bob_px: bob.px,
+        body_bob_missing: bob.missing,
+      };
+    }
+    const baked = cfg && cfg.bakedMetrics;
+    const bakedKey = (kind === 'bicycle' && m === '2') ? 'bicycle_m2_v2'
+      : (kind === 'scooter' && extra && extra.familyDir) ? 'scooter_m0_family_v2'
+      : (kind === 'scooter' && m === '0') ? 'scooter_m0_v2'
+      : (kind === 'scooter' && m === '2') ? 'scooter_m2_v2'
+      : (kind + '_m' + m);
+    const bm = baked && (baked[bakedKey] || baked[kind + '_m' + m]);
+    if (bm && bm.px_per_frame != null) {
+      return {
+        source: bm.source || 'baked_anchors',
+        canvas: bm.canvas,
+        origin: bm.origin || [0, 0],
+        ground_row: bm.ground_row,
+        px_per_frame: Number(bm.px_per_frame),
+        frames: 8,
+      };
+    }
+    const models = cfg && cfg.vehicles && cfg.vehicles[kind] && cfg.vehicles[kind].models;
+    const entry = models && models[m];
+    if (entry && Number.isFinite(Number(entry.px_per_frame))) {
+      return {
+        source: 'config',
+        canvas: entry.canvas,
+        origin: entry.origin && (entry.origin.x != null ? [entry.origin.x, entry.origin.y] : entry.origin),
+        ground_row: entry.ground_row,
+        px_per_frame: Number(entry.px_per_frame),
+        frames: entry.frames || 8,
+      };
+    }
+    return { source: 'none', canvas: null, origin: [0, 0], ground_row: null, px_per_frame: 0, frames: 8 };
+  }
+  function pxPerFrameFor(cfg, mode, model, extra) {
+    return metricsFor(cfg, mode, model, extra).px_per_frame;
+  }
+
+  // x movement in 480-space scene pixels. One animation frame ↔ px_per_frame of travel.
+  function travelPixels(elapsedMs, pxPerFrame, fps) {
+    const t = Number(elapsedMs);
+    const px = Number(pxPerFrame);
+    const f = Number(fps);
+    if (!Number.isFinite(t) || !Number.isFinite(px) || !Number.isFinite(f) || f <= 0) return 0;
+    return Math.max(0, t) / 1000 * f * px;
+  }
+
+  function bakedVariantChain(opts) {
+    const o = opts || {};
+    const time = o.headlights ? 'night' : 'day';
+    const driver = o.driver === 'mom' ? 'mom' : 'dad';
+    const names = [];
+    if (o.riders === 'family') {
+      names.push(time + '_' + driver + '_family');
+      names.push(time + '_' + driver);
+      return names;
+    }
+    const p = Math.max(0, Number(o.passengers) || 0);
+    if (p >= 1) {
+      const cap = o.mode === 'scooter' ? 1 : 3;
+      for (let n = Math.min(p, cap); n >= 1; n--) names.push(time + '_' + driver + '_p' + n);
+    }
+    names.push(time + '_' + driver);
+    return names;
+  }
+
+  function firstAvailable(names, available) {
+    if (!available) return names[0] || null;
+    for (let i = 0; i < names.length; i++) {
+      if (available.has(names[i]) || (typeof available.contains === 'function' && available.contains(names[i]))) return names[i];
+      if (Array.isArray(available) && available.indexOf(names[i]) >= 0) return names[i];
+    }
+    return null;
+  }
+
+  function hasAvail(available, name) {
+    if (!available || !name) return false;
+    if (typeof available.has === 'function') return available.has(name);
+    if (Array.isArray(available)) return available.indexOf(name) >= 0;
+    return !!available[name];
+  }
+
+  // pack=a plans (DEV screens only until gate 2). Bicycle/scooter: baked rider is final.
+  // Small car: body strip + stackable overlays from overlays/manifest.json. Never mix with old composites (1 px taller).
+  function resolveArtPlan(opts) {
+    const o = opts || {};
+    const pack = o.pack || 'a';
+    const mode = o.mode;
+    const model = String(o.model == null ? 0 : o.model);
+    const kind = vehicleKind(mode);
+    const fps = (o.cfg && o.cfg.fps) || 8;
+    const duskTint = o.lighting === 'evening' && !o.headlights;
+    const evePeople = o.lighting === 'evening';
+    const pending = [];
+    const labels = [];
+    const met = metricsFor(o.cfg, mode, o.model, o);
+    const px = met.px_per_frame;
+    if (pack === 'old' || mode === 'bus') {
+      return {
+        pack: pack === 'old' ? 'old' : pack,
+        compose: 'old_strip',
+        kind, model: Number(model),
+        layers: [], pending, labels,
+        px_per_frame: pack === 'a' ? px : null,
+        frames: pack === 'old' || mode === 'bus' ? 6 : 8,
+        scale: pack === 'old' || mode === 'bus' ? 2 : 1,
+        fps, duskTint: false, variant: null,
+      };
+    }
+    const time = o.headlights ? 'night' : 'day';
+    const driver = o.driver === 'mom' ? 'mom' : 'dad';
+    const available = o.available;
+    const over = ((o.overlayManifests || (o.cfg && o.cfg.overlayManifests) || {})[model]);
+
+    if (kind === 'smallcar') {
+      if (over) {
+        const peopleTint = evePeople ? 'evening' : null;
+        const layers = [];
+        layers.push({
+          role: 'body',
+          folder: time === 'night' ? 'body_night' : 'body_day',
+          tint: (time === 'day' && evePeople) ? 'evening' : null,
+        });
+        if (o.kidSeat) {
+          layers.push({ role: 'child_seat', folder: 'child_seat', tint: peopleTint, headsOnly: true });
+        }
+        if (o.riders === 'parents') {
+          layers.push({ role: 'passengers_parents', folder: 'passengers_parents', tint: peopleTint, headsOnly: true });
+        } else if ((o.passengers >= 1) && o.riders !== 'kid_seat') {
+          const spouse = driver === 'mom' ? 'passenger_spouse_dad' : 'passenger_spouse_mom';
+          layers.push({ role: 'spouse', folder: spouse, tint: peopleTint, headsOnly: true });
+        }
+        layers.push({ role: 'driver', folder: 'driver_' + driver, tint: peopleTint, driver: driver });
+        const bob = readBodyBobPx(over);
+        if (bob.missing) labels.push('body_bob_px 缺失');
+        return {
+          pack: 'a', compose: 'layered', kind, model: Number(model),
+          layers, pending, labels,
+          assetDir: 'assets/vehicles/a/smallcar_m' + model + '/overlays',
+          canvas: over.canvas, origin: over.origin, ground_row: over.ground_row,
+          px_per_frame: Number(over.px_per_frame), frames: over.frames || 8, scale: 1, fps,
+          duskTint, variant: null, metricsSource: 'overlay_manifest',
+          body_bob_px: bob.px, body_bob_missing: bob.missing,
+          overlays: over.overlays || null,
+        };
+      }
+      // Do not fall back to the old 1 px-shorter composites.
+      pending.push('smallcar_overlay_manifest');
+      labels.push('小型車分層 manifest 缺失');
+      return {
+        pack: 'a', compose: 'missing', kind, model: Number(model),
+        layers: [], pending, labels, px_per_frame: px, frames: 8, scale: 1, fps,
+        duskTint, variant: null,
+      };
+    }
+
+    let assetDir = 'assets/vehicles/a/' + kind + '_m' + model;
+    let canvas = met.canvas, origin = met.origin, ground_row = met.ground_row;
+    let pxUse = px;
+    const wantedFamily = o.riders === 'family' && kind === 'scooter';
+    if (kind === 'bicycle' && model === '2') {
+      assetDir = 'assets/vehicles/a/bicycle_m2_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.bicycle_m2_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
+    if (kind === 'scooter' && model === '0') {
+      assetDir = 'assets/vehicles/a/scooter_m0_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m0_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
+    if (kind === 'scooter' && model === '2') {
+      assetDir = 'assets/vehicles/a/scooter_m2_v2';
+      const bm = o.cfg && o.cfg.bakedMetrics && o.cfg.bakedMetrics.scooter_m2_v2;
+      if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+    }
+    if (wantedFamily) {
+      if (isFamilyReady(o, model)) {
+        const chosenFam = time + '_' + driver;
+        const famDir = familyAssetDir(model);
+        const bmKey = familyMetricsKey(model);
+        const bm = o.cfg && o.cfg.bakedMetrics && (o.cfg.bakedMetrics[bmKey] || (model === '0' && o.cfg.bakedMetrics.scooter_m0_family));
+        if (bm) { canvas = bm.canvas; ground_row = bm.ground_row; pxUse = Number(bm.px_per_frame); origin = bm.origin || [0, 0]; }
+        const famMet = applyVariantMetrics(o.cfg, famDir, chosenFam, { canvas, ground_row, origin, px_per_frame: pxUse });
+        return {
+          pack: 'a', compose: 'baked_rider', kind, model: Number(model),
+          layers: [{
+            role: 'combined', variant: chosenFam, baked: true,
+            tint: duskTint ? 'evening' : null,
+            pathPattern: famDir + '/frames/' + chosenFam + '/f{frame}.png',
+          }],
+          pending, labels,
+          assetDir: famDir,
+          canvas: famMet.canvas, origin: famMet.origin, ground_row: famMet.ground_row,
+          px_per_frame: famMet.px_per_frame, frames: 8, scale: 1, fps,
+          duskTint, variant: chosenFam, fallbackFrom: null, family: true,
+          metricsSource: famMet.metricsSource || (bm && bm.source) || null,
+          wheels: famMet.wheels || (bm && bm.wheels) || null,
+        };
+      }
+      pending.push('scooter_family');
+      labels.push('機車全家款待王子');
+    }
+
+    const chain = wantedFamily ? [time + '_' + driver] : bakedVariantChain(o);
+    let chosen = firstAvailable(chain, available);
+    if (!chosen) chosen = chain[chain.length - 1];
+    const wanted = chain[0];
+    if (wanted && chosen && wanted !== chosen) {
+      pending.push('baked_passenger_variant');
+      labels.push('夜間載客合成格待王子');
+    }
+    const varMet = applyVariantMetrics(o.cfg, assetDir, chosen, { canvas, ground_row, origin, px_per_frame: pxUse });
+    canvas = varMet.canvas; ground_row = varMet.ground_row; origin = varMet.origin; pxUse = varMet.px_per_frame;
+    return {
+      pack: 'a',
+      compose: 'baked_rider',
+      kind, model: Number(model),
+      layers: [{
+        role: 'combined',
+        variant: chosen,
+        baked: true,
+        tint: duskTint ? 'evening' : null,
+        pathPattern: assetDir + '/frames/' + chosen + '/f{frame}.png',
+      }],
+      pending, labels,
+      assetDir,
+      canvas, origin, ground_row,
+      px_per_frame: pxUse, frames: 8, scale: 1, fps,
+      duskTint, variant: chosen,
+      metricsSource: varMet.metricsSource || null,
+      wheels: varMet.wheels || null,
+      fallbackFrom: wantedFamily ? 'family' : null,
+    };
+  }
+
+  function fieldMatches(entryVal, want) {
+    if (want == null || want === '') return true;
+    if (entryVal == null || entryVal === '') return true;
+    if (typeof entryVal === 'string' && entryVal.indexOf('|') >= 0) {
+      return entryVal.split('|').indexOf(String(want)) >= 0;
+    }
+    return entryVal === want;
+  }
+
+  function cardMatches(entry, filters) {
+    if (!entry) return false;
+    const keys = Object.keys(filters || {});
+    for (let i = 0; i < keys.length; i++) {
+      const k = keys[i];
+      if (!fieldMatches(entry[k], filters[k])) return false;
+    }
+    return true;
+  }
+
+  function pickCard(list, filters, seed, salt) {
+    if (!list || !list.length) return null;
+    const hits = list.filter((e) => cardMatches(e, filters));
+    if (!hits.length) return null;
+    const i = hashSeed(String(seed == null ? 'dev' : seed) + ':' + (salt || 'card')) % hits.length;
+    return hits[i];
+  }
+
+  function cardResult(source, entry, extra) {
+    const out = {
+      source,
+      id: entry && entry.id || null,
+      text: entry && entry.text || '',
+      title: extra && extra.title || null,
+      leads_to: entry && entry.leads_to || null,
+      eventText: extra && extra.eventText || null,
+      eventId: extra && extra.eventId || null,
+    };
+    if (extra) {
+      if (extra.placeholder) out.placeholder = extra.placeholder;
+      if (extra.fallback) out.fallback = extra.fallback;
+    }
+    return out;
+  }
+
+  function lookupArrivalCard(cards, state) {
+    const st = state || {};
+    const ev = (st.event && st.event.type) || st.eventType || 'none';
+    const trip = st.trip || 'work';
+    const mode = st.mode || 'car';
+    const riders = st.riders || 'solo';
+    const dest = st.dest || null;
+    const seed = st.seed;
+    if (ev === 'breakdown') return Object.assign({}, BREAKDOWN_FALLBACK_CARD);
+
+    const baseFilters = { mode, riders };
+    let eventEntry = null;
+    if (ev !== 'none' && ev !== 'breakdown' && cards && cards.events && cards.events[ev]) {
+      eventEntry = pickCard(cards.events[ev], { mode, riders, trip }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { mode, riders }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { riders }, seed, 'event:' + ev)
+        || pickCard(cards.events[ev], { mode }, seed, 'event:' + ev);
+    }
+
+    if (trip === 'weekend') {
+      const destList = cards && cards.weekend && dest ? cards.weekend[dest] : null;
+      const arrive = pickCard(destList, { dest, riders, mode, trip: 'weekend' }, seed, 'arrive:' + dest)
+        || null;
+      // Do not silently use a car-only dest line for bike/scooter/bus.
+      if (!arrive) {
+        const text = PLACEHOLDER.weekend + '（' + (dest || '?') + '／' + mode + (riders !== 'solo' ? '／' + riders : '') + '）';
+        return cardResult('placeholder', { text }, {
+          placeholder: true,
+          eventText: eventEntry && eventEntry.text,
+          eventId: eventEntry && eventEntry.id,
+        });
+      }
+      return cardResult('arrive', arrive, {
+        eventText: eventEntry && eventEntry.text,
+        eventId: eventEntry && eventEntry.id,
+      });
+    }
+
+    const arriveList = trip === 'home'
+      ? (cards && cards.home_arrive)
+      : (cards && cards.work_arrive);
+    const arrive = pickCard(arriveList, { mode, riders }, seed, 'arrive:' + trip);
+    if (arrive) {
+      return cardResult('arrive', arrive, {
+        eventText: eventEntry && eventEntry.text,
+        eventId: eventEntry && eventEntry.id,
+      });
+    }
+
+    // No arrive-at-office/home line for this combo: use a matching road line if any.
+    const roadList = cards && cards[trip];
+    if (ev !== 'none' && ev !== 'breakdown') {
+      const road = pickCard(roadList, { mode, riders, event: ev }, seed, 'road:' + trip)
+        || pickCard(roadList, { mode, event: ev }, seed, 'road:' + trip)
+        || eventEntry;
+      if (road) return cardResult('road_line', road, { fallback: 'road_line' });
+    }
+    const text = (PLACEHOLDER[trip] || PLACEHOLDER.work);
+    return cardResult('placeholder', { text }, { placeholder: true });
+  }
+
   return {
     COLORS, COLOR_ZH, WEEKEND_DESTS, RIDERS, ROAD_EVENTS, TYPE_TO_MODE,
     hashSeed, rand01, shouldPlayCommute, shouldPlayTrip, pickNoCarMode, pickRoadEvent,
     wearIsOld, resolveCarAge, annualBreakdownRate, tripBreakdownProbability,
     simulateBreakdowns, resolveRiders, tripDurationMs, readCarState,
     TRIPS_PER_YEAR, MAINT_FACTOR, WEAR_OLD_AGE, WEAR_NEW_AGE,
+    playerAgeFromGameState, boughtAgeFromGameState, carAgeFromGameState,
+    MODE_TO_KIND, SMALLCAR_LAYER_ORDER, BREAKDOWN_FALLBACK_CARD,
+    vehicleKind, metricsFor, pxPerFrameFor, travelPixels, bakedVariantChain, resolveArtPlan,
+    BODY_BOB_KEY, readBodyBobPx, layerDrawOffsetY,
+    metricsFromAnchorDoc, variantMetricsKey, lookupVariantMetrics,
+    familyAssetDir, familyMetricsKey, isFamilyReady, applyVariantMetrics,
+    cardMatches, pickCard, lookupArrivalCard,
   };
 });
