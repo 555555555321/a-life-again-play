@@ -2,9 +2,10 @@
 # 日間 B 不含觸地列，由正式檢查器（相反 4 鄰多數決）量得。
 # 客廳組用 gate3_recolour_A_r3_20261111 的正式選定 x（先卡上半身空牆，再取日間 B 最高）。
 # 例外：阿嬤改為 r4b（x=296，日間 82.52%，gate3_grandma_r4b_20261111）；阿公改為微駝 r2（x=292，日間 90.05%，gate3_grandpa_stoop_r2_20261111）。
+# 例外：爸爸走路本 PR 用分支上的舊 father_walk_c/walk_00（x=291，日間 92.75%，320/345，pr8_remeasure_sprites_20261111）。PR #4 換入 r3 後改為 83.77%。
 # status: pass | pending_redraw | pending_scene
 group_id,sprite_key,scene,x,floor_y,day_B_excl_pct,source_report,status
-dad_walk,dad_walk/f00,living_room,291,252,83.77,gate3_recolour_A_r3_20261111,pass
+dad_walk,father_walk_c/walk_00,living_room,291,252,92.75,pr8_remeasure_sprites_20261111,pass
 grandpa,grandpa_stoop_r2/stand_f00,living_room,292,252,90.05,gate3_grandpa_stoop_r2_20261111,pass
 grandma,grandma_r4b/stand_f00,living_room,296,252,82.52,gate3_grandma_r4b_20261111,pass
 hug_dad_infant,hug/dad_infant/hold_f00,living_room,301,252,86.42,gate3_recolour_A_r3_20261111,pass
