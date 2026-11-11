@@ -41,13 +41,24 @@ pass('applyToCastMember uses standing_group and leaves others alone');
 const okRow = SP.applyToCastMember({ id: 'mother', x: 100, feet: 200, standing_group: 'mom_A_r5c' }, rows);
 assert.strictEqual(okRow.x, 295);
 assert.strictEqual(okRow.feet, 252);
-const pendingRedraw = SP.applyToCastMember({ id: 'grandma', x: 111, feet: 222, standing_group: 'grandma' }, rows);
+// After merging signed PR #8, no CSV row is still pending_redraw (grandma is pass at x=296).
+// Keep the skip coverage with a test-local fixture row.
+const pendingRedrawFixture = Object.assign({}, SP.lookup(rows, 'mom_A_r5c'), {
+  group_id: 'synthetic_pending_redraw',
+  status: 'pending_redraw',
+  x: 333,
+  floor_y: 252,
+});
+assert.strictEqual(pendingRedrawFixture.status, 'pending_redraw');
+assert.strictEqual(pendingRedrawFixture.x, 333);
+const pendingRedrawRows = [pendingRedrawFixture];
+const pendingRedraw = SP.applyToCastMember({ id: 'fixture', x: 111, feet: 222, standing_group: 'synthetic_pending_redraw' }, pendingRedrawRows);
 assert.strictEqual(pendingRedraw.x, 111);
 assert.strictEqual(pendingRedraw.feet, 222);
 const pendingScene = SP.applyToCastMember({ id: 'child', x: 111, feet: 222, standing_group: 'action_write' }, rows);
 assert.strictEqual(pendingScene.x, 111);
 assert.strictEqual(pendingScene.feet, 222);
-const pendingVersion = SP.applyToVersion({ id: 'g', src: 'x', x: 111, feet: 222 }, 'grandma', rows);
+const pendingVersion = SP.applyToVersion({ id: 'g', src: 'x', x: 111, feet: 222 }, 'synthetic_pending_redraw', pendingRedrawRows);
 assert.strictEqual(pendingVersion.x, 111);
 assert.strictEqual(pendingVersion.feet, 222);
 pass('pending_redraw / pending_scene are not applied; pass is');
