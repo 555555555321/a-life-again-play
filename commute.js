@@ -213,6 +213,8 @@
     bits.push('舊畫風 2×');
     if (state.lighting === 'evening') bits.push(state.headlights ? '傍晚・頭燈' : '傍晚');
     if (state.wear === 'old') bits.push('舊車（占位：暗漆＋凹痕）');
+    if (state.carAge != null) bits.push('車齡 ' + (Number.isInteger(state.carAge) ? state.carAge : Number(state.carAge).toFixed(1)) + ' 年');
+    if (state.maint) bits.push('有保養（拋錨×0.7）');
     if (state.newCar) bits.push('新車日（較長）');
     if (state.kidSeat) bits.push('兒童座椅（占位）');
     if (state.riders === 'parents') bits.push('父母同行');
@@ -657,7 +659,9 @@
     'vehicle=none|bike|scooter|car|bus',
     'passengers=0..3',
     'riders=solo|partner|kid_seat|parents',
-    'wear=new|old',
+    'wear=new|old (alias: old→carage=12, new→carage=0)',
+    'carage=<years> (0–3 / 4–9 / 10+ breakdown bands)',
+    'maint=1 (insurance/maintenance, breakdown rate × 0.7)',
     'durability=0..100',
     'color=0..5 (art currently ships c0 only)',
     'model=0..2 (art currently ships m0 only)',
