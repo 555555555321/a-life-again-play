@@ -1,0 +1,30 @@
+{
+  "name": "你",
+  "height_px": 77,
+  "max_colors": 12,
+  "canvas": [
+    72,
+    116
+  ],
+  "ground_row": 115,
+  "anchor": [
+    27,
+    115
+  ],
+  "frame_count": 4,
+  "_note": "七到十歲坐餐桌 r4b：遠側朝向觀眾，小腿與鞋在桌下可見、腳列 115。兩個袖身缺口已補。桌子不烤進精靈。錨 (27,115)。 r4c：front_mask/f00–f03.png 與幀一對一。",
+  "layer_order": [
+    "plate",
+    "sprite",
+    "dining_fg",
+    "front_mask"
+  ],
+  "front_mask_dir": "front_mask",
+  "front_mask_files": [
+    "front_mask/f00.png",
+    "front_mask/f01.png",
+    "front_mask/f02.png",
+    "front_mask/f03.png"
+  ],
+  "_layer_note": "合成順序：plate → sprite（frames/fXX.png）→ dining_fg → front_mask/fXX.png。front_mask 與幀一對一、同畫布同錨，檔內是桌上前臂／手／筷／碗等要蓋在前景之上的實際像素（不是單一 front_mask.png，也不另存一層精靈；第四層直接貼 front_mask 檔的不透明像素）。小兵第三階段在此四層檔案合成圖上量測。"
+}

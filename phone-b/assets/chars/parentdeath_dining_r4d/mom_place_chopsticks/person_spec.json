@@ -1,0 +1,34 @@
+{
+  "name": "媽媽",
+  "height_px": 89,
+  "max_colors": 12,
+  "canvas": [
+    78,
+    116
+  ],
+  "ground_row": 115,
+  "anchor": [
+    33,
+    115
+  ],
+  "frame_count": 8,
+  "_note": "擺筷再收回 r3：A_r5c 站姿（頭頸原像素）站在餐桌右端，手伸到空椅前的餐位。低頭格頂列不動、臉下傾。草稿，未改官方 媽媽.json。錨 (27,115)。A_r5c 畫在 x+8，寬畫布留給伸出去的手臂。 r4c：補毛衣洞 (44,64)-(44,65) 為 #c86a52；front_mask/f00–f07.png 與幀一對一。 r4d：畫布左側加 6 欄透明，錨改 (33,115)，房間站位 x=319 不變；f01/f02 補回被畫布切掉的 12 px 筷（其餘像素與 r4c 平移後相同）。",
+  "layer_order": [
+    "plate",
+    "sprite",
+    "dining_fg",
+    "front_mask"
+  ],
+  "front_mask_dir": "front_mask",
+  "front_mask_files": [
+    "front_mask/f00.png",
+    "front_mask/f01.png",
+    "front_mask/f02.png",
+    "front_mask/f03.png",
+    "front_mask/f04.png",
+    "front_mask/f05.png",
+    "front_mask/f06.png",
+    "front_mask/f07.png"
+  ],
+  "_layer_note": "合成順序：plate → sprite（frames/fXX.png）→ dining_fg → front_mask/fXX.png。front_mask 與幀一對一、同畫布同錨，檔內是桌上前臂／手／筷／碗等要蓋在前景之上的實際像素（不是單一 front_mask.png，也不另存一層精靈；第四層直接貼 front_mask 檔的不透明像素）。小兵第三階段在此四層檔案合成圖上量測。"
+}

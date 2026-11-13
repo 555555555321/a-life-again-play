@@ -879,6 +879,13 @@
       "season": "冬",
       "lighting": "daylight",
       "_note": "DEV ONLY 訊息 App 樣本。96×144 原圖最近鄰整數倍（直式 10×）。?dev=1&screen=messages&shot&fixture=list|compose|thread|photo|nosavings|dead|fade|incoming，可加 &gen=flip|smart|thin、&savings=。"
+    },
+    "dining_r4d": {
+      "_note": "DEV ONLY parent-death b2 dining r4d (王子; gates 1–3 signed 2026-11-13). Four layers plate → sprite → dining_fg → front_mask from data/dining_r4d.json; x and floor from data/standing_points.csv (dining_you_sit_table_r4d / dining_mom_place_chopsticks_r4d). ?dev=1&orient=landscape&screen=dining_r4d. Optional &lit=evening, &frame=N. Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "飯桌 r4d：你坐 x=200、媽媽擺筷 x=319（地面 252），四層：底圖 → 人物 → 前景 → 前層。",
+      "text": "飯桌：你坐在桌前，媽媽擺筷子。"
     }
   },
   "_test_order": [
