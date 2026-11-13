@@ -33,3 +33,4 @@ add	assets/rooms/dining_r4d/dining_day.png	1465148f8e861d9d58c5f15e5db1354a1dd7f
 add	assets/rooms/dining_r4d/dining_evening.png	088a6f267d1d155b81bafd689df083645c2a5426131c023d844ccdb50b0e51d4	/workspace/ala/r8_art/王子/actions_parentdeath_20261111/b2_dining/r4d/dining_evening.png
 add	assets/rooms/dining_r4d/dining_fg.png	611a5c8a2cc6d00b4a92304c24952a37cbff01a727ed2a6c44b1132c82ac44ee	/workspace/ala/r8_art/王子/actions_parentdeath_20261111/b2_dining/r4d/dining_fg.png
 add	assets/rooms/dining_r4d/dining_fg_evening.png	bf78f21cbcce4f4578ce934a0b8c63fae37ce2cf6c6e02122e145e33463ca4c9	/workspace/ala/r8_art/王子/actions_parentdeath_20261111/b2_dining/r4d/dining_fg_evening.png
+add	data/palette_3349.txt	ed9e0aa0a8a5a63838868480b852da9efbd8b3e7a8ffc09f5f4ebb27d46f123b	/workspace/ala/codex_r3/anim-r1/assets/pixel/variety/palette.txt
