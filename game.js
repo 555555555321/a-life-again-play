@@ -429,6 +429,7 @@ function eveningLit() {
   if (activeKey === 'style_trial_mom' && styleTrialMom) return styleTrialMom.lighting === 'evening';
   if (activeKey === 'style_trial_mom_a4' && styleTrialMomA4) return styleTrialMomA4.lighting === 'evening';
   if (activeKey === 'style_trial_mom_a5c' && styleTrialMomA5c) return styleTrialMomA5c.lighting === 'evening';
+  if (activeKey === 'dining_r4d' && typeof DiningR4d !== 'undefined' && DiningR4d.state) return DiningR4d.state.lighting === 'evening';
   return !!(prepared && prepared.lighting === 'evening');
 }
 
@@ -818,6 +819,11 @@ function loop(now) {
   }
   if (activeKey === 'style_trial_mom_a5c' && styleTrialMomA5c) {
     drawStyleTrialMomA5c(now);
+    requestAnimationFrame(loop);
+    return;
+  }
+  if (activeKey === 'dining_r4d' && typeof DiningR4d !== 'undefined' && DiningR4d.state) {
+    drawDiningR4d(now);
     requestAnimationFrame(loop);
     return;
   }
@@ -2223,6 +2229,19 @@ function drawStyleTrialMomA5c(now) {
 }
 
 
+// —— DEV dining_r4d: 王子 parent-death b2 dining r4d (you_sit_table x=200, mom_place_chopsticks x=319) ——
+// Layer order and poses live in data/dining_r4d.json; drawing is in dining_r4d.js.
+function drawDiningR4d(now) {
+  const gL = document.getElementById('sceneL') && document.getElementById('sceneL').getContext('2d');
+  if (ORIENT === 'landscape' && gL) {
+    gL.fillStyle = '#121014'; gL.fillRect(0, 0, 2340, 1080);
+    DiningR4d.draw(gL, now, 4, 210, drawCharSprite);
+    return;
+  }
+  const gP = document.getElementById('sceneP') && document.getElementById('sceneP').getContext('2d');
+  if (gP) DiningR4d.draw(gP, now, 1, 0, drawCharSprite);
+}
+
 (async () => {
   const standingCsvP = fetch('data/standing_points.csv', {cache: 'no-store'}).then(r => r.ok ? r.text() : '').catch(() => '');
   [manifest, data, actionIds, standingCsv] = await Promise.all([
@@ -2425,6 +2444,21 @@ function drawStyleTrialMomA5c(now) {
       };
       wireLit('btns'); wireLit('lbtns');
       if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'dining_r4d') {
+    if (!DEV) {
+      console.warn('dining_r4d requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.dining_r4d;
+      activeKey = 'dining_r4d';
+      const lit = (qs.get('lit') === 'evening') ? 'evening' : (scr.lighting || 'daylight');
+      prepared = await prepareCue({lighting: lit, cast: [], scene_props: []}, 'dining_r4d');
+      const cfg = await fetch('data/dining_r4d.json', {cache: 'no-store'}).then(r => r.json());
+      await DiningR4d.init(cfg, lit, qs.get('frame'), StandingPoints.rows, stmTintEvening);
+      fit();
+      reflow();
+      renderAll();
     }
   } else if (startKey === 'messages') {
     if (!DEV) {

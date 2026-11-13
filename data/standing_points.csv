@@ -5,6 +5,7 @@
 # 例外：爸爸走路本 PR 用分支上的舊 father_walk_c/walk_00（x=291，日間 92.75%，320/345，pr8_remeasure_sprites_20261111）。PR #4 換入 r3 後改為 83.77%。
 # status: pass | pending_redraw | pending_scene
 # pending_scene 九列（坐讀／同睡／寫畫貼）保留列，sprite_key 暫標 pending_r5c_r5d：等矮桌／棉被場景接進手機 B 時再掛已簽的 r5c／r5d 圖。
+# 飯桌 r4d（dining_r4d，四層 plate→sprite→dining_fg→front_mask）：日間 B 用前景模式（foreground-v1.0.0，只量可見邊）。你_坐 4 幀相同，±2 最低 89.63%；媽媽 f00 值，8 幀在 x 為 92.36–93.28%，±2 最低 91.94%（f04/f05 x=318）。
 group_id,sprite_key,scene,x,floor_y,day_B_excl_pct,source_report,status
 dad_walk,father_walk_c/walk_00,living_room,291,252,92.75,pr8_remeasure_sprites_20261111,pass
 grandpa,grandpa_stoop_r2/stand_f00,living_room,292,252,90.05,gate3_grandpa_stoop_r2_20261111,pass
@@ -23,3 +24,5 @@ action_cosleep_dad,pending_r5c_r5d,bedroom_preview,210,216,94.14,gate3_actions_r
 action_write,pending_r5c_r5d,living_room_preview,200,252,21.74,gate3_actions_r3_20261111,pending_scene
 action_draw,pending_r5c_r5d,living_room_preview,200,252,20.05,gate3_actions_r3_20261111,pending_scene
 action_sticker,pending_r5c_r5d,living_room_preview,200,252,22.25,gate3_actions_r3_20261111,pending_scene
+dining_you_sit_table_r4d,parentdeath_dining_r4d/you_sit_table/frames/f00,dining_r4d,200,252,95.32,g3_dining_r4c_20261113,pass
+dining_mom_place_chopsticks_r4d,parentdeath_dining_r4d/mom_place_chopsticks/frames/f00,dining_r4d,319,252,93.28,g3_dining_r4c_20261113+g3_dining_r4d_item5,pass

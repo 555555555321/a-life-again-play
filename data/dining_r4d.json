@@ -1,0 +1,12 @@
+{
+  "_note": "Parent-death b2 dining r4d (王子). Signed: gate 1 王子, gate 2 小兵2號, gate 3 小兵 (2026-11-13). Layers are drawn back to front in layer_order. x and floor come from data/standing_points.csv (standing_group); x/feet here are the fallback. Evening: dining_evening / dining_fg_evening files; sprite and front_mask frames use the room multiply (stmTintEvening) at render time.",
+  "scene_size": [480, 270],
+  "layer_order": ["plate", "sprite", "dining_fg", "front_mask"],
+  "plate": { "daylight": "assets/rooms/dining_r4d/dining_day.png", "evening": "assets/rooms/dining_r4d/dining_evening.png" },
+  "dining_fg": { "daylight": "assets/rooms/dining_r4d/dining_fg.png", "evening": "assets/rooms/dining_r4d/dining_fg_evening.png" },
+  "frame_ms": 125,
+  "poses": [
+    { "id": "you_sit_table", "label": "你_坐", "standing_group": "dining_you_sit_table_r4d", "dir": "assets/chars/parentdeath_dining_r4d/you_sit_table", "frames": 4, "canvas": [72, 116], "anchor": [27, 115], "x": 200, "feet": 252 },
+    { "id": "mom_place_chopsticks", "label": "媽媽_擺筷", "standing_group": "dining_mom_place_chopsticks_r4d", "dir": "assets/chars/parentdeath_dining_r4d/mom_place_chopsticks", "frames": 8, "canvas": [78, 116], "anchor": [33, 115], "x": 319, "feet": 252 }
+  ]
+}
