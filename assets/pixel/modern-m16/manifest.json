@@ -1,0 +1,92 @@
+{
+  "batch": "pixel-gen-modern-m16",
+  "world": "modern",
+  "finalPngCount": 4,
+  "generator": "built-in image_gen",
+  "sourcePrompts": "docs/pixel-art/modern-m16-sources.json",
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "240x135 nearest-neighbor; 17-value tonal steps with 4x4 Bayer ordered dithering; nearest palette squared RGB distance; binary alpha threshold 128",
+  "assets": [
+    {
+      "key": "modern_m16_album_companionship",
+      "label": "並肩翻閱相簿",
+      "file": "modern-m16/modern_m16_album_companionship.png",
+      "world": "modern",
+      "kind": "scene",
+      "minAge": 60,
+      "maxAgeExclusive": null,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "participants": [
+        "elder",
+        "adult_companion"
+      ],
+      "sourceSha256": "d257fc29db0bce874632d114a85d7de34189d031d5bc47b1325fb84232df0048",
+      "sha256": "70cde199cdb67c076a170dec63128c37fc22f73e5dcf7119ac26c8ed98a49df8"
+    },
+    {
+      "key": "modern_m16_blanket_together",
+      "label": "一起摺好毛毯",
+      "file": "modern-m16/modern_m16_blanket_together.png",
+      "world": "modern",
+      "kind": "scene",
+      "minAge": 60,
+      "maxAgeExclusive": null,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "participants": [
+        "elder",
+        "adult_companion"
+      ],
+      "sourceSha256": "91a0a2c012b1d5c8ea44a25450711a5e784661cbffa61ba4a10916c0340b1335",
+      "sha256": "62ae8d82892aaed6869900ade3511fc111563220f95e5523ad3ad95190124180"
+    },
+    {
+      "key": "modern_m16_supported_stroll",
+      "label": "扶臂同行小路",
+      "file": "modern-m16/modern_m16_supported_stroll.png",
+      "world": "modern",
+      "kind": "scene",
+      "minAge": 60,
+      "maxAgeExclusive": null,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "participants": [
+        "elder",
+        "adult_companion"
+      ],
+      "sourceSha256": "27a63aa2a64f559d73559221368369ec49b501b61ae7a166522ea3467c645c31",
+      "sha256": "5b4bf4db5b6164b35817e4551e70c07aaf0afd7b3f1168d86ef19aa41faed577"
+    },
+    {
+      "key": "modern_m16_video_together",
+      "label": "陪伴操作視訊",
+      "file": "modern-m16/modern_m16_video_together.png",
+      "world": "modern",
+      "kind": "scene",
+      "minAge": 60,
+      "maxAgeExclusive": null,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "participants": [
+        "elder",
+        "adult_companion"
+      ],
+      "sourceSha256": "98f6303ea037a74e58d0bfa8687f3fce93f9734e5497eeb5009da10bd0654734",
+      "sha256": "3b5b43518cbec343ba08521c7431d65b0059939669e2eac1fe33fedfb986773c"
+    }
+  ]
+}

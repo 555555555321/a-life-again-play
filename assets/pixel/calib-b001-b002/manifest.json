@@ -1,0 +1,1828 @@
+{
+  "version": 1,
+  "palette": "C:\\Users\\User\\ala-codex\\palette.json",
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "planSha256": "c09046e1ce78a6050ecfbef3f2154978a5673a3ac2c91bbd58796a33739d2863",
+  "sourceCatalogSha256": "87f9cffb814be7551759a500f266802ba63e3ce7b729fbec97348aa54671d9c0",
+  "redrawnPngCount": 0,
+  "repackedPngCount": 1,
+  "byteCopiedPngCount": 13,
+  "totalDeliveredPngCount": 14,
+  "assets": {
+    "actor_hunter_baby": {
+      "key": "actor_hunter_baby",
+      "file": "actor_hunter_baby.png",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "ax": 28,
+      "foot": 46,
+      "bx0": 12,
+      "bx1": 49,
+      "tags": {
+        "care": [
+          0,
+          3
+        ],
+        "care_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/actor_hunter_baby.png",
+      "sourceSha256": "1086bf407875cfff6f6912db211f55da9af17b1fb065d2f0fe1f41cf78906fad",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 0,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 7592
+    },
+    "actor_modern_baby": {
+      "key": "actor_modern_baby",
+      "file": "actor_modern_baby.png",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "ax": 28,
+      "foot": 46,
+      "bx0": 12,
+      "bx1": 49,
+      "tags": {
+        "care": [
+          0,
+          3
+        ],
+        "care_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/actor_modern_baby.png",
+      "sourceSha256": "89b2e1aa6d96efb094322d0bde627e0b501728f39b9a75fc26e1763ce6de6e96",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 48,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 7592
+    },
+    "actor_xiuxian_baby": {
+      "key": "actor_xiuxian_baby",
+      "file": "actor_xiuxian_baby.png",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "ax": 28,
+      "foot": 46,
+      "bx0": 12,
+      "bx1": 49,
+      "tags": {
+        "care": [
+          0,
+          3
+        ],
+        "care_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/actor_xiuxian_baby.png",
+      "sourceSha256": "2c0505383d513a896a778cf9e76148d2cfb8bc313b9aa1a0c39d157a117b9e67",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 96,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 7372
+    },
+    "bg_hunter_bedroom": {
+      "key": "bg_hunter_bedroom",
+      "file": "bg_hunter_bedroom.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_bedroom.png",
+      "sourceSha256": "e3f225d26c3f164ff69b87c6a0d648f2da49caee922c1cf72305f3a0e68a2892",
+      "src": "assets/pixel/calib-b001-b002/bg_hunter_bedroom.png",
+      "sourceY": 0
+    },
+    "bg_hunter_festival": {
+      "key": "bg_hunter_festival",
+      "file": "bg_hunter_festival.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_festival.png",
+      "sourceSha256": "00f263d0fa9fc45e67198a8393d726529c3c5409c01127ff69f460046226dca6",
+      "src": "assets/pixel/calib-b001-b002/bg_hunter_festival.png",
+      "sourceY": 0
+    },
+    "bg_hunter_guild": {
+      "key": "bg_hunter_guild",
+      "file": "bg_hunter_guild.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_guild.png",
+      "sourceSha256": "e8108855fe2b728c7b74640925151cfc77a359fc55da70f1e073176a46abe40b",
+      "src": "assets/pixel/calib-b001-b002/bg_hunter_guild.png",
+      "sourceY": 0
+    },
+    "bg_hunter_home": {
+      "key": "bg_hunter_home",
+      "file": "bg_hunter_home.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_home.png",
+      "sourceSha256": "85d461b4f7da06fdda9efe3bafa0bd629d4c9a96f6fa965e4cfa581a280f2836",
+      "src": "assets/pixel/calib-b001-b002/bg_hunter_home.png",
+      "sourceY": 0
+    },
+    "bg_hunter_street": {
+      "key": "bg_hunter_street",
+      "file": "bg_hunter_street.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_street.png",
+      "sourceSha256": "4532652ebe6180c19aaf98d53b6039eac853877540964ba301980f7944bdff76",
+      "src": "assets/pixel/calib-b001-b002/bg_hunter_street.png",
+      "sourceY": 0
+    },
+    "bg_modern_bedroom": {
+      "key": "bg_modern_bedroom",
+      "file": "bg_modern_bedroom.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_bedroom.png",
+      "sourceSha256": "ee97ac1578a5ae660d3485452456b444d1ee1dbef2c52921061e0d7994a1b9b4",
+      "src": "assets/pixel/calib-b001-b002/bg_modern_bedroom.png",
+      "sourceY": 0
+    },
+    "bg_modern_home": {
+      "key": "bg_modern_home",
+      "file": "bg_modern_home.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_home.png",
+      "sourceSha256": "c3663b978283febcd6d6cf23957201e938597ec0aeb124c8c46502907055129b",
+      "src": "assets/pixel/calib-b001-b002/bg_modern_home.png",
+      "sourceY": 0
+    },
+    "bg_modern_park": {
+      "key": "bg_modern_park",
+      "file": "bg_modern_park.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_park.png",
+      "sourceSha256": "168312a5f112f99b1f621f340f9c9bf114f0c34eade500c0456772ad121994eb",
+      "src": "assets/pixel/calib-b001-b002/bg_modern_park.png",
+      "sourceY": 0
+    },
+    "bg_modern_street": {
+      "key": "bg_modern_street",
+      "file": "bg_modern_street.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_street.png",
+      "sourceSha256": "3478f695d5d5afd3adc0cd15cb3d103287c893945137c1a7c0a2c4ef2a4c4bc0",
+      "src": "assets/pixel/calib-b001-b002/bg_modern_street.png",
+      "sourceY": 0
+    },
+    "bg_xiuxian_bedroom": {
+      "key": "bg_xiuxian_bedroom",
+      "file": "bg_xiuxian_bedroom.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_bedroom.png",
+      "sourceSha256": "1cf3964f0776757fe13fc02ce4f8cdaa4550cbbb522c796c90af4c2afb7baa52",
+      "src": "assets/pixel/calib-b001-b002/bg_xiuxian_bedroom.png",
+      "sourceY": 0
+    },
+    "bg_xiuxian_home": {
+      "key": "bg_xiuxian_home",
+      "file": "bg_xiuxian_home.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_home.png",
+      "sourceSha256": "e84a85608c217666471999f1e84f3b9bc5dd452b47d95733d5c37a5e4825b01a",
+      "src": "assets/pixel/calib-b001-b002/bg_xiuxian_home.png",
+      "sourceY": 0
+    },
+    "bg_xiuxian_park": {
+      "key": "bg_xiuxian_park",
+      "file": "bg_xiuxian_park.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_park.png",
+      "sourceSha256": "cba73a2ef606be16e4f3b93d3589615307c19392439b8c35aa873b5208123728",
+      "src": "assets/pixel/calib-b001-b002/bg_xiuxian_park.png",
+      "sourceY": 0
+    },
+    "bg_xiuxian_sect": {
+      "key": "bg_xiuxian_sect",
+      "file": "bg_xiuxian_sect.png",
+      "w": 240,
+      "h": 135,
+      "n": 1,
+      "ax": 120,
+      "foot": 134,
+      "bx0": 0,
+      "bx1": 239,
+      "tags": {
+        "idle": [
+          0,
+          0
+        ],
+        "idle_loop": [
+          0,
+          0
+        ]
+      },
+      "durs": [
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_sect.png",
+      "sourceSha256": "249702408f4c6a30144578e1f9bcd19f211c67c6c31ab18d2759bc3e82892c2e",
+      "src": "assets/pixel/calib-b001-b002/bg_xiuxian_sect.png",
+      "sourceY": 0
+    },
+    "care_hunter_blocks": {
+      "key": "care_hunter_blocks",
+      "file": "care_hunter_blocks.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 1,
+      "bx1": 87,
+      "tags": {
+        "blocks": [
+          0,
+          3
+        ],
+        "blocks_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_blocks.png",
+      "sourceSha256": "7bd0ab56bdc60d55eb0ed83585d0977ceedb6b6e6da0ff5f27a5757c9ed4ea6f",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 144,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19685
+    },
+    "care_hunter_cradle": {
+      "key": "care_hunter_cradle",
+      "file": "care_hunter_cradle.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 50,
+      "bx1": 87,
+      "tags": {
+        "cradle": [
+          0,
+          3
+        ],
+        "cradle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_cradle.png",
+      "sourceSha256": "f7cf906df4a3c0c64ca942edb6b8a26f83f7f57a7855cbaa717b975fdf1fbf2f",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 208,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20640
+    },
+    "care_hunter_handwalk": {
+      "key": "care_hunter_handwalk",
+      "file": "care_hunter_handwalk.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 61,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "handwalk": [
+          0,
+          3
+        ],
+        "handwalk_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_handwalk.png",
+      "sourceSha256": "9156e8b140a6f7f45675132737e960b9e8680d1704b0ab0e6c4e6df730e8f427",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 272,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20134
+    },
+    "care_hunter_listen": {
+      "key": "care_hunter_listen",
+      "file": "care_hunter_listen.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 21,
+      "bx1": 87,
+      "tags": {
+        "listen": [
+          0,
+          3
+        ],
+        "listen_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_listen.png",
+      "sourceSha256": "a8743fa11f4b92c8fc95a254cc7cb2e40d9d4b09b8a99de4b2c23fa1f4b0a227",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 336,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20312
+    },
+    "care_hunter_puppet": {
+      "key": "care_hunter_puppet",
+      "file": "care_hunter_puppet.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 23,
+      "bx1": 87,
+      "tags": {
+        "puppet": [
+          0,
+          3
+        ],
+        "puppet_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_puppet.png",
+      "sourceSha256": "e847360621ced521fbc38bb259c8f221f8aebdc6c5f0bd29a381819739b3afd4",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 400,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19718
+    },
+    "care_hunter_steps": {
+      "key": "care_hunter_steps",
+      "file": "care_hunter_steps.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "steps": [
+          0,
+          3
+        ],
+        "steps_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_hunter_steps.png",
+      "sourceSha256": "8b0c9c0ff60518293096c373e828f4077c8c95b6bc3e482c819bc94c48fe5027",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 464,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19864
+    },
+    "care_modern_blocks": {
+      "key": "care_modern_blocks",
+      "file": "care_modern_blocks.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 1,
+      "bx1": 87,
+      "tags": {
+        "blocks": [
+          0,
+          3
+        ],
+        "blocks_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_blocks.png",
+      "sourceSha256": "6ae7fb877f5380726d48564e29ab6d8225c6c5cc6550f1a5fd38ccfe228986f6",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 528,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19685
+    },
+    "care_modern_cradle": {
+      "key": "care_modern_cradle",
+      "file": "care_modern_cradle.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 50,
+      "bx1": 87,
+      "tags": {
+        "cradle": [
+          0,
+          3
+        ],
+        "cradle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_cradle.png",
+      "sourceSha256": "e0a990ac3da9720a451ff0385fa23c54ea43a596cfcf23363628db25c973e669",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 592,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20640
+    },
+    "care_modern_handwalk": {
+      "key": "care_modern_handwalk",
+      "file": "care_modern_handwalk.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 61,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "handwalk": [
+          0,
+          3
+        ],
+        "handwalk_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_handwalk.png",
+      "sourceSha256": "f9a8fbb62747878561b535e350e5cdcdabb1090f9f845c61b6d75619934982b5",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 656,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20134
+    },
+    "care_modern_puppet": {
+      "key": "care_modern_puppet",
+      "file": "care_modern_puppet.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 23,
+      "bx1": 87,
+      "tags": {
+        "puppet": [
+          0,
+          3
+        ],
+        "puppet_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_puppet.png",
+      "sourceSha256": "44a7016d41b1bd3a4e2facb4725ffb764e74cfcb44c59492bd46efaeff37670b",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 720,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19718
+    },
+    "care_modern_steps": {
+      "key": "care_modern_steps",
+      "file": "care_modern_steps.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "steps": [
+          0,
+          3
+        ],
+        "steps_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_steps.png",
+      "sourceSha256": "76babfd4e29561082fbdb36f54b001d1faf34ae6f78c10ecaa6363691085f7c4",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 784,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19864
+    },
+    "care_modern_stroller": {
+      "key": "care_modern_stroller",
+      "file": "care_modern_stroller.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 11,
+      "bx1": 87,
+      "tags": {
+        "stroller": [
+          0,
+          3
+        ],
+        "stroller_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_modern_stroller.png",
+      "sourceSha256": "646f92d5d770f9f7ee4c5d43a8e483129b211e35aba8c4969ff4ee37b3f5f655",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 848,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 18488
+    },
+    "care_xiuxian_blocks": {
+      "key": "care_xiuxian_blocks",
+      "file": "care_xiuxian_blocks.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 1,
+      "bx1": 87,
+      "tags": {
+        "blocks": [
+          0,
+          3
+        ],
+        "blocks_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_blocks.png",
+      "sourceSha256": "b4c23930c3f68053bed9f03ad96fee3bf41c4a49393a9f69e4a11c12425c88ba",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 912,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19401
+    },
+    "care_xiuxian_cradle": {
+      "key": "care_xiuxian_cradle",
+      "file": "care_xiuxian_cradle.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 50,
+      "bx1": 87,
+      "tags": {
+        "cradle": [
+          0,
+          3
+        ],
+        "cradle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_cradle.png",
+      "sourceSha256": "b849c2280df90256e5b34303d3e725b8b40b7759d6b144108a2b11ff4edde0f9",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 976,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20512
+    },
+    "care_xiuxian_handwalk": {
+      "key": "care_xiuxian_handwalk",
+      "file": "care_xiuxian_handwalk.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 61,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "handwalk": [
+          0,
+          3
+        ],
+        "handwalk_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_handwalk.png",
+      "sourceSha256": "744e1e8f1e9986fd441dae0005e5fe20b876f3082437b86e73ca78ed6b7157c5",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1040,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19850
+    },
+    "care_xiuxian_listen": {
+      "key": "care_xiuxian_listen",
+      "file": "care_xiuxian_listen.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 21,
+      "bx1": 87,
+      "tags": {
+        "listen": [
+          0,
+          3
+        ],
+        "listen_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_listen.png",
+      "sourceSha256": "7ee347dda6752b80c24cb2d3d5d2564542b98a619b04fb5b2d334ac319eb16da",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1104,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 20028
+    },
+    "care_xiuxian_puppet": {
+      "key": "care_xiuxian_puppet",
+      "file": "care_xiuxian_puppet.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 23,
+      "bx1": 87,
+      "tags": {
+        "puppet": [
+          0,
+          3
+        ],
+        "puppet_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_puppet.png",
+      "sourceSha256": "5ee9d1bd4b684a5ca678dd51a022f0c7289aac9edde03900079d4be8e3ef9cce",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1168,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19434
+    },
+    "care_xiuxian_steps": {
+      "key": "care_xiuxian_steps",
+      "file": "care_xiuxian_steps.png",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "ax": 48,
+      "foot": 63,
+      "bx0": 12,
+      "bx1": 87,
+      "tags": {
+        "steps": [
+          0,
+          3
+        ],
+        "steps_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/care_xiuxian_steps.png",
+      "sourceSha256": "2139200a428a7d11e0f948fca1c3ac6d3cbe7900c2fb1a957c067ebd093b10a0",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1232,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 19580
+    },
+    "prop_blanket": {
+      "key": "prop_blanket",
+      "file": "prop_blanket.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 27,
+      "bx0": 4,
+      "bx1": 29,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_blanket.png",
+      "sourceSha256": "add11292e7d5c31878555ff33d10e44685de063decd4b9c6a7ec3dcbfec03e09",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1296,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2512
+    },
+    "prop_blocks": {
+      "key": "prop_blocks",
+      "file": "prop_blocks.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 28,
+      "bx0": 4,
+      "bx1": 26,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_blocks.png",
+      "sourceSha256": "b3d2dd49b79fab63a2c779f7c42fb1008f7ac9dd875ea5cc2010ae84c678618d",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1328,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2632
+    },
+    "prop_cloth_book": {
+      "key": "prop_cloth_book",
+      "file": "prop_cloth_book.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 26,
+      "bx0": 3,
+      "bx1": 28,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_cloth_book.png",
+      "sourceSha256": "16e9e536755da64c322e82667f4dd4a6e7e5b3c7dba354d005b670352c6420b5",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1360,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2052
+    },
+    "prop_flowers": {
+      "key": "prop_flowers",
+      "file": "prop_flowers.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 29,
+      "bx0": 4,
+      "bx1": 31,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_flowers.png",
+      "sourceSha256": "2948dc7bf678c0dc1a5b73171f6baed61a8b3d0e55a5b37dd0a9fc68290431bb",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1392,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2612
+    },
+    "prop_lantern": {
+      "key": "prop_lantern",
+      "file": "prop_lantern.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 31,
+      "bx0": 6,
+      "bx1": 26,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_lantern.png",
+      "sourceSha256": "d5b3f9367863c405a451b58d956974e586a6a735351f623ad54384c51f416746",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1424,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2524
+    },
+    "prop_letter": {
+      "key": "prop_letter",
+      "file": "prop_letter.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 27,
+      "bx0": 3,
+      "bx1": 28,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_letter.png",
+      "sourceSha256": "686fc2949da03835d62270594af79ffaaa88d52223344cd5909b02135b5ecd2e",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1456,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2224
+    },
+    "prop_rattle": {
+      "key": "prop_rattle",
+      "file": "prop_rattle.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 28,
+      "bx0": 5,
+      "bx1": 23,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_rattle.png",
+      "sourceSha256": "a10d8ea63a5a2e007b4c96ecbb51142d8ae4063edbd57f9cffededda2249ee7e",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1488,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2788
+    },
+    "prop_sprout": {
+      "key": "prop_sprout",
+      "file": "prop_sprout.png",
+      "w": 32,
+      "h": 32,
+      "n": 4,
+      "ax": 16,
+      "foot": 29,
+      "bx0": 4,
+      "bx1": 28,
+      "tags": {
+        "idle": [
+          0,
+          3
+        ],
+        "idle_loop": [
+          0,
+          3
+        ]
+      },
+      "durs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": "pixel-art-gen/assets/pixel/life-library/prop_sprout.png",
+      "sourceSha256": "3a00f46cd65c157f8caa01e0e4270845cc0cac558d633cca63ddcce6837e63fb",
+      "src": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "sourceY": 1520,
+      "changedVisibleRgbPixels": 0,
+      "changedHiddenRgbPixels": 2972
+    }
+  },
+  "files": [
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_hunter_bedroom.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_bedroom.png",
+      "sha256": "e3f225d26c3f164ff69b87c6a0d648f2da49caee922c1cf72305f3a0e68a2892"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_hunter_festival.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_festival.png",
+      "sha256": "00f263d0fa9fc45e67198a8393d726529c3c5409c01127ff69f460046226dca6"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_hunter_guild.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_guild.png",
+      "sha256": "e8108855fe2b728c7b74640925151cfc77a359fc55da70f1e073176a46abe40b"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_hunter_home.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_home.png",
+      "sha256": "85d461b4f7da06fdda9efe3bafa0bd629d4c9a96f6fa965e4cfa581a280f2836"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_hunter_street.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_hunter_street.png",
+      "sha256": "4532652ebe6180c19aaf98d53b6039eac853877540964ba301980f7944bdff76"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_modern_bedroom.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_bedroom.png",
+      "sha256": "ee97ac1578a5ae660d3485452456b444d1ee1dbef2c52921061e0d7994a1b9b4"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_modern_home.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_home.png",
+      "sha256": "c3663b978283febcd6d6cf23957201e938597ec0aeb124c8c46502907055129b"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_modern_park.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_park.png",
+      "sha256": "168312a5f112f99b1f621f340f9c9bf114f0c34eade500c0456772ad121994eb"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_modern_street.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_modern_street.png",
+      "sha256": "3478f695d5d5afd3adc0cd15cb3d103287c893945137c1a7c0a2c4ef2a4c4bc0"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_xiuxian_bedroom.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_bedroom.png",
+      "sha256": "1cf3964f0776757fe13fc02ce4f8cdaa4550cbbb522c796c90af4c2afb7baa52"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_xiuxian_home.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_home.png",
+      "sha256": "e84a85608c217666471999f1e84f3b9bc5dd452b47d95733d5c37a5e4825b01a"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_xiuxian_park.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_park.png",
+      "sha256": "cba73a2ef606be16e4f3b93d3589615307c19392439b8c35aa873b5208123728"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/bg_xiuxian_sect.png",
+      "width": 240,
+      "height": 135,
+      "mode": "byte-copy",
+      "source": "pixel-art-gen/assets/pixel/life-library/bg_xiuxian_sect.png",
+      "sha256": "249702408f4c6a30144578e1f9bcd19f211c67c6c31ab18d2759bc3e82892c2e"
+    },
+    {
+      "file": "assets/pixel/calib-b001-b002/care-atlas.png",
+      "width": 384,
+      "height": 1552,
+      "mode": "lossless-repack-palette",
+      "sha256": "c4e4b12c0a02ad575adbc18f368e933bc655d7ed577b3085a158d15c0d285890"
+    }
+  ],
+  "scenes": [
+    {
+      "key": "modern_care_cradle_song",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 0,
+      "pose": "cradle",
+      "sourceAssets": [
+        "bg_modern_bedroom",
+        "care_modern_cradle",
+        "prop_blanket"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_care_floor_clothbook",
+      "batch": "PV2-B001",
+      "status": "withheld",
+      "world": "modern",
+      "age": 0,
+      "pose": "floor_book",
+      "sourceAssets": [
+        "bg_modern_home",
+        "care_modern_floor_book",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_care_window_hold",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 0,
+      "pose": "held",
+      "sourceAssets": [
+        "bg_modern_bedroom",
+        "actor_modern_baby",
+        "prop_rattle"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_toddler_blocks",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 1,
+      "pose": "blocks",
+      "sourceAssets": [
+        "bg_modern_home",
+        "care_modern_blocks",
+        "prop_blocks"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_toddler_supported_steps",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 1,
+      "pose": "steps",
+      "sourceAssets": [
+        "bg_modern_home",
+        "care_modern_steps",
+        "prop_sprout"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_toddler_stroller_garden",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 1,
+      "pose": "stroller",
+      "sourceAssets": [
+        "bg_modern_park",
+        "care_modern_stroller",
+        "prop_flowers"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_child_table_selfeat",
+      "batch": "PV2-B001",
+      "status": "withheld",
+      "world": "modern",
+      "age": 2,
+      "pose": "eat",
+      "sourceAssets": [
+        "bg_modern_home",
+        "care_modern_eat",
+        "prop_lunch"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_child_handwalk_gate",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 2,
+      "pose": "handwalk",
+      "sourceAssets": [
+        "bg_modern_street",
+        "care_modern_handwalk",
+        "prop_letter"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "modern_child_doll_circle",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "modern",
+      "age": 2,
+      "pose": "puppet",
+      "sourceAssets": [
+        "bg_modern_home",
+        "care_modern_puppet",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_infant_camp_song",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 0,
+      "pose": "cradle",
+      "sourceAssets": [
+        "bg_hunter_home",
+        "care_hunter_cradle",
+        "prop_blanket"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_infant_family_tent",
+      "batch": "PV2-B001",
+      "status": "withheld",
+      "world": "hunter",
+      "age": 0,
+      "pose": "floor_book",
+      "sourceAssets": [
+        "bg_hunter_bedroom",
+        "care_hunter_floor_book",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_infant_courtyard_hold",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 0,
+      "pose": "held",
+      "sourceAssets": [
+        "bg_hunter_guild",
+        "actor_hunter_baby",
+        "prop_lantern"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_toddler_rope_blocks",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 1,
+      "pose": "blocks",
+      "sourceAssets": [
+        "bg_hunter_home",
+        "care_hunter_blocks",
+        "prop_blocks"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_toddler_portrait_book",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 1,
+      "pose": "listen",
+      "sourceAssets": [
+        "bg_hunter_bedroom",
+        "care_hunter_listen",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_toddler_safe_walk",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 1,
+      "pose": "steps",
+      "sourceAssets": [
+        "bg_hunter_street",
+        "care_hunter_steps",
+        "prop_sprout"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_child_picnic_share",
+      "batch": "PV2-B001",
+      "status": "withheld",
+      "world": "hunter",
+      "age": 2,
+      "pose": "eat",
+      "sourceAssets": [
+        "bg_hunter_park",
+        "care_hunter_eat",
+        "prop_moon_cake"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_child_courier_wave",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 2,
+      "pose": "handwalk",
+      "sourceAssets": [
+        "bg_hunter_street",
+        "care_hunter_handwalk",
+        "prop_letter"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "hunter_child_lantern_shadow",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "hunter",
+      "age": 2,
+      "pose": "puppet",
+      "sourceAssets": [
+        "bg_hunter_festival",
+        "care_hunter_puppet",
+        "prop_lantern"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_infant_bamboo_song",
+      "batch": "PV2-B001",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 0,
+      "pose": "cradle",
+      "sourceAssets": [
+        "bg_xiuxian_home",
+        "care_xiuxian_cradle",
+        "prop_blanket"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_infant_cloth_scroll",
+      "batch": "PV2-B001",
+      "status": "withheld",
+      "world": "xiuxian",
+      "age": 0,
+      "pose": "floor_book",
+      "sourceAssets": [
+        "bg_xiuxian_bedroom",
+        "care_xiuxian_floor_book",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_infant_porch_cloud",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 0,
+      "pose": "held",
+      "sourceAssets": [
+        "bg_xiuxian_sect",
+        "actor_xiuxian_baby",
+        "prop_rattle"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_toddler_wood_shapes",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 1,
+      "pose": "blocks",
+      "sourceAssets": [
+        "bg_xiuxian_home",
+        "care_xiuxian_blocks",
+        "prop_blocks"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_toddler_reed_sound",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 1,
+      "pose": "listen",
+      "sourceAssets": [
+        "bg_xiuxian_bedroom",
+        "care_xiuxian_listen",
+        "prop_rattle"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_toddler_stone_steps",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 1,
+      "pose": "steps",
+      "sourceAssets": [
+        "bg_xiuxian_park",
+        "care_xiuxian_steps",
+        "prop_sprout"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_child_rice_table",
+      "batch": "PV2-B002",
+      "status": "withheld",
+      "world": "xiuxian",
+      "age": 2,
+      "pose": "eat",
+      "sourceAssets": [
+        "bg_xiuxian_home",
+        "care_xiuxian_eat",
+        "prop_lunch"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_child_leaf_garden",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 2,
+      "pose": "handwalk",
+      "sourceAssets": [
+        "bg_xiuxian_park",
+        "care_xiuxian_handwalk",
+        "prop_sprout"
+      ],
+      "annualCredit": false
+    },
+    {
+      "key": "xiuxian_child_puppet_song",
+      "batch": "PV2-B002",
+      "status": "accepted",
+      "world": "xiuxian",
+      "age": 2,
+      "pose": "puppet",
+      "sourceAssets": [
+        "bg_xiuxian_home",
+        "care_xiuxian_puppet",
+        "prop_cloth_book"
+      ],
+      "annualCredit": false
+    }
+  ]
+}

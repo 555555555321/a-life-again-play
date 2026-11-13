@@ -1,0 +1,77 @@
+{
+  "batch": "pixel-gen-modern-m09",
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "baseCommit": "c1e792be12dd03f506d4d16647950140af9fdcc1",
+  "finalPngCount": 4,
+  "deliveryLimit": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "nearest-neighbor 240x135; 16-level 4x4 Bayer stepped dithering; minimum squared RGB distance to official palette (first match breaks ties); alpha >=128 becomes 255, otherwise 0",
+  "assets": [
+    {
+      "key": "modern_m09_commute_ticket_gate",
+      "label": "晨間刷卡進站",
+      "world": "modern",
+      "file": "modern-m09/modern_m09_commute_ticket_gate.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "kind": "scene",
+      "containsActors": true,
+      "sha256": "472e61b4a7ab38b3edd8a073a7994885750d2bfa5f6798ede0c28c69f8616b51",
+      "sourceSha256": "41a921024556da3645e01f8cd564d817e4fd0439ae0bdc78c81cf2efb56abc12"
+    },
+    {
+      "key": "modern_m09_commute_platform_queue",
+      "label": "月台排隊候車",
+      "world": "modern",
+      "file": "modern-m09/modern_m09_commute_platform_queue.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "kind": "scene",
+      "containsActors": true,
+      "sha256": "5841dc90708af95cb15110cca866b8fb2f0af3b747c84ac2e3c7005dbe7a1277",
+      "sourceSha256": "6d7f0f4736fc0dd51588829b00268b4cbfe57ee4c6197999a0b7d9b5b22321e5"
+    },
+    {
+      "key": "modern_m09_work_team_planning",
+      "label": "團隊排程討論",
+      "world": "modern",
+      "file": "modern-m09/modern_m09_work_team_planning.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "kind": "scene",
+      "containsActors": true,
+      "sha256": "4adcca2c7879f8b858f2b01b485ed95885c41306e360a650978ff3472534a4f2",
+      "sourceSha256": "ae210b0b33130a80ea8612558fb17593ab997e70689c3c1087b6032c6189235c"
+    },
+    {
+      "key": "modern_m09_commute_evening_bus_stop",
+      "label": "下班公車候車",
+      "world": "modern",
+      "file": "modern-m09/modern_m09_commute_evening_bus_stop.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "kind": "scene",
+      "containsActors": true,
+      "sha256": "0fd8161221f54ba8135639b0e9e94bae161f9e8a19396eb77da53ff9175c2781",
+      "sourceSha256": "22a8d1ea526d6984df7429a8ef6dc743e12dfb0abe8efc99e2a69c42e77fde53"
+    }
+  ]
+}
