@@ -1,0 +1,1632 @@
+{
+  "batch": "PV2-B005",
+  "generator": "內建 image_gen",
+  "deliveredPngCount": 20,
+  "pngLimit": 20,
+  "rawSourcesVersioned": false,
+  "palettePath": "C:\\Users\\User\\ala-codex\\palette.json",
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "四等分原圖，共同裁切與等比最近鄰縮放；17 級距 Bayer 階梯抖色；RGB 平方距離最近官方色，同距採先出現色；alpha >=128 為255",
+  "assets": [
+    {
+      "key": "pa2_pair_xiuxian_b0_book",
+      "label": "0歲托抱共讀",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b0_book.png",
+      "world": "xiuxian",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          20,
+          2,
+          73,
+          61
+        ],
+        [
+          21,
+          2,
+          74,
+          62
+        ],
+        [
+          21,
+          2,
+          75,
+          62
+        ],
+        [
+          22,
+          2,
+          74,
+          61
+        ]
+      ],
+      "action": "book",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "3bfd4dc98c8f90319c116b42e7be618ed27ac0bcac21206ab5cb81bdf2c5a45f",
+      "sha256": "e552d870a1ca1191dcb5e1138619416a2f015384400e5a5f700211c1915a688d",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "cellCrop": [
+          6,
+          76,
+          540,
+          657
+        ],
+        "scaledCellContent": [
+          55,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b0_reply",
+      "label": "0歲停唱等回應",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b0_reply.png",
+      "world": "xiuxian",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          22,
+          2,
+          75,
+          62
+        ],
+        [
+          22,
+          3,
+          75,
+          62
+        ],
+        [
+          21,
+          3,
+          74,
+          62
+        ],
+        [
+          21,
+          2,
+          74,
+          62
+        ]
+      ],
+      "action": "reply",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "9051d4b4d774fb7adee2e02d7412c1b6e920b3800c9ac8eacdb1886aced2ee5c",
+      "sha256": "18e8db2fbf81bae32df676f9b7cc2877a2686b76bd13a4cb669a673f1fe3371d",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "cellCrop": [
+          2,
+          68,
+          540,
+          663
+        ],
+        "scaledCellContent": [
+          54,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_sing",
+      "label": "1歲坐抱輕唱",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_sing.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          25,
+          2,
+          72,
+          62
+        ],
+        [
+          24,
+          2,
+          72,
+          62
+        ],
+        [
+          25,
+          2,
+          72,
+          62
+        ],
+        [
+          24,
+          2,
+          71,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "43f9c7584a916aa255577a0f8f4bd825648d505dd617dfbbd389807b8e325472",
+      "sha256": "716edd2258a9e0b3dbf045cac051f5db3fe175c6662bffdec0bca0ff2cfa602d",
+      "preparation": {
+        "sourceSize": [
+          1774,
+          887
+        ],
+        "cellCrop": [
+          0,
+          194,
+          444,
+          749
+        ],
+        "scaledCellContent": [
+          48,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_lift",
+      "label": "1歲抱起承接",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_lift.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          24,
+          9,
+          71,
+          61
+        ],
+        [
+          26,
+          2,
+          71,
+          61
+        ],
+        [
+          28,
+          2,
+          68,
+          61
+        ],
+        [
+          28,
+          6,
+          70,
+          62
+        ]
+      ],
+      "action": "lift",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "a881868738933e27ecca5a1c9033aeece236d095176624e1b48c2fbd999d4134",
+      "sha256": "0743178c8ddabd5ce7368fc7bd16e9cecb82bbfd2a89c9f0881ff36cb537a2eb",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "cellCrop": [
+          17,
+          24,
+          536,
+          681
+        ],
+        "scaledCellContent": [
+          47,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_settle",
+      "label": "1歲放回陪坐",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_settle.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          25,
+          2,
+          69,
+          61
+        ],
+        [
+          24,
+          3,
+          69,
+          62
+        ],
+        [
+          23,
+          8,
+          72,
+          62
+        ],
+        [
+          23,
+          10,
+          70,
+          62
+        ]
+      ],
+      "action": "settle",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "acc521d988688d6fd4cb14d23df2fef94c4a465dd819a58f49a9718ebbe883ef",
+      "sha256": "12a15fa87863d1459526965d52be1aab1cc771a6999b44a3f5640441f0d9dc44",
+      "preparation": {
+        "sourceSize": [
+          1774,
+          887
+        ],
+        "cellCrop": [
+          0,
+          176,
+          443,
+          720
+        ],
+        "scaledCellContent": [
+          49,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_handoff",
+      "label": "1歲雙人交接",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_handoff.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          14,
+          2,
+          83,
+          62
+        ],
+        [
+          12,
+          4,
+          83,
+          61
+        ],
+        [
+          15,
+          4,
+          83,
+          61
+        ],
+        [
+          14,
+          5,
+          81,
+          62
+        ]
+      ],
+      "action": "handoff",
+      "caregiverCount": 2,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "15a8c9b7a39b09bf9a638025b6ff7f3b927c24acc5ab9c4bd0feba4ef1f7e011",
+      "sha256": "ef9981354e2a3fcabea15986292a3d0d3bf8afe6af83fe113d74aa1ba79408ae",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "cellCrop": [
+          0,
+          140,
+          543,
+          600
+        ],
+        "scaledCellContent": [
+          71,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_book",
+      "label": "1歲托抱共讀",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_book.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          23,
+          2,
+          72,
+          62
+        ],
+        [
+          23,
+          2,
+          72,
+          62
+        ],
+        [
+          23,
+          3,
+          72,
+          62
+        ],
+        [
+          23,
+          2,
+          72,
+          62
+        ]
+      ],
+      "action": "book",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "b59bdaf1e0d013659d621f1af1f0db236660d3396d7a664bd6543f0641b985e4",
+      "sha256": "f6ab7d75c9ae8c1413a274b1abb40dd956f4ad8c69a97007ebcf12956cd75bd7",
+      "preparation": {
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "cellCrop": [
+          1,
+          288,
+          384,
+          757
+        ],
+        "scaledCellContent": [
+          49,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b1_reply",
+      "label": "1歲停唱等回應",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b1_reply.png",
+      "world": "xiuxian",
+      "minAge": 1,
+      "maxAge": 2,
+      "plannedAge": "嬰兒1歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          24,
+          2,
+          71,
+          62
+        ],
+        [
+          24,
+          2,
+          71,
+          62
+        ],
+        [
+          24,
+          2,
+          71,
+          62
+        ],
+        [
+          24,
+          2,
+          71,
+          62
+        ]
+      ],
+      "action": "reply",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "3078f5d9670bae6eab9b8c9ca9ccf920f797cf3762776c90e0ff83552ecc4189",
+      "sha256": "6e53da4c5ce5ede6c5608c219485ddb8999a3728162cc27a2bd5b4d0f76bec82",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          12,
+          82,
+          491,
+          694
+        ],
+        "scaledCellContent": [
+          47,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_sing",
+      "label": "2歲坐抱輕唱",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_sing.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          25,
+          2,
+          71,
+          62
+        ],
+        [
+          24,
+          2,
+          71,
+          62
+        ],
+        [
+          25,
+          2,
+          71,
+          62
+        ],
+        [
+          24,
+          2,
+          70,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "37b106e7a0dae117e8ab375b91cf99c1f48754b8c2f6a1d7d3f97fa213662d15",
+      "sha256": "0980ecd51fd44246e8acd3afd4f3d8b49af4c9ab73906d4d3c5e130cd2adf6bb",
+      "preparation": {
+        "sourceSize": [
+          1920,
+          819
+        ],
+        "cellCrop": [
+          0,
+          92,
+          480,
+          710
+        ],
+        "scaledCellContent": [
+          47,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_lift",
+      "label": "2歲抱起承接",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_lift.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          30,
+          16,
+          66,
+          61
+        ],
+        [
+          35,
+          10,
+          66,
+          61
+        ],
+        [
+          35,
+          3,
+          66,
+          62
+        ],
+        [
+          42,
+          2,
+          64,
+          62
+        ]
+      ],
+      "action": "lift",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "01f4c67b0170ebd9c8b25155d3af4180ea04baa20f235644dbaf13f0b96b736a",
+      "sha256": "210fe0cf99ca84c6f493eeb9a7d4ab81cccccb50cccfa5a5a132b1555471310c",
+      "preparation": {
+        "sourceSize": [
+          1881,
+          836
+        ],
+        "cellCrop": [
+          0,
+          11,
+          471,
+          768
+        ],
+        "scaledCellContent": [
+          37,
+          60
+        ],
+        "alphaThreshold": 128
+      },
+      "revisions": [
+        {
+          "round": 2,
+          "baseCommit": "6474b98",
+          "previousSha256": "5698a6b1e4ece441c2577111bf6cbcdb75d6389ceb1355b830f6c50d763f46aa",
+          "generator": "內建 image_gen 編輯",
+          "sourceSha256": "e9d1b1c322d94692d457d01405829a014948c648a62d6c2753390700974672a9",
+          "sourceRecord": "docs/pixel-art/pv2-b005-round2-source.json",
+          "maskRects": [
+            [
+              221,
+              31,
+              227,
+              60
+            ],
+            [
+              317,
+              22,
+              323,
+              59
+            ]
+          ],
+          "conversion": "工具透明區域以遮罩合成；既有階梯抖色不重算；RGB 平方距離官方最近色；alpha 二值化"
+        },
+        {
+          "round": 3,
+          "baseCommit": "d52f3a4",
+          "previousSha256": "8d6cd47fa7d67e4f4734497c23cf5414daa4356a83f68403d0d1c5d7d66a0a3e",
+          "maskRects": [
+            [
+              125,
+              35,
+              131,
+              60
+            ]
+          ],
+          "conversion": "依指定遮罩清除第二格左側殘影；官方 RGB 平方距離最近色；遮罩外像素與階梯抖色不變；alpha 二值"
+        }
+      ]
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_settle",
+      "label": "2歲放回陪坐",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_settle.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          28,
+          2,
+          67,
+          62
+        ],
+        [
+          28,
+          9,
+          68,
+          61
+        ],
+        [
+          28,
+          14,
+          66,
+          61
+        ],
+        [
+          28,
+          14,
+          67,
+          62
+        ]
+      ],
+      "action": "settle",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "fb84ebb2b49cc2727da555d22e940a7b953944cacd331c4ae1347bea841a5186",
+      "sha256": "02f480d4f89ed8eef9041b3067490f95cc35ea1e2b353779d63759d835aadde8",
+      "preparation": {
+        "sourceSize": [
+          1774,
+          887
+        ],
+        "cellCrop": [
+          0,
+          102,
+          443,
+          764
+        ],
+        "scaledCellContent": [
+          40,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_handoff",
+      "label": "2歲雙人交接",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_handoff.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          10,
+          2,
+          86,
+          62
+        ],
+        [
+          9,
+          2,
+          86,
+          62
+        ],
+        [
+          11,
+          3,
+          86,
+          62
+        ],
+        [
+          11,
+          2,
+          85,
+          62
+        ]
+      ],
+      "action": "handoff",
+      "caregiverCount": 2,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "0faa1618af4ef19c0a69cc96f41d8146964f5ecb91a003c17a23a08b7fb4fa6e",
+      "sha256": "1f6918f229c6460b55dcf9780e60ad274ffa9694980ef2ff872dfee98bdb22bc",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          0,
+          227,
+          496,
+          615
+        ],
+        "scaledCellContent": [
+          77,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_book",
+      "label": "2歲托抱共讀",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_book.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          28,
+          2,
+          69,
+          62
+        ],
+        [
+          27,
+          2,
+          69,
+          62
+        ],
+        [
+          28,
+          3,
+          69,
+          62
+        ],
+        [
+          28,
+          3,
+          68,
+          62
+        ]
+      ],
+      "action": "book",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "56a96b1b0d5a2dd7f0ab0e11ec108e63ed66639c147a406d052281a86c0a428a",
+      "sha256": "a6cfc99b95226201e2b85bd883727e50a82aab2fa9324b87def1591834fd8932",
+      "preparation": {
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "cellCrop": [
+          0,
+          253,
+          384,
+          796
+        ],
+        "scaledCellContent": [
+          42,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_pair_xiuxian_b2_reply",
+      "label": "2歲停唱等回應",
+      "type": "雙人動作圖集",
+      "src": "assets/pixel/pv2-b005/pa2_pair_xiuxian_b2_reply.png",
+      "world": "xiuxian",
+      "minAge": 2,
+      "maxAge": 3,
+      "plannedAge": "嬰兒2歲",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          26,
+          2,
+          69,
+          62
+        ],
+        [
+          26,
+          2,
+          69,
+          62
+        ],
+        [
+          26,
+          2,
+          69,
+          62
+        ],
+        [
+          26,
+          2,
+          69,
+          62
+        ]
+      ],
+      "action": "reply",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+      "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "395c2d3f0d12352c093b9b9e58048351d5d066338360495799c19bfcaacb1ac9",
+      "sha256": "6c686555e6464e869ac2537004007fb64be2d98008acccd63a83338febfd0877",
+      "preparation": {
+        "sourceSize": [
+          1881,
+          836
+        ],
+        "cellCrop": [
+          6,
+          103,
+          471,
+          747
+        ],
+        "scaledCellContent": [
+          43,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_adult_short",
+      "label": "成年短髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_adult_short.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          30,
+          2,
+          65,
+          62
+        ],
+        [
+          30,
+          2,
+          65,
+          62
+        ],
+        [
+          30,
+          2,
+          65,
+          62
+        ],
+        [
+          30,
+          2,
+          65,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "ff8f6157791c3ef4482511e654e932da405638222cc07fb0cc25d0d4c6d9c513",
+      "sha256": "eebff6eda5cfb37af6341fe1141f4ebca833c080b80399f6ce7df3ab70bc1de3",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          70,
+          57,
+          461,
+          731
+        ],
+        "scaledCellContent": [
+          35,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_adult_tied",
+      "label": "成年束髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_adult_tied.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          32,
+          2,
+          64,
+          62
+        ],
+        [
+          32,
+          2,
+          64,
+          62
+        ],
+        [
+          31,
+          2,
+          63,
+          62
+        ],
+        [
+          31,
+          2,
+          63,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "0225316baeac08fd1bf8af01aa3b5156b370bb174ed864fab44399030a8164da",
+      "sha256": "48dd338acc1364ee8c658b5de40e0153794567c8e82f18f8e30bac02a6643b4a",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          83,
+          46,
+          464,
+          748
+        ],
+        "scaledCellContent": [
+          33,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_middle_short",
+      "label": "中年短髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_middle_short.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          34,
+          2,
+          64,
+          62
+        ],
+        [
+          34,
+          2,
+          64,
+          62
+        ],
+        [
+          32,
+          2,
+          62,
+          62
+        ],
+        [
+          32,
+          2,
+          62,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "b9408d02dcbdaadf55b9df1fd68fd0f5a6f350d75f349c698af2a43da4b7c83c",
+      "sha256": "6d8e69bc1d2c4414b129f33d4578165f44516a9878035e79f2ce368048b1a230",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          71,
+          54,
+          442,
+          744
+        ],
+        "scaledCellContent": [
+          32,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_middle_tied",
+      "label": "中年束髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_middle_tied.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          32,
+          2,
+          64,
+          62
+        ],
+        [
+          32,
+          2,
+          64,
+          62
+        ],
+        [
+          32,
+          2,
+          64,
+          62
+        ],
+        [
+          32,
+          2,
+          64,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "2f9181181f856c4ab470a11fdf9bb85a00be6c876119006cf5eafe90fae19700",
+      "sha256": "a4e77cbb275efd602bcf3213343b076adb19484e6f217226e08e38de515ec259",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          61,
+          16,
+          455,
+          766
+        ],
+        "scaledCellContent": [
+          32,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_elder_short",
+      "label": "熟年短髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_elder_short.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          36,
+          2,
+          64,
+          62
+        ],
+        [
+          35,
+          2,
+          63,
+          62
+        ],
+        [
+          31,
+          2,
+          60,
+          62
+        ],
+        [
+          31,
+          2,
+          59,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "3bd851c2e1106d670a56d5e0d1b7e9e0a688420514ac36499e5f490ef8d92854",
+      "sha256": "985cc328d0146ef9bb5cf0318a6d87d637a6fe2245db4478b0b391835bd476c6",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          68,
+          54,
+          450,
+          739
+        ],
+        "scaledCellContent": [
+          33,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    },
+    {
+      "key": "pa2_caregiver_modern_elder_tied",
+      "label": "熟年束髮照料者抱唱",
+      "type": "照料者外觀圖集",
+      "src": "assets/pixel/pv2-b005/pa2_caregiver_modern_elder_tied.png",
+      "world": "modern",
+      "minAge": 0,
+      "maxAge": 1,
+      "plannedAge": "嬰兒0–2歲的成年照料者",
+      "w": 96,
+      "h": 64,
+      "width": 384,
+      "height": 64,
+      "frames": 4,
+      "anchor": [
+        48,
+        62
+      ],
+      "foot": 61,
+      "bounds": [
+        [
+          34,
+          2,
+          62,
+          62
+        ],
+        [
+          34,
+          2,
+          62,
+          62
+        ],
+        [
+          34,
+          2,
+          62,
+          62
+        ],
+        [
+          34,
+          2,
+          62,
+          62
+        ]
+      ],
+      "action": "sing",
+      "caregiverCount": 1,
+      "durationsMs": [
+        600,
+        700,
+        800,
+        900
+      ],
+      "timingStatus": "暫定；待審稿鎖定",
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "specification": "每格96×64；4格水平成對圖集；寶寶比例依實際年齡接母版",
+      "acceptance": "六款輪廓可區別；同一照料者跨事件不隨機換臉；官方膚髮色槽",
+      "appearanceMode": "固定成對母版；未提供可分離膚髮語義遮罩",
+      "sourceSha256": "d1468bf4619525a55e2bd7d152c1ac9b9b76a381a2b383c518f76220c91906bf",
+      "sha256": "c7ee9579f10ae49454a0c555a0343503185ee808422468d4276671cc6eee5836",
+      "preparation": {
+        "sourceSize": [
+          1983,
+          793
+        ],
+        "cellCrop": [
+          61,
+          14,
+          418,
+          768
+        ],
+        "scaledCellContent": [
+          28,
+          60
+        ],
+        "alphaThreshold": 128
+      }
+    }
+  ]
+}

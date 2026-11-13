@@ -1,0 +1,87 @@
+{
+  "batch": "modern-m17",
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "finalPngCount": 4,
+  "dither": "4x4 Bayer ordered staircase, 17-value steps, nearest squared RGB",
+  "assets": [
+    {
+      "key": "modern_m17_curious_books",
+      "label": "好奇：紙箱裡的舊書",
+      "trait": "curiosity",
+      "description": "孩子與熟識老師一起翻閱學校收到的舊書。",
+      "world": "modern",
+      "ageRange": [
+        7,
+        13
+      ],
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "file": "modern-m17/modern_m17_curious_books.png",
+      "sha256": "6bef134fcdafd8057ebffe3aeb41314554ade08aedb21ce49925a1b6b4e2b001",
+      "sourceSha256": "b62afdcba8357deb5c0b981853c37ddde0ef9a42854b7ab4cf59845ad0092f5d"
+    },
+    {
+      "key": "modern_m17_shy_sharing",
+      "label": "害羞：分享自己的作品",
+      "trait": "shyness",
+      "description": "孩子把畫作展示給專心傾聽的同學。",
+      "world": "modern",
+      "ageRange": [
+        7,
+        13
+      ],
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "file": "modern-m17/modern_m17_shy_sharing.png",
+      "sha256": "37134b93ef26965d7e94d4289a248dda394e36ec67c15827c224195f34eefafe",
+      "sourceSha256": "3fb612f92b3eeeafa0c830677062178ae4c2e038e59574cd2e458c160503b907"
+    },
+    {
+      "key": "modern_m17_sport_dribble",
+      "label": "運動：繞錐控球練習",
+      "trait": "sport",
+      "description": "孩子在教練在場的球場練習控球。",
+      "world": "modern",
+      "ageRange": [
+        7,
+        13
+      ],
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "file": "modern-m17/modern_m17_sport_dribble.png",
+      "sha256": "e6edb0d15372bd1aea27f2fce241e6147daa32c7e4f2d326abdd86471a19ca3a",
+      "sourceSha256": "8a0911b600ecb41f85b3b8b8570112ba27a779ad1041b140eacab6dff8abece6"
+    },
+    {
+      "key": "modern_m17_art_sketch",
+      "label": "藝術：觀察盆栽寫生",
+      "trait": "art",
+      "description": "孩子觀察盆栽與碗，將形狀畫在畫架上。",
+      "world": "modern",
+      "ageRange": [
+        7,
+        13
+      ],
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "file": "modern-m17/modern_m17_art_sketch.png",
+      "sha256": "9ece706975637316ce7169eeeb95f25391ba29fccba83447d0e3d5e6eff24af2",
+      "sourceSha256": "607c1307d817b055c75d4810d935cb857383edf7940110e7df92f6ef24a840fd"
+    }
+  ]
+}

@@ -1,0 +1,1043 @@
+{
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "count": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "nearest resize; 17-step RGB and 4x4 Bayer; minimum squared RGB palette mapping; binary alpha at128",
+  "assets": {
+    "modern_long_l04_care_b0_bib": {
+      "key": "modern_long_l04_care_b0_bib",
+      "planKey": "modern_pmr2_care_b0_bib",
+      "label": "整理圍兜",
+      "world": "modern",
+      "planBatch": "PM-M101",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_care_b0_bib.png",
+      "w": 96,
+      "h": 64,
+      "size": [
+        384,
+        64
+      ],
+      "frames": 4,
+      "minAge": 0,
+      "maxAgeExclusive": 1,
+      "caregiverPresentEveryFrame": true,
+      "composition": "paired-caregiver",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": false,
+      "chain": "",
+      "plannedPrevious": "",
+      "plannedNext": "",
+      "previous": null,
+      "next": null,
+      "sourceSha256": "840f7b3f944688a6f47255d1ba2b6cedda590baedfb424a7060fba6a3cd497d0",
+      "pngSha256": "c80a668bffe40b01c4b87629aa3d2b55552f0a7e5caaad57a8722f6577f4dbb7",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sharedCrop": [
+          65,
+          25,
+          447,
+          705
+        ],
+        "contentSize": [
+          33,
+          59
+        ],
+        "offset": [
+          32,
+          3
+        ],
+        "scale": 0.08676470588235294
+      },
+      "anchor": [
+        48,
+        62
+      ],
+      "durationsMs": [
+        650,
+        750,
+        750,
+        900
+      ],
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "timingStatus": "暫定，待實機播放確認",
+      "handPoints": [
+        {
+          "action": [
+            47,
+            28
+          ],
+          "support": [
+            61,
+            34
+          ]
+        },
+        {
+          "action": [
+            50,
+            29
+          ],
+          "support": [
+            61,
+            34
+          ]
+        },
+        {
+          "action": [
+            51,
+            35
+          ],
+          "support": [
+            61,
+            34
+          ]
+        },
+        {
+          "action": [
+            51,
+            37
+          ],
+          "support": [
+            61,
+            34
+          ]
+        }
+      ],
+      "handPointCoordinates": "每格左上角為原點；action為互動手，support為承托或穩定手；整數像素",
+      "supportMode": "cradled-on-lap"
+    },
+    "modern_long_l04_care_b0_sleeve": {
+      "key": "modern_long_l04_care_b0_sleeve",
+      "planKey": "modern_pmr2_care_b0_sleeve",
+      "label": "協助套袖",
+      "world": "modern",
+      "planBatch": "PM-M101",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_care_b0_sleeve.png",
+      "w": 96,
+      "h": 64,
+      "size": [
+        384,
+        64
+      ],
+      "frames": 4,
+      "minAge": 0,
+      "maxAgeExclusive": 1,
+      "caregiverPresentEveryFrame": true,
+      "composition": "paired-caregiver",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": false,
+      "chain": "",
+      "plannedPrevious": "",
+      "plannedNext": "",
+      "previous": null,
+      "next": null,
+      "sourceSha256": "88ed689dbe9e21d52d4030b8adcdc02251dfab66bd592e21b0d0f52e630be737",
+      "pngSha256": "35aa63245210fa39b93c0b886508591497fd16b92c116bf5da78b5f2be1f95a2",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sharedCrop": [
+          12,
+          111,
+          531,
+          638
+        ],
+        "contentSize": [
+          58,
+          59
+        ],
+        "offset": [
+          19,
+          3
+        ],
+        "scale": 0.11195445920303605
+      },
+      "anchor": [
+        48,
+        62
+      ],
+      "durationsMs": [
+        650,
+        750,
+        750,
+        900
+      ],
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "timingStatus": "暫定，待實機播放確認",
+      "handPoints": [
+        {
+          "action": [
+            44,
+            41
+          ],
+          "support": [
+            53,
+            38
+          ]
+        },
+        {
+          "action": [
+            44,
+            41
+          ],
+          "support": [
+            53,
+            34
+          ]
+        },
+        {
+          "action": [
+            44,
+            41
+          ],
+          "support": [
+            53,
+            40
+          ]
+        },
+        {
+          "action": [
+            44,
+            41
+          ],
+          "support": [
+            53,
+            41
+          ]
+        }
+      ],
+      "handPointCoordinates": "每格左上角為原點；action為互動手，support為承托或穩定手；整數像素",
+      "supportMode": "floor-mat"
+    },
+    "modern_long_l04_care_b0_shade": {
+      "key": "modern_long_l04_care_b0_shade",
+      "planKey": "modern_pmr2_care_b0_shade",
+      "label": "調整推車遮簾",
+      "world": "modern",
+      "planBatch": "PM-M101",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_care_b0_shade.png",
+      "w": 96,
+      "h": 64,
+      "size": [
+        384,
+        64
+      ],
+      "frames": 4,
+      "minAge": 0,
+      "maxAgeExclusive": 1,
+      "caregiverPresentEveryFrame": true,
+      "composition": "paired-caregiver",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": false,
+      "chain": "",
+      "plannedPrevious": "",
+      "plannedNext": "",
+      "previous": null,
+      "next": null,
+      "sourceSha256": "dcbe4bb1a349bc8869c53c78c3a215ec519b122fc9114863458b270e62202cee",
+      "pngSha256": "479efeac6ba9dd94f69f92ea33d1d5c9c132cf7d5ebe7acbf77b0001ed078a12",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sharedCrop": [
+          42,
+          53,
+          515,
+          677
+        ],
+        "contentSize": [
+          45,
+          59
+        ],
+        "offset": [
+          26,
+          3
+        ],
+        "scale": 0.09455128205128205
+      },
+      "anchor": [
+        48,
+        62
+      ],
+      "durationsMs": [
+        650,
+        750,
+        750,
+        900
+      ],
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "timingStatus": "暫定，待實機播放確認",
+      "handPoints": [
+        {
+          "action": [
+            52,
+            21
+          ],
+          "support": [
+            36,
+            31
+          ]
+        },
+        {
+          "action": [
+            52,
+            23
+          ],
+          "support": [
+            36,
+            31
+          ]
+        },
+        {
+          "action": [
+            52,
+            25
+          ],
+          "support": [
+            36,
+            31
+          ]
+        },
+        {
+          "action": [
+            52,
+            26
+          ],
+          "support": [
+            36,
+            31
+          ]
+        }
+      ],
+      "handPointCoordinates": "每格左上角為原點；action為互動手，support為承托或穩定手；整數像素",
+      "supportMode": "flat-bassinet"
+    },
+    "modern_long_l04_care_b0_mirror": {
+      "key": "modern_long_l04_care_b0_mirror",
+      "planKey": "modern_pmr2_care_b0_mirror",
+      "label": "抱看安全鏡",
+      "world": "modern",
+      "planBatch": "PM-M101",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_care_b0_mirror.png",
+      "w": 96,
+      "h": 64,
+      "size": [
+        384,
+        64
+      ],
+      "frames": 4,
+      "minAge": 0,
+      "maxAgeExclusive": 1,
+      "caregiverPresentEveryFrame": true,
+      "composition": "paired-caregiver",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": false,
+      "chain": "",
+      "plannedPrevious": "",
+      "plannedNext": "",
+      "previous": null,
+      "next": null,
+      "sourceSha256": "95d74c2a6157f744abea0a7d865afad84ca1df6d6ba187de79f6968071c6e394",
+      "pngSha256": "0c61c98ead1a598928ee387d522024d9ed21cacd6b75f05d6aadcc7e75fcc24f",
+      "preparation": {
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sharedCrop": [
+          13,
+          99,
+          537,
+          649
+        ],
+        "contentSize": [
+          56,
+          59
+        ],
+        "offset": [
+          20,
+          3
+        ],
+        "scale": 0.10727272727272727
+      },
+      "anchor": [
+        48,
+        62
+      ],
+      "durationsMs": [
+        650,
+        750,
+        750,
+        900
+      ],
+      "playback": "once-hold",
+      "idleFrame": 3,
+      "timingStatus": "暫定，待實機播放確認",
+      "handPoints": [
+        {
+          "action": [
+            44,
+            39
+          ],
+          "support": [
+            37,
+            34
+          ]
+        },
+        {
+          "action": [
+            44,
+            39
+          ],
+          "support": [
+            37,
+            34
+          ]
+        },
+        {
+          "action": [
+            44,
+            39
+          ],
+          "support": [
+            37,
+            34
+          ]
+        },
+        {
+          "action": [
+            44,
+            39
+          ],
+          "support": [
+            37,
+            34
+          ]
+        }
+      ],
+      "handPointCoordinates": "每格左上角為原點；action為互動手，support為承托或穩定手；整數像素",
+      "supportMode": "cradled-on-lap"
+    },
+    "modern_long_l04_annual_b2_placemat_3": {
+      "key": "modern_long_l04_annual_b2_placemat_3",
+      "planKey": "modern_pmr2_annual_b2_placemat_3",
+      "label": "自己的餐墊・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_placemat_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_placemat",
+      "plannedPrevious": "modern_pmr2_annual_b2_placemat_2",
+      "plannedNext": "",
+      "previous": null,
+      "next": null,
+      "sourceSha256": "6c0c052de33de621d37ac79420138f7e239bfa5c1435b33318084d004ed46205",
+      "pngSha256": "fd4d1f1db387c45bdc9a8d84f23c831584a877e80462d4b0cf04e1fd95ff248d",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      },
+      "externalPrevious": {
+        "key": "modern_d04_annual_b2_placemat_2",
+        "worktree": "pixel-gen-modern-deep-d04",
+        "integrationRequired": true
+      }
+    },
+    "modern_long_l04_annual_b2_raincoat_1": {
+      "key": "modern_long_l04_annual_b2_raincoat_1",
+      "planKey": "modern_pmr2_annual_b2_raincoat_1",
+      "label": "雨天的準備・起因與選擇",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_raincoat_1.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_raincoat",
+      "plannedPrevious": "",
+      "plannedNext": "modern_pmr2_annual_b2_raincoat_2",
+      "previous": null,
+      "next": "modern_long_l04_annual_b2_raincoat_2",
+      "sourceSha256": "cd23c2255cbb50d91d73a9927e679fb9c613fcc29c2f8606f14a35ce38b880dc",
+      "pngSha256": "797151ec342876422cbda2d8dad1ae3e16c4b385f3a90fe852eb3e39d464539c",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_b2_raincoat_2": {
+      "key": "modern_long_l04_annual_b2_raincoat_2",
+      "planKey": "modern_pmr2_annual_b2_raincoat_2",
+      "label": "雨天的準備・投入與取捨",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_raincoat_2.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_raincoat",
+      "plannedPrevious": "modern_pmr2_annual_b2_raincoat_1",
+      "plannedNext": "modern_pmr2_annual_b2_raincoat_3",
+      "previous": "modern_long_l04_annual_b2_raincoat_1",
+      "next": "modern_long_l04_annual_b2_raincoat_3",
+      "sourceSha256": "d4d478bc68abe94a13d50749cf82be3e149d91b456eb9a744f5ed7ec8cde1253",
+      "pngSha256": "02c139362503de8bb86db86f9fa834ccb59f1cac5b5a7e80817aa6a0a2681339",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_b2_raincoat_3": {
+      "key": "modern_long_l04_annual_b2_raincoat_3",
+      "planKey": "modern_pmr2_annual_b2_raincoat_3",
+      "label": "雨天的準備・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_raincoat_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_raincoat",
+      "plannedPrevious": "modern_pmr2_annual_b2_raincoat_2",
+      "plannedNext": "",
+      "previous": "modern_long_l04_annual_b2_raincoat_2",
+      "next": null,
+      "sourceSha256": "fadf633073c202f9d4105b520240cf333f87591cbf1df580dd508c8f14e6d5db",
+      "pngSha256": "6ce8704ae0669d7f2349397a3f8dfea14472b3fafe7636b43e6c92f0225941d4",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_b2_clay_1": {
+      "key": "modern_long_l04_annual_b2_clay_1",
+      "planKey": "modern_pmr2_annual_b2_clay_1",
+      "label": "大印章的痕跡・起因與選擇",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_clay_1.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_clay",
+      "plannedPrevious": "",
+      "plannedNext": "modern_pmr2_annual_b2_clay_2",
+      "previous": null,
+      "next": "modern_long_l04_annual_b2_clay_2",
+      "sourceSha256": "42ca7e75876ff48912b3c6c47cafa489d04373fb3ade99e6a355b4aecb985fec",
+      "pngSha256": "6870b1839283f7e44f7ee3c6d2d4399a3b527676830f105fbde12ef56ac58139",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_b2_clay_2": {
+      "key": "modern_long_l04_annual_b2_clay_2",
+      "planKey": "modern_pmr2_annual_b2_clay_2",
+      "label": "大印章的痕跡・投入與取捨",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_clay_2.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_clay",
+      "plannedPrevious": "modern_pmr2_annual_b2_clay_1",
+      "plannedNext": "modern_pmr2_annual_b2_clay_3",
+      "previous": "modern_long_l04_annual_b2_clay_1",
+      "next": "modern_long_l04_annual_b2_clay_3",
+      "sourceSha256": "8ca8c7593feb32594488a7d36da7a264767030e8588dabc8cd29f8f7c7c5148d",
+      "pngSha256": "5fd9a7ebd76992936a53cb617800bb5bfbc4afa7d5190f9585c50a89142b0fb2",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_b2_clay_3": {
+      "key": "modern_long_l04_annual_b2_clay_3",
+      "planKey": "modern_pmr2_annual_b2_clay_3",
+      "label": "大印章的痕跡・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_b2_clay_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 2,
+      "maxAgeExclusive": 3,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_b2_clay",
+      "plannedPrevious": "modern_pmr2_annual_b2_clay_2",
+      "plannedNext": "",
+      "previous": "modern_long_l04_annual_b2_clay_2",
+      "next": null,
+      "sourceSha256": "1f8c6d2eb97c3f6a8d2872a2f5103eff1e143c61198121103975b45d32d797c0",
+      "pngSha256": "3df187dd1fe6c67e9e1fe96b2088f319fcbf0a082de1a64df549aa9a68865e3b",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_shadow_1": {
+      "key": "modern_long_l04_annual_p3_shadow_1",
+      "planKey": "modern_pmr2_annual_p3_shadow_1",
+      "label": "影子的形狀・起因與選擇",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_shadow_1.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_shadow",
+      "plannedPrevious": "",
+      "plannedNext": "modern_pmr2_annual_p3_shadow_2",
+      "previous": null,
+      "next": "modern_long_l04_annual_p3_shadow_2",
+      "sourceSha256": "0560ecde31b1c4b429d9182e72529a0caf1aa865e91891eee5a07b0246feaec5",
+      "pngSha256": "d318f1958322f5c8665a173456b3e8134627c0f97dd1215d51022cbbd4df9004",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_shadow_2": {
+      "key": "modern_long_l04_annual_p3_shadow_2",
+      "planKey": "modern_pmr2_annual_p3_shadow_2",
+      "label": "影子的形狀・投入與取捨",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_shadow_2.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_shadow",
+      "plannedPrevious": "modern_pmr2_annual_p3_shadow_1",
+      "plannedNext": "modern_pmr2_annual_p3_shadow_3",
+      "previous": "modern_long_l04_annual_p3_shadow_1",
+      "next": "modern_long_l04_annual_p3_shadow_3",
+      "sourceSha256": "ef3f7c3072458a5855b5235f2fe2efef00b5b8f97ea904a4545938379d3b0ee0",
+      "pngSha256": "afcb6dd28d5aaf217d83ef6a7bfb9083745bad11d0fa32ef1d2480fcfbef3ddd",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_shadow_3": {
+      "key": "modern_long_l04_annual_p3_shadow_3",
+      "planKey": "modern_pmr2_annual_p3_shadow_3",
+      "label": "影子的形狀・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_shadow_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_shadow",
+      "plannedPrevious": "modern_pmr2_annual_p3_shadow_2",
+      "plannedNext": "",
+      "previous": "modern_long_l04_annual_p3_shadow_2",
+      "next": null,
+      "sourceSha256": "43c0a451389337fcfc12a728bf6a8bef60dd4535ac8a2fcabece2ed9b8ba5293",
+      "pngSha256": "c70eae99031115d977864c2ff71a39534f1becfe6cf12f84b718419c4a066767",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_sound_1": {
+      "key": "modern_long_l04_annual_p3_sound_1",
+      "planKey": "modern_pmr2_annual_p3_sound_1",
+      "label": "生活聲音小冊・起因與選擇",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_sound_1.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_sound",
+      "plannedPrevious": "",
+      "plannedNext": "modern_pmr2_annual_p3_sound_2",
+      "previous": null,
+      "next": "modern_long_l04_annual_p3_sound_2",
+      "sourceSha256": "d0e69116d810d8b28a1a1f1dcc9a0e8e9f45b857b38ad0b69a94036d881c3da0",
+      "pngSha256": "70de67c5cfd8267d711c6ee805d71bae233303775df257a073dec28265b44e5b",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_sound_2": {
+      "key": "modern_long_l04_annual_p3_sound_2",
+      "planKey": "modern_pmr2_annual_p3_sound_2",
+      "label": "生活聲音小冊・投入與取捨",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_sound_2.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_sound",
+      "plannedPrevious": "modern_pmr2_annual_p3_sound_1",
+      "plannedNext": "modern_pmr2_annual_p3_sound_3",
+      "previous": "modern_long_l04_annual_p3_sound_1",
+      "next": "modern_long_l04_annual_p3_sound_3",
+      "sourceSha256": "284cee7306b13ddeeac314f42541618ecd03ee35d7933d5d3e3a229b44de9181",
+      "pngSha256": "450841ef5f330f8b3433ae40836368d946d7736227bd28f62733bc4c4d9ca121",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_sound_3": {
+      "key": "modern_long_l04_annual_p3_sound_3",
+      "planKey": "modern_pmr2_annual_p3_sound_3",
+      "label": "生活聲音小冊・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_sound_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_sound",
+      "plannedPrevious": "modern_pmr2_annual_p3_sound_2",
+      "plannedNext": "",
+      "previous": "modern_long_l04_annual_p3_sound_2",
+      "next": null,
+      "sourceSha256": "cfc52cbfd2f49d1cc4870cf4449cb345cba35530b61d18b188a7efdd18dfe5e2",
+      "pngSha256": "9127a4240a73b96d3b050efc8d5bc0d7fff74554042a7b7993c24258c4c5104e",
+      "preparation": {
+        "sourceSize": [
+          1671,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_ribbon_1": {
+      "key": "modern_long_l04_annual_p3_ribbon_1",
+      "planKey": "modern_pmr2_annual_p3_ribbon_1",
+      "label": "緞帶走線・起因與選擇",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_ribbon_1.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_ribbon",
+      "plannedPrevious": "",
+      "plannedNext": "modern_pmr2_annual_p3_ribbon_2",
+      "previous": null,
+      "next": "modern_long_l04_annual_p3_ribbon_2",
+      "sourceSha256": "d43a18a1a8173c743fd5025e53a9fa2fa97fe0f38ce56bec23c3b0a6e6321a97",
+      "pngSha256": "41f5a05cb09ea3f97169bfdb84b021aa919da7aaf1e6727c7b620765a5cb90a4",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_ribbon_2": {
+      "key": "modern_long_l04_annual_p3_ribbon_2",
+      "planKey": "modern_pmr2_annual_p3_ribbon_2",
+      "label": "緞帶走線・投入與取捨",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_ribbon_2.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_ribbon",
+      "plannedPrevious": "modern_pmr2_annual_p3_ribbon_1",
+      "plannedNext": "modern_pmr2_annual_p3_ribbon_3",
+      "previous": "modern_long_l04_annual_p3_ribbon_1",
+      "next": "modern_long_l04_annual_p3_ribbon_3",
+      "sourceSha256": "edf99c7b9db803400459f472e366a7bb3e971381bc4f0cba80883d18d15229ec",
+      "pngSha256": "04b9f049bcda0954541e5e7c63b0ca274dcf3a877de9d054b2280e4ccb4df88c",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    },
+    "modern_long_l04_annual_p3_ribbon_3": {
+      "key": "modern_long_l04_annual_p3_ribbon_3",
+      "planKey": "modern_pmr2_annual_p3_ribbon_3",
+      "label": "緞帶走線・結果與留存",
+      "world": "modern",
+      "planBatch": "PM-M103",
+      "priority": "P0",
+      "file": "modern-long-l04/modern_long_l04_annual_p3_ribbon_3.png",
+      "w": 240,
+      "h": 135,
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "caregiverPresentEveryFrame": true,
+      "composition": "complete-scene",
+      "eventSnapshotRequired": true,
+      "autoSelect": false,
+      "eventBinding": "pending-content-integration",
+      "annualEvent": true,
+      "chain": "modern_pmr2_chain_annual_p3_ribbon",
+      "plannedPrevious": "modern_pmr2_annual_p3_ribbon_2",
+      "plannedNext": "",
+      "previous": "modern_long_l04_annual_p3_ribbon_2",
+      "next": null,
+      "sourceSha256": "918567b3d4de54e5c38c4209734d20b1395747b5747a1a3ed1da98c7c68bbb8b",
+      "pngSha256": "c34f524600cc2cc3e6e631fd52ae7bf817688c3a58472a2186afa778ee305bda",
+      "preparation": {
+        "sourceSize": [
+          1672,
+          941
+        ]
+      }
+    }
+  }
+}

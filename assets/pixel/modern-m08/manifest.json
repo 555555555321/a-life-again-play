@@ -1,0 +1,78 @@
+{
+  "batch": "modern-m08",
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "baseCommit": "c1e792be12dd03f506d4d16647950140af9fdcc1",
+  "finalPngCount": 4,
+  "deliveryLimit": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "240x135 nearest resize; step 17 with 4x4 Bayer ordered dithering; nearest squared RGB palette mapping; binary alpha threshold 128",
+  "registration": "PIXEL_DATA.modern_m08 and PIXEL_DATA.frames",
+  "assets": [
+    {
+      "key": "modern_m08_kindergarten_arrival",
+      "label": "幼兒園入園換鞋",
+      "world": "modern",
+      "file": "modern-m08/modern_m08_kindergarten_arrival.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "maxAgeExclusive": 6,
+      "kind": "school-scene",
+      "sha256": "1aa429cc76a11952a0d4ebded338cf2a03dfe6e8fd454b360f477701be0b93a4",
+      "sourceSha256": "ae3d4bec24c058283712cd306712812e56a12681ec2907d822b911230b260025"
+    },
+    {
+      "key": "modern_m08_primary_lunch_duty",
+      "label": "國小午餐值日",
+      "world": "modern",
+      "file": "modern-m08/modern_m08_primary_lunch_duty.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 6,
+      "maxAgeExclusive": 12,
+      "kind": "school-scene",
+      "sha256": "2445a46c933f6300d39bee338d8bb81d24e32ceb124c75fa2c4e9be2112974da",
+      "sourceSha256": "b6b78d4e042fd12e8e218b3d81f85c9bc5b966c8256dcf82d8ad8964fd2e5064"
+    },
+    {
+      "key": "modern_m08_junior_reading_group",
+      "label": "國中分組閱讀",
+      "world": "modern",
+      "file": "modern-m08/modern_m08_junior_reading_group.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 12,
+      "maxAgeExclusive": 15,
+      "kind": "school-scene",
+      "sha256": "16475eff62360dd19bdc4a49149c92d7577de9e73f587d54b7d3f015423f7b50",
+      "sourceSha256": "7aa8142582caaee6c32d7a1be3d1cf96d25178302db55747a34a214d918625ff"
+    },
+    {
+      "key": "modern_m08_senior_club_noticeboard",
+      "label": "高中社團布告",
+      "world": "modern",
+      "file": "modern-m08/modern_m08_senior_club_noticeboard.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 15,
+      "maxAgeExclusive": 18,
+      "kind": "school-scene",
+      "sha256": "68b7beb5ae5e84fbb3c0b479f85c0594595de0c6de3b69a34ae2ef5c30faeb87",
+      "sourceSha256": "9fb621052a6d54bfdffbd0f4876b2e16ad8d4ccf7330e56d82afb728e2fcf51a"
+    }
+  ]
+}

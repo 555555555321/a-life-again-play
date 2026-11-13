@@ -1,0 +1,897 @@
+{
+  "_note": "手機 B（小兵）。人物站位照王子 config.json 的 full_layout_v2；句子照公主 lines／王備用句／皇后月底數字。素材只用 ID 要，manifest 沒有的就畫粉紅方塊並記進缺圖清單。 月底照皇后 17:2x 更正（拿掉房租）。道具改用王子 full_layout_v2.py 畫的，匯出成 assets/props。 Cast members may set standing_group to a data/standing_points.csv group_id; prepareCue then uses that row's x and floor_y.",
+  "corner": "二〇〇五年・春・你五歲",
+  "family": "dad_works_mom_home",
+  "order": [
+    "talent",
+    "month_end",
+    "scissors",
+    "animal_dog",
+    "animal_kitten",
+    "animal_blanket"
+  ],
+  "screens": {
+    "talent": {
+      "lighting": "evening",
+      "status": "你數到一百，中間跳過了好幾個數字。",
+      "text": "媽媽拿著幾張傳單，一張一張說給你聽：這是畫畫班，這是音樂班，那是跳舞班，問你想不想去學點什麼。",
+      "buttons": [
+        "畫畫",
+        "音樂",
+        "跳舞",
+        "不去"
+      ],
+      "cast": [
+        {
+          "id": "father",
+          "x": 376,
+          "feet": 246,
+          "flip": true,
+          "walk_to": 334,
+          "anim": "爸爸_走路"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 212,
+          "feet": 258,
+          "flip": false
+        },
+        {
+          "id": "mother",
+          "x": 242,
+          "feet": 254,
+          "flip": true,
+          "props": [
+            {
+              "id": "道具_傳單",
+              "dx": -12,
+              "dy": -50,
+              "w": 6,
+              "h": 7
+            }
+          ],
+          "anim": "媽媽_翻傳單"
+        },
+        {
+          "id": "cat",
+          "x": 80,
+          "feet": 263,
+          "flip": true
+        }
+      ],
+      "corner": "二〇〇五年・春・你五歲",
+      "age": 5,
+      "season": "春",
+      "month": "birth",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "month_end": {
+      "lighting": "daylight",
+      "status": "週末不用上學，你一早就醒來等大人帶你出門。",
+      "text": "爸爸這個月薪水四萬二千六百八十四元。公立幼稚園二千五百零一元，便當一個四十五元。媽媽把零錢收進餅乾盒。",
+      "buttons": [
+        "繼續"
+      ],
+      "scene_props": [
+        {
+          "id": "道具_餅乾盒",
+          "x": 308,
+          "y": 181,
+          "w": 10,
+          "h": 6
+        }
+      ],
+      "cast": [
+        {
+          "id": "cat",
+          "x": 81,
+          "feet": 236,
+          "flip": false
+        },
+        {
+          "id": "mother",
+          "x": 342,
+          "feet": 247,
+          "flip": true,
+          "anim": "媽媽_收零錢"
+        },
+        {
+          "id": "father",
+          "x": 400,
+          "feet": 250,
+          "flip": false
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 407,
+          "feet": 264,
+          "flip": false,
+          "anim": "你_等出門"
+        }
+      ],
+      "corner": "二〇〇五年・春・你五歲",
+      "age": 5,
+      "season": "春",
+      "month": "birth"
+    },
+    "scissors": {
+      "lighting": "daylight",
+      "status": "你學會了用剪刀，剪了一大堆碎紙。",
+      "text": "",
+      "buttons": [
+        "繼續"
+      ],
+      "scene_props": [
+        {
+          "id": "道具_碎紙",
+          "x": 160,
+          "y": 254,
+          "w": 64,
+          "h": 14
+        }
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 190,
+          "feet": 262,
+          "flip": false,
+          "props": [
+            {
+              "id": "道具_剪刀",
+              "dx": 8,
+              "dy": -24,
+              "w": 4,
+              "h": 4
+            }
+          ],
+          "anim": "你_剪紙"
+        },
+        {
+          "id": "mother",
+          "x": 402,
+          "feet": 238,
+          "flip": true
+        },
+        {
+          "id": "cat",
+          "x": 81,
+          "feet": 236,
+          "flip": false
+        }
+      ],
+      "corner": "二〇〇五年・春・你五歲",
+      "age": 5,
+      "season": "春",
+      "month": "birth"
+    },
+    "test_long": {
+      "_note": "公主分頁示範 G04 ALA-GAP-20261025-G04-E014；原文見 /workspace/princess_pagination_demo/source.md。場景暫借客廳 daylight。‖ 分段與 marked.json 一致。",
+      "origin_id": "ALA-GAP-20261025-G04-E014",
+      "lighting": "daylight",
+      "status": "茶店門口。",
+      "text": "你到了茶店門口，門上掛著延後開門的牌子。‖蘇禾與陸淇先在兩頭的廊口等；群組通話裡有人說「我只能坐一下」，另一人接著說「我還能留下」。‖這幾個字你都取得了，卻對不上人。‖蘇禾帶著要還你的書，陸淇約好談近況；要先找到短留的那個人，才來得及都見到。‖兩人發來的具名更正終於齊了：蘇禾還在茶店旁，陸淇已得往河對面的辦事地點走，只能在途中短談。‖剛才若能辨明聲音，你本可在廊口先見陸淇，再回茶店取書；現在追上她再回來，就會越過蘇禾必須離開的時點。‖字句補齊了，失去的那段相見時間卻沒有回來。‖你告訴兩人自己留在原已到達的茶店。‖店門終於打開，蘇禾過來坐下，把借書還你，你們實際聊了一段；陸淇收到你的選擇後先去忙自己的事。‖今天你沒有與她談近況，也沒有因她離開就推定她不願再見。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 200,
+          "feet": 258,
+          "flip": false,
+          "anim": "你_站"
+        }
+      ],
+      "scene_props": [
+        {
+          "id": "道具_延後開門牌",
+          "x": 392,
+          "y": 90,
+          "w": 28,
+          "h": 18
+        }
+      ],
+      "cues": [
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_延後開門牌",
+              "x": 392,
+              "y": 90,
+              "w": 28,
+              "h": 18
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": [
+              "道具_延後開門牌"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_拿書"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_拿書",
+              "陸淇_站"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 391,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 400,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你"
+            ],
+            "actions": [
+              "你_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 200,
+              "feet": 258,
+              "flip": false,
+              "anim": "你_站"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 280,
+              "feet": 250,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_站"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 380,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "anim": "陸淇_站"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_站",
+              "蘇禾_站",
+              "陸淇_站"
+            ],
+            "props": []
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 358,
+              "feet": 250,
+              "flip": false,
+              "anim": "你_坐"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 300,
+              "feet": 242,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_坐"
+            },
+            {
+              "id": "standin_luqi",
+              "x": 400,
+              "feet": 252,
+              "flip": false,
+              "label": "陸淇",
+              "walk_to": 411,
+              "anim": "陸淇_走路"
+            }
+          ],
+          "scene_props": [
+            {
+              "id": "道具_借書",
+              "x": 300,
+              "y": 200,
+              "w": 10,
+              "h": 12
+            },
+            {
+              "id": "道具_茶店門",
+              "x": 390,
+              "y": 120,
+              "w": 30,
+              "h": 100
+            }
+          ],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾",
+              "陸淇"
+            ],
+            "actions": [
+              "你_坐",
+              "蘇禾_坐",
+              "陸淇_走路"
+            ],
+            "props": [
+              "道具_借書",
+              "道具_茶店門"
+            ]
+          }
+        },
+        {
+          "lighting": "daylight",
+          "cast": [
+            {
+              "id": "protag_boy_child6",
+              "x": 358,
+              "feet": 250,
+              "flip": false,
+              "anim": "你_坐"
+            },
+            {
+              "id": "standin_suhe",
+              "x": 300,
+              "feet": 242,
+              "flip": true,
+              "label": "蘇禾",
+              "anim": "蘇禾_坐"
+            }
+          ],
+          "scene_props": [],
+          "_cue_note": {
+            "present": [
+              "你",
+              "蘇禾"
+            ],
+            "actions": [
+              "你_坐",
+              "蘇禾_坐"
+            ],
+            "props": []
+          }
+        }
+      ],
+      "corner": "二〇〇五年・春・你五歲",
+      "age": 5,
+      "season": "春",
+      "month": "birth"
+    },
+    "test_reader": {
+      "_note": "閱讀頁：同一段 G04 示範原文。",
+      "reader": true,
+      "lighting": "daylight",
+      "status": "一封關於茶店的回憶。",
+      "text": "你到了茶店門口，門上掛著延後開門的牌子。‖蘇禾與陸淇先在兩頭的廊口等；群組通話裡有人說「我只能坐一下」，另一人接著說「我還能留下」。‖這幾個字你都取得了，卻對不上人。‖蘇禾帶著要還你的書，陸淇約好談近況；要先找到短留的那個人，才來得及都見到。‖兩人發來的具名更正終於齊了：蘇禾還在茶店旁，陸淇已得往河對面的辦事地點走，只能在途中短談。‖剛才若能辨明聲音，你本可在廊口先見陸淇，再回茶店取書；現在追上她再回來，就會越過蘇禾必須離開的時點。‖字句補齊了，失去的那段相見時間卻沒有回來。‖你告訴兩人自己留在原已到達的茶店。‖店門終於打開，蘇禾過來坐下，把借書還你，你們實際聊了一段；陸淇收到你的選擇後先去忙自己的事。‖今天你沒有與她談近況，也沒有因她離開就推定她不願再見。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [],
+      "corner": "二〇〇五年・春・你五歲",
+      "age": 5,
+      "season": "春",
+      "month": "birth"
+    },
+    "animal_dog": {
+      "_note": "TW-A1-05 雙薪／只有爸爸上班 variant；cue /workspace/w09_cues_20261109/cues.json。背景暫借客廳 daylight（phone B 無戶外圖）。",
+      "origin_id": "TW-A1-05",
+      "lighting": "daylight",
+      "status": "鄰居家門口。",
+      "corner": "二〇〇一年・春・你一歲",
+      "text": "爸爸牽著你站在鄰居家門口，陪你看那隻狗看了好久。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "father",
+          "x": 168,
+          "feet": 252,
+          "flip": true,
+          "anim": "爸爸_站"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 196,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_站"
+        },
+        {
+          "id": "dog",
+          "x": 250,
+          "feet": 252,
+          "flip": false,
+          "anim": "狗_待機"
+        }
+      ],
+      "age": 1,
+      "season": "春",
+      "month": "birth"
+    },
+    "animal_kitten": {
+      "_note": "TW-A3-08；cue cues.json。小貓在紙箱（back→kitten@(2,6) clipped→front）。背景暫借客廳 daylight（phone B 無路邊圖）。",
+      "origin_id": "TW-A3-08",
+      "lighting": "daylight",
+      "status": "路邊。",
+      "corner": "二〇〇三年・春・你三歲",
+      "text": "路邊的紙箱裡有一隻小貓，你蹲下來看，牠也看著你。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "protag_boy_child6",
+          "x": 242,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_蹲"
+        },
+        {
+          "id": "kitten_in_box",
+          "x": 300,
+          "feet": 252,
+          "flip": false,
+          "anim": "小貓_待機"
+        }
+      ],
+      "age": 3,
+      "season": "春",
+      "month": "birth"
+    },
+    "animal_blanket": {
+      "_note": "TW-A1-07；cue cues.json。紙箱空箱＋地板小被子（floor 版，箱外）。",
+      "origin_id": "TW-A1-07",
+      "lighting": "daylight",
+      "status": "客廳。",
+      "corner": "二〇〇一年・春・你一歲",
+      "text": "家人把所有東西裝進紙箱，只有你的小被子一直留在外面，到新家第一個拿出來。",
+      "buttons": [
+        "繼續"
+      ],
+      "cast": [
+        {
+          "id": "mother",
+          "x": 128,
+          "feet": 252,
+          "flip": true,
+          "anim": "媽媽_站"
+        },
+        {
+          "id": "protag_boy_child6",
+          "x": 175,
+          "feet": 252,
+          "flip": true,
+          "anim": "你_站"
+        }
+      ],
+      "scene_props": [
+        {
+          "id": "道具_紙箱",
+          "x": 296,
+          "y": 233,
+          "w": 28,
+          "h": 20
+        },
+        {
+          "id": "道具_小被子",
+          "x": 189,
+          "y": 233,
+          "w": 28,
+          "h": 20
+        }
+      ],
+      "age": 1,
+      "season": "春",
+      "month": "birth"
+    },
+    "walk_test": {
+      "_note": "DEV ONLY Trial C vs old dad walk. Reach via ?dev=1&screen=walk_test. Not in order.",
+      "dev_only": true,
+      "age": 5,
+      "season": "春",
+      "month": "birth",
+      "corner": "二〇〇五年・春・你五歲",
+      "lighting": "daylight",
+      "status": "走路試驗：上 C foot-lock，中 C constant-8，下舊 4 格。",
+      "text": "爸爸：斜站 → 轉身 2 格 → 走路 → 停。三排都站在地板上。上＝Trial C 腳鎖（r3）；中＝C 每格 8；下＝舊 walk 4 格。",
+      "buttons": [
+        "重播"
+      ],
+      "cast": [],
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "elders_stand": {
+      "_note": "DEV ONLY 阿公/阿嬤 r5 stand + 媽媽 r8 抱嬰兒呼吸，阿公面向父母說字輩。?dev=1&screen=elders_stand。角標用 day 0（這一局生日（預設 2000-05-01））走日期規則。Not in order.",
+      "dev_only": true,
+      "age": 0,
+      "season": "春",
+      "month": "birth",
+      "day": 0,
+      "corner": "二〇〇〇年・春・你零歲",
+      "lighting": "daylight",
+      "status": "取名（字輩）",
+      "text": "阿公說，照家裡的規矩，你這一代都有一個「宇」字，剩下一個字讓你爸媽挑。",
+      "buttons": [],
+      "cast": [],
+      "_text_note": "TW-A0-00 字輩 line. Phone B has no generation_char or 稱呼.祖父 fields; used 阿公 (Phone B elder name) and sample 字輩 「宇」 from the textpack 範例字庫.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "pixelbolt_trial": {
+      "_note": "DEV ONLY Pixelbolt 試驗：原圖媽媽站姿 vs Pixelbolt 第1格 vs 2格呼吸。?dev=1&screen=pixelbolt_trial。Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "Pixelbolt 試驗：左原圖、中配方第1格、右呼吸。",
+      "text": "左邊是手機B現用的媽媽站姿，中間是 Pixelbolt 依配方重畫的第1格（應與原圖完全一樣），右邊是同一份配方加的2格呼吸（腳釘在原地）。角落標「工具試驗・非劇情」，是手動寫死，不是年份函式。",
+      "buttons": [],
+      "cast": [],
+      "corner": "工具試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV tool trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "style_trial_mom": {
+      "_note": "DEV ONLY mom standing style trial. Paths come from STYLE_TRIAL_MOM_SRC_DIR in game.js (currently r3). ?dev=1&orient=landscape&screen=style_trial_mom. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "season": "春",
+      "age": 5,
+      "month": "birth",
+      "corner": "二〇〇五年・春・你五歲",
+      "lighting": "daylight",
+      "status": "媽媽站姿畫風試畫（第 3 輪）。B 靠牆，方便看日間／夜間上衣對比。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": [],
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "style_trial_mom_a4": {
+      "_note": "DEV ONLY mom style A round 4 (12 colours) at B’s wall slot x=406, plus r3 A at x=222. Evening tint same as style_trial_mom. ?dev=1&orient=landscape&screen=style_trial_mom_a4. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "媽媽畫風 A 第 4 輪（12 色）。右站在與 B 相同的牆前位置（x 406），左為 r3 A 對照。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": [],
+      "corner": "畫風試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "style_trial_mom_a5c": {
+      "_note": "DEV ONLY final mom A round 5 (A_r5c_12, 12 colours). x and floor come from data/standing_points.csv group mom_A_r5c (default 295 / 252). Official style_trial_mom_a4 is unchanged. ?dev=1&orient=landscape&screen=style_trial_mom_a5c. Optional &lit=evening. Not in order.",
+      "dev_only": true,
+      "lighting": "daylight",
+      "status": "媽媽畫風 A 第 5 輪定稿（12 色）。站位讀 data/standing_points.csv（mom_A_r5c）。",
+      "text": "",
+      "buttons": [
+        "日間",
+        "夜間"
+      ],
+      "cast": [],
+      "corner": "畫風試驗・非劇情",
+      "_corner_hardcoded": true,
+      "_corner_note": "DEV style trial: not a story date. Hardcoded so cornerLabel() is not used.",
+      "light_side": "right",
+      "light_side_note": "World direction. Inherited from the living-room backdrop: evening floor lamp on the right. See manifest room_evening.light_side_note."
+    },
+    "commute": {
+      "_note": "DEV ONLY 上下班／週末出遊開車畫面。舊畫風 240 圖 2× 最近鄰。?dev=1&orient=landscape&screen=commute 加上 &vehicle=none|bike|scooter|car|bus、&passengers=0..3、&riders=solo|partner|kid_seat|parents、&lit=evening、&trip=work|home|weekend、&dest=beach|mountain|night_market|friend、&wear=new|old、&rain=1、&event=traffic|rain|lost|breakdown、&force=1、&newcar=1、&seed=、&cut=1。Not in order.",
+      "dev_only": true,
+      "season": "秋",
+      "age": 25,
+      "month": 10,
+      "lighting": "daylight",
+      "status": "出門上班。",
+      "text": "",
+      "buttons": [
+        "重播",
+        "跳過"
+      ],
+      "cast": []
+    },
+    "going_out": {
+      "_note": "DEV ONLY 出門選單：上班、下班、週末出遊（海邊／山上／夜市／朋友家）。目的地背景是占位，王子會畫，招牌不寫字。抵達卡片格等公主文案。?dev=1&orient=landscape&screen=going_out。Not in order.",
+      "dev_only": true,
+      "season": "秋",
+      "age": 25,
+      "month": 10,
+      "lighting": "daylight",
+      "status": "要出門嗎？",
+      "text": "選上班、下班，或週末開車去一個地方。",
+      "buttons": [
+        "上班",
+        "下班",
+        "週末出遊・海邊",
+        "週末出遊・山上",
+        "週末出遊・夜市",
+        "週末出遊・朋友家"
+      ],
+      "cast": []
+    },
+    "messages": {
+      "age": 18,
+      "month": 1,
+      "season": "冬",
+      "lighting": "daylight",
+      "_note": "DEV ONLY 訊息 App 樣本。96×144 原圖最近鄰整數倍（直式 10×）。?dev=1&screen=messages&shot&fixture=list|compose|thread|photo|nosavings|dead|fade|incoming，可加 &gen=flip|smart|thin、&savings=。"
+    }
+  },
+  "_test_order": [
+    "test_long",
+    "test_reader",
+    "animal_dog",
+    "animal_kitten",
+    "animal_blanket"
+  ],
+  "_corner_rule": "cornerLabel: date rule (calendar.js). Day 0 is this life's birthday (year 2000, day 1 of the drawn month); missing birth_month / old data = May (month 5). age = floor(day/365); year and season come from the date, never from the season word. Before the birth month of age N = 2000+N+1, from the birth month on = 2000+N. Seasons: 3–5春 6–8夏 9–11秋 12–2冬. Year/date use 〇, corner age uses 零. Prefer screen.day or ?day=, else age+month, else birth month when the season matches (or a month in that season). Screens that used to hard-code \"month\": 5 as the 春/birthday default now use \"month\": \"birth\". ?birthMonth=1..12 or ?seed= sets this life's birthday. Shared ALACalendar in calendar.js / game.js screenCorner().",
+  "birth_year": 2000,
+  "age": 5,
+  "season": "春",
+  "month": "birth",
+  "birth_month": 5
+}

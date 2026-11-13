@@ -1,0 +1,1762 @@
+{
+  "pa2_pair_hunter_b0_settle": {
+    "key": "pa2_pair_hunter_b0_settle",
+    "label": "0歲放回陪坐",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "settle",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b0_settle.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        19,
+        3,
+        77,
+        62
+      ],
+      [
+        16,
+        6,
+        80,
+        62
+      ],
+      [
+        18,
+        11,
+        78,
+        62
+      ],
+      [
+        15,
+        7,
+        80,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "settle"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        12,
+        127,
+        506,
+        630
+      ],
+      [
+        527,
+        150,
+        1069,
+        627
+      ],
+      [
+        1083,
+        194,
+        1598,
+        632
+      ],
+      [
+        1609,
+        154,
+        2161,
+        625
+      ]
+    ],
+    "sourceSha256": "75a7df5026e7f467f1072de5fc28946fd8ceb4413ca5b2ac9caac32c4920d7fb",
+    "sha256": "dab4e6912a48de83c8a709a0fb602e8d5dbb0da9dad97ec2079d90a8ffd792c4"
+  },
+  "pa2_pair_hunter_b0_handoff": {
+    "key": "pa2_pair_hunter_b0_handoff",
+    "label": "0歲雙人交接",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "handoff",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 2,
+    "file": "pv2-b004/pa2_pair_hunter_b0_handoff.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        25,
+        3,
+        71,
+        62
+      ],
+      [
+        25,
+        3,
+        70,
+        62
+      ],
+      [
+        27,
+        3,
+        69,
+        62
+      ],
+      [
+        27,
+        3,
+        68,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "handoff"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        49,
+        52,
+        535,
+        677
+      ],
+      [
+        595,
+        52,
+        1076,
+        677
+      ],
+      [
+        1148,
+        52,
+        1597,
+        677
+      ],
+      [
+        1697,
+        52,
+        2129,
+        676
+      ]
+    ],
+    "sourceSha256": "955163f29749df0b9740c90bb3762e31ad65357d045f2fcc836685e1404f6b83",
+    "sha256": "6e34c882a380ec68271d0f00c3d5ce224a0537a49a12066718c458de62a0f975"
+  },
+  "pa2_pair_hunter_b0_book": {
+    "key": "pa2_pair_hunter_b0_book",
+    "label": "0歲托抱共讀",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "book",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b0_book.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        22,
+        3,
+        73,
+        62
+      ],
+      [
+        21,
+        4,
+        74,
+        62
+      ],
+      [
+        21,
+        3,
+        75,
+        62
+      ],
+      [
+        22,
+        4,
+        73,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "book"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        15,
+        69,
+        515,
+        643
+      ],
+      [
+        549,
+        78,
+        1065,
+        643
+      ],
+      [
+        1094,
+        69,
+        1624,
+        643
+      ],
+      [
+        1660,
+        75,
+        2155,
+        643
+      ]
+    ],
+    "sourceSha256": "7f0e6bd6b36db82a678b25205689810fd1c55da4920efad3035545b9aab826fd",
+    "sha256": "1f1d720af4d85fad84d95e37e0aef8730a0bd7c985bdc36544c6afe495f9b305"
+  },
+  "pa2_pair_hunter_b0_reply": {
+    "key": "pa2_pair_hunter_b0_reply",
+    "label": "0歲停唱等回應",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "reply",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b0_reply.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        20,
+        3,
+        76,
+        62
+      ],
+      [
+        20,
+        3,
+        76,
+        62
+      ],
+      [
+        20,
+        3,
+        76,
+        62
+      ],
+      [
+        20,
+        3,
+        75,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "reply"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        11,
+        81,
+        545,
+        639
+      ],
+      [
+        562,
+        84,
+        1088,
+        639
+      ],
+      [
+        1102,
+        81,
+        1632,
+        639
+      ],
+      [
+        1647,
+        81,
+        2171,
+        639
+      ]
+    ],
+    "sourceSha256": "b056aba998bb36dacfa01ee7c9591340ba39eb0f7f9bc6e9414da5cd63a3d584",
+    "sha256": "50ccbdf9e1cd6697baa6c5d391e66bcc06b62a617e5bb492dbb451ef27ff1560"
+  },
+  "pa2_pair_hunter_b1_sing": {
+    "key": "pa2_pair_hunter_b1_sing",
+    "label": "1歲坐抱輕唱",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "sing",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b1_sing.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        21,
+        3,
+        74,
+        62
+      ],
+      [
+        21,
+        3,
+        74,
+        62
+      ],
+      [
+        21,
+        3,
+        74,
+        62
+      ],
+      [
+        21,
+        3,
+        74,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "sing"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        16,
+        108,
+        509,
+        662
+      ],
+      [
+        524,
+        109,
+        1020,
+        662
+      ],
+      [
+        1035,
+        111,
+        1532,
+        662
+      ],
+      [
+        1547,
+        111,
+        2040,
+        662
+      ]
+    ],
+    "sourceSha256": "d204cd3006ef2bb42c2fa5e17f14d8703217c078dbd7b92ffa1bb747bb20fbd4",
+    "sha256": "b8012059a0446747e2cb24becf88eff9c44a30ee759e8ea47e9c5f81952b7209"
+  },
+  "pa2_pair_hunter_b1_lift": {
+    "key": "pa2_pair_hunter_b1_lift",
+    "label": "1歲抱起承接",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "lift",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b1_lift.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        20,
+        7,
+        75,
+        62
+      ],
+      [
+        26,
+        3,
+        70,
+        62
+      ],
+      [
+        27,
+        4,
+        68,
+        62
+      ],
+      [
+        28,
+        4,
+        68,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "lift"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        7,
+        70,
+        611,
+        671
+      ],
+      [
+        621,
+        24,
+        1107,
+        672
+      ],
+      [
+        1187,
+        30,
+        1635,
+        671
+      ],
+      [
+        1730,
+        38,
+        2166,
+        672
+      ]
+    ],
+    "sourceSha256": "7e80dd240b479efea3a3d80902f18c2c564a509ee48a6d725dbf8bf35ab961c5",
+    "sha256": "83080d026dcfb94cade6854bbac76ac6fbaa1bec5236dd7273e961d74eae4e43"
+  },
+  "pa2_pair_hunter_b1_settle": {
+    "key": "pa2_pair_hunter_b1_settle",
+    "label": "1歲放回陪坐",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "settle",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b1_settle.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        25,
+        3,
+        70,
+        62
+      ],
+      [
+        25,
+        9,
+        71,
+        62
+      ],
+      [
+        25,
+        14,
+        70,
+        62
+      ],
+      [
+        25,
+        14,
+        70,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "settle"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        11,
+        105,
+        481,
+        715
+      ],
+      [
+        494,
+        152,
+        974,
+        705
+      ],
+      [
+        979,
+        205,
+        1447,
+        702
+      ],
+      [
+        1461,
+        201,
+        1931,
+        702
+      ]
+    ],
+    "sourceSha256": "028d4a0a1f43a25e9fa1cde6d3c04689745b64443c8224f8afc86ba091a5f628",
+    "sha256": "e4773841682a08056d12ff8e7bc9c79d15b2dfd7ac809db86cfc25e2df46d790"
+  },
+  "pa2_pair_hunter_b1_handoff": {
+    "key": "pa2_pair_hunter_b1_handoff",
+    "label": "1歲雙人交接",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "handoff",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 2,
+    "file": "pv2-b004/pa2_pair_hunter_b1_handoff.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        16,
+        4,
+        80,
+        62
+      ],
+      [
+        16,
+        4,
+        80,
+        62
+      ],
+      [
+        16,
+        4,
+        79,
+        62
+      ],
+      [
+        19,
+        3,
+        77,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "handoff"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        12,
+        211,
+        511,
+        664
+      ],
+      [
+        517,
+        213,
+        1014,
+        666
+      ],
+      [
+        1021,
+        213,
+        1509,
+        666
+      ],
+      [
+        1516,
+        207,
+        1971,
+        667
+      ]
+    ],
+    "sourceSha256": "287889da2a9e93fd6a5f4f55a09e87fcab13d50a191f10fe21a5db9eb2cde5e8",
+    "sha256": "004ad4c36c487305cd0d864f0431e60804aff3e9aa2697f473cecf0f630594fd"
+  },
+  "pa2_pair_hunter_b1_book": {
+    "key": "pa2_pair_hunter_b1_book",
+    "label": "1歲托抱共讀",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "book",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b1_book.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        23,
+        3,
+        72,
+        62
+      ],
+      [
+        23,
+        3,
+        73,
+        62
+      ],
+      [
+        23,
+        3,
+        73,
+        62
+      ],
+      [
+        23,
+        4,
+        72,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "book"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        6,
+        162,
+        466,
+        712
+      ],
+      [
+        474,
+        164,
+        936,
+        711
+      ],
+      [
+        944,
+        161,
+        1406,
+        711
+      ],
+      [
+        1419,
+        168,
+        1876,
+        712
+      ]
+    ],
+    "sourceSha256": "fd6ff704668b595877755104181cf3c83b74033b9c477cf414cca7dd9cfbb5fe",
+    "sha256": "b3bf59bdca28bb3bac2a14c982b263816accdd738fd84f40f75736b872bb814e"
+  },
+  "pa2_pair_hunter_b1_reply": {
+    "key": "pa2_pair_hunter_b1_reply",
+    "label": "1歲停唱等回應",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "reply",
+    "minAge": 1,
+    "maxAge": 2,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b1_reply.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        22,
+        3,
+        74,
+        62
+      ],
+      [
+        22,
+        3,
+        74,
+        62
+      ],
+      [
+        21,
+        3,
+        74,
+        62
+      ],
+      [
+        22,
+        3,
+        74,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒1歲",
+      "reply"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        12,
+        56,
+        534,
+        642
+      ],
+      [
+        552,
+        56,
+        1076,
+        642
+      ],
+      [
+        1095,
+        51,
+        1621,
+        642
+      ],
+      [
+        1638,
+        51,
+        2160,
+        642
+      ]
+    ],
+    "sourceSha256": "7428374c77b3ea97696dcbf4a8ffbd2a00e39dcdaed2aafa1b6f5f6251b213e6",
+    "sha256": "7ceafd6b5765226a392f20b31c28c44d898c35f6bdf9f07250a68149f0210f0f"
+  },
+  "pa2_pair_hunter_b2_sing": {
+    "key": "pa2_pair_hunter_b2_sing",
+    "label": "2歲坐抱輕唱",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "sing",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b2_sing.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        24,
+        4,
+        71,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "sing"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        10,
+        33,
+        529,
+        670
+      ],
+      [
+        561,
+        33,
+        1076,
+        670
+      ],
+      [
+        1110,
+        30,
+        1626,
+        667
+      ],
+      [
+        1659,
+        37,
+        2162,
+        663
+      ]
+    ],
+    "sourceSha256": "119379b77c8ced7d03abd58358852b678cf053afa313d0a7eed9e8a4e23dca72",
+    "sha256": "31b1147deca626550bd3fc67679a0a2cc6dffae5edb3d90379208917c48f21ed"
+  },
+  "pa2_pair_hunter_b2_lift": {
+    "key": "pa2_pair_hunter_b2_lift",
+    "label": "2歲抱起承接",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "lift",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b2_lift.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        20,
+        5,
+        75,
+        62
+      ],
+      [
+        26,
+        3,
+        69,
+        62
+      ],
+      [
+        32,
+        3,
+        64,
+        62
+      ],
+      [
+        31,
+        3,
+        65,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "lift"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        23,
+        54,
+        627,
+        682
+      ],
+      [
+        643,
+        35,
+        1118,
+        686
+      ],
+      [
+        1228,
+        35,
+        1586,
+        685
+      ],
+      [
+        1721,
+        35,
+        2101,
+        685
+      ]
+    ],
+    "sourceSha256": "89aa55d9b92983c044d2e616168c6f19c7b8a7e2ce3f43c7cb0d1c348b4c5ff3",
+    "sha256": "b8105bf75dafd8d4e6fa5476ab8f5001d344a9b335c3b1042ced65b3f8db11ad"
+  },
+  "pa2_pair_hunter_b2_settle": {
+    "key": "pa2_pair_hunter_b2_settle",
+    "label": "2歲放回陪坐",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "settle",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b2_settle.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        25,
+        3,
+        71,
+        62
+      ],
+      [
+        24,
+        8,
+        72,
+        62
+      ],
+      [
+        24,
+        13,
+        72,
+        62
+      ],
+      [
+        24,
+        16,
+        71,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "settle"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        20,
+        42,
+        516,
+        677
+      ],
+      [
+        550,
+        99,
+        1068,
+        677
+      ],
+      [
+        1102,
+        153,
+        1616,
+        677
+      ],
+      [
+        1645,
+        183,
+        2153,
+        677
+      ]
+    ],
+    "sourceSha256": "15c6ad9cb618b22af7d2eddf14949996ddce5c2e1a1b56932e9eea1c2a915e72",
+    "sha256": "58effedb9e9c1f7c3bc8dbacc41181edbb7ff8fda24a73b5ae59050d7f2e7581"
+  },
+  "pa2_pair_hunter_b2_handoff": {
+    "key": "pa2_pair_hunter_b2_handoff",
+    "label": "2歲雙人交接",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "handoff",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 2,
+    "file": "pv2-b004/pa2_pair_hunter_b2_handoff.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        17,
+        3,
+        79,
+        62
+      ],
+      [
+        18,
+        5,
+        77,
+        62
+      ],
+      [
+        20,
+        5,
+        75,
+        62
+      ],
+      [
+        20,
+        6,
+        76,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "handoff"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        16,
+        98,
+        575,
+        630
+      ],
+      [
+        591,
+        122,
+        1119,
+        632
+      ],
+      [
+        1138,
+        124,
+        1635,
+        634
+      ],
+      [
+        1655,
+        124,
+        2162,
+        633
+      ]
+    ],
+    "sourceSha256": "159dd8ffc81338005f2365029b028c1c2be3c9cc1436509ea1a10fc681612e1a",
+    "sha256": "5ed6da225c305e14b827ac8be139af066fc5954fde5570fe553866aa2a36f4d4"
+  },
+  "pa2_pair_hunter_b2_book": {
+    "key": "pa2_pair_hunter_b2_book",
+    "label": "2歲托抱共讀",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "book",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b2_book.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        24,
+        3,
+        72,
+        62
+      ],
+      [
+        23,
+        4,
+        72,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "book"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        8,
+        26,
+        527,
+        667
+      ],
+      [
+        553,
+        27,
+        1072,
+        667
+      ],
+      [
+        1101,
+        26,
+        1621,
+        667
+      ],
+      [
+        1645,
+        36,
+        2172,
+        667
+      ]
+    ],
+    "sourceSha256": "939c0945184b90cde052687ccc8a4c9491e0620085f783d85660c29deddd2ed0",
+    "sha256": "0fb22060dabdaff3ed7d90b1bd3242673c0e152add699c04219dabecd5ca866a"
+  },
+  "pa2_pair_hunter_b2_reply": {
+    "key": "pa2_pair_hunter_b2_reply",
+    "label": "2歲停唱等回應",
+    "batch": "PV2-B004",
+    "world": "hunter",
+    "action": "reply",
+    "minAge": 2,
+    "maxAge": 3,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_hunter_b2_reply.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        21,
+        3,
+        75,
+        62
+      ],
+      [
+        21,
+        4,
+        75,
+        62
+      ],
+      [
+        21,
+        4,
+        75,
+        62
+      ],
+      [
+        21,
+        5,
+        75,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒2歲",
+      "reply"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        4,
+        59,
+        520,
+        628
+      ],
+      [
+        548,
+        67,
+        1064,
+        628
+      ],
+      [
+        1090,
+        74,
+        1606,
+        632
+      ],
+      [
+        1632,
+        74,
+        2149,
+        628
+      ]
+    ],
+    "sourceSha256": "0e1d83bb02a0f4891d179aa6c5e852818311937286589b91bac355147f468962",
+    "sha256": "24ad79b4e5d8dcaccaa98b82e965e48c1c15c91bcc6e6fc64bf8bb586103bab7"
+  },
+  "pa2_pair_xiuxian_b0_sing": {
+    "key": "pa2_pair_xiuxian_b0_sing",
+    "label": "0歲坐抱輕唱",
+    "batch": "PV2-B004",
+    "world": "xiuxian",
+    "action": "sing",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_xiuxian_b0_sing.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        23,
+        3,
+        72,
+        62
+      ],
+      [
+        23,
+        3,
+        72,
+        62
+      ],
+      [
+        23,
+        3,
+        72,
+        62
+      ],
+      [
+        23,
+        3,
+        72,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "sing"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        12,
+        47,
+        538,
+        675
+      ],
+      [
+        556,
+        47,
+        1080,
+        675
+      ],
+      [
+        1098,
+        47,
+        1623,
+        675
+      ],
+      [
+        1641,
+        47,
+        2166,
+        675
+      ]
+    ],
+    "sourceSha256": "ba06521ee8f8930129e1e3c83eb2ba0d5e82ec6d1fb03e2f35702226a1ddf37e",
+    "sha256": "34b10703e6372014f5c914acbcade95be4eb6d40718481ba6384c26719b24cfd"
+  },
+  "pa2_pair_xiuxian_b0_lift": {
+    "key": "pa2_pair_xiuxian_b0_lift",
+    "label": "0歲抱起承接",
+    "batch": "PV2-B004",
+    "world": "xiuxian",
+    "action": "lift",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_xiuxian_b0_lift.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        21,
+        11,
+        75,
+        62
+      ],
+      [
+        22,
+        8,
+        73,
+        62
+      ],
+      [
+        26,
+        3,
+        69,
+        62
+      ],
+      [
+        28,
+        3,
+        67,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "lift"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        42,
+        101,
+        597,
+        627
+      ],
+      [
+        600,
+        80,
+        1121,
+        634
+      ],
+      [
+        1145,
+        32,
+        1591,
+        639
+      ],
+      [
+        1699,
+        37,
+        2098,
+        639
+      ]
+    ],
+    "sourceSha256": "6a1045dbe15ff2200d993244dc88710955eccc1535fcd152e858bedaf14b63c6",
+    "sha256": "5385b16569a389aa56c9aa1175fc30f5b7f76eaa4993d31861c5892e8741e8d1"
+  },
+  "pa2_pair_xiuxian_b0_settle": {
+    "key": "pa2_pair_xiuxian_b0_settle",
+    "label": "0歲放回陪坐",
+    "batch": "PV2-B004",
+    "world": "xiuxian",
+    "action": "settle",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 1,
+    "file": "pv2-b004/pa2_pair_xiuxian_b0_settle.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        23,
+        3,
+        73,
+        62
+      ],
+      [
+        17,
+        10,
+        79,
+        62
+      ],
+      [
+        17,
+        10,
+        78,
+        62
+      ],
+      [
+        19,
+        10,
+        77,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "settle"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        15,
+        100,
+        449,
+        617
+      ],
+      [
+        531,
+        144,
+        1078,
+        600
+      ],
+      [
+        1094,
+        148,
+        1627,
+        605
+      ],
+      [
+        1650,
+        148,
+        2160,
+        604
+      ]
+    ],
+    "sourceSha256": "3c90d14f674f10b291ed76cce0a77f30246aaefc6a305705fbbe996bdaf07708",
+    "sha256": "5e0331c1802ffd8d53f519e85fca55ff9689e1f0d220f0dbd7ba082a8ed2c41e"
+  },
+  "pa2_pair_xiuxian_b0_handoff": {
+    "key": "pa2_pair_xiuxian_b0_handoff",
+    "label": "0歲雙人交接",
+    "batch": "PV2-B004",
+    "world": "xiuxian",
+    "action": "handoff",
+    "minAge": 0,
+    "maxAge": 1,
+    "requiredCaregivers": 2,
+    "file": "pv2-b004/pa2_pair_xiuxian_b0_handoff.png",
+    "size": [
+      384,
+      64
+    ],
+    "frameSize": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "anchor": [
+      48,
+      62
+    ],
+    "frameBounds": [
+      [
+        9,
+        4,
+        86,
+        62
+      ],
+      [
+        10,
+        3,
+        86,
+        62
+      ],
+      [
+        10,
+        3,
+        86,
+        62
+      ],
+      [
+        12,
+        3,
+        84,
+        62
+      ]
+    ],
+    "frameDurationsMs": null,
+    "timingStatus": "pending-review",
+    "defaultFrame": 0,
+    "tags": [
+      "照料者持續在場",
+      "嬰兒0歲",
+      "handoff"
+    ],
+    "specification": "每格96×64；4格水平圖集；逐格時間待審稿鎖定",
+    "acceptance": "每格至少一名照料者持續照顧；手點、遮擋與待機銜接；嬰兒不接觸世界專用器具",
+    "sourceBounds": [
+      [
+        7,
+        174,
+        550,
+        585
+      ],
+      [
+        559,
+        170,
+        1096,
+        585
+      ],
+      [
+        1109,
+        170,
+        1642,
+        585
+      ],
+      [
+        1658,
+        170,
+        2166,
+        585
+      ]
+    ],
+    "sourceSha256": "ae89423ff811d262a8e43f258fabac86686c48d91177ec567ac0beda6cab9635",
+    "sha256": "e89284501e4025de5e42e5a0ff6e0a557bec513bc19d346b197db4879f9d5b6a"
+  }
+}
