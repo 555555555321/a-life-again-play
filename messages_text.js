@@ -178,7 +178,7 @@
         text: '{稱呼.母親}：「生日快樂，回來吃飯。」',
         replies: [
           { textId: 'in.birthday.family.sms.r1', text: '好，我會回去。' },
-          { textId: 'in.birthday.family.sms.r2', text: '謝謝媽。今晚先不回去，週末補。' },
+          { textId: 'in.birthday.family.sms.r2', text: '謝謝。今晚先不回去，週末補。' },
           { textId: 'in.birthday.family.sms.r3', text: '收到了，我都好。' }
         ]
       },
