@@ -1,5 +1,0 @@
-Art and layouts: 王子 r2, /workspace/ala/r8_art/王子/ui_messages_20261111/r2/messages/ (and album photo crops).
-Used as-is; not redrawn or recolored.
-Layout JSONs are authoritative. Display scale is integer nearest-neighbour only.
-Font: Fusion Pixel 8px proportional zh_hant (SIL OFL 1.1), same file as r2 build.py.
-Text: 公主 訊息App文字.md (王 rulings). Wording used verbatim.

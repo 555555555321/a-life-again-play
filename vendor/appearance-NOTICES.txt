@@ -1,8 +1,0 @@
-Runtime portrait bundle dependencies
-dlv 1.1.3 — MIT; dlv-LICENSE.txt
-dset 3.1.4 — MIT; dset-LICENSE.txt
-facesjs 5.0.3 — Apache-2.0; facesjs-LICENSE.txt
-svg-path-bbox 2.1.0 — BSD-3-Clause; svg-path-bbox-LICENSE.txt
-svgpath 2.6.0 — MIT; svgpath-LICENSE.txt
-
-A Life Again adds deterministic generation, strict input validation, independent feature palettes, setup controls, safe rendering and versioned persistence. Original faces.js source is bundled without changing its component artwork.

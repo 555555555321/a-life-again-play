@@ -1,1 +1,0 @@
-const legacyPath=location.pathname==="/legacy"||location.pathname==="/legacy.html",ownerPath=location.pathname==="/owner-test";location.hash==="#owner-test"&&!ownerPath?location.replace("/owner-test"):ownerPath||legacyPath?await import("./app.js"):await import("./round1.js");
