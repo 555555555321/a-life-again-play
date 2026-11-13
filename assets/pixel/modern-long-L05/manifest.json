@@ -1,0 +1,1262 @@
+{
+  "generator": "built-in image_gen; five spring masters and fifteen referenced seasonal edits",
+  "finalPngCount": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "nearest-neighbor 240x135; retain spring pixels outside seasonal regions; 16 RGB levels spaced 17; 4x4 Bayer ordered dithering; nearest official palette color by squared RGB distance; binary alpha threshold 128",
+  "regionCoordinates": "half-open [x0,y0,x1,y1], native pixels; all other pixels locked to spring",
+  "assets": [
+    {
+      "key": "modern_long_l05_room_kitchen_spring",
+      "planKey": "modern_pmr2_room_kitchen_spring",
+      "label": "共用廚房・春",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_kitchen_spring.png",
+      "room": "kitchen",
+      "season": "spring",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          9,
+          155,
+          52
+        ],
+        [
+          71,
+          3,
+          86,
+          57
+        ],
+        [
+          158,
+          3,
+          173,
+          50
+        ],
+        [
+          169,
+          50,
+          173,
+          57
+        ],
+        [
+          225,
+          55,
+          240,
+          105
+        ]
+      ],
+      "sourceSha256": "2978871991a24b4d31f18a09711763cf28a6660eedaeb9b15836e0b058bbccd6",
+      "sha256": "1525d2098e635b04d936850bea41ca18996ef8f5b9e688c4141b037d10ad5f43"
+    },
+    {
+      "key": "modern_long_l05_room_kitchen_summer",
+      "planKey": "modern_pmr2_room_kitchen_summer",
+      "label": "共用廚房・夏",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_kitchen_summer.png",
+      "room": "kitchen",
+      "season": "summer",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          9,
+          155,
+          52
+        ],
+        [
+          71,
+          3,
+          86,
+          57
+        ],
+        [
+          158,
+          3,
+          173,
+          50
+        ],
+        [
+          169,
+          50,
+          173,
+          57
+        ],
+        [
+          225,
+          55,
+          240,
+          105
+        ]
+      ],
+      "sourceSha256": "fe677fed1061ec074373e2905f92f779e854eca7060514ef848875600cbbdcc9",
+      "sha256": "9ed13cde299b85582c861a6a43727bda5988aed61862dbdff1586045fafa48b3"
+    },
+    {
+      "key": "modern_long_l05_room_kitchen_autumn",
+      "planKey": "modern_pmr2_room_kitchen_autumn",
+      "label": "共用廚房・秋",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_kitchen_autumn.png",
+      "room": "kitchen",
+      "season": "autumn",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          9,
+          155,
+          52
+        ],
+        [
+          71,
+          3,
+          86,
+          57
+        ],
+        [
+          158,
+          3,
+          173,
+          50
+        ],
+        [
+          169,
+          50,
+          173,
+          57
+        ],
+        [
+          225,
+          55,
+          240,
+          105
+        ]
+      ],
+      "sourceSha256": "79ce0dc551b35aef9c680250026bda98d613510d9f5097da760456be5ba6f16f",
+      "sha256": "8e8d5df0fe9ef10b68112323e1757d2da352ff18cc1d87a947a0024192aff1b3"
+    },
+    {
+      "key": "modern_long_l05_room_kitchen_winter",
+      "planKey": "modern_pmr2_room_kitchen_winter",
+      "label": "共用廚房・冬",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_kitchen_winter.png",
+      "room": "kitchen",
+      "season": "winter",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          9,
+          155,
+          52
+        ],
+        [
+          71,
+          3,
+          86,
+          57
+        ],
+        [
+          158,
+          3,
+          173,
+          50
+        ],
+        [
+          169,
+          50,
+          173,
+          57
+        ],
+        [
+          225,
+          55,
+          240,
+          105
+        ]
+      ],
+      "sourceSha256": "f7d9b4c2af56948a7a203e209aa6f1478d537bf83ba688e428b0a5647f2688eb",
+      "sha256": "59929960c0feeb41e4c86342cf9211ee35f9b3557a0657c72d627db9af794f22"
+    },
+    {
+      "key": "modern_long_l05_room_dining_spring",
+      "planKey": "modern_pmr2_room_dining_spring",
+      "label": "家庭餐室・春",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dining_spring.png",
+      "room": "dining",
+      "season": "spring",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          13,
+          170,
+          51
+        ],
+        [
+          69,
+          5,
+          87,
+          60
+        ],
+        [
+          171,
+          5,
+          190,
+          60
+        ],
+        [
+          206,
+          48,
+          235,
+          98
+        ]
+      ],
+      "sourceSha256": "abfb08cc79e07c0101b2e07abf1a05a3ec6d4bcf836b8695a3fbc697b75e1bdb",
+      "sha256": "3f0d6d0b5bc82d9344167bf6d09a5f36db43a78c3cbb1ec93543baf0291e34c8"
+    },
+    {
+      "key": "modern_long_l05_room_dining_summer",
+      "planKey": "modern_pmr2_room_dining_summer",
+      "label": "家庭餐室・夏",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dining_summer.png",
+      "room": "dining",
+      "season": "summer",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          13,
+          170,
+          51
+        ],
+        [
+          69,
+          5,
+          87,
+          60
+        ],
+        [
+          171,
+          5,
+          190,
+          60
+        ],
+        [
+          206,
+          48,
+          235,
+          98
+        ]
+      ],
+      "sourceSha256": "74af8a3b2cc7da88ae511200a23f4eda78e2b0c461ba635be19adffc38f807d3",
+      "sha256": "d2149b9b0d7a4cf9936ebb450383867474efa5f3857cfe33641a0ab48413f819"
+    },
+    {
+      "key": "modern_long_l05_room_dining_autumn",
+      "planKey": "modern_pmr2_room_dining_autumn",
+      "label": "家庭餐室・秋",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dining_autumn.png",
+      "room": "dining",
+      "season": "autumn",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          13,
+          170,
+          51
+        ],
+        [
+          69,
+          5,
+          87,
+          60
+        ],
+        [
+          171,
+          5,
+          190,
+          60
+        ],
+        [
+          206,
+          48,
+          235,
+          98
+        ]
+      ],
+      "sourceSha256": "a650aff72f5ec4a28ddc8fb477b9e58fefd1409419e5d7c3d961a44d8b8b8c83",
+      "sha256": "80bb3300c1bfe7244e18f3ad1335fcef6a79a23327c3f329f02f0ec5b6a82a91"
+    },
+    {
+      "key": "modern_long_l05_room_dining_winter",
+      "planKey": "modern_pmr2_room_dining_winter",
+      "label": "家庭餐室・冬",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dining_winter.png",
+      "room": "dining",
+      "season": "winter",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          13,
+          170,
+          51
+        ],
+        [
+          69,
+          5,
+          87,
+          60
+        ],
+        [
+          171,
+          5,
+          190,
+          60
+        ],
+        [
+          206,
+          48,
+          235,
+          98
+        ]
+      ],
+      "sourceSha256": "9778ae85a898a567a174c8ba0df2828de009ae055bad5f4b085534ff7e91c3e8",
+      "sha256": "e0b4aa056c12647d10eaa57d365fe46e93f34a1f7be4be0031696694f35ffde6"
+    },
+    {
+      "key": "modern_long_l05_room_entry_spring",
+      "planKey": "modern_pmr2_room_entry_spring",
+      "label": "玄關收納間・春",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_entry_spring.png",
+      "room": "entry",
+      "season": "spring",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          12,
+          155,
+          52
+        ],
+        [
+          68,
+          1,
+          86,
+          36
+        ],
+        [
+          82,
+          36,
+          86,
+          57
+        ],
+        [
+          156,
+          1,
+          175,
+          59
+        ],
+        [
+          215,
+          54,
+          237,
+          104
+        ]
+      ],
+      "sourceSha256": "676182c2ec23f3aa4ddca649e950009895947b1d269f964d465b4e9ef343f685",
+      "sha256": "77c43b032814b14f87cab1394fad150ea1c98acddd8fa7fef90ed68ec81d0274"
+    },
+    {
+      "key": "modern_long_l05_room_entry_summer",
+      "planKey": "modern_pmr2_room_entry_summer",
+      "label": "玄關收納間・夏",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_entry_summer.png",
+      "room": "entry",
+      "season": "summer",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          12,
+          155,
+          52
+        ],
+        [
+          68,
+          1,
+          86,
+          36
+        ],
+        [
+          82,
+          36,
+          86,
+          57
+        ],
+        [
+          156,
+          1,
+          175,
+          59
+        ],
+        [
+          215,
+          54,
+          237,
+          104
+        ]
+      ],
+      "sourceSha256": "2e64c2c40e78111a6ea2275ce987686f6ff02650e0115d5991885e72b6135833",
+      "sha256": "c3827228fcecf67e24f2728c42cfddb6c0cfe45b848d07f585076b26b36b930f"
+    },
+    {
+      "key": "modern_long_l05_room_entry_autumn",
+      "planKey": "modern_pmr2_room_entry_autumn",
+      "label": "玄關收納間・秋",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_entry_autumn.png",
+      "room": "entry",
+      "season": "autumn",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          12,
+          155,
+          52
+        ],
+        [
+          68,
+          1,
+          86,
+          36
+        ],
+        [
+          82,
+          36,
+          86,
+          57
+        ],
+        [
+          156,
+          1,
+          175,
+          59
+        ],
+        [
+          215,
+          54,
+          237,
+          104
+        ]
+      ],
+      "sourceSha256": "938119b2562d9c4427244dfd5a671e2b9da4e6257311e1f88403f2347a9537b4",
+      "sha256": "363ffc2c15d283c36bf8284e61304ed11c00ed0cb3ddc91b438147eb0a1304d2"
+    },
+    {
+      "key": "modern_long_l05_room_entry_winter",
+      "planKey": "modern_pmr2_room_entry_winter",
+      "label": "玄關收納間・冬",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_entry_winter.png",
+      "room": "entry",
+      "season": "winter",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          12,
+          155,
+          52
+        ],
+        [
+          68,
+          1,
+          86,
+          36
+        ],
+        [
+          82,
+          36,
+          86,
+          57
+        ],
+        [
+          156,
+          1,
+          175,
+          59
+        ],
+        [
+          215,
+          54,
+          237,
+          104
+        ]
+      ],
+      "sourceSha256": "b1a3536ec92b41184d80adbf591ff63b43facb18c5e6181e606356cc2282e730",
+      "sha256": "6df135bd0825efd740ad1c8d6219535cd3caac2c85499320bd649f87c977fba1"
+    },
+    {
+      "key": "modern_long_l05_room_laundry_spring",
+      "planKey": "modern_pmr2_room_laundry_spring",
+      "label": "洗衣整理間・春",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_laundry_spring.png",
+      "room": "laundry",
+      "season": "spring",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          14,
+          152,
+          54
+        ],
+        [
+          71,
+          7,
+          85,
+          55
+        ],
+        [
+          80,
+          55,
+          85,
+          62
+        ],
+        [
+          155,
+          7,
+          170,
+          62
+        ],
+        [
+          205,
+          59,
+          234,
+          106
+        ]
+      ],
+      "sourceSha256": "6c7ee72011460bd864f46df1122986ae5c6ff5b1b3f4af2e776dffc3bdcaea1f",
+      "sha256": "fa840318d604f5204e46abf314aa3eb9ab29ea752bcab06b8cc56969caea77df"
+    },
+    {
+      "key": "modern_long_l05_room_laundry_summer",
+      "planKey": "modern_pmr2_room_laundry_summer",
+      "label": "洗衣整理間・夏",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_laundry_summer.png",
+      "room": "laundry",
+      "season": "summer",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          14,
+          152,
+          54
+        ],
+        [
+          71,
+          7,
+          85,
+          55
+        ],
+        [
+          80,
+          55,
+          85,
+          62
+        ],
+        [
+          155,
+          7,
+          170,
+          62
+        ],
+        [
+          205,
+          59,
+          234,
+          106
+        ]
+      ],
+      "sourceSha256": "04b7eb8e33497662cb2de44f998a31ae1d972a0aa91c006ad9e17b1c0c3e89a9",
+      "sha256": "46d41f0e9087549c46460291ff8f43717ffd3783af7ae86a3e42a4424ca03c91"
+    },
+    {
+      "key": "modern_long_l05_room_laundry_autumn",
+      "planKey": "modern_pmr2_room_laundry_autumn",
+      "label": "洗衣整理間・秋",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_laundry_autumn.png",
+      "room": "laundry",
+      "season": "autumn",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          14,
+          152,
+          54
+        ],
+        [
+          71,
+          7,
+          85,
+          55
+        ],
+        [
+          80,
+          55,
+          85,
+          62
+        ],
+        [
+          155,
+          7,
+          170,
+          62
+        ],
+        [
+          205,
+          59,
+          234,
+          106
+        ]
+      ],
+      "sourceSha256": "60d5c66a95bc65889b830395d9734c065c311582a19e812b35a6eb6465d5ded2",
+      "sha256": "9c52928b358a13ae6812d863d44fa082c0ac85397c68a9fe4a9e97d07654e4ab"
+    },
+    {
+      "key": "modern_long_l05_room_laundry_winter",
+      "planKey": "modern_pmr2_room_laundry_winter",
+      "label": "洗衣整理間・冬",
+      "world": "modern",
+      "batch": "PM-M108",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_laundry_winter.png",
+      "room": "laundry",
+      "season": "winter",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 18,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          88,
+          14,
+          152,
+          54
+        ],
+        [
+          71,
+          7,
+          85,
+          55
+        ],
+        [
+          80,
+          55,
+          85,
+          62
+        ],
+        [
+          155,
+          7,
+          170,
+          62
+        ],
+        [
+          205,
+          59,
+          234,
+          106
+        ]
+      ],
+      "sourceSha256": "76da90a5bdee55dcedac7862f751f7cd3fe107043b54ff57ffcd0d5e1622a5ce",
+      "sha256": "71f65998b28b542067753b354769069f5be641a8656fb72e0eafafa4958a7301"
+    },
+    {
+      "key": "modern_long_l05_room_dressing_spring",
+      "planKey": "modern_pmr2_room_dressing_spring",
+      "label": "盥洗更衣間・春",
+      "world": "modern",
+      "batch": "PM-M109",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dressing_spring.png",
+      "room": "dressing",
+      "season": "spring",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          81,
+          16,
+          143,
+          57
+        ],
+        [
+          64,
+          8,
+          79,
+          67
+        ],
+        [
+          145,
+          8,
+          158,
+          67
+        ],
+        [
+          218,
+          58,
+          239,
+          105
+        ]
+      ],
+      "sourceSha256": "5cc11bf3b0ddf4e3b8214b8758d4fb9f89a0c56e30bf28b7c6c0b2a064ca32be",
+      "sha256": "a88bd3185c8d1786c4fdb84dd291c365ebf73eb55416207c39175c8fbf916fbb"
+    },
+    {
+      "key": "modern_long_l05_room_dressing_summer",
+      "planKey": "modern_pmr2_room_dressing_summer",
+      "label": "盥洗更衣間・夏",
+      "world": "modern",
+      "batch": "PM-M109",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dressing_summer.png",
+      "room": "dressing",
+      "season": "summer",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          81,
+          16,
+          143,
+          57
+        ],
+        [
+          64,
+          8,
+          79,
+          67
+        ],
+        [
+          145,
+          8,
+          158,
+          67
+        ],
+        [
+          218,
+          58,
+          239,
+          105
+        ]
+      ],
+      "sourceSha256": "badde0d80a4f0c8407300572f276ee6c22cfdb03818bcac69e9ced209707d310",
+      "sha256": "a35b1f00caa241761d58bd1063f5e7e60ef976d74e4261f888ec2f874eb2123c"
+    },
+    {
+      "key": "modern_long_l05_room_dressing_autumn",
+      "planKey": "modern_pmr2_room_dressing_autumn",
+      "label": "盥洗更衣間・秋",
+      "world": "modern",
+      "batch": "PM-M109",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dressing_autumn.png",
+      "room": "dressing",
+      "season": "autumn",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          81,
+          16,
+          143,
+          57
+        ],
+        [
+          64,
+          8,
+          79,
+          67
+        ],
+        [
+          145,
+          8,
+          158,
+          67
+        ],
+        [
+          218,
+          58,
+          239,
+          105
+        ]
+      ],
+      "sourceSha256": "f495885b9727b200339c09bfb02172b86a9da2a06c4011d10762c9345060befb",
+      "sha256": "7f451006d23c2b46ee278c2c0d9405a0dbd25cad0fc8f4b3095accfda1366782"
+    },
+    {
+      "key": "modern_long_l05_room_dressing_winter",
+      "planKey": "modern_pmr2_room_dressing_winter",
+      "label": "盥洗更衣間・冬",
+      "world": "modern",
+      "batch": "PM-M109",
+      "priority": "P1",
+      "file": "modern-long-L05/modern_long_l05_room_dressing_winter.png",
+      "room": "dressing",
+      "season": "winter",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "minAge": 3,
+      "backgroundOnly": true,
+      "autoSelect": false,
+      "babyRequiresPairedCaregiver": true,
+      "standBand": {
+        "x0": 28,
+        "x1": 202,
+        "y": 124
+      },
+      "occlusion": {
+        "mode": "background-only",
+        "foregroundLayer": null,
+        "actorFeetY": 124,
+        "note": "角色僅放在前方淨空走道；家具互動與遮擋需另製前景遮罩，不可直接走到家具後。"
+      },
+      "seasonalRegions": [
+        [
+          81,
+          16,
+          143,
+          57
+        ],
+        [
+          64,
+          8,
+          79,
+          67
+        ],
+        [
+          145,
+          8,
+          158,
+          67
+        ],
+        [
+          218,
+          58,
+          239,
+          105
+        ]
+      ],
+      "sourceSha256": "12faa00af803f90e7f03514d6e8e336df383a96131942d0bf42f9d0e95ce1f59",
+      "sha256": "dd72c0e7300bf8e64d169612574aa8b002869227ed0073897600ab24abf5413b"
+    }
+  ]
+}

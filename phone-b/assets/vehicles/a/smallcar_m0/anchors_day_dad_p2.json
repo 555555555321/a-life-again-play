@@ -1,0 +1,88 @@
+{
+  "note": "駕駛與乘客已用全家色盤；媽媽只用 A_r4_12 的 12 色。車身可用 3349 色盤的其他色，外框同色相、左上光、每材質 3 階。座標相對每格左上角。y 往下為正。",
+  "vehicle": "smallcar",
+  "model": 0,
+  "model_desc": "rounded",
+  "variant": "day_dad_p2",
+  "scale_from_240": 2,
+  "scale_reason": "場景由 240×135 改 480×270（game.js W,H），剛好 2 倍；舊車是依 240 場景畫的，所以長寬同乘 2，才能跟 480 街景、以及規格表裡爸爸 96 px／媽媽 89 px 的身高比例一致。小型車車室另外加高 3 px，是因為大人頭高實測 15 px，舊窗乘 2 只有 14 px。",
+  "frames": 8,
+  "fps": 8,
+  "loop": true,
+  "facing": "right",
+  "canvas": [
+    98,
+    45
+  ],
+  "ground_row": 44,
+  "bottom_y_on_480_street": 204,
+  "bottom_y_source": "anchors.csv road_bottom_y=102 on 240, times 2",
+  "head_bob_axis": "y_down",
+  "body_bob_seq": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "head_bob_seq": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1
+  ],
+  "passenger_bob_seq": [
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+  ],
+  "seat_xy": null,
+  "hand_xy": null,
+  "move": "水平移動交給引擎。一圈動畫＝輪子轉一圈，建議位移＝circumference/8 像素每格。",
+  "wheels": [
+    {
+      "index": 0,
+      "hub_xy": [
+        21,
+        37
+      ],
+      "r_draw_px": 8,
+      "r_roll_px": 7,
+      "circumference_px": 43.982297150257104,
+      "revolutions_per_loop": 1,
+      "px_per_frame": 5.497787143782138
+    },
+    {
+      "index": 1,
+      "hub_xy": [
+        77,
+        37
+      ],
+      "r_draw_px": 8,
+      "r_roll_px": 7,
+      "circumference_px": 43.982297150257104,
+      "revolutions_per_loop": 1,
+      "px_per_frame": 5.497787143782138
+    }
+  ],
+  "car_roof_raise_px": 3,
+  "palette": "/workspace/ala/codex_r3/anim-r1/assets/pixel/variety/palette.txt",
+  "evening_mul": [
+    142,
+    115,
+    83
+  ],
+  "tools": "Python3 + Pillow + NumPy；縮放只Nearest Neighbour；沒有用影像生成或 3D。"
+}

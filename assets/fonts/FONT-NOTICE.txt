@@ -1,0 +1,39 @@
+Noto font distribution notice — A Life Again
+
+Noto Sans TC: 216 WOFF2 files, normal weights 400 and 700.
+Noto Serif TC: 108 WOFF2 files, normal weight 600.
+Copyright holder as stated in the accompanying licenses: Google Inc.
+License: SIL Open Font License 1.1 (26 February 2007).
+
+The existing WOFF2 bytes are unchanged. Every listed file matches the
+corresponding files/ member of the following pinned upstream package:
+  @fontsource/noto-sans-tc 5.3.1
+  https://registry.npmjs.org/@fontsource/noto-sans-tc/-/noto-sans-tc-5.3.1.tgz
+  @fontsource/noto-serif-tc 5.3.1
+  https://registry.npmjs.org/@fontsource/noto-serif-tc/-/noto-serif-tc-5.3.1.tgz
+
+FONT-SOURCES.json records per-file SHA-256, package member, package integrity
+and license SHA-256. This establishes byte identity with those releases;
+it does not establish which version was historically downloaded.
+
+Full license texts and notices must accompany this font distribution:
+  OFL-noto-sans-tc.txt
+  OFL-noto-serif-tc.txt
+Their text matches each upstream package LICENSE; original local CRLF
+line endings are retained. Both licenses include the Google Inc. notice.
+
+OFL conditions include: do not sell font components by themselves; include
+the copyright notice and OFL when distributing fonts with software; respect
+Reserved Font Names for modified versions; do not use author/holder names
+to endorse modifications without permission; distribute fonts under OFL.
+The full texts govern. This summary does not replace or modify them.
+
+Only the listed Noto font files are covered here. No rights clearance or
+new license is asserted for game images, music, sound effects, code, or
+other assets. Device-provided fallback fonts are not redistributed here.
+
+Public package paths:
+  /assets/fonts/FONT-NOTICE.txt
+  /assets/fonts/FONT-SOURCES.json
+  /assets/fonts/OFL-noto-sans-tc.txt
+  /assets/fonts/OFL-noto-serif-tc.txt

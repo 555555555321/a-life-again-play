@@ -1,0 +1,85 @@
+{
+  "batch": "modern-m10",
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "baseCommit": "c1e792be12dd03f506d4d16647950140af9fdcc1",
+  "finalPngCount": 4,
+  "deliveryLimit": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "nearest resize 240x135; 16 RGB levels (step 17) with 4x4 Bayer ordered dithering; nearest official squared RGB distance; alpha threshold 128",
+  "assets": [
+    {
+      "key": "modern_m10_spring_reunion",
+      "label": "春節・圍桌團圓",
+      "world": "modern",
+      "festival": "spring_festival",
+      "file": "modern-m10/modern_m10_spring_reunion.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "complete-scene",
+      "minAge": 6,
+      "infantPresent": false,
+      "caregiverPresent": true,
+      "sha256": "3089d663b4d46b4a0e607a5e2a0c9fceb2026b0aa2d3f397c868360e2dcb79a2",
+      "sourceSha256": "ab4a7a1cc6dff91db9f1477c3299b59365d7e5a1baea7ee9e0b3195943a50bbf"
+    },
+    {
+      "key": "modern_m10_midautumn_rooftop",
+      "label": "中秋・露臺賞月",
+      "world": "modern",
+      "festival": "mid_autumn",
+      "file": "modern-m10/modern_m10_midautumn_rooftop.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "complete-scene",
+      "minAge": 6,
+      "infantPresent": false,
+      "caregiverPresent": true,
+      "sha256": "c5fb7c1f299ea3a2c268e3247b8839b000893236083c37392844c30e60168369",
+      "sourceSha256": "e26e3736eb63cbbfa2a9bf9b2465587d2fbfd9802e3ac906e1cee2873658c31c"
+    },
+    {
+      "key": "modern_m10_dragonboat_wrapping",
+      "label": "端午・一起包粽",
+      "world": "modern",
+      "festival": "dragon_boat",
+      "file": "modern-m10/modern_m10_dragonboat_wrapping.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "complete-scene",
+      "minAge": 6,
+      "infantPresent": false,
+      "caregiverPresent": true,
+      "sha256": "6f9953d511ce1651b1e91547d9341c6b4d5695c83db990137141ee1022a53ecf",
+      "sourceSha256": "8fcdfb0742019c59d1c106708c128c61a07b3603a77de017c90e9ef34c2e63e4"
+    },
+    {
+      "key": "modern_m10_birthday_wish",
+      "label": "生日・家人祝福",
+      "world": "modern",
+      "festival": "birthday",
+      "file": "modern-m10/modern_m10_birthday_wish.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "complete-scene",
+      "minAge": 6,
+      "infantPresent": false,
+      "caregiverPresent": true,
+      "sha256": "da5291ad09ae8593722772046cf035b05f43d17198350a2cf6c4f68be7f5ddba",
+      "sourceSha256": "59ac3df15599b5022cd21ee9d7c4b6342e1681a425fcdc395a83638a050966c5"
+    }
+  ]
+}

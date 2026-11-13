@@ -1,0 +1,11 @@
+{
+  "name": "A Life Again full play",
+  "commit": "484aa15c66f054b1db26b72f6cd5815db8122b4a",
+  "phoneB": {
+    "path": "phone-b/",
+    "commit": "48d5c65286a9306f966e6e71c32f9e5e9e837532"
+  },
+  "minified": true,
+  "sourceMaps": false,
+  "builtAt": "2026-11-13T08:45:56.339Z"
+}

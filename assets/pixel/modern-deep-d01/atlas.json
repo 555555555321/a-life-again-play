@@ -1,0 +1,1387 @@
+{
+  "world": "modern",
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "method": "imagegen / equal 2x2 cells / shared-scale nearest resize / 4x4 stepped ordered dither / nearest squared RGB / binary alpha at 128",
+  "sprites": {
+    "modern_d01_idle_b0_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b0_pause.png",
+      "label": "成年短髮照顧者抱著0歲嬰兒，安坐等回應",
+      "planKey": "pmr1_idle_modern_b0_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b0",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          61,
+          33
+        ],
+        [
+          61,
+          32
+        ],
+        [
+          61,
+          32
+        ],
+        [
+          61,
+          33
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "7b48d7b7cda1e9eace87793e066ef290ec8914dadb93d09042b73d61c223b0e0",
+      "sha256": "085d26fec0c84e26ea9268a43e4bb25c8ae24d81aaf3664642a27a576143ae6d",
+      "transforms": [
+        {
+          "sourceCrop": [
+            221,
+            9,
+            508,
+            502
+          ],
+          "outputOffset": [
+            31,
+            4
+          ],
+          "outputSize": [
+            34,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            221,
+            19,
+            508,
+            502
+          ],
+          "outputOffset": [
+            31,
+            5
+          ],
+          "outputSize": [
+            34,
+            57
+          ]
+        },
+        {
+          "sourceCrop": [
+            221,
+            19,
+            508,
+            502
+          ],
+          "outputOffset": [
+            31,
+            5
+          ],
+          "outputSize": [
+            34,
+            57
+          ]
+        },
+        {
+          "sourceCrop": [
+            221,
+            9,
+            508,
+            502
+          ],
+          "outputOffset": [
+            31,
+            4
+          ],
+          "outputSize": [
+            34,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_b0_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b0_tidy.png",
+      "label": "成年照顧者抱穩0歲嬰兒一起看窗光",
+      "planKey": "pmr1_idle_modern_b0_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b0",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          52,
+          34
+        ],
+        [
+          52,
+          34
+        ],
+        [
+          52,
+          34
+        ],
+        [
+          52,
+          33
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "68916a00039637da0c991d1428b6208b01763b3bbb9fe6cb312e62ceaf274780",
+      "sha256": "caf375f31fe0bea9926c8e38e06eb84cebbaa5f13dba8a92c7030e618db2bc02",
+      "transforms": [
+        {
+          "sourceCrop": [
+            167,
+            32,
+            575,
+            495
+          ],
+          "outputOffset": [
+            23,
+            4
+          ],
+          "outputSize": [
+            51,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            168,
+            32,
+            576,
+            495
+          ],
+          "outputOffset": [
+            23,
+            4
+          ],
+          "outputSize": [
+            51,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            167,
+            31,
+            575,
+            496
+          ],
+          "outputOffset": [
+            23,
+            4
+          ],
+          "outputSize": [
+            51,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            168,
+            35,
+            576,
+            496
+          ],
+          "outputOffset": [
+            23,
+            4
+          ],
+          "outputSize": [
+            51,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_b1_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b1_pause.png",
+      "label": "照顧者扶著1歲幼兒坐在地墊等候",
+      "planKey": "pmr1_idle_modern_b1_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b1",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          66,
+          44
+        ],
+        [
+          66,
+          44
+        ],
+        [
+          66,
+          44
+        ],
+        [
+          66,
+          44
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "4bc81ddbdc868bdf8b7b43f9264a9f2d55378075615ae166d0c7446c99a20abc",
+      "sha256": "40e57a4789fcb2d188aa803b9c76c75e82804ed837be45f22201d584bdfae915",
+      "transforms": [
+        {
+          "sourceCrop": [
+            144,
+            8,
+            624,
+            487
+          ],
+          "outputOffset": [
+            19,
+            4
+          ],
+          "outputSize": [
+            58,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            144,
+            8,
+            624,
+            487
+          ],
+          "outputOffset": [
+            19,
+            4
+          ],
+          "outputSize": [
+            58,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            144,
+            11,
+            624,
+            487
+          ],
+          "outputOffset": [
+            19,
+            4
+          ],
+          "outputSize": [
+            58,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            144,
+            11,
+            624,
+            487
+          ],
+          "outputOffset": [
+            19,
+            4
+          ],
+          "outputSize": [
+            58,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_b1_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b1_tidy.png",
+      "label": "1歲幼兒將積木放回照顧者掌心",
+      "planKey": "pmr1_idle_modern_b1_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b1",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          50,
+          48
+        ],
+        [
+          50,
+          48
+        ],
+        [
+          47,
+          48
+        ],
+        [
+          55,
+          48
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "9a3481218f399808cfba917e1d7cb96c67b073ba54fef2d7e3ee9fb234b67f19",
+      "sha256": "2bf8dd2629655161f14aa78edc41e1688d8b7f9c917a0570dfb73ef10040695a",
+      "transforms": [
+        {
+          "sourceCrop": [
+            44,
+            12,
+            731,
+            491
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            83,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            44,
+            12,
+            732,
+            491
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            83,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            44,
+            12,
+            732,
+            492
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            83,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            44,
+            12,
+            732,
+            492
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            83,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_b2_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b2_pause.png",
+      "label": "照顧者扶穩小椅，2歲幼兒整理衣角",
+      "planKey": "pmr1_idle_modern_b2_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b2",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          44,
+          28
+        ],
+        [
+          46,
+          28
+        ],
+        [
+          44,
+          28
+        ],
+        [
+          46,
+          28
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "41842ce75bbb7692b30a89b63d4455ca73a8160893a660bd246aaf4d43ad1b29",
+      "sha256": "1ec7991b72e1e74280936b0ee0ed03cf96da0ed36f5fbc7b9b076f6d03f45389",
+      "transforms": [
+        {
+          "sourceCrop": [
+            143,
+            16,
+            666,
+            495
+          ],
+          "outputOffset": [
+            17,
+            4
+          ],
+          "outputSize": [
+            63,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            125,
+            16,
+            647,
+            495
+          ],
+          "outputOffset": [
+            17,
+            4
+          ],
+          "outputSize": [
+            63,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            143,
+            17,
+            666,
+            495
+          ],
+          "outputOffset": [
+            17,
+            4
+          ],
+          "outputSize": [
+            63,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            125,
+            17,
+            647,
+            495
+          ],
+          "outputOffset": [
+            17,
+            4
+          ],
+          "outputSize": [
+            63,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_b2_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_b2_tidy.png",
+      "label": "2歲幼兒與照顧者把布偶放回低架",
+      "planKey": "pmr1_idle_modern_b2_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "paired-action",
+      "stage": "b2",
+      "w": 96,
+      "h": 64,
+      "n": 4,
+      "frames": 4,
+      "ax": 48,
+      "ay": 61,
+      "foot": 61,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": true,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          38,
+          44
+        ],
+        [
+          38,
+          44
+        ],
+        [
+          38,
+          44
+        ],
+        [
+          38,
+          44
+        ]
+      ],
+      "handPointsDescription": "照顧者主要承托／陪伴手的人工標註中心",
+      "sourceSha256": "9f6d431f60d750357feae7d6647e721ac876e1142aeb33404586f4ba22039696",
+      "sha256": "d7735994d374ce30f06a0435d9dc76d318a0897680e957558fb5adbd6e055e1e",
+      "transforms": [
+        {
+          "sourceCrop": [
+            46,
+            22,
+            718,
+            480
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            85,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            46,
+            22,
+            718,
+            480
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            85,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            46,
+            22,
+            718,
+            480
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            85,
+            58
+          ]
+        },
+        {
+          "sourceCrop": [
+            46,
+            22,
+            719,
+            480
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            85,
+            58
+          ]
+        }
+      ],
+      "opaqueBottom": 61
+    },
+    "modern_d01_idle_p3_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_p3_pause.png",
+      "label": "幼年孩子在低桌邊收好蠟筆",
+      "planKey": "pmr1_idle_modern_p3_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "p3",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          30,
+          26
+        ],
+        [
+          29,
+          23
+        ],
+        [
+          31,
+          28
+        ],
+        [
+          30,
+          27
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "54fe823aab99fa50105493d33c3d7b85c66e48aca5289ccf0c2904caa1b10d11",
+      "sha256": "f6a6d661ea2d63ec68b4ce3294fcc7808e6d6071b52829caf00b1cc779eb0e52",
+      "transforms": [
+        {
+          "sourceCrop": [
+            171,
+            34,
+            628,
+            483
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            43,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            141,
+            33,
+            603,
+            483
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            43,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            175,
+            33,
+            628,
+            483
+          ],
+          "outputOffset": [
+            7,
+            4
+          ],
+          "outputSize": [
+            42,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            123,
+            33,
+            603,
+            483
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            45,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    },
+    "modern_d01_idle_p3_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_p3_tidy.png",
+      "label": "幼年孩子坐在地墊攤開圖畫",
+      "planKey": "pmr1_idle_modern_p3_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "p3",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          22,
+          35
+        ],
+        [
+          17,
+          29
+        ],
+        [
+          21,
+          37
+        ],
+        [
+          18,
+          33
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "8bd86ed9945f1a474e11d6021f1ff71c6fd295dc9f85566c80a5cdd1dc88d6c4",
+      "sha256": "589bdd640dcc64a3f3ff8c51a2af41c8a6fddef1e0896ee00340f5e9bedb7fa3",
+      "transforms": [
+        {
+          "sourceCrop": [
+            131,
+            10,
+            636,
+            491
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            44,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            131,
+            10,
+            636,
+            491
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            44,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            131,
+            10,
+            637,
+            495
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            44,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            131,
+            10,
+            637,
+            495
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            44,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    },
+    "modern_d01_idle_c6_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_c6_pause.png",
+      "label": "童年孩子依序將書籤放回盒子",
+      "planKey": "pmr1_idle_modern_c6_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "c6",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          27,
+          28
+        ],
+        [
+          32,
+          22
+        ],
+        [
+          28,
+          25
+        ],
+        [
+          16,
+          32
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "2c62f78124aaf2cc68a22621a9572768d2cdb0c4a4bb086f33e359970a34739a",
+      "sha256": "cedf7ab856c38852cca4563ef7132eeffdd24fe5a55e62985c0362239880ca30",
+      "transforms": [
+        {
+          "sourceCrop": [
+            220,
+            18,
+            578,
+            483
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            224,
+            13,
+            578,
+            483
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            238,
+            17,
+            578,
+            483
+          ],
+          "outputOffset": [
+            13,
+            4
+          ],
+          "outputSize": [
+            30,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            186,
+            17,
+            578,
+            484
+          ],
+          "outputOffset": [
+            11,
+            4
+          ],
+          "outputSize": [
+            35,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    },
+    "modern_d01_idle_c6_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_c6_tidy.png",
+      "label": "童年孩子沿桌邊對齊紙張",
+      "planKey": "pmr1_idle_modern_c6_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "c6",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          24,
+          29
+        ],
+        [
+          24,
+          29
+        ],
+        [
+          24,
+          29
+        ],
+        [
+          19,
+          25
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "2bc5fda573c8980811214fc65e0adf91d0e3bd82c3ba80c5caad49ca68d25d95",
+      "sha256": "ca5a682cacf61ad538dcd5c46a8c6c82fc91d56e4a7e079fc4eaa2ce7030dc8c",
+      "transforms": [
+        {
+          "sourceCrop": [
+            220,
+            21,
+            573,
+            491
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            220,
+            21,
+            574,
+            491
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            220,
+            23,
+            573,
+            492
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            219,
+            22,
+            574,
+            492
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            32,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    },
+    "modern_d01_idle_c9_pause": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_c9_pause.png",
+      "label": "童年孩子查看模型接點後收手",
+      "planKey": "pmr1_idle_modern_c9_pause",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "c9",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          10,
+          32
+        ],
+        [
+          24,
+          25
+        ],
+        [
+          21,
+          26
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "6f3efa1a4a6c70402f4fbc8f0007a1ffeaa990765afbc1d21a6a6a157b96678c",
+      "sha256": "4a8564c190e9aa1b507db83cfa250ecb63d95767b8a558b9293441ebe7ff704e",
+      "transforms": [
+        {
+          "sourceCrop": [
+            163,
+            42,
+            646,
+            479
+          ],
+          "outputOffset": [
+            6,
+            5
+          ],
+          "outputSize": [
+            45,
+            41
+          ]
+        },
+        {
+          "sourceCrop": [
+            163,
+            41,
+            647,
+            479
+          ],
+          "outputOffset": [
+            6,
+            5
+          ],
+          "outputSize": [
+            45,
+            41
+          ]
+        },
+        {
+          "sourceCrop": [
+            163,
+            34,
+            646,
+            479
+          ],
+          "outputOffset": [
+            6,
+            5
+          ],
+          "outputSize": [
+            45,
+            41
+          ]
+        },
+        {
+          "sourceCrop": [
+            164,
+            28,
+            646,
+            479
+          ],
+          "outputOffset": [
+            6,
+            4
+          ],
+          "outputSize": [
+            45,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    },
+    "modern_d01_idle_c9_tidy": {
+      "world": "modern",
+      "file": "modern-deep-d01/modern_d01_idle_c9_tidy.png",
+      "label": "童年孩子把草稿翻回夾頁",
+      "planKey": "pmr1_idle_modern_c9_tidy",
+      "batch": "PM-M004",
+      "priority": "P0",
+      "kind": "action",
+      "stage": "c9",
+      "w": 56,
+      "h": 48,
+      "n": 4,
+      "frames": 4,
+      "ax": 28,
+      "ay": 46,
+      "foot": 46,
+      "durs": [
+        1000,
+        500,
+        650,
+        1300
+      ],
+      "playback": "once-then-hold",
+      "caregiverIncluded": false,
+      "requiresSnapshotProps": true,
+      "annual": false,
+      "handPoints": [
+        [
+          31,
+          20
+        ],
+        [
+          31,
+          18
+        ],
+        [
+          31,
+          24
+        ],
+        [
+          30,
+          24
+        ]
+      ],
+      "handPointsDescription": "主要互動手的人工標註中心",
+      "sourceSha256": "550548d07de3e6781b2c0c864e2b239aa8a063a391857ff9346ca21cbebf3bb3",
+      "sha256": "ed8902f45b2c8f7d6b07c667b7f9eaa7edd766dbfb5b87ddc7a80b6449666387",
+      "transforms": [
+        {
+          "sourceCrop": [
+            212,
+            25,
+            581,
+            489
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            33,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            212,
+            25,
+            581,
+            489
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            33,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            212,
+            25,
+            581,
+            488
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            33,
+            42
+          ]
+        },
+        {
+          "sourceCrop": [
+            212,
+            25,
+            581,
+            488
+          ],
+          "outputOffset": [
+            12,
+            4
+          ],
+          "outputSize": [
+            33,
+            42
+          ]
+        }
+      ],
+      "opaqueBottom": 45
+    }
+  }
+}

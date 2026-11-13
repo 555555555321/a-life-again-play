@@ -1,0 +1,1817 @@
+{
+  "batch": "PV2-B007",
+  "generator": "內建 image_gen",
+  "deliveredPngCount": 20,
+  "pngLimit": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "assets": {
+    "pa2_actor_modern_b0_front": {
+      "key": "pa2_actor_modern_b0_front",
+      "label": "嬰兒0歲正面外觀",
+      "world": "modern",
+      "age": 0,
+      "pose": "front",
+      "file": "pv2-b007/pa2_actor_modern_b0_front.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "aaffd9c832d6fd27d6b348ff559bce291e3558cd35b022e9a9bb427abdc7c7d9",
+      "sha256": "e73ffda19a9414fae2b023fe20d45f646ed71d77151328becf50eb3da904db4f",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            225,
+            34,
+            493,
+            606
+          ],
+          "offset": [
+            35,
+            4
+          ],
+          "size": [
+            27,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            186,
+            41,
+            452,
+            606
+          ],
+          "offset": [
+            35,
+            5
+          ],
+          "size": [
+            27,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            225,
+            23,
+            493,
+            594
+          ],
+          "offset": [
+            35,
+            4
+          ],
+          "size": [
+            27,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            186,
+            23,
+            452,
+            594
+          ],
+          "offset": [
+            35,
+            4
+          ],
+          "size": [
+            27,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b0_side": {
+      "key": "pa2_actor_modern_b0_side",
+      "label": "嬰兒0歲側面外觀",
+      "world": "modern",
+      "age": 0,
+      "pose": "side",
+      "file": "pv2-b007/pa2_actor_modern_b0_side.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "fcace9aa0aed5f2e40c2ac2f552c3f7672bafa3e017dcb91d086116cf51cc5c0",
+      "sha256": "39011c8597934a32e0f3a23491207424ba7c6362e4469a69ae13b9122b761e83",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            179,
+            63,
+            537,
+            594
+          ],
+          "offset": [
+            29,
+            4
+          ],
+          "size": [
+            39,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            117,
+            63,
+            472,
+            594
+          ],
+          "offset": [
+            29,
+            4
+          ],
+          "size": [
+            39,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            179,
+            41,
+            540,
+            571
+          ],
+          "offset": [
+            29,
+            4
+          ],
+          "size": [
+            39,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            117,
+            41,
+            475,
+            571
+          ],
+          "offset": [
+            29,
+            4
+          ],
+          "size": [
+            39,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b0_sit": {
+      "key": "pa2_actor_modern_b0_sit",
+      "label": "嬰兒0歲坐姿外觀",
+      "world": "modern",
+      "age": 0,
+      "pose": "sit",
+      "file": "pv2-b007/pa2_actor_modern_b0_sit.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "19cce39480a22fbe193138f3b6c5675f57c6a753b16e6c81d901a21238e8cc3b",
+      "sha256": "a515291729f7c2b851a2ce39c0c9f9c4a11d16ba038b6edea840feb79e6cad72",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            122,
+            33,
+            548,
+            577
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            113,
+            33,
+            541,
+            577
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            122,
+            14,
+            549,
+            560
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            113,
+            14,
+            541,
+            560
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b0_reach": {
+      "key": "pa2_actor_modern_b0_reach",
+      "label": "嬰兒0歲伸手外觀",
+      "world": "modern",
+      "age": 0,
+      "pose": "reach",
+      "file": "pv2-b007/pa2_actor_modern_b0_reach.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "98b55c2e0b3e4bc11fb0b78ae9ab4e113c4522119c1a6effcdb95e768002b01c",
+      "sha256": "b781209832d4c8774c4700caebb12bd6b7fc96692fe19ef59a95a926ec5db782",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            149,
+            42,
+            519,
+            550
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            135,
+            53,
+            506,
+            550
+          ],
+          "offset": [
+            27,
+            5
+          ],
+          "size": [
+            42,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            149,
+            60,
+            520,
+            566
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            136,
+            72,
+            507,
+            567
+          ],
+          "offset": [
+            27,
+            5
+          ],
+          "size": [
+            42,
+            57
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b1_front": {
+      "key": "pa2_actor_modern_b1_front",
+      "label": "嬰兒1歲正面外觀",
+      "world": "modern",
+      "age": 1,
+      "pose": "front",
+      "file": "pv2-b007/pa2_actor_modern_b1_front.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "a1a7aaa2ca93d38c44856eb2dac8ca75f119f80bf87c25a3a55c33a596b5a517",
+      "sha256": "d8c2391f0e01b4533958fccc21fca645353bdad9211c7515f2d908d1a5702e0d",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            172,
+            78,
+            533,
+            586
+          ],
+          "offset": [
+            28,
+            4
+          ],
+          "size": [
+            41,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            123,
+            78,
+            487,
+            586
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            172,
+            62,
+            534,
+            566
+          ],
+          "offset": [
+            28,
+            4
+          ],
+          "size": [
+            41,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            123,
+            62,
+            488,
+            567
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b1_side": {
+      "key": "pa2_actor_modern_b1_side",
+      "label": "嬰兒1歲側面外觀",
+      "world": "modern",
+      "age": 1,
+      "pose": "side",
+      "file": "pv2-b007/pa2_actor_modern_b1_side.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "6f46009cd899eef83c197fd5563afd24162206ce9ca8d9a89adc25883d1b5ac3",
+      "sha256": "d89685ec4ba282b3094722acef929fb0f94d1ca350a67a1f7d0adc8e6c89a5ab",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            145,
+            76,
+            588,
+            547
+          ],
+          "offset": [
+            21,
+            4
+          ],
+          "size": [
+            55,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            81,
+            83,
+            538,
+            548
+          ],
+          "offset": [
+            20,
+            5
+          ],
+          "size": [
+            56,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            139,
+            41,
+            578,
+            509
+          ],
+          "offset": [
+            21,
+            4
+          ],
+          "size": [
+            54,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            84,
+            46,
+            498,
+            512
+          ],
+          "offset": [
+            23,
+            5
+          ],
+          "size": [
+            51,
+            57
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b1_sit": {
+      "key": "pa2_actor_modern_b1_sit",
+      "label": "嬰兒1歲坐姿外觀",
+      "world": "modern",
+      "age": 1,
+      "pose": "sit",
+      "file": "pv2-b007/pa2_actor_modern_b1_sit.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "a0c381bdde324185c2717ab0db381e24989daffc78243b4fb4fbaf911dea729a",
+      "sha256": "f6621d59f6f1abeb23d4b0e57c0fa6286bbda659808eccc9cd01164c355d0a70",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            82,
+            30,
+            546,
+            591
+          ],
+          "offset": [
+            24,
+            4
+          ],
+          "size": [
+            48,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            81,
+            30,
+            546,
+            591
+          ],
+          "offset": [
+            24,
+            4
+          ],
+          "size": [
+            48,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            81,
+            30,
+            546,
+            591
+          ],
+          "offset": [
+            24,
+            4
+          ],
+          "size": [
+            48,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            81,
+            30,
+            546,
+            591
+          ],
+          "offset": [
+            24,
+            4
+          ],
+          "size": [
+            48,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b1_reach": {
+      "key": "pa2_actor_modern_b1_reach",
+      "label": "嬰兒1歲伸手外觀",
+      "world": "modern",
+      "age": 1,
+      "pose": "reach",
+      "file": "pv2-b007/pa2_actor_modern_b1_reach.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "0e1d7191df9b3bbc1917548a171294723067c6da40b276fc1ca2c90e39fa25d3",
+      "sha256": "52e0db117d5681edb470c31a016181def818e367be3f02446cf596cefb9c14d6",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            141,
+            55,
+            527,
+            587
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            137,
+            58,
+            526,
+            587
+          ],
+          "offset": [
+            27,
+            5
+          ],
+          "size": [
+            42,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            141,
+            52,
+            528,
+            587
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            141,
+            54,
+            528,
+            587
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b2_front": {
+      "key": "pa2_actor_modern_b2_front",
+      "label": "嬰兒2歲正面外觀",
+      "world": "modern",
+      "age": 2,
+      "pose": "front",
+      "file": "pv2-b007/pa2_actor_modern_b2_front.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "be84136f868038da8e4386946ff5eb91b9767eca520cbd0ae133acb67add1013",
+      "sha256": "5eb5c6700b7367eccc88c2ffc3f0f4ca2d88ad62fe82b00996edd4f4f7e1348c",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            151,
+            71,
+            558,
+            546
+          ],
+          "offset": [
+            23,
+            4
+          ],
+          "size": [
+            50,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            131,
+            75,
+            548,
+            546
+          ],
+          "offset": [
+            23,
+            4
+          ],
+          "size": [
+            51,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            151,
+            67,
+            578,
+            537
+          ],
+          "offset": [
+            22,
+            5
+          ],
+          "size": [
+            52,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            142,
+            68,
+            545,
+            537
+          ],
+          "offset": [
+            24,
+            5
+          ],
+          "size": [
+            49,
+            57
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b2_side": {
+      "key": "pa2_actor_modern_b2_side",
+      "label": "嬰兒2歲側面外觀",
+      "world": "modern",
+      "age": 2,
+      "pose": "side",
+      "file": "pv2-b007/pa2_actor_modern_b2_side.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "fc9479decfcb5df039107b47eb601562f54234f903287562670c657d18e707f2",
+      "sha256": "d304a0ec2e2d8a2a4dd1d31f97bc31f97c042160d78a9199a05a30e30b20fc93",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            73,
+            79,
+            567,
+            577
+          ],
+          "offset": [
+            20,
+            4
+          ],
+          "size": [
+            57,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            70,
+            89,
+            567,
+            577
+          ],
+          "offset": [
+            19,
+            5
+          ],
+          "size": [
+            58,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            76,
+            60,
+            564,
+            560
+          ],
+          "offset": [
+            20,
+            4
+          ],
+          "size": [
+            57,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            68,
+            61,
+            567,
+            561
+          ],
+          "offset": [
+            19,
+            4
+          ],
+          "size": [
+            58,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b2_sit": {
+      "key": "pa2_actor_modern_b2_sit",
+      "label": "嬰兒2歲坐姿外觀",
+      "world": "modern",
+      "age": 2,
+      "pose": "sit",
+      "file": "pv2-b007/pa2_actor_modern_b2_sit.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "926b6663a21cbeb66656c55d8c4ea4919d3800dae9ebb7ca9df1af30fe6986a5",
+      "sha256": "7b2fc07b3fcd606fc9ca2d6423f3ae08569c50f7daf00d65b83c2edd8e486ec8",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            125,
+            45,
+            567,
+            586
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            47,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            98,
+            46,
+            541,
+            587
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            47,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            125,
+            32,
+            568,
+            573
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            47,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            97,
+            37,
+            541,
+            575
+          ],
+          "offset": [
+            24,
+            4
+          ],
+          "size": [
+            48,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_modern_b2_reach": {
+      "key": "pa2_actor_modern_b2_reach",
+      "label": "嬰兒2歲伸手外觀",
+      "world": "modern",
+      "age": 2,
+      "pose": "reach",
+      "file": "pv2-b007/pa2_actor_modern_b2_reach.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "c1d24737a2c040b86f15cd6b2fdf90bf86ea9d4ae038c8ceaa1a826990698b05",
+      "sha256": "ec03f6548b7b9234afcfbb92c761a582fdeb7ed854222e06854d55a53307d036",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            143,
+            36,
+            495,
+            594
+          ],
+          "offset": [
+            30,
+            4
+          ],
+          "size": [
+            36,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            143,
+            43,
+            497,
+            594
+          ],
+          "offset": [
+            30,
+            5
+          ],
+          "size": [
+            37,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            143,
+            38,
+            496,
+            593
+          ],
+          "offset": [
+            30,
+            5
+          ],
+          "size": [
+            37,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            142,
+            33,
+            495,
+            593
+          ],
+          "offset": [
+            30,
+            4
+          ],
+          "size": [
+            37,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b0_front": {
+      "key": "pa2_actor_hunter_b0_front",
+      "label": "嬰兒0歲正面外觀",
+      "world": "hunter",
+      "age": 0,
+      "pose": "front",
+      "file": "pv2-b007/pa2_actor_hunter_b0_front.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "096b5eac9920f0688f03b258a10189bd1161c864fb0a4f8734c13334b36e6b79",
+      "sha256": "e12ece99248dc76432835c0a14ce020fa92ac611abdd640a69839b9404b2af48",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            128,
+            44,
+            527,
+            561
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            143,
+            58,
+            543,
+            563
+          ],
+          "offset": [
+            26,
+            5
+          ],
+          "size": [
+            45,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            128,
+            33,
+            527,
+            547
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            132,
+            30,
+            546,
+            547
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            46,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b0_side": {
+      "key": "pa2_actor_hunter_b0_side",
+      "label": "嬰兒0歲側面外觀",
+      "world": "hunter",
+      "age": 0,
+      "pose": "side",
+      "file": "pv2-b007/pa2_actor_hunter_b0_side.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "44d99902d78b46b8aed50c43858664d5b9593d72d91b64be36acc2bc0da4fb1a",
+      "sha256": "88cc641aa1b308b8a76d18f2c86c74e07752282df9ccb8c5a4c0b1f0a8aeb4eb",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            253,
+            35,
+            562,
+            511
+          ],
+          "offset": [
+            30,
+            5
+          ],
+          "size": [
+            37,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            174,
+            44,
+            485,
+            511
+          ],
+          "offset": [
+            30,
+            6
+          ],
+          "size": [
+            37,
+            56
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            253,
+            31,
+            576,
+            507
+          ],
+          "offset": [
+            29,
+            5
+          ],
+          "size": [
+            39,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            174,
+            24,
+            469,
+            507
+          ],
+          "offset": [
+            31,
+            4
+          ],
+          "size": [
+            35,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b0_sit": {
+      "key": "pa2_actor_hunter_b0_sit",
+      "label": "嬰兒0歲坐姿外觀",
+      "world": "hunter",
+      "age": 0,
+      "pose": "sit",
+      "file": "pv2-b007/pa2_actor_hunter_b0_sit.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "d544805009d2f86163178f0d1aeda744cf933424e31ffcec113fc96fd68cf162",
+      "sha256": "6c98a9e0915bf9bca00cb2501a99aa860a054adb6dfcbde94e6c16abc5da783f",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            118,
+            33,
+            548,
+            583
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            123,
+            30,
+            553,
+            583
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            45,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            118,
+            32,
+            551,
+            579
+          ],
+          "offset": [
+            26,
+            5
+          ],
+          "size": [
+            45,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            131,
+            57,
+            563,
+            579
+          ],
+          "offset": [
+            26,
+            7
+          ],
+          "size": [
+            45,
+            55
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b0_reach": {
+      "key": "pa2_actor_hunter_b0_reach",
+      "label": "嬰兒0歲伸手外觀",
+      "world": "hunter",
+      "age": 0,
+      "pose": "reach",
+      "file": "pv2-b007/pa2_actor_hunter_b0_reach.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "e2d6809eae9b3060ca77c83dcaa0badeb76c574b6c712e6fabb14d0af51ff8d8",
+      "sha256": "cb34ab1c85469ecd833755ec67eb8d353e20c13c95e2554ad0da9f815a8cff83",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            107,
+            32,
+            516,
+            586
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            43,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            108,
+            32,
+            514,
+            586
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            109,
+            19,
+            513,
+            574
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            109,
+            25,
+            516,
+            574
+          ],
+          "offset": [
+            27,
+            5
+          ],
+          "size": [
+            43,
+            57
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b1_front": {
+      "key": "pa2_actor_hunter_b1_front",
+      "label": "嬰兒1歲正面外觀",
+      "world": "hunter",
+      "age": 1,
+      "pose": "front",
+      "file": "pv2-b007/pa2_actor_hunter_b1_front.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "ecf755172b0af6992a176d39251429b9f856b963f5e058334e1223d2b1e51986",
+      "sha256": "207e5ad2e95deae0567398debbbe35d5aaaab0036a8df36885ba311cdcdaf336",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            157,
+            43,
+            538,
+            575
+          ],
+          "offset": [
+            27,
+            4
+          ],
+          "size": [
+            42,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            165,
+            52,
+            543,
+            575
+          ],
+          "offset": [
+            28,
+            5
+          ],
+          "size": [
+            41,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            128,
+            37,
+            520,
+            561
+          ],
+          "offset": [
+            27,
+            5
+          ],
+          "size": [
+            43,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            162,
+            43,
+            538,
+            561
+          ],
+          "offset": [
+            28,
+            6
+          ],
+          "size": [
+            41,
+            56
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b1_side": {
+      "key": "pa2_actor_hunter_b1_side",
+      "label": "嬰兒1歲側面外觀",
+      "world": "hunter",
+      "age": 1,
+      "pose": "side",
+      "file": "pv2-b007/pa2_actor_hunter_b1_side.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "9bd9ef97510dc94cba27773a821528d7dc3e792d304967fde2d954faa70a043e",
+      "sha256": "645ccd57668d1a4536b02273c14f3024ea6ce212b1d2a19042e1c21d57b210f4",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            99,
+            41,
+            575,
+            547
+          ],
+          "offset": [
+            21,
+            4
+          ],
+          "size": [
+            55,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            105,
+            43,
+            577,
+            547
+          ],
+          "offset": [
+            21,
+            4
+          ],
+          "size": [
+            54,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            88,
+            51,
+            562,
+            552
+          ],
+          "offset": [
+            21,
+            5
+          ],
+          "size": [
+            54,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            108,
+            51,
+            575,
+            556
+          ],
+          "offset": [
+            21,
+            4
+          ],
+          "size": [
+            54,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b1_sit": {
+      "key": "pa2_actor_hunter_b1_sit",
+      "label": "嬰兒1歲坐姿外觀",
+      "world": "hunter",
+      "age": 1,
+      "pose": "sit",
+      "file": "pv2-b007/pa2_actor_hunter_b1_sit.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "172d038376f68f892072069c34065ce59df524d6f58c97afd66a997e47cb38a0",
+      "sha256": "d449cb6791fc5a381feb12453b34ac94a760f6790479709d76fcc599c620dd33",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            146,
+            59,
+            576,
+            583
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            47,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            125,
+            62,
+            555,
+            585
+          ],
+          "offset": [
+            25,
+            5
+          ],
+          "size": [
+            47,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            146,
+            36,
+            576,
+            553
+          ],
+          "offset": [
+            25,
+            5
+          ],
+          "size": [
+            47,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            132,
+            27,
+            561,
+            555
+          ],
+          "offset": [
+            25,
+            4
+          ],
+          "size": [
+            47,
+            58
+          ]
+        }
+      ]
+    },
+    "pa2_actor_hunter_b1_reach": {
+      "key": "pa2_actor_hunter_b1_reach",
+      "label": "嬰兒1歲伸手外觀",
+      "world": "hunter",
+      "age": 1,
+      "pose": "reach",
+      "file": "pv2-b007/pa2_actor_hunter_b1_reach.png",
+      "size": [
+        384,
+        64
+      ],
+      "frameSize": [
+        96,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        48,
+        61
+      ],
+      "caregiver": true,
+      "sourceSha256": "9fbb49f7ff07ccf06cb5a9b038dc1b806585ba6c18eb12c0f967cdbab6986d96",
+      "sha256": "840bbe7e2dd3e3ee43da7414b5d3c8e0c10518b2b4e0e0975ab64f48b92f8f5b",
+      "transforms": [
+        {
+          "sourceCellCrop": [
+            145,
+            52,
+            536,
+            569
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            44,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            85,
+            57,
+            482,
+            571
+          ],
+          "offset": [
+            26,
+            5
+          ],
+          "size": [
+            44,
+            57
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            141,
+            32,
+            538,
+            551
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            44,
+            58
+          ]
+        },
+        {
+          "sourceCellCrop": [
+            92,
+            36,
+            486,
+            551
+          ],
+          "offset": [
+            26,
+            4
+          ],
+          "size": [
+            44,
+            58
+          ]
+        }
+      ]
+    }
+  },
+  "round2": {
+    "replacedPngCount": 2,
+    "previousSha256": {
+      "pa2_actor_modern_b0_sit": "872534ce3018ffda0c086ec068eaaa1b28e7751b39bf45b2cebb73854973d92a",
+      "pa2_actor_modern_b0_reach": "a76560d2440299bcd6dd687095af36d2fcdc424dda417c5c8ff9c9fa06468839"
+    }
+  }
+}

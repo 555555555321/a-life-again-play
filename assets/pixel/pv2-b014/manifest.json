@@ -1,0 +1,2151 @@
+{
+  "batch": "PV2-B014",
+  "generator": "built-in image_gen",
+  "finalPngCount": 20,
+  "deliveryLimit": 20,
+  "sourceImagesExcludedFromDeliveryLimit": true,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "assets": [
+    {
+      "key": "pa2_actor_modern_adult_front",
+      "label": "成年30–44歲正面外觀",
+      "world": "modern",
+      "band": "adult",
+      "action": "front",
+      "minAge": 30,
+      "maxAge": 45,
+      "file": "pv2-b014/pa2_actor_modern_adult_front.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          19,
+          3,
+          38,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "成年30–44歲",
+        "front",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          141,
+          15,
+          400,
+          707
+        ],
+        [
+          661,
+          15,
+          967,
+          707
+        ],
+        [
+          1227,
+          15,
+          1487,
+          707
+        ],
+        [
+          1770,
+          15,
+          2031,
+          707
+        ]
+      ],
+      "sourceSha256": "6c557efaffb86f05d6ede63774e8fc16b35fbef4f7f020ee51d16ef743d1550a",
+      "sha256": "74397a641aa6d6a1587db720208336c406eafd69f879f47a5a7810779c18b481"
+    },
+    {
+      "key": "pa2_actor_modern_adult_side",
+      "label": "成年30–44歲側面外觀",
+      "world": "modern",
+      "band": "adult",
+      "action": "side",
+      "minAge": 30,
+      "maxAge": 45,
+      "file": "pv2-b014/pa2_actor_modern_adult_side.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          3,
+          33,
+          46
+        ],
+        [
+          22,
+          3,
+          34,
+          46
+        ],
+        [
+          21,
+          3,
+          35,
+          46
+        ],
+        [
+          21,
+          3,
+          33,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "成年30–44歲",
+        "side",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          178,
+          17,
+          364,
+          708
+        ],
+        [
+          713,
+          17,
+          912,
+          708
+        ],
+        [
+          1249,
+          17,
+          1471,
+          708
+        ],
+        [
+          1790,
+          17,
+          1984,
+          708
+        ]
+      ],
+      "sourceSha256": "388359d3992f66d84be4eaae0d8c16ac0d206b0dc7c89a7ec144e75040ca72ad",
+      "sha256": "354722ba535f5be7de3778af2ea498f3d28a631c248fe69d54404c989c76af7e"
+    },
+    {
+      "key": "pa2_actor_modern_adult_sit",
+      "label": "成年30–44歲坐姿外觀",
+      "world": "modern",
+      "band": "adult",
+      "action": "sit",
+      "minAge": 30,
+      "maxAge": 45,
+      "file": "pv2-b014/pa2_actor_modern_adult_sit.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          19,
+          11,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "成年30–44歲",
+        "sit",
+        "seat-included"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          124,
+          24,
+          453,
+          707
+        ],
+        [
+          667,
+          24,
+          997,
+          707
+        ],
+        [
+          1210,
+          24,
+          1539,
+          707
+        ],
+        [
+          1746,
+          24,
+          2083,
+          707
+        ]
+      ],
+      "sourceSha256": "ddf9931e2868e2738c3f23d69a0da1a4f0a71137b4aaf97f9be31f1e1b052b3d",
+      "sha256": "635b8b72efd4ef5700782d4b544c17e1b2e10f677d54f418a9f9c009790d8df5"
+    },
+    {
+      "key": "pa2_actor_modern_adult_reach",
+      "label": "成年30–44歲伸手外觀",
+      "world": "modern",
+      "band": "adult",
+      "action": "reach",
+      "minAge": 30,
+      "maxAge": 45,
+      "file": "pv2-b014/pa2_actor_modern_adult_reach.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          3,
+          35,
+          46
+        ],
+        [
+          20,
+          3,
+          39,
+          46
+        ],
+        [
+          21,
+          3,
+          45,
+          46
+        ],
+        [
+          20,
+          3,
+          42,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "成年30–44歲",
+        "reach",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          152,
+          16,
+          379,
+          708
+        ],
+        [
+          653,
+          16,
+          958,
+          708
+        ],
+        [
+          1158,
+          18,
+          1551,
+          708
+        ],
+        [
+          1706,
+          18,
+          2066,
+          708
+        ]
+      ],
+      "sourceSha256": "46b0111d4b5fba412db80f278150101b29014850242a293fa8a9358c38a91fd0",
+      "sha256": "85e07529d71d0b91bcd2f71b1b195f79ed8e2ab7339d04b34d7a03054e21140c"
+    },
+    {
+      "key": "pa2_actor_modern_middle_front",
+      "label": "中年45–59歲正面外觀",
+      "world": "modern",
+      "band": "middle",
+      "action": "front",
+      "minAge": 45,
+      "maxAge": 60,
+      "file": "pv2-b014/pa2_actor_modern_middle_front.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          19,
+          3,
+          38,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "中年45–59歲",
+        "front",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          138,
+          16,
+          402,
+          708
+        ],
+        [
+          661,
+          16,
+          968,
+          708
+        ],
+        [
+          1224,
+          16,
+          1488,
+          708
+        ],
+        [
+          1768,
+          16,
+          2033,
+          708
+        ]
+      ],
+      "sourceSha256": "8f937b6a24daca62032b3ee8ee26a604ea47d1f9c07dfff55eb1b1e34cb8f0f3",
+      "sha256": "e8e5c05f36bd67a75fed345468e29f2842ee56ae25e0751c33d8e1da88a009f2"
+    },
+    {
+      "key": "pa2_actor_modern_middle_side",
+      "label": "中年45–59歲側面外觀",
+      "world": "modern",
+      "band": "middle",
+      "action": "side",
+      "minAge": 45,
+      "maxAge": 60,
+      "file": "pv2-b014/pa2_actor_modern_middle_side.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          22,
+          3,
+          33,
+          46
+        ],
+        [
+          21,
+          3,
+          34,
+          46
+        ],
+        [
+          20,
+          3,
+          34,
+          46
+        ],
+        [
+          21,
+          3,
+          33,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "中年45–59歲",
+        "side",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          183,
+          16,
+          360,
+          708
+        ],
+        [
+          701,
+          16,
+          912,
+          708
+        ],
+        [
+          1238,
+          17,
+          1456,
+          708
+        ],
+        [
+          1782,
+          16,
+          1974,
+          708
+        ]
+      ],
+      "sourceSha256": "25dcb5e155bf3fe304ceba50e7f239ad7e036dbf70da3e5922eae4e8948ccd82",
+      "sha256": "b952357c21782d6adcdd637ef3b84a725b9b6eccbbe855bb1523e3cf715a0ee0"
+    },
+    {
+      "key": "pa2_actor_modern_middle_sit",
+      "label": "中年45–59歲坐姿外觀",
+      "world": "modern",
+      "band": "middle",
+      "action": "sit",
+      "minAge": 45,
+      "maxAge": 60,
+      "file": "pv2-b014/pa2_actor_modern_middle_sit.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          20,
+          11,
+          37,
+          46
+        ],
+        [
+          20,
+          11,
+          37,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "中年45–59歲",
+        "sit",
+        "seat-included"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          123,
+          24,
+          459,
+          704
+        ],
+        [
+          666,
+          24,
+          1002,
+          704
+        ],
+        [
+          1209,
+          24,
+          1544,
+          704
+        ],
+        [
+          1752,
+          24,
+          2089,
+          704
+        ]
+      ],
+      "sourceSha256": "717f270a74730249e3a448eb62641e4c67807e380a2a376a6f656c443e3f4802",
+      "sha256": "581178ed05ad0dd3324882c747aafdb2873fbce59fae6ca44084cc784cc77e50"
+    },
+    {
+      "key": "pa2_actor_modern_middle_reach",
+      "label": "中年45–59歲伸手外觀",
+      "world": "modern",
+      "band": "middle",
+      "action": "reach",
+      "minAge": 45,
+      "maxAge": 60,
+      "file": "pv2-b014/pa2_actor_modern_middle_reach.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          35,
+          46
+        ],
+        [
+          20,
+          3,
+          40,
+          46
+        ],
+        [
+          20,
+          3,
+          44,
+          46
+        ],
+        [
+          20,
+          3,
+          40,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "中年45–59歲",
+        "reach",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          128,
+          15,
+          372,
+          709
+        ],
+        [
+          665,
+          15,
+          992,
+          709
+        ],
+        [
+          1205,
+          15,
+          1591,
+          709
+        ],
+        [
+          1748,
+          15,
+          2074,
+          709
+        ]
+      ],
+      "sourceSha256": "2e50646989d605ce9368d85c63b5b8005cad6a8b59969bd293eea0c96eaa99f8",
+      "sha256": "8c74e73d65cc219c9326ff4e2b626f3da431ecb8ae6a2ea266ef8eeba2dd4ca1"
+    },
+    {
+      "key": "pa2_actor_modern_elder_front",
+      "label": "熟年60–74歲正面外觀",
+      "world": "modern",
+      "band": "elder",
+      "action": "front",
+      "minAge": 60,
+      "maxAge": 75,
+      "file": "pv2-b014/pa2_actor_modern_elder_front.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          19,
+          3,
+          38,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "熟年60–74歲",
+        "front",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          141,
+          16,
+          402,
+          708
+        ],
+        [
+          662,
+          16,
+          970,
+          708
+        ],
+        [
+          1228,
+          16,
+          1488,
+          708
+        ],
+        [
+          1770,
+          16,
+          2031,
+          708
+        ]
+      ],
+      "sourceSha256": "042e551bfd7b85a53a7b89bf5b12170519f04514570515518a7705fc9f188878",
+      "sha256": "0dc05803afea9b250d6fd5a8ccc835434db932602983f964cf5e8371559fdc2f"
+    },
+    {
+      "key": "pa2_actor_modern_elder_side",
+      "label": "熟年60–74歲側面外觀",
+      "world": "modern",
+      "band": "elder",
+      "action": "side",
+      "minAge": 60,
+      "maxAge": 75,
+      "file": "pv2-b014/pa2_actor_modern_elder_side.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          3,
+          33,
+          46
+        ],
+        [
+          20,
+          3,
+          35,
+          46
+        ],
+        [
+          20,
+          3,
+          35,
+          46
+        ],
+        [
+          21,
+          3,
+          33,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "熟年60–74歲",
+        "side",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          163,
+          17,
+          354,
+          707
+        ],
+        [
+          685,
+          17,
+          922,
+          707
+        ],
+        [
+          1233,
+          20,
+          1471,
+          707
+        ],
+        [
+          1791,
+          17,
+          1983,
+          707
+        ]
+      ],
+      "sourceSha256": "6c64e42bae12ff0185257fa2986071c973ca495f83a3dfe204bd129f0a3bf6ca",
+      "sha256": "00771d3ef547cb3ca89403189be2cb7b6dfee798e5e4f2d28f976364dd0ed42b"
+    },
+    {
+      "key": "pa2_actor_modern_elder_sit",
+      "label": "熟年60–74歲坐姿外觀",
+      "world": "modern",
+      "band": "elder",
+      "action": "sit",
+      "minAge": 60,
+      "maxAge": 75,
+      "file": "pv2-b014/pa2_actor_modern_elder_sit.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          11,
+          36,
+          46
+        ],
+        [
+          20,
+          11,
+          36,
+          46
+        ],
+        [
+          20,
+          11,
+          36,
+          46
+        ],
+        [
+          19,
+          11,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "熟年60–74歲",
+        "sit",
+        "seat-included"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          126,
+          19,
+          437,
+          711
+        ],
+        [
+          669,
+          19,
+          981,
+          711
+        ],
+        [
+          1212,
+          19,
+          1524,
+          711
+        ],
+        [
+          1740,
+          19,
+          2067,
+          711
+        ]
+      ],
+      "sourceSha256": "ec1ae0c3b4c324b7185fe51df92b898ff24be73840f187b2b8d3c6566cc9f822",
+      "sha256": "43869971f07f9c5c48ee9d530b379886339b5ebbd5ac1c817a4b247be0114168"
+    },
+    {
+      "key": "pa2_actor_modern_elder_reach",
+      "label": "熟年60–74歲伸手外觀",
+      "world": "modern",
+      "band": "elder",
+      "action": "reach",
+      "minAge": 60,
+      "maxAge": 75,
+      "file": "pv2-b014/pa2_actor_modern_elder_reach.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          3,
+          35,
+          46
+        ],
+        [
+          22,
+          3,
+          37,
+          46
+        ],
+        [
+          22,
+          3,
+          43,
+          46
+        ],
+        [
+          21,
+          3,
+          38,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "熟年60–74歲",
+        "reach",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          157,
+          16,
+          381,
+          708
+        ],
+        [
+          717,
+          16,
+          958,
+          708
+        ],
+        [
+          1263,
+          16,
+          1603,
+          708
+        ],
+        [
+          1796,
+          16,
+          2070,
+          708
+        ]
+      ],
+      "sourceSha256": "cc34a17fb9b0c153099aad14cd52d608313ecda14c416e35fea88d552f20f673",
+      "sha256": "8c905f59f3e19a07e0d6395b4b2185b0a2de28b93d2d2efee876c3d23fa770ca"
+    },
+    {
+      "key": "pa2_actor_modern_late_front",
+      "label": "高齡75歲以上正面外觀",
+      "world": "modern",
+      "band": "late",
+      "action": "front",
+      "minAge": 75,
+      "maxAge": null,
+      "file": "pv2-b014/pa2_actor_modern_late_front.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          19,
+          3,
+          38,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ],
+        [
+          20,
+          3,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "高齡75歲以上",
+        "front",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          143,
+          16,
+          400,
+          707
+        ],
+        [
+          663,
+          16,
+          966,
+          707
+        ],
+        [
+          1229,
+          16,
+          1485,
+          707
+        ],
+        [
+          1772,
+          16,
+          2029,
+          707
+        ]
+      ],
+      "sourceSha256": "5aef0b3930ac581a16c3e277e9f1c173de970bc6a41551751172ce3419459ed4",
+      "sha256": "81efa1ffeb939b46785983d9b3bb4cd087276a224b5c715d569a2b1f261b6639"
+    },
+    {
+      "key": "pa2_actor_modern_late_side",
+      "label": "高齡75歲以上側面外觀",
+      "world": "modern",
+      "band": "late",
+      "action": "side",
+      "minAge": 75,
+      "maxAge": null,
+      "file": "pv2-b014/pa2_actor_modern_late_side.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          22,
+          3,
+          33,
+          46
+        ],
+        [
+          22,
+          3,
+          35,
+          46
+        ],
+        [
+          22,
+          3,
+          35,
+          46
+        ],
+        [
+          21,
+          3,
+          33,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "高齡75歲以上",
+        "side",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          177,
+          17,
+          354,
+          707
+        ],
+        [
+          714,
+          17,
+          929,
+          707
+        ],
+        [
+          1258,
+          17,
+          1473,
+          707
+        ],
+        [
+          1806,
+          17,
+          1991,
+          707
+        ]
+      ],
+      "sourceSha256": "345aab127f96f1b2f11c337a9f385152a7cf0e80d1868703607ae60a14475701",
+      "sha256": "97162ac7431a11b1520328146b8947ee28864714748d5eba24cf7bd1973a57a4"
+    },
+    {
+      "key": "pa2_actor_modern_late_sit",
+      "label": "高齡75歲以上坐姿外觀",
+      "world": "modern",
+      "band": "late",
+      "action": "sit",
+      "minAge": 75,
+      "maxAge": null,
+      "file": "pv2-b014/pa2_actor_modern_late_sit.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          11,
+          35,
+          46
+        ],
+        [
+          20,
+          11,
+          35,
+          46
+        ],
+        [
+          21,
+          11,
+          35,
+          46
+        ],
+        [
+          21,
+          11,
+          36,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "高齡75歲以上",
+        "sit",
+        "seat-included"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          134,
+          23,
+          407,
+          710
+        ],
+        [
+          662,
+          23,
+          950,
+          710
+        ],
+        [
+          1222,
+          23,
+          1492,
+          710
+        ],
+        [
+          1757,
+          23,
+          2044,
+          710
+        ]
+      ],
+      "sourceSha256": "f9955f0ad379ad49d7a7f5f919c5b328f1100cb4cb767384e1d9515a9c491e7b",
+      "sha256": "dd5281b95e8b9c59e8ee7238398bff540b99c2e1fcf665984eb3ec5b2495b945"
+    },
+    {
+      "key": "pa2_actor_modern_late_reach",
+      "label": "高齡75歲以上伸手外觀",
+      "world": "modern",
+      "band": "late",
+      "action": "reach",
+      "minAge": 75,
+      "maxAge": null,
+      "file": "pv2-b014/pa2_actor_modern_late_reach.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          20,
+          3,
+          35,
+          46
+        ],
+        [
+          22,
+          3,
+          38,
+          46
+        ],
+        [
+          21,
+          3,
+          44,
+          46
+        ],
+        [
+          21,
+          3,
+          40,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "高齡75歲以上",
+        "reach",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          151,
+          13,
+          388,
+          709
+        ],
+        [
+          682,
+          13,
+          942,
+          709
+        ],
+        [
+          1199,
+          13,
+          1564,
+          709
+        ],
+        [
+          1741,
+          13,
+          2051,
+          709
+        ]
+      ],
+      "sourceSha256": "9de4c339b02d07288f185ada149ede3ccb2dab15dd65ac0e51558874567e8071",
+      "sha256": "83f1592dd7896f3ccabe261ea1cda82c473accc1b67b4c18dc9d117a0dc8c013"
+    },
+    {
+      "key": "pa2_actor_hunter_p3_front",
+      "label": "幼年3–5歲正面外觀",
+      "world": "hunter",
+      "band": "p3",
+      "action": "front",
+      "minAge": 3,
+      "maxAge": 6,
+      "file": "pv2-b014/pa2_actor_hunter_p3_front.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          21,
+          14,
+          34,
+          46
+        ],
+        [
+          21,
+          14,
+          35,
+          46
+        ],
+        [
+          21,
+          14,
+          34,
+          46
+        ],
+        [
+          21,
+          14,
+          34,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "幼年3–5歲",
+        "front",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          134,
+          16,
+          406,
+          708
+        ],
+        [
+          661,
+          16,
+          964,
+          708
+        ],
+        [
+          1216,
+          16,
+          1489,
+          708
+        ],
+        [
+          1758,
+          16,
+          2032,
+          708
+        ]
+      ],
+      "sourceSha256": "98fd2e5a7ba793a2d1d08763e595ff268bd44749a5b5c1a0ed739032518c44b4",
+      "sha256": "7d4f016e308d648350051a2b2c0f0017e06e997ce2ad286a64d4e7d0360cde35"
+    },
+    {
+      "key": "pa2_actor_hunter_p3_side",
+      "label": "幼年3–5歲側面外觀",
+      "world": "hunter",
+      "band": "p3",
+      "action": "side",
+      "minAge": 3,
+      "maxAge": 6,
+      "file": "pv2-b014/pa2_actor_hunter_p3_side.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          23,
+          14,
+          33,
+          46
+        ],
+        [
+          23,
+          14,
+          34,
+          46
+        ],
+        [
+          22,
+          14,
+          34,
+          46
+        ],
+        [
+          23,
+          14,
+          33,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "幼年3–5歲",
+        "side",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          155,
+          15,
+          368,
+          709
+        ],
+        [
+          699,
+          15,
+          938,
+          709
+        ],
+        [
+          1238,
+          15,
+          1488,
+          708
+        ],
+        [
+          1784,
+          15,
+          1997,
+          708
+        ]
+      ],
+      "sourceSha256": "4313ffdf618540fc0aaed4d159e03b630f23f1ba953800eff29edae0ebd52684",
+      "sha256": "50b9811e8cfaadf954442954df73b4e7d6d2b9bd816ad68e28165eb9ce1be646"
+    },
+    {
+      "key": "pa2_actor_hunter_p3_sit",
+      "label": "幼年3–5歲坐姿外觀",
+      "world": "hunter",
+      "band": "p3",
+      "action": "sit",
+      "minAge": 3,
+      "maxAge": 6,
+      "file": "pv2-b014/pa2_actor_hunter_p3_sit.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          22,
+          20,
+          35,
+          46
+        ],
+        [
+          22,
+          20,
+          35,
+          46
+        ],
+        [
+          22,
+          20,
+          35,
+          46
+        ],
+        [
+          22,
+          20,
+          35,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "幼年3–5歲",
+        "sit",
+        "seat-included"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          115,
+          41,
+          431,
+          691
+        ],
+        [
+          659,
+          41,
+          973,
+          691
+        ],
+        [
+          1201,
+          41,
+          1515,
+          691
+        ],
+        [
+          1745,
+          41,
+          2060,
+          691
+        ]
+      ],
+      "sourceSha256": "a9e5eeab35872e40193d444e759a632edf7bef17218b47617b092cbd4bf73f4d",
+      "sha256": "691ee114ab9bcff83c70f01461eab01234122c3bfbc2b00ee81677565faa36ad"
+    },
+    {
+      "key": "pa2_actor_hunter_p3_reach",
+      "label": "幼年3–5歲伸手外觀",
+      "world": "hunter",
+      "band": "p3",
+      "action": "reach",
+      "minAge": 3,
+      "maxAge": 6,
+      "file": "pv2-b014/pa2_actor_hunter_p3_reach.png",
+      "size": [
+        224,
+        48
+      ],
+      "frameSize": [
+        56,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        28,
+        46
+      ],
+      "frameBounds": [
+        [
+          23,
+          14,
+          35,
+          46
+        ],
+        [
+          23,
+          14,
+          37,
+          46
+        ],
+        [
+          22,
+          14,
+          40,
+          46
+        ],
+        [
+          22,
+          14,
+          38,
+          46
+        ]
+      ],
+      "feet": [
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ],
+        [
+          28,
+          46
+        ]
+      ],
+      "handPoints": null,
+      "handPointStatus": "pending-review",
+      "frameDurationsMs": null,
+      "timingStatus": "pending-review",
+      "defaultFrame": 0,
+      "tags": [
+        "幼年3–5歲",
+        "reach",
+        "single-actor"
+      ],
+      "specification": "每格56×48；4格水平圖集；與舊32格骨架分開登錄",
+      "acceptance": "輪廓、腳底與手點可對位；同人跨齡可辨；膚髮色只取官方色盤",
+      "sourceBounds": [
+        [
+          143,
+          23,
+          390,
+          701
+        ],
+        [
+          655,
+          23,
+          960,
+          701
+        ],
+        [
+          1179,
+          23,
+          1552,
+          701
+        ],
+        [
+          1723,
+          23,
+          2063,
+          701
+        ]
+      ],
+      "sourceSha256": "25aa260dfb2104dcb9123bacf922a22cf30de81cb9b9488925aca8cd994fe2fb",
+      "sha256": "ae21ba08d7afb6933855da70e8b4b16a103244f2c071e9e31fdf07c008cd5e3d"
+    }
+  ]
+}

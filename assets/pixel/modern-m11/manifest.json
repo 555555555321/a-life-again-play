@@ -1,0 +1,108 @@
+{
+  "batch": "pixel-gen-modern-m11",
+  "world": "modern",
+  "generator": "built-in image_gen",
+  "finalPngCount": 6,
+  "deliveryLimit": 20,
+  "paletteCount": 3138,
+  "paletteSha256": "ce2403536c7dc55ea6fbebc5859d93cb5d394e63bd20aabf5a4dd5835cd4a271",
+  "conversion": "nearest resize; RGB increments of 17 with 4x4 Bayer dithering; nearest official squared RGB distance; binary alpha threshold 128",
+  "assets": [
+    {
+      "key": "modern_m11_home_dumpling_table",
+      "label": "家常料理・一起包水餃",
+      "category": "home",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_home_dumpling_table.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "faef074fb33fd5bf36789e6da6ad801ac0b44e593ce204f00d714476687f2988",
+      "sha256": "298572ba2c2a894461f49f7a21af0f16296c1b1cdeed7e11244f869a93f68eef"
+    },
+    {
+      "key": "modern_m11_home_tomato_egg",
+      "label": "家常料理・番茄炒蛋上桌",
+      "category": "home",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_home_tomato_egg.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "a05038d6963bcf06d0bb1d8249a29355eef2f64485251454387eecbef9ca9381",
+      "sha256": "1d52f60a225a045526d98c87259a6987d00d0c6085a48ea1c48da753bbae4d26"
+    },
+    {
+      "key": "modern_m11_nightmarket_corn",
+      "label": "夜市・炭烤玉米",
+      "category": "nightmarket",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_nightmarket_corn.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "d3662414afda6ecec7ff6e0648f9e7366b95095e0c80cc095f76b5ad7d7f322a",
+      "sha256": "788b7613877e6fe3f0d2994c6f4c5c2bec376f1eed91b819c866e2725bb1d628"
+    },
+    {
+      "key": "modern_m11_nightmarket_scallion_pancake",
+      "label": "夜市・現煎蔥油餅",
+      "category": "nightmarket",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_nightmarket_scallion_pancake.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "995192def01c94e8a268cbd0ec72d5b718f9192ee3201673872dec12ef8105f9",
+      "sha256": "a2caa1663bd38ceef872da44334b8506bd5250348f0a569a624fdb79c9f9d3c1"
+    },
+    {
+      "key": "modern_m11_eatout_noodle_shop",
+      "label": "外食・小吃店吃麵",
+      "category": "eatout",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_eatout_noodle_shop.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "e0331aed80516ebd37fc6b0c5192c832f67e3ec4c5d7d021b1eb4d7f7b9b2593",
+      "sha256": "dd9ae0a4109ceb5c234addfc7a9a45556050c02da5a97869a87582ea5babb9b1"
+    },
+    {
+      "key": "modern_m11_eatout_cafeteria_tray",
+      "label": "外食・自助餐取餐",
+      "category": "eatout",
+      "world": "modern",
+      "file": "modern-m11/modern_m11_eatout_cafeteria_tray.png",
+      "size": [
+        240,
+        135
+      ],
+      "frames": 1,
+      "kind": "scene",
+      "minAge": 18,
+      "sourceSha256": "bf606b59bd1d38ac196a80a737e78c9bf5dd23c3b4c039a47934282e2f8d7f88",
+      "sha256": "052c482a3c8924b2aa927532e6edfec044a9de5b9a10d0e29fddf20dd788abf8"
+    }
+  ]
+}

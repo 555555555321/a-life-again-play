@@ -1,0 +1,20 @@
+{
+ "note": "生成・待確認",
+ "vehicle": "smallcar",
+ "vehicle_zh": "小型車",
+ "model": 0,
+ "overlay": "passengers_p2",
+ "time": "evening",
+ "base": "smallcar_m0_c{0-5}_evening.png",
+ "base_dir": "/workspace/ala/r8_art/小弟/車子_v1/cleaned/parked",
+ "base_w": 48,
+ "base_h": 21,
+ "offset_x": 0,
+ "offset_y": 0,
+ "mode": "default",
+ "heads": 2,
+ "w": 48,
+ "h": 21,
+ "colours_from": "street/menwai_normal_evening",
+ "applies_when": "2 passengers"
+}

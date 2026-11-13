@@ -1,0 +1,18 @@
+# Signed sprites copied into Phone B for PR #8.
+# sha256 is of the file in this repo after copy; it matches the source byte-for-byte.
+# dad_walk r3 is not included; it goes in PR #4.
+# Pickup hug frames were not signed for stand points and were not copied.
+
+replace	assets/chars/grandma/stand_00.png	1351b1d177a0359612b8258827c318e460fc8baeac40281c19c4f97701e4dde2	/workspace/ala/r8_art/王子/recolour_A_20261111/r4b/grandma/stand_f00.png
+replace	assets/chars/grandma/stand_01.png	ef7e0cf2e86b4a49472a9e268b0b36679e59662e7ecdf7f0a18208bdf505f14b	/workspace/ala/r8_art/王子/recolour_A_20261111/r4b/grandma/stand_f01.png
+replace	assets/chars/grandpa/stand_00.png	a70dbee32ac6f7ea517dbbcd4102e1dde9462a86ed863a07e1b74369402dabed	/workspace/ala/r8_art/王子/recolour_A_20261111/grandpa_stoop_r2/stand_f00.png
+replace	assets/chars/grandpa/stand_01.png	2436b2ecc1d67c4fe46ca4f82d85dd6fdd0d67a2899ba73181fb951510634bb1	/workspace/ala/r8_art/王子/recolour_A_20261111/grandpa_stoop_r2/stand_f01.png
+replace	assets/chars/mother_hold_infant/hold_00.png	5de54c950151cf8183092c549d7d437c72cfe8371142e259edfb17f2ac730daf	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_infant/hold_f00.png
+replace	assets/chars/mother_hold_infant/hold_01.png	8293524b6892a0de0353a9ed27e90ed36098470634750db114e59cb3fbfa2ac1	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_infant/hold_f01.png
+add	assets/chars/mother_hold_toddler/hold_00.png	1b28a2a83c8c17c7b6e195a292e33880c27d775492d5ce1a7140af31363e166f	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_toddler/hold_f00.png
+add	assets/chars/mother_hold_toddler/hold_01.png	8dd89dd0577cf528fe2aff17c35370a99715ba0a464a81cd8bb3309e049f0003	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/mom_toddler/hold_f01.png
+add	assets/chars/father_hold_infant/hold_00.png	fdf69482c9bdfdfb5e2eb91067648b7062e74d35d712e817e4fab99389302cc8	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_infant/hold_f00.png
+add	assets/chars/father_hold_infant/hold_01.png	553099b163b0a3ccfa342df6988e223c924985fc101c0aba0542c76b9d4b01f4	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_infant/hold_f01.png
+add	assets/chars/father_hold_toddler/hold_00.png	be2d8866c0603b8528d79027a25c28ac3e16b761de9a0d1ff270eeffb99739b6	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_toddler/hold_f00.png
+add	assets/chars/father_hold_toddler/hold_01.png	1092737dd41ed161b3b02558120032c63686ff53800802c562ee108b3dc9a202	/workspace/ala/r8_art/王子/recolour_A_20261111/r3/hug/dad_toddler/hold_f01.png
+unchanged_already_signed	assets/chars/style_trial_mom/a_r5c/A_r5c_12.png	d2cef574c0bf0754020e0a724a06862f0a619660c63bae655c4522ab2350bfe4	/workspace/ala/r8_art/王子/style_trial_mom_20261110/a_r5c/A_r5c_12.png
