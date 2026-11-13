@@ -872,6 +872,13 @@
         "週末出遊・朋友家"
       ],
       "cast": []
+    },
+    "messages": {
+      "age": 18,
+      "month": 1,
+      "season": "冬",
+      "lighting": "daylight",
+      "_note": "DEV ONLY 訊息 App 樣本。96×144 原圖最近鄰整數倍（直式 10×）。?dev=1&screen=messages&shot&fixture=list|compose|thread|photo|nosavings|dead|fade|incoming，可加 &gen=flip|smart|thin、&savings=。"
     }
   },
   "_test_order": [

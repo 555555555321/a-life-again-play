@@ -821,6 +821,16 @@ function loop(now) {
     requestAnimationFrame(loop);
     return;
   }
+  if (activeKey === 'messages' && typeof drawMessagesTo === 'function') {
+    const c = document.getElementById(ORIENT === 'portrait' ? 'sceneP' : 'sceneL');
+    if (c) {
+      const g = c.getContext('2d');
+      g.imageSmoothingEnabled = false;
+      drawMessagesTo(g);
+    }
+    requestAnimationFrame(loop);
+    return;
+  }
   if ((activeKey === 'commute' || activeKey === 'going_out') && typeof drawCommuteNative === 'function') {
     if (ORIENT === 'portrait') {
       const c = document.getElementById('sceneP');
@@ -2415,6 +2425,19 @@ function drawStyleTrialMomA5c(now) {
       };
       wireLit('btns'); wireLit('lbtns');
       if (ORIENT === 'landscape' && !qs.has('drawer')) setDrawer(820);
+    }
+  } else if (startKey === 'messages') {
+    if (!DEV) {
+      console.warn('messages requires ?dev=1');
+      await go(0, false);
+    } else {
+      const scr = data.screens.messages || {};
+      activeKey = 'messages';
+      prepared = await prepareCue({lighting: scr.lighting || 'daylight', cast: [], scene_props: []}, 'messages');
+      await initMessages();
+      fit();
+      reflow();
+      renderAll();
     }
   } else if (startKey === 'commute' || startKey === 'going_out') {
     if (!DEV) {
