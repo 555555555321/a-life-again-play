@@ -1,0 +1,94 @@
+{
+  "source": "outputs/classroom-transfer/imagegen-original.png",
+  "sourceSha256": "c278d0f0993b16049b91e0b14443c2223b265ae015f5931449519584e8afa1b8",
+  "method": "fixed crop, exact integer-factor nearest-neighbor reduction (10 or 11 on both axes), palette mapping; 4x nearest-neighbor previews",
+  "nativeAuthorshipClaim": false,
+  "paletteSource": "D:\\ala-codex\\art-pt02-classroom\\assets\\pixel\\classroom-transfer\\palette-3349.txt",
+  "paletteSha256": "248b805e0c1b0883938332d93f65e76766ccaecbd664ea998e8059f0574c821d",
+  "sprites": [
+    {
+      "file": "new-student.png",
+      "sourceCrop": [
+        139,
+        249,
+        339,
+        899
+      ],
+      "reductionFactor": 10,
+      "reducedSize": [
+        20,
+        65
+      ],
+      "placement": [
+        20,
+        51
+      ],
+      "size": [
+        56,
+        116
+      ],
+      "anchor": [
+        27,
+        115
+      ],
+      "height": 65,
+      "sha256": "c077333553e690bc259639e24bb0bdf223a86adb6a8ddd756d59836b263f2019"
+    },
+    {
+      "file": "classmate-welcome.png",
+      "sourceCrop": [
+        533,
+        199,
+        874,
+        914
+      ],
+      "reductionFactor": 11,
+      "reducedSize": [
+        31,
+        65
+      ],
+      "placement": [
+        6,
+        51
+      ],
+      "size": [
+        56,
+        116
+      ],
+      "anchor": [
+        27,
+        115
+      ],
+      "height": 65,
+      "sha256": "7e2b28f761dab0a085c3df1a6fc66b10ef1908a4f8aee7c61e1e73adbbe3a9a5"
+    },
+    {
+      "file": "classmate-point.png",
+      "sourceCrop": [
+        1016,
+        199,
+        1412,
+        914
+      ],
+      "reductionFactor": 11,
+      "reducedSize": [
+        36,
+        65
+      ],
+      "placement": [
+        2,
+        51
+      ],
+      "size": [
+        56,
+        116
+      ],
+      "anchor": [
+        27,
+        115
+      ],
+      "height": 65,
+      "sha256": "f1e5b6aaf4b533504185dde9a0db7154d62148cc31cfd01f61b3973bdcc94d6d"
+    }
+  ]
+}
