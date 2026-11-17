@@ -1,0 +1,4175 @@
+{
+ "generatedBy": "scripts/build-four-beat.py",
+ "manifest": "接線清單.json",
+ "asOf": "2026-11-17",
+ "baseRevisionForEventLookup": "393ca4c7",
+ "approvalByBatch": {
+  "1–4": "依原批正式採用紀錄。第一批散步採景含第四批17已停用的相同圖，整組抽出。",
+  "15": "其餘都沒有問題。採用15單。",
+  "16": "其他我有看過了都可以。採用17單。",
+  "17": "其他可以。採用18單。",
+  "18": "使用者另確認其餘16單可以接線。02、05、06、11留在審圖區。"
+ },
+ "note": "每拍一張 JPG（品質 84，寬度上限 960），由工單的圖層座標合成；合成結果已和工單附的代表圖比對。語系文字層預設不顯示者不合入。",
+ "orders": {
+  "R15-02": {
+   "key": "ALA-EVT-CHAIN-015|ALA-EVT-CHAIN-015-V1|B",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-015",
+    "variant": "ALA-EVT-CHAIN-015-V1",
+    "option": "了解並購買保險",
+    "displayOption": "查清保險內容後投保",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "看清住宅災害保障後支付年費投保",
+   "batch": 15,
+   "bytes": 558715,
+   "sources": [
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/主角人物.png",
+     "sha256": "7dd8c7e8f618d77815871fece18dda76f71f9ab611fb07c6e12e9f7b9cf61ada"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/主角畫面右手.png",
+     "sha256": "1c15f6bca906eed6b5d3a52c4eb6c7f2dbce9ebd7eddf07dc061548e7d908f39"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/主角畫面左手.png",
+     "sha256": "147cb8488e6eed726e402e15f6f7b91dd7a600593cbd897d5f379f5730d7f49e"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/住宅盾牌.png",
+     "sha256": "5bd48c92479c6f7934939597d2f2b31a9ad5d3ce45a66482d8646046f3e17190"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/保單封套.png",
+     "sha256": "7af3c4ec1ad21efbba974a4534870537919564ff8581f1f3354ff8fd351f99b1"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/保障冊.png",
+     "sha256": "60398a2c84dbe1256961072fc0b1df5291248c2f5b47a3399ae6845a61702ea8"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/受損屋瓦.png",
+     "sha256": "86a56547078852f2d6f6e4788ca4b2d75a28e728af5141376b797e4329f37fa3"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/收據.png",
+     "sha256": "7eed8372d064d41d2fe944a7ae9ed2a2f6ecd62c0fcae53339ddb8272553c89f"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/業務人物.png",
+     "sha256": "d4c6fd3646578d7530c000c167f43fbd444866defb14a7d413bfd97b708df842"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/業務畫面右手.png",
+     "sha256": "51df562c5a1f0abe4e5bec3e19b028284bdbfa255ad5dc051049774342fa8cc2"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/業務畫面左手.png",
+     "sha256": "df4bdfe0063b335fd56a62a1b46b359b928401e5b65900a17292f128cee4b68f"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/洽詢室無人底圖.png",
+     "sha256": "7c216164ca3402e10d6e0e4b19a7cb943cb617709eb72109d21bc83e6a80c076"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/簽字筆.png",
+     "sha256": "8c5dea7427862769e52e335a51897e4c193c40304e632b632b28ff941aded824"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/簽署筆跡.png",
+     "sha256": "4475c2e14a7b8eebb9c9a5514e2cc96ef8bb0302374df6e005e2f8592602b8e2"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/讀卡機.png",
+     "sha256": "249d0b11feeb423e84de4f95220f3451220539be95636f8d3462707217e75f40"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/選取勾記.png",
+     "sha256": "159be9e103260dca17dff125a905d4cca69d5b7bf0de40fa6700d23bd8fae53d"
+    },
+    {
+     "path": "art/R15/02-看清住宅災害保障後支付年費投保/金融卡.png",
+     "sha256": "ffd04f11aa87e58742c3ef1856082b40eca3d81cb71cb1779ee1919e16c192f7"
+    }
+   ]
+  },
+  "R15-03": {
+   "key": "ALA-EVT-CHAIN-015|ALA-EVT-CHAIN-015-V1|C",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-015",
+    "variant": "ALA-EVT-CHAIN-015-V1",
+    "option": "先不處理，眼前生活太忙",
+    "displayOption": "先忙完眼前的生活",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "暫時擱下演練通知先收好曬衣",
+   "batch": 15,
+   "bytes": 592893,
+   "sources": [
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/主角1.png",
+     "sha256": "a318ff4b64175c569fc53215fcb4c464ade9a4d24a8f67a42fc7b6678a7d7edf"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/主角2.png",
+     "sha256": "998cf519e551cff98aa6cea9f54c532d9c073fa053c65aa59f0a95831a7cd4d4"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/主角3.png",
+     "sha256": "75b469fa9d8244c9bddfdd30014468afb21dee3e25765d2bbddd796b1796889a"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/主角4.png",
+     "sha256": "da0c48d38cda611f8ec20921215c2e23af69e1a162bcadc173e6c443a956ed0c"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/乾衣.png",
+     "sha256": "d2795ea9cd7b1a389dbfaded1f8bec85e09050e83d9084f2e35e948175bcdb02"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/公寓陽臺.png",
+     "sha256": "55aeb7061e047bf066d10bc204b9b35bfd455560a4befbd86a583d3acb1bd9d5"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/巾邊雨點.png",
+     "sha256": "c4b67562a1d96e6bc2308e30f4398c947cf6550c543100a034c7a1678ace7145"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點1-1.png",
+     "sha256": "5808bf37027e017fdbc081e93e320d68da99d0f2a184c15d7cacb3c30af54ac8"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點1-2.png",
+     "sha256": "acc78a1cf15a2ee6fd61bc2eae6c76c408eece1e85c684d643afabcf1c201d42"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點2-1.png",
+     "sha256": "3db2dfe8a43d8ffe4bf91280113d82f4c8f6aa8c16394129473dc80058322529"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點3-1.png",
+     "sha256": "8c33654fabe3f1f85f1146c21d1475912ad24abf426043326ca05a7ac8703423"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點3-2.png",
+     "sha256": "dcbc567c204e6295eccba5fb2d391d6b6599da5f310eb510685d75af164c8bdd"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點4-1.png",
+     "sha256": "68c64aa0abfe42b26acd18088b1b5359eb526e3ac6cff6d7edfc9fca1518c72a"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手持點4-2.png",
+     "sha256": "951f405a1880fb617d6816e4c5eebf08ff7bdcf2cac83843ab17808719169ef5"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/手電筒.png",
+     "sha256": "c618ad80aa93e15d73bec9f681413d7a293ade648dc6ee84d3c3b7efaacdfa2c"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/收取中的巾.png",
+     "sha256": "8edd04cc88b4b5d2cd41f4369c949e48e5ab0b6df66452c50807327e3051be33"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/晾巾.png",
+     "sha256": "bd52207029f268d6b1faf7d7093586f023d7e654f9c68a084916a99b1ad609d2"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/水瓶.png",
+     "sha256": "af489cb3458d90e387306c479c8c4c1ddfa356b0e006d6c6045b7d27e4c863b7"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/演練圖示色條.png",
+     "sha256": "57ab57dc33cad65a6782a582de2e749e3df7d3ec382d03b04c1bfe6b9ad16567"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/空籃.png",
+     "sha256": "c8763260c3fa94bc8f58437a2d9858b6e8753d963a3fa1a69aca09bf37742b12"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/空背包.png",
+     "sha256": "d21bb38c3685f32bdd4cc2455654171623c476385fb92eb951c349a04613937f"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/通知.png",
+     "sha256": "82053b7d149c883bb986f3b5b18a5c313a17f8b107cbc0d384a8516817044e99"
+    },
+    {
+     "path": "art/R15/03-暫時擱下演練通知先收好曬衣/雜務紙.png",
+     "sha256": "b0dddbea140608d432fb83d7edaf9daf6daeacb8b7159ad3036161d499804c10"
+    }
+   ]
+  },
+  "R15-05": {
+   "key": "ALA-EVT-MONEY-002|ALA-EVT-MONEY-002-V1|D",
+   "binding": {
+    "event": "ALA-EVT-MONEY-002",
+    "variant": "ALA-EVT-MONEY-002-V1",
+    "option": "買房",
+    "displayOption": "用存款付頭期款買房",
+    "optionIndex": 3,
+    "optionLetter": "D",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "從存款支付頭期款接下買房鑰匙",
+   "batch": 15,
+   "bytes": 525176,
+   "sources": [
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/主角接匙.png",
+     "sha256": "849063cee0e2b701d03d1d163a9a49144cd0d42abe45f9b3152327a6f40d93d7"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/主角準備.png",
+     "sha256": "21174f932f9d5c907128a66f64456ce56e0704ea16e9f4d802b9e1b509a9e4b7"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/主角簽付.png",
+     "sha256": "6b2dffdf58ab66fabb05f9b7184c0a155e827c441b30d5216cd284281fb17377"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/主角開門.png",
+     "sha256": "188d7fc45f744b4b88a795ae44c7f4ed179a776c6779a3ab019486e3dacf269b"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/交屋鑰匙.png",
+     "sha256": "95fc8b4efb0208c1b56928a6be964972dcbf0a98f42b2419b839ba41666f22c1"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/存摺.png",
+     "sha256": "99c488bf5b2e118b2dafc4375aff9d7641ae084421a134d0c75a881ef0139b7a"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/存款支付前.png",
+     "sha256": "ce8bb16f971a2ff617cc25b5be12cc602348a73a494d19940424a98c76190258"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/存款支付後.png",
+     "sha256": "b96b1444260e49fabd18696fc45f476762f31fa5c0013c7c037ec3a5400d36c5"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/已付與待繳期數.png",
+     "sha256": "33dcca356d01210bec649c7410bbba631d66934ee93de1be36e934e7cdbb8b42"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/成交室.png",
+     "sha256": "eec092b49f4649e2b0983cfda3bf5c43a17278b404b9bfe5c588f53768a33779"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/房屋相片.png",
+     "sha256": "d72c4c3d89faf5e4bd892798da25f4476aff3e83444c8d2dbcb2966c06b661c1"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/承辦人核對.png",
+     "sha256": "c68e774a4203840d5a242402022b9fcac7fc36d23dde81c78d63888c2039cd87"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/承辦人遞匙.png",
+     "sha256": "df2ec3a4117edb804ebbd4fbdec9b69ac2abc0080823602fde250c7db11a6966"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/新居入口.png",
+     "sha256": "e57037cadd930c4ccff572776cb22ec30c364a68a21d587ffac5c1586930d0c0"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/核照手指.png",
+     "sha256": "9e518576bcc9063fa5b1a9c0202a97b60de382500fd2537c9aa586d2eebef5a4"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/桌面前遮.png",
+     "sha256": "aa6f2a2abef8cb3efccd94254beb4044fc28ad523fda81a442f368c31f58977e"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/簽付手指.png",
+     "sha256": "65ef33640ea9e31577822306a8f01355c1064318f3bb31504fbec001b3bcce92"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/簽付筆跡.png",
+     "sha256": "f6bba8dd5659f366851e6b1dc06f963b549f0c9cc3e16a02888c23e02342d907"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/簽署筆.png",
+     "sha256": "0a028fe1495c59048a147f8ea587c10c098b9d6385840e5e1f10735600d706e2"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/買賣契約.png",
+     "sha256": "7fa10cbc83a1943b734eaefe8057c051656167a4773315d7f22ac613881cf15b"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/轉匙指尖.png",
+     "sha256": "75485a194da733ccb607f9859e708ca7f2c6f799a02601d6d05ef508fc026f82"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/遞匙指尖.png",
+     "sha256": "820b20f11f83532193964537bb49dad15eec3a192e8b467c2fe354d8a56abf50"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/門鎖孔.png",
+     "sha256": "1fb377032307cdbf6bcb60d884bb46c71d26cea1bd23d8a14c144945e325bcd3"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/開鎖鑰匙.png",
+     "sha256": "eda9a93b48fa77bdf0df1c5ed36d08ab792608364cc0934ace42585f7a83b837"
+    },
+    {
+     "path": "art/R15/05-從存款支付頭期款接下買房鑰匙/頭期款支付聯.png",
+     "sha256": "a174c4c64020b0639285b82d8be41c9c30e1c9888ded0c066975c0c7e9fc6c0f"
+    }
+   ]
+  },
+  "R15-07": {
+   "key": "ALA-EVT-GOOD-004|ALA-EVT-GOOD-004-V1|C",
+   "binding": {
+    "event": "ALA-EVT-GOOD-004",
+    "variant": "ALA-EVT-GOOD-004-V1",
+    "option": "這陣子沒辦法",
+    "displayOption": "說明最近沒有時間",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把排滿的手帳翻給招募志工的人看",
+   "batch": 15,
+   "bytes": 652433,
+   "sources": [
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/主角1.png",
+     "sha256": "a0216e4b812a07f54fb0c565cea18a1e014a6ad1d527c45aef68519f54c6d461"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/主角2.png",
+     "sha256": "e7a0b4b4db7e7faad8af7ca45cefd46dfa679f83fac537a140bb9a2e8a779b8f"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/主角3.png",
+     "sha256": "e8864a07dd0e08ad1deaada1118f3c0327265340f7e8a9e6c6a5896aabf93817"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/主角4.png",
+     "sha256": "5f52962076de2e5224e318648513f85942be594bfff4db5e9ed6dd4c8d393aec"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/值班表.png",
+     "sha256": "e64f6fd9c14b02fb840babee326fed2ffddbc15a0244957ca76a56de014ddb15"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/公告欄.png",
+     "sha256": "ef2272a1c52cc56673f26efa1caedfc8a12eb4c89f09989a60f968e47bc280e7"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/手帳展開.png",
+     "sha256": "c50902fbb5a20c5a1a8ea5908cd24c7d332302e367db1d104fb21ea39ee11346"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/手帳闔起.png",
+     "sha256": "2b3b6475ba83a44b09f5776cc74220b73548dc37fab4b9f75332e839aaf0bf9b"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/招募桌.png",
+     "sha256": "17c882fba3b8ae2dc9859ac821cc08ee9f173e8706eff329526ae4af8a2712cd"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/招募者1.png",
+     "sha256": "f1649207ca8a8750e33301a36f2497b687b989a0787e745d8066559c34902bed"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/招募者2.png",
+     "sha256": "7aee3dae77ea8e885f5ae658b52e1c778d593d37036678b25813af2618146382"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/背心.png",
+     "sha256": "fa6021fb396b430fae202b17adcd5daf92481d4870eb1dc5f14840519af6ca3b"
+    },
+    {
+     "path": "art/R15/07-把排滿的手帳翻給招募志工的人看/行程色條.png",
+     "sha256": "ed51f7634e003639a496ae112458f894e564ef0ad8ad5ece83479b52beedc436"
+    }
+   ]
+  },
+  "R15-08": {
+   "key": "ALA-EVT-HEALTH-007|ALA-EVT-HEALTH-007-V1|A",
+   "binding": {
+    "event": "ALA-EVT-HEALTH-007",
+    "variant": "ALA-EVT-HEALTH-007-V1",
+    "option": "照醫生的建議治療",
+    "displayOption": "照醫生建議進行治療",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "跟醫師對好療程再帶預約卡到診",
+   "batch": 15,
+   "bytes": 312457,
+   "sources": [
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/三次診間記號.png",
+     "sha256": "8022c54778e2b130746079ae229e55c44948e894e3de8362850ad1923643738a"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角1.png",
+     "sha256": "67d497c3163c5500791e321b2a183146d8416c0fcbc74c6fa03e671af3cd0493"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角1手.png",
+     "sha256": "1bec812ec2645ba8506a56092a449f810860b72cd344d449f4b56bfb72e1c915"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角2.png",
+     "sha256": "ee1b3fe3e537c062cb08b1dd18df01d0782c4d87b9885289474c84d231f98b47"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角2手.png",
+     "sha256": "903eb15794d3f88d75f0d0fada0be64cd398ce424b83ae6dd6692a97e3adf12d"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角3.png",
+     "sha256": "8d4f19d9e8c4071b346cd3be646e448b0d754c11583b171a42512d23401dc52f"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角3手.png",
+     "sha256": "c73be963e089eb08efba9e206f5d45fa4ca7e0333a44d5bd21d9edc972292199"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角4.png",
+     "sha256": "6d8226a02407f79c1b57418674dc3575b8a48385e779703e5b97e08dfc6d01db"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/主角4手.png",
+     "sha256": "c876e4f78b3b4b2477af5dc1d410287a8d57d36bb05998efcd44cc42e9a7a4ac"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/回診報到窗.png",
+     "sha256": "b5201f82f140047d6296d4cf4bc70cb82cd5dc5d812c771ba23b11e6127736cb"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/報到窗檯.png",
+     "sha256": "04235aa9ad50fe08ded3db8d600d040182a3597e136abaca9dc2b808ea83d246"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/手帳.png",
+     "sha256": "c0f4a6aa4e5342dfc5956b6a690393036d5ecabfc51622126d0448bf3bf61721"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/疑問紙.png",
+     "sha256": "53f2e850e4a0e01cc8ac3847079e30bb693ccef01f0385d634f05a8ca79a9dff"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/療程卡.png",
+     "sha256": "53fc29a5dc6cff1de79cccd57681dcc3afddd413e02451ef8682c7d7c468fe4d"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/皺信封.png",
+     "sha256": "dfb090cfc4b105c4e413ade402a6f11a288bdd866957ff7e597be5941e7651d8"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/診間.png",
+     "sha256": "aaadd3fc561bd44e7007e4774c242f51561f9222dccd94c8b88ea1250dbf6f09"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師1.png",
+     "sha256": "74e972ece26dade9f4bc76f9c363d0f7debb12a765854b58d2d8406631ad967b"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師2.png",
+     "sha256": "f790a0c2c1f1841b09341df49cefef980c98fceab061dfd63a1df6157e26d39c"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師2手.png",
+     "sha256": "0e8c3e344c71041b64a47380ce24e1c613dcb133a7366d6e00364e714c1ff7b4"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師3.png",
+     "sha256": "84f949010a0d7d64a246daa09a90b1505c29c5fb454db2dce496a77035fc6fe5"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師4.png",
+     "sha256": "75af20d7f32a1fd338e7f260a1ded7290dcbf866d845aa0e2a2b82859d3cc4db"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/醫師4手.png",
+     "sha256": "970508dd90b6dded9d08e9652b8a0776d6f459f85776ef345af3e73dc3c6bc76"
+    },
+    {
+     "path": "art/R15/08-跟醫師對好療程再帶預約卡到診/首診核銷章.png",
+     "sha256": "e31aaf290c602973eb345d3b7e6ce905edb2991f557eeb204681aa72b700d3bc"
+    }
+   ]
+  },
+  "R15-10": {
+   "key": "ALA-EVT-TRAIT-WARM_SMILE-01|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-WARM_SMILE-01",
+    "variant": "一般",
+    "option": "每次經過都向店裡的人打招呼",
+    "displayOption": "每次路過都向店裡打招呼",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "經過街角小店向熟識的店家揮手",
+   "batch": 15,
+   "bytes": 771771,
+   "sources": [
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/孩子招手.png",
+     "sha256": "da2e2ffb9ec70c02449a03ba8f0cd36b308ff2d04e09d85874239f65c2b6546d"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/孩子路過.png",
+     "sha256": "9f6e83322fc15aa1d71f432d6f1d0e95b39a4f274be52f4f503e185cb9bdaf9a"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/店家回禮.png",
+     "sha256": "971b11c0e8bbc4cd9f815fe8d64e7598fcb3a3d078a70cb70eb6a56373195a29"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/店家對視.png",
+     "sha256": "cc594e144f5afbc360f7812dcfd3272f0c0a139ed2a1f6b5193980e4e773cc7d"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/店家擦拭.png",
+     "sha256": "7707cbdcd115127c909101a0ece2777d93bd0114df88f5fceec495dfe06dd702"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/抹布.png",
+     "sha256": "00ffec7c83532de86ff56f48f25da8bf2a2fc08e7dc32b6253466db0f7df5622"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/曆1.png",
+     "sha256": "1a852344d21289b35b67edf9b624b58356589ac4c8a526628c477993e9e2f211"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/曆2.png",
+     "sha256": "c17d61bed6ec304381523ae46ef4a2f71163b675c261f67786db9b39e09b5443"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/櫃檯前景.png",
+     "sha256": "4508486ad7bb594aa39a88f83e1145462ed5a41aa991ab3790a107c42785ee4a"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/爸爸指照.png",
+     "sha256": "1ced5f11a7f6fa293553766f474fc28e57309fd76f874025a6708af24c0e7b56"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/爸爸陪同.png",
+     "sha256": "830964102d832e1c1b18e7906677d4bfeb8a06b6b6ce28994d606258c4e42687"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/笑臉照片.png",
+     "sha256": "86f1427fc9aba826db2d36608d2f4941418ff52376feb47475f2975cc62aebcf"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/開花盆栽.png",
+     "sha256": "8a8d11e0ebbd6efc86cee88a93913091b5e306fc790439c2e01affb9831f13d7"
+    },
+    {
+     "path": "art/R15/10-經過街角小店向熟識的店家揮手/組件/騎樓.png",
+     "sha256": "bb4f0abb35d1f1e033f4d7743458a3bb26596664945d80785c5df9477c1fd07c"
+    }
+   ]
+  },
+  "R15-11": {
+   "key": "ALA-EVT-TRAIT-STORYTELLER-01|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-STORYTELLER-01",
+    "variant": "一般",
+    "option": "每週準備故事，在班上講給大家聽。",
+    "displayOption": "每週在班上講一個故事",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "每週帶著故事到班上說給同學聽",
+   "batch": 15,
+   "bytes": 506941,
+   "sources": [
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/再上台.png",
+     "sha256": "e874db54698988b5d319f1c84419dcaf42d50da2486955902590a8aa2fdb4794"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/前桌.png",
+     "sha256": "4f47bb01737904158b542e96a60592958c177838f7f0a0d9a039f9c9a0a0a435"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/展翼.png",
+     "sha256": "43bc19926a5877afb6eb99b35bc6fde3727bb9c1ef8e33ccd14151aa875b04c3"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/手持飛鳥.png",
+     "sha256": "3472d37c4540a4cc06c0385f4d4b641b6843714905db4361f43da7f6109c6dec"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/指圖.png",
+     "sha256": "23a65fd4f106c4501f229193d3594102b7fe2846d4a9799e977e1f5893371c22"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/教室.png",
+     "sha256": "40989cabf471b388fcec0d4a411d453cbbcb95bd3e54dcd76a41f25da8cea377"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/書包.png",
+     "sha256": "aad350dcf41ac9855820d8658a06431e152fdae1dfd39425afa5362fe0d4d80a"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/準備.png",
+     "sha256": "e0239e1d631b3f73e3325e3666177116e5735c28213f55b58d1fe3c184175db9"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/短髮.png",
+     "sha256": "d107ef794d777b0bd613437867d3d85ac3bb13acd95ae5644198a8ad766f651a"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/短髮低頭.png",
+     "sha256": "e4c4adbaaa185c6fc512f28aff3bce792e11877272a1d73a37fd27ef22f8f89c"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/短髮轉頭.png",
+     "sha256": "c9037d2f9a41bdc45e569b75bf985d410551f4a2d7df32a3f5eebe392ddd6555"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/立架.png",
+     "sha256": "ea04a8842fc6f277e93f6c71ba881395aa64fdc956ec2af4407ff8dbfd793ff9"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/花1.png",
+     "sha256": "d858308cd80859d23b1df5bc6a40c7c2d03e970651783a4f76cc20c957a594c8"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/花2.png",
+     "sha256": "8c543128e4a476be2dda7c3b4ce1fcee5bc2d91415c4bc74b812a9ac61b2591c"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/花3.png",
+     "sha256": "68503598c5c210303ad766743f0f48f741534c55e58796b9497b8a1e0093337a"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/雙辮.png",
+     "sha256": "3cbdf536bafff56cb80b46a96a7187ffcb7ac78b888432d0e20aea3db9da4181"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/雙辮低頭.png",
+     "sha256": "31d5c2cb7f89cd7480ba06bd6cbb8a6c0f97ba4b86658cd33bb1147af6874311"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/雙辮轉頭.png",
+     "sha256": "1b7365aefe992cf71437faeadab75e731ab3eb5362bf1c4e4a9f21b4440e1e9b"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/鳥1.png",
+     "sha256": "8bd28941b15b2a70298d373c7265388dcf764b655581c499e5be8dcbf7ad5eeb"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/鳥2.png",
+     "sha256": "480ed47373f0dfc818ea244daa1a69c98d2515354d3cfff1aa05922ed09b38e9"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/鳥3.png",
+     "sha256": "347e383e8a6e872f7df8e69bdc7f2a6ebd2326a3d71f1f093529d2e37295f8e8"
+    },
+    {
+     "path": "art/R15/11-每週帶著故事到班上說給同學聽/齊髮.png",
+     "sha256": "2069166a3e13b9583808088a1fdc2be0a928e3ede07162cad753e7188c62df90"
+    }
+   ]
+  },
+  "R15-14": {
+   "key": "ALA-EVT-TRAIT-GENIUS-01|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-GENIUS-01",
+    "variant": "一般",
+    "option": "寄給遠方的研究者",
+    "displayOption": "把推導寄給遠方的研究者",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把自己的推導裝進信封寄給研究者",
+   "batch": 15,
+   "bytes": 613802,
+   "sources": [
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/信封.png",
+     "sha256": "54e31da5e990811285216ce32251d95b0af116cea98a43e5fd849f2c26eac39a"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/圖稿.png",
+     "sha256": "fbbc61ae15138ef343e2c5e27dca8b2e8f1eee225cfa0178439238cef4497a7e"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/學生托稿.png",
+     "sha256": "973e197785400d8bfa1188986e9755fc7466070fc30aa248c60db053e22d777e"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/學生投信.png",
+     "sha256": "3f3927d79093bd3fcd8f0e92710218657764a71750c5b74946be965123eb2485"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/學生收手.png",
+     "sha256": "20fd7fa127a8b98f011036be44f3cbc0ecacb102e77ed13e10ed1e56986812ec"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/封上肖像.png",
+     "sha256": "fb49c64bc5fd7838f2097643e97f12cb07ad3457d751216ecb849e7aed2180d7"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/投遞半封.png",
+     "sha256": "fb460211dd3bebde6e4805fa2ee76e10559813a7434217c58bffe4e8d65d816d"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/投遞肖像.png",
+     "sha256": "f095090840f9d8cf757770ff277c29683e1da485794ca72ba806bdca4245fcc4"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/折疊圖稿.png",
+     "sha256": "0fce25c9fa826840e52ccec1de84d55e89462aac1b34535bc88e1e19e3c266a7"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/校內辦公室.png",
+     "sha256": "8aea79d68df7e7c642b0e68f4b3f056c79abec753af4c3b82083d86bc1de2e17"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/校門走廊.png",
+     "sha256": "e7c263637796ac1ac85f8118bb3380998ebce7f99cc4bbbffcf6a9de2e2c5d26"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/老師指認.png",
+     "sha256": "ecab5d9742ac3d72e7711ed0ce865cb2fd77a1776f53617ccce6bbb7d94d6b49"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/老師見證.png",
+     "sha256": "a0afd669697065fd518151996fe0bf49982d4362e6ab55704c7de4f40f983b5a"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/肖像.png",
+     "sha256": "c28fe4fc1b15fa826cf3da84b4f384e622604312664207c0ef653cadf65eec9d"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/郵筒.png",
+     "sha256": "916f1afb0cb6360fa684d852f645748b99ec49573721d91a001268c37d261d7f"
+    },
+    {
+     "path": "art/R15/14-把自己的推導裝進信封寄給研究者/閉合翻蓋.png",
+     "sha256": "4a02ec9f370351a2343d0f37e396150fe3993c60dfdd09f3c35760ade6bc8d19"
+    }
+   ]
+  },
+  "R15-19": {
+   "key": "ALA-EVT-TRAIT-APPETITE-03|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-APPETITE-03",
+    "variant": "一般",
+    "option": "帶個年輕人去吃",
+    "displayOption": "找個年輕人一起進去吃飯",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "約年輕人走進熟悉的老店一起吃飯",
+   "batch": 15,
+   "bytes": 558309,
+   "sources": [
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-主角.png",
+     "sha256": "b1f014d2c9dd59b9aa5eae596c3a756c783d1f20a6a0b65653e13f61fd523253"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-同伴.png",
+     "sha256": "73e311b2b973410542956aaf267debae85483760b58eae4ea7d08c6ce0f48e9e"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-招牌.png",
+     "sha256": "cc73fad0d22910f9305c345adc01291aff64b80758019dfbc51d47c9aabb5bec"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-無人背景.png",
+     "sha256": "24bc05219b7e925fd2796f10a61d3c02bea74970c001fc80f44b2290e4bec894"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-窗景.png",
+     "sha256": "d164da4386294f0b81becbedc3ff508eb4344632c605fb23b44901d0ade3df1e"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-門前橫檔與枝葉.png",
+     "sha256": "1c169dfff727d2fb83d4216b2a463850d3156c31c72eec50202fe43c965b04ef"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/1-門片.png",
+     "sha256": "2f6db61403e599fcaf7c6a8d899e0418c93d85a3502733faaba3f67d3afaef46"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-主角.png",
+     "sha256": "3d9d9e3b99e5e8c3089f15b44ab66e2a215ed566fb862169d78b4cf96a64c069"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-同伴.png",
+     "sha256": "88459235241fd3094fe410412b3bccc941f5ec3939430dc58446b4b9058dfdd2"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-店主.png",
+     "sha256": "1d609dfd9b7294a62a752e8a8513efe65727b204c3b2adb1ecfaf731b057f704"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-招牌.png",
+     "sha256": "af07d66f312ccacd489a3422be238bf3fce98fb227603ef983079c4fbe8d9457"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-無人背景.png",
+     "sha256": "405289898b2c94478cf940c3d69b91419008a89ed2d06594af0c4f686f573b19"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-移動門把.png",
+     "sha256": "01512ec6dbb8d2fe5eed35b3faf94e1d480c496f0ef99a6243d9351d54f5fade"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-窗景.png",
+     "sha256": "61d2a762270387488b6b2d64a7d164cc2aeb97fad74375c19090f5707ce5709c"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/2-門片.png",
+     "sha256": "5831ce262ccb0ff44647494f3d9200e9096e09caece0d5e9724c31a354d79b9d"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-主角.png",
+     "sha256": "183c8873715233bdc827b7fc20d1724c0a82f0aa411fe511a20e241d0f3a21f2"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-右飯碗.png",
+     "sha256": "937c1dc10b9aba3f031237a68abed4b8d5c9b311b752e9796908337dc8e622a3"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-同伴.png",
+     "sha256": "9fe7ea0aa54eb42add4fa7064ddb8cde366b6f5ce0ec4708e24b152eb12fa619"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-左飯碗.png",
+     "sha256": "f5a9e9c33e67d4165dc494c9a358d498fc627434f5c4ac0275e1fd4b493c6eb5"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-店主.png",
+     "sha256": "c331f448802852994b70bae7efc60bd562e9da1eba26099dc91fa747d525b561"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-招牌.png",
+     "sha256": "0c3089e80ed99635605a42829a75a45f8bafc561eceb0786751d4d89a8006f55"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-無人背景.png",
+     "sha256": "d20ee393aea2b87db51e9f7c06775e7099fa889d3e915d605b16cd4f3bd11c55"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-窗景.png",
+     "sha256": "402e3384d0a00de22f2eff98d3eee59010d5ad2dfb921ab4ae100f7667e24def"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-門片.png",
+     "sha256": "4d0271dd286b0ae065a0759a8b76b5d57b3ee602d74b609e6df2161c366081e3"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/3-餐盤.png",
+     "sha256": "110c41d9051af4652cf446ed7138bc080089d7dd65eb6bf34284468a9f4d04b5"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-主角.png",
+     "sha256": "bfc0ef293e5e265ac03eac3f6af6c3dff050c3b45dbfab42c8270a72e373d5ff"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-右飯碗.png",
+     "sha256": "037bb56a25c91b2171114e662a38b257770b32f06d07c22e61195f0831960090"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-同伴.png",
+     "sha256": "889f7241d4e9d2382564bf457f5eb5fe09df9a0e0e6cf1c1d2e8a0bbf3c23608"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-左飯碗.png",
+     "sha256": "faa972c005d20ef6d4b5667d7ba918a661f0ce0c48b59c1bbf7ec8b1c7050218"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-店主.png",
+     "sha256": "68328620397ccb4c2893bcf6900ab9347bd59c97a788cab3135566b2782ca382"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-招牌.png",
+     "sha256": "0c3089e80ed99635605a42829a75a45f8bafc561eceb0786751d4d89a8006f55"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-無人背景.png",
+     "sha256": "d20ee393aea2b87db51e9f7c06775e7099fa889d3e915d605b16cd4f3bd11c55"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-窗景.png",
+     "sha256": "402e3384d0a00de22f2eff98d3eee59010d5ad2dfb921ab4ae100f7667e24def"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-門片.png",
+     "sha256": "4d0271dd286b0ae065a0759a8b76b5d57b3ee602d74b609e6df2161c366081e3"
+    },
+    {
+     "path": "art/R15/19-約年輕人走進熟悉的老店一起吃飯/4-餐盤.png",
+     "sha256": "54572caaebc3efba31c221dba3d09aa905de27dbaadf998000de23dff2f25717"
+    }
+   ]
+  },
+  "R15-20": {
+   "key": "ALA-EVT-TRAIT-SLEEPER-03|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-SLEEPER-03",
+    "variant": "一般",
+    "option": "每天睡個午覺",
+    "displayOption": "排出每天的午睡時間",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "每天午後拉上半扇窗簾躺下小睡",
+   "batch": 15,
+   "bytes": 262376,
+   "sources": [
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/主角午睡.png",
+     "sha256": "b6f06ef9dc0357a18d1d15ac1fe484b7a9201b77315e77423f9368365b3325ae"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/主角坐讀.png",
+     "sha256": "1e3df158a7cc0e73e71910bd9a133645a439e1f4d5a4c9d1c5c81991346d3852"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/主角拉簾.png",
+     "sha256": "85a92484f8b42cd8dbbbffb0040e9f78fcc5f737b9d41fab73fa785c3ceb55d6"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/主角調鐘.png",
+     "sha256": "d0e7f11fb660d153ad94d585ff6cc18f6cf6e47802dadb1c2bd484a26aed04e0"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/作息板.png",
+     "sha256": "c45568fe76be4fcc2e8b11d777502764751dbddda85165ad2f564266d88af362"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/午後枕頭.png",
+     "sha256": "ec9461f0964a8e38bb14de7fd1ee29a7bb5cc8c8dbd0f6bb4f71ed26d3ed70dc"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/午後臥室.png",
+     "sha256": "d1ca199418eabed1469164444a67dec0e4848194a61fecb6bb5e0f501143bb3f"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/小時鐘.png",
+     "sha256": "51120b083c2999ff2abf2e4d7dcf9abbc844425cba435b17462aed5e889656bd"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/床几書.png",
+     "sha256": "49ab0cebdb89d69706441a47c7ffd2dd841e928c0690449faa885c66cc3607ee"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/手中書.png",
+     "sha256": "c51d84c5a71ee5636b91f76f2bbadfe25c7da25e9bb07b013976cb248c8c1972"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/指針午後.png",
+     "sha256": "804fc047b67d13cc54b24d563a4a659a75fbd8d6e595e1fef5aa0f80bb1b4051"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/指針原位.png",
+     "sha256": "57bfa66d2ad9d3a027b7b176a381151f5aca6b6183ac6fc5a75e6cd69d0d72e6"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/棉被前片.png",
+     "sha256": "d9ffc0b358d49884738faf17b3b661095e77beb337552020076a9f480e1caddb"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/窗簾半扇.png",
+     "sha256": "0f3adf5969e181c821e121180c8ceb08965aee12b7b26125df1799c924795d05"
+    },
+    {
+     "path": "art/R15/20-每天午後拉上半扇窗簾躺下小睡/窗簾收起.png",
+     "sha256": "5935bb76a136d74b981014a32a4c880e9f881fc96185cf009567e8057b45c495"
+    }
+   ]
+  },
+  "R16-02": {
+   "key": "ALA-EVT-WORK-003|ALA-EVT-WORK-003-V1|C",
+   "binding": {
+    "event": "ALA-EVT-WORK-003",
+    "variant": "ALA-EVT-WORK-003-V1",
+    "option": "不打工，留時間給學業或自己",
+    "displayOption": "先不打工，留時間讀書休息",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "收起徵人紙條照片搭公車回布魯克林讀書",
+   "batch": 16,
+   "bytes": 696275,
+   "sources": [
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/住家室內窗框.png",
+     "sha256": "0f029c631970bded04b26c3f6b926dd76a959c6a3a6c6df6bbd167169c19ba87"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/側袋書包.png",
+     "sha256": "7b6e7b1ff8b42d2eba7066330f07695c1f7cfcbad22d4c5fd11db37c12f9a361"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/公車座椅與外景.png",
+     "sha256": "af9266cf60bd96a2a80ef3de859282fbc0d2e2e79f31e803a4916ae4abe6a76f"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/公車門窗.png",
+     "sha256": "864d31e50309d41df1a3283120b47d70f88a91a5cb7bd9003b71fdb1148719be"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/公車青年.png",
+     "sha256": "bfaeb62427794a83aa674cf2d1ae8389e39044431271796a8122b638f6f24f3d"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/可替換手機畫面.png",
+     "sha256": "3a59a77f69d5062e2b1cc4bc26239ac03238eb2095bfc70efb35678a166eb3d9"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/右靠枕.png",
+     "sha256": "b91ef59678a2760148d55f17abba3f289ef287714d4b4988851e42cd36617be0"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/同行大人.png",
+     "sha256": "4ea3a6cf8bb8be7b60f043d765931fc64dbd2c8805b0d26bf15da60975619679"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/寫作業青年.png",
+     "sha256": "22e955411d32c20d9bc1daa8c2068dc431001c7e73ed6399e935ef6a5973308c"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/左靠枕.png",
+     "sha256": "2bf85c7467fc4bc3eab8d923860b03d2a1bcec244191a8018d8592125cfa6cd4"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/店員.png",
+     "sha256": "a3c20498b3ed833940c3377908ae12606bb019334d77676740ded12e2455f02b"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/徵人圖示.png",
+     "sha256": "1c5dd2705f321f419f07297f7efdc4c9d11085cc6ec89cdf734306edb18bfb1a"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/徵人紙底.png",
+     "sha256": "9856c59f32df2c24e73f567942efd9d30cdc4381e8d751f1ba04982931fc2fc4"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/懷抱書包.png",
+     "sha256": "9fc459a17b5761e0033c8ae6bbb05987ff8ef8e452525c81bca90710e0194570"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/拍照手機.png",
+     "sha256": "d9d08a75670cfeb446b4a7c7c18f93f6f54fad56123fc40b723728cd1c5ea7ee"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/拍照青年.png",
+     "sha256": "8fd5a4213d7b628f76fbdffb4e54052f9d04d0ea4c2bebb4452c1264d071fb71"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/持機手指前景.png",
+     "sha256": "c0e0372ebdcb72c9951366a78dfba62d0582fc24c895adabe4fac31badc3b9a6"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/摺皺履歷.png",
+     "sha256": "4bb92a92aa158b58b995f2cf5e0287d2727242ac72cb8ee603b85ed7e883d552"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/擺手青年.png",
+     "sha256": "993b49a6d61b3fdac49841edcf9d96002b859385a48889c38e7ddab9ba22eba7"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/收存手機.png",
+     "sha256": "7dc123f9707134dd4e7578c7b3b642a9876f9dce906838527c3c5c05a74fa368"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/櫃檯前緣.png",
+     "sha256": "be156351a7c5f5e475a3f5a2d55615e78a82b3b004edaa3e6bab4a5bee6cd90d"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/班表.png",
+     "sha256": "5bb9a60100eb0bf868c9dc29486c868a1488699183ec0feb131adb511ad80786"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/窗外.png",
+     "sha256": "a7ef2ca39dc62fab16713468654f919b2530f4129eb623622d9f78e6bf19ddb1"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/窗邊書包.png",
+     "sha256": "2ba4297a6bb6bf97b45a47f6c71fde6c7c6ea1c06caec771b1db62cf9b682024"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/肩背書包.png",
+     "sha256": "228bf3492caf22cbc3dcc58eb3628e08f218aea85ed1a00581dec518993c6d62"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/街角店無人底圖.png",
+     "sha256": "8813d057fc0d98c155dd54df11281aca45413ed03f1fe9ea08c04879aa7f4bc8"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/課本.png",
+     "sha256": "76e7b2f0102bab7da1a7de1ad7dcd90a0426926ba862f83811951311f9f26a59"
+    },
+    {
+     "path": "art/R16/02-收起徵人紙條照片搭公車回布魯克林讀書/鉛筆.png",
+     "sha256": "377b66da32ea66f69b5a8c4d2681b161591a3b8313adc9810eb8385cc0725510"
+    }
+   ]
+  },
+  "R16-03": {
+   "key": "ALA-EVT-LOCAL1-DE-001|ALA-EVT-LOCAL1-DE-001-V1|C",
+   "binding": {
+    "event": "ALA-EVT-LOCAL1-DE-001",
+    "variant": "ALA-EVT-LOCAL1-DE-001-V1",
+    "option": "允許這一格暫時空著",
+    "displayOption": "聯絡對象目前暫時留白",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在柏林公寓把聯絡欄留白後闔上自己的備忘冊",
+   "batch": 16,
+   "bytes": 538017,
+   "sources": [
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/1-本人.png",
+     "sha256": "16407f7beba03dfa80a1e6d32efba95d0a8e7989f7dd013ac293e61a591cf444"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/1-空欄電話圖記.png",
+     "sha256": "a3a07ed651355ffc9958a7932b486702fcb93ccbed9686003192df2267602291"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/1-筆.png",
+     "sha256": "83ea20e96ef4f0ba21086af58dc0085305cd9cda7abbae21a25c808466b2e082"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/1-筆座.png",
+     "sha256": "bfde060548139e0d945b86f6f3deacbbd4e58989629de10d960e41a77796a783"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/1-開冊.png",
+     "sha256": "a03949d1c3deb0d4583ae2898ada0cf2b3660cf87b158e371e98a1b3ddeefd7a"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/2-本人.png",
+     "sha256": "bec90857f613a92de2491bf96a805363150f04b9da99a8aa677f67b6fc5259f1"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/2-空欄電話圖記.png",
+     "sha256": "3355c9a8d5b2be16e8a21dbd182031238ad8095c060ea395fcff8d093b01e75b"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/2-筆.png",
+     "sha256": "65158710872a65e769d6d88c507b3e9631314d06a41d9822fb8b1d443ae903e1"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/2-筆座.png",
+     "sha256": "2d3174439f3a4d422cd460ae24f5642dec7e27267cbd249eba4e018a53e295cc"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/2-開冊.png",
+     "sha256": "4aace86cd3d145d1616ddea8ca59004d8244a72964a861fcba23e38818b37521"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/3-本人.png",
+     "sha256": "19f9900d2f749e626e6fe523866aa799aaf0a005210df2af2670bf45315da6b9"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/3-空欄電話圖記.png",
+     "sha256": "df05e7fc6c186b32b0914de161301859c5fdb1d774d340ac7aa671908e09ad2d"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/3-筆.png",
+     "sha256": "de42073ee3aeb7f04d8ed40638cc6cf85105c5d28a45377d9afe587decd55c35"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/3-筆座.png",
+     "sha256": "2b42ff139936fcebf98fe0e25ba7a2f3cbd109d93a37e2fcfbbb300d937055ff"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/3-開冊.png",
+     "sha256": "d9fe1048988d71163fa6a96119cfbcfadcd4e4fa97fcdd213074cb2248d3ff30"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/4-合冊.png",
+     "sha256": "8fa7b368b383dc293d625a04280fdefb0236fd2763d7668faa50e793bcdb51ae"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/4-本人.png",
+     "sha256": "4ea548dae24f4828afb44505cf8ae20068b12f015b85d7335cd766eaee4c8b12"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/4-筆.png",
+     "sha256": "0b6424875a9cd6f6bb5475d0e65bf82ff3aaeabbd3fddb40255b265cf8f73eb5"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/4-筆座.png",
+     "sha256": "3903040e436b150e9784b64920d3606c201990daa5b778395203a0299a64773a"
+    },
+    {
+     "path": "art/R16/03-在柏林公寓把聯絡欄留白後闔上自己的備忘冊/無人背景.png",
+     "sha256": "6b3b63097b05c583376f9118ef1ca4f1344bccc19fe7ae7fec3eeed16bbaee2d"
+    }
+   ]
+  },
+  "R16-04": {
+   "key": "ALA-EVT-CHAIN-013|ALA-EVT-CHAIN-013-V1|C",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-013",
+    "variant": "ALA-EVT-CHAIN-013-V1",
+    "option": "留在照顧我的大人身邊",
+    "displayOption": "留在照顧者身邊休息",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在首爾避雨安置處把背包放好坐在照顧者身旁",
+   "batch": 16,
+   "bytes": 561009,
+   "sources": [
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/入口鞋袋架.png",
+     "sha256": "f6cc0f181ba9de854f5e9fecb4b6c72d06b6008655bc33b226157bc1e42839fe"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/公用長椅.png",
+     "sha256": "d8472c8cd02a92a6c0289ee5377980a2d5d91b16c2da6ab86fec94221d170197"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/北村窗外.png",
+     "sha256": "687011d27fe57adacbfde92f9c8fa8d88e0b35d1e1ed1350c531fef16802f4dd"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/孩子抱包.png",
+     "sha256": "e9883ba3fb1ac198f1a904d17d0e2f5c808252654b82344ead21183551cd680f"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/孩子放包.png",
+     "sha256": "1e1acfadb984ff8e052f71083864c96dd89169d27fb66c973c763cb577a0a5f7"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/孩子牽手.png",
+     "sha256": "b9451455c7da8228f6609be8bbc3823382b7a4ea358a132dc9e835066f64f46e"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/孩子靠坐.png",
+     "sha256": "32c172a543fac7a93bd70cce5ed5a0505afe754ce31ed300ecca789639075b7f"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/安置人員.png",
+     "sha256": "bdfdd9050c0f56b9cbed765c7dd6a33cb1e2391421b549d9a47851cef1548c7e"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/室內窗框.png",
+     "sha256": "d1dd002739a4be408556102123dff175098150286509d01a2cf060e1bd67973c"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/室內補底.png",
+     "sha256": "4bca0212f8dbc6dfca7dfab8083b0e85b9628e7c36fb8b7b2084d76c778b17b0"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/標點.png",
+     "sha256": "0f4b87234d82409ec3f7e02625a3ea0c2edc58cc9e99ccc2c814e40c7f137205"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/濕傘與傘籃.png",
+     "sha256": "e5fcc3aba8867cd005dc1ecdc7c9eb67385030fd47d2e6e59ba16bdbe227b3eb"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/照顧者坐定.png",
+     "sha256": "a7fcea7e403027c74051a66164ed074ba8ee7d7d788c60c5decf73eb8f8bb7b8"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/照顧者邀坐.png",
+     "sha256": "5f30a547cd39ac215e6c7bcaf19b45fb5766c9a104a2c4bf388aa69f6533608a"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/背包.png",
+     "sha256": "007cc1d75275703892ae7f8d8cc63639cd9d7daee8b303a9aab3719c68bd09aa"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/胸前背包1.png",
+     "sha256": "e09101b08adbdbd4363dae318efcea118c8c09cd336df0061a4074de09858a74"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/胸前背包2.png",
+     "sha256": "1140e1c2474f7b6723a67055045d160d99bad261c2dc40a3675b47b67cd747fb"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/臨時住宿床位圖示.png",
+     "sha256": "e01812e7d1616f1f052c67c2e6c5e1348d028bdc3649345ae240da6cb23a5bbe"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/語系文字.png",
+     "sha256": "0f4b87234d82409ec3f7e02625a3ea0c2edc58cc9e99ccc2c814e40c7f137205"
+    },
+    {
+     "path": "art/R16/04-在首爾避雨安置處把背包放好坐在照顧者身旁/說明牌.png",
+     "sha256": "d08672c6e0740df9b0b679a3d5dc97a8c5d7e6f423ab5b31057c5684976d0291"
+    }
+   ]
+  },
+  "R16-05": {
+   "key": "ALA-EVT-WORK-007|ALA-EVT-WORK-007-V1|B",
+   "binding": {
+    "event": "ALA-EVT-WORK-007",
+    "variant": "ALA-EVT-WORK-007-V1",
+    "option": "請認識的人幫忙介紹",
+    "displayOption": "請熟人介紹合適職缺",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在蒙特婁把履歷交給認識的人請對方牽線",
+   "batch": 16,
+   "bytes": 661583,
+   "sources": [
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/主角1.png",
+     "sha256": "641b970df0f95d7e9b0147d445de3676c13ef2f350b7901a9282b167c070c90f"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/主角2.png",
+     "sha256": "2fd73bf6098f9200256fd3ef7e8665e61030060a72b74dedda0dbebd413a563c"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/主角3.png",
+     "sha256": "bf6003b6a3da056f5d4f60165573783b5b41baed3b50290c63d52e0bcb9105f9"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/主角4.png",
+     "sha256": "debdf2cdd582bc34f8310ffc0c4a0f406afe455bb9ded1e62a5c6bdd39e6cd4a"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/交件指尖.png",
+     "sha256": "7b55dc3fe5277b30a9ef444bf0ae57d0f3c24333258be908f48d327483553665"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/交接履歷.png",
+     "sha256": "04f87abd2d39e451eeb319c57ab1e2afef17c55e753070bbc887698825e2eab9"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/介紹人1.png",
+     "sha256": "4143b144e0fe2ad755e1acb964f12ec7559a454f5f7d21aa6847fd40c9577515"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/介紹人2.png",
+     "sha256": "c8f94fd3a5a3d4292306f7df0c1010d07e6f43cb6a1b71ab2ed667d9dc54ee11"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/介紹人3.png",
+     "sha256": "ae72a596ae8199d5cd1858da215e3004a2b1796058710004b6482841e01451d7"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/介紹人4.png",
+     "sha256": "304c2c5633e97b7946bf7ee387a1131491506f9de37a684765f18b6baef976b7"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/公車.png",
+     "sha256": "9d15d845bcbd4b1969653d4276a97ba602279d66ce344ec58a202d6e441abab9"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/台面履歷.png",
+     "sha256": "9fcb23c5c529cd50558f2f96343b2d7d340a4e48e7ac3f9ce46c49d7ccba8beb"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/室內與窗框.png",
+     "sha256": "935b9130d5f9a3e76e534ce177ed9ef108cef17a3d519e8d116e36b74386695e"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/履歷.png",
+     "sha256": "8d962b79ef2237c22e1bb94003ce65317735b230db968b255421cb54295b192e"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/徵人窗口.png",
+     "sha256": "3a0e3acf15d897f7653b2bc22ab8a2b27ca3b78cac1983b271f1696dfb5fc2fa"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/接件指尖.png",
+     "sha256": "1a45377ac122fd1038204bad5955530b275c0e5e862b8c07b850b5d0db658389"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/握紙指腹.png",
+     "sha256": "2852c145f220300b46b95af4b2111051622384d3568976e3e460b64a79af2a14"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/收件手掌.png",
+     "sha256": "9d558e5cec6084fbfbee860848de0e922e8cc1ac3ad4575d68f27f161cac7ef4"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/日曆.png",
+     "sha256": "368268bbffd3775f78fb38c86a7a389510702171a13ddd06d19443e2f79255b1"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/時段.png",
+     "sha256": "2415b34e63cfbcde06d13381709b730c8aa52f82aef3319b475d0d59cb655960"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/書寫台.png",
+     "sha256": "e5be5ced2e14263a707728e632cfbbb584064ffef7b90fe90089fe9d95cfd874"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/無人背景.png",
+     "sha256": "ca552f315c1d4ff921032ff599def19cda1f9363d613627c2b2a3a3f9a5f9ee7"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/窗口話筒.png",
+     "sha256": "3a74ec283610c83d65b1cf8af96e8d2e667b2027aa18b7c7abf8096704118c5f"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/窗外街景.png",
+     "sha256": "49e0c8fc829744c2fff526c57324f71cb2c55b052767296d7c0d5c129fcee568"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/螢幕履歷.png",
+     "sha256": "405f43e965085a6cd53e2763ce5f56acef31deef43aad9d12d525ac061a5f5de"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/通話小框.png",
+     "sha256": "d80282d59e62334e81e98a11ecbbd490c43a5a47cce66724f15ec8336add5a4a"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/通話手指.png",
+     "sha256": "f7c42cdb25994f2c8be28b28f09abd7db05a1e7e88b5b10b8638c1c3d3ed32ec"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/通話手機.png",
+     "sha256": "ab52b13d36e1403e8793c43d740a4998a635b7d4b941ed54915cc9b39d6b5ef2"
+    },
+    {
+     "path": "art/R16/05-在蒙特婁把履歷交給認識的人請對方牽線/通話持件.png",
+     "sha256": "c14e92a84333f5aa24b575c256286e2090dcc30361d9034e4a96b7671b3c3b22"
+    }
+   ]
+  },
+  "R16-06": {
+   "key": "ALA-EVT-WORK-012|ALA-EVT-WORK-012-V1|A",
+   "binding": {
+    "event": "ALA-EVT-WORK-012",
+    "variant": "ALA-EVT-WORK-012-V1",
+    "option": "照熟悉的老方法種",
+    "displayOption": "照熟悉的方法耕種",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在拜伯里菜園照舊筆記沿原有畦距播種",
+   "batch": 16,
+   "bytes": 645756,
+   "sources": [
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/008-M-A4-1.png",
+     "sha256": "0bdc4c000be231192e0e58a2b4211d0a49ec9b58be822b75a775a663ffee1fb2"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/008-M-A4-2.png",
+     "sha256": "06f3683a2e87f37aee6463e20d26ff99b8e29a406c5d19f5dd34c798fb01d4db"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/008-M-A4-3.png",
+     "sha256": "a20d7339d53ebd4baa41455adb023d234d0ec6df3410843facb48bff9044a68a"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/008-M-A4-4.png",
+     "sha256": "b0b9b89b55e59b1a83ae0c9fab25dc612d5dccc49498b564c366b5ed008ef4ec"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/原距繩結.png",
+     "sha256": "45b4d1c61f35d41601605b50e9481787ec7fec26fab8a2f5479f5e625b5497a2"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/土地2.png",
+     "sha256": "79bea1a7247cb6b0326a7aac16187896eb7940bb6cb0670b8cad1cead39e2b0c"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/土地3.png",
+     "sha256": "37da888710933e4293904852b621a3a9179ec997ab43e84fe559d8440b7f6fdc"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/土地4.png",
+     "sha256": "b31eb1ecc75b71621ed4634617e6c85dae23bf9d850287e03a18ed0eabe4e326"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/帶泥量繩捲.png",
+     "sha256": "95a783614a4c5a823961ed33dd41b892e42dbdd2b46b759fee4c74ed6a50f47a"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/窗框與室內.png",
+     "sha256": "1d08759ca029882d0d1cfbe04aae96f1a7593e569564c0eb6fa836dd1f37dcc5"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/舊種植筆記.png",
+     "sha256": "e0eaabb8d982bfacfee3f4fa8813098cccfcd0fd5015212834a916e7521720bc"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/赤豆種.png",
+     "sha256": "f4624a8a12d9c881680865b26d8c31a1af6916bab6dd81a2250a7ea5e11e63b0"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/陰雨窗外.png",
+     "sha256": "6379161ed8f0075a96d344b47eb87b0608cf5132ef084fe9b72ec33587957b98"
+    },
+    {
+     "path": "art/R16/06-在拜伯里菜園照舊筆記沿原有畦距播種/雨中菜畦.png",
+     "sha256": "4210262b9d4437956534815ff470f11f9ac67356d938c81b515e135a3483ab71"
+    }
+   ]
+  },
+  "R16-09": {
+   "key": "ALA-EVT-EDU-001|ALA-EVT-EDU-001-V1|B",
+   "binding": {
+    "event": "ALA-EVT-EDU-001",
+    "variant": "ALA-EVT-EDU-001-V1",
+    "option": "先看黑板上寫了什麼",
+    "displayOption": "先看黑板上寫了什麼",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "第一次上學跟著老師的指點逐個讀黑板",
+   "batch": 16,
+   "bytes": 536826,
+   "sources": [
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/主角1.png",
+     "sha256": "79b28a3301c1e64c8ff3bab17ea9267c239c7cc1b72457588bacc52b9e587056"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/主角2.png",
+     "sha256": "38ba28a6ebf69bf06d1a6959ee1c3d252f2c25939c4e96d1d51fd4914cf2c2eb"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/主角3.png",
+     "sha256": "97097af2fb21a38b06e53de010b585dfeb575420732138b0b98a351be82aa55c"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/主角4.png",
+     "sha256": "8f53a185c020bd8677b177e1381cd392c9bf23919a4a4c73fbdaa86eb5f98e77"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/底線1.png",
+     "sha256": "f82a68f02c466a24ccb1673782b0bf75449a6b6d9f62d65e985fc10bcafce473"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/底線2.png",
+     "sha256": "7ba131c122b77bd81d0d522de1f289b9fa2ec87d00bb601fb979e7564295bca4"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/底線3.png",
+     "sha256": "bc6bb7197d615b56a0371d1649558282d4c4c73bcfd45b32d2a5468eac279b3a"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/教室.png",
+     "sha256": "530893289a8fb61abfb173aca280365b1263ee8d74718aac6feb4925cf52b99a"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/板繪1.png",
+     "sha256": "52747593f63826fee4012a41902a6c61981cd69239231c8ee6d92659e7315d62"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/板繪2.png",
+     "sha256": "422c09d2e408e9ba734b8988df62a492021a39a5455ad1992183a0cd1ccf7a80"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/板繪3.png",
+     "sha256": "e336749e4f2a6bc904d0732702c17afeb2bd5733142cec6202da37e2382945ce"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/老師1.png",
+     "sha256": "0e4c28abc559185f9d5dcb1f6d082e893a01a4ae74442ad6a1994a35c2eb6afc"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/老師2.png",
+     "sha256": "0f4a53527e146dd4fb007dff392a1e79f4a91571ef9ddb612fbbb52d23f3430b"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/老師3.png",
+     "sha256": "0f4a53527e146dd4fb007dff392a1e79f4a91571ef9ddb612fbbb52d23f3430b"
+    },
+    {
+     "path": "art/R16/09-第一次上學跟著老師的指點逐個讀黑板/老師4.png",
+     "sha256": "621c88cce9dd739e06c7f1916fd29f1e6fe5ff57f2028d9d1e59846927e376a1"
+    }
+   ]
+  },
+  "R16-11": {
+   "key": "ALA-EVT-EDU-002|ALA-EVT-EDU-002-V2|A",
+   "binding": {
+    "event": "ALA-EVT-EDU-002",
+    "variant": "ALA-EVT-EDU-002-V2",
+    "option": "舉手，請老師核對用字",
+    "displayOption": "舉手，請老師核對用字",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "舉手請老師當面對照課文與題目的用字",
+   "batch": 16,
+   "bytes": 531933,
+   "sources": [
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/地字.png",
+     "sha256": "ba4b222c3bde117124809e1d7a984f3f2d890b9c919a0212d3a51fde0e64b48f"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/孩子指頁.png",
+     "sha256": "a539dc75ca465277cf58ca8cc0a69c70a3fde4778318c1de333cd822afcfb9e6"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/孩子指頁接觸.png",
+     "sha256": "d6b509710c6a5f08478c4c19a5ecf3e455c190688c86986aed8c61e8bd3c8e67"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/孩子舉手.png",
+     "sha256": "88520482890e9df7c814f231fc2e08375e3b9ff48bdc3a96a15962e00b8d257d"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/孩子舉手接觸.png",
+     "sha256": "4bb8a6c774e9bdcf3b9958bf9cf6ea1caadb4783b7e2ef1546ec9aedef8b07a7"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/教室.png",
+     "sha256": "32a87f1c231f5c7f54fc8d40fefcd49c546224bc98bb6e837f18989299952ec0"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/木桌.png",
+     "sha256": "b7ecb4ae98306e6b4a90901563e2858ebf8daf3c45bceec74a5b7014f703e5f2"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/池字.png",
+     "sha256": "6386c9dbd3c4b848387e50a4601b2c33762a294ab3c5f931181c9f468281a593"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/紅筆改痕.png",
+     "sha256": "20840829e1f34995a4ae628df1a09e029e3e47e67be480e1513c779f65dc43cd"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/老師執筆.png",
+     "sha256": "d1a433d235ab1cac9bc32e5e27a77f461dedf98b20179626d5fd3e7750ab5208"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/老師執筆接觸.png",
+     "sha256": "88905db707197c60ea5d6de0212c90de9b19dff3d5647138912fed92055f722e"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/老師指頁.png",
+     "sha256": "14ebe81a90617d510de7fc651c38464fb4dd4936908ac4e0c6c0582e2bc3017b"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/老師指頁接觸.png",
+     "sha256": "d94226b8c9b8eab18a53ef9a67bcfb0111307ef2578b53a5e25c0dd78b53c02b"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/課文.png",
+     "sha256": "e54ada89cedd06a222586e2e8655ed046b52a741295d53764d79b369ed19e0d6"
+    },
+    {
+     "path": "art/R16/11-舉手請老師當面對照課文與題目的用字/題目.png",
+     "sha256": "bbb99877c3d981a4f96dd4ed781922802a0c272b53cd773cf474aab999052714"
+    }
+   ]
+  },
+  "R16-13": {
+   "key": "ALA-EVT-EDU-005|ALA-EVT-EDU-005-V1|B",
+   "binding": {
+    "event": "ALA-EVT-EDU-005",
+    "variant": "ALA-EVT-EDU-005-V1",
+    "option": "照自己的節奏準備",
+    "displayOption": "按自己的速度慢慢準備",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把升學複習分成幾段在書籤處收工",
+   "batch": 16,
+   "bytes": 237447,
+   "sources": [
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/完成格.png",
+     "sha256": "44e45da07f782196b9680c9ae9c95f6047ddcd88116c0d7467a615e58b31771e"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/待作習題.png",
+     "sha256": "97d2978de2ab91054e5d8440bdbc4016c1332c81ba76f94ab652d5bc0ae49b68"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/指題.png",
+     "sha256": "dc3f3a91004d3a39afbec11ee28ab47e7093a3a3921e5a61dd2f5dccd75e9f87"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/插籤.png",
+     "sha256": "d86e029a09af72d200182f20c13a1b1e8b7471da8d95d61674e4cee1e1b52016"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/明日三角.png",
+     "sha256": "98c0284c0a3c3ac010515c56524bdbd7654d917d94f7a622750c881d5c6e798f"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/書籤0.png",
+     "sha256": "4078aea4748f6ba0b461797b1cc473dc07d02106cd88daa6c5c5ca0e7bbe687b"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/書籤1.png",
+     "sha256": "b91f6269d3c3b4f015b3d9dabcf56218f0c7635c879f01d34f44675d063e89a1"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/書籤2.png",
+     "sha256": "033ed1cb27f135d6055e436e46a1379b7e3bdaca7b8a5a6852f3d8c1b549eaf7"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/格曆.png",
+     "sha256": "c8d5b1275e3ce0b5c4636a86b6c8c2fa56a904cd2e694b9c12d1ecf53fbd8659"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/桌緣.png",
+     "sha256": "c0680633acd4215ff0544675a0c7247f52b3a87e0eafb6141d1a1d7c6634be57"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/簡章.png",
+     "sha256": "0941cd3ed880b63a871981686d9a3a8c9758f5f56dc77b75b271068cf00051b8"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/習題.png",
+     "sha256": "45c49c0f5a3381963b35fa0afc6491865f6039bc2d402e140d6f0a6ad8b16778"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/翻格.png",
+     "sha256": "fc0fe88fbfc9b7af9d6a906f8d6ce8de7a7ddb3c9691b6aaae999e87733ce2e8"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/背景.png",
+     "sha256": "e4600976a8bc58bf099e576cdd0143a18406bf310efb14748bb07f968b0a61c2"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/鉛筆題線.png",
+     "sha256": "34ae0248efdbc772f2824bed925f292059b1169c57fa9f5d68763bfb14ff30f1"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/闔書.png",
+     "sha256": "9e7fc464220c719b05472d84217238f3e9ec8a07dc2e2bc65910dfb2b2ef36c6"
+    },
+    {
+     "path": "art/R16/13-把升學複習分成幾段在書籤處收工/離桌.png",
+     "sha256": "c1622ed8d9f9da7bf6aed60bebf1dcce595f1b9830849d722a0fce5dc6efb776"
+    }
+   ]
+  },
+  "R16-14": {
+   "key": "ALA-EVT-EDU-006|ALA-EVT-EDU-006-V1|C",
+   "binding": {
+    "event": "ALA-EVT-EDU-006",
+    "variant": "ALA-EVT-EDU-006-V1",
+    "option": "參加職訓或當學徒",
+    "displayOption": "選擇職訓或學徒工作",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "帶著訓練文件到裝訂工作檯跟師傅練折書帖",
+   "batch": 16,
+   "bytes": 520224,
+   "sources": [
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/圍裙.png",
+     "sha256": "13b42bc9eee30e0fb9cb43609fc85181e6feeeb3a9ed8633a2a2c7e37a107465"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/壓折圍裙.png",
+     "sha256": "e66575f8f87d95244806634d3e1e051ef96143dda061865d7af4cee45e44b83e"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/家中.png",
+     "sha256": "349351ad170cedaea8d03c856e3f197a10d50a2971d48287ef03bc696fc6f53f"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/工坊.png",
+     "sha256": "291d860dca9bd9b5848adff1bf1fb791bb99c7d7f329d77aa662c5874f56f259"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/師傅折骨.png",
+     "sha256": "e8f77ec189d0f162501d97c0fe331136aeb21bd3981fd32bd565227e60022f86"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/師傅示範.png",
+     "sha256": "f7d97cb1361569cd116ac3337b70b703e07447c4f4782ecb442b10ff9010fc8d"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/師傅點頭.png",
+     "sha256": "c25170575b83a49c1a80c3bc7093cd099d09d95531d33e2a9f181d238feccd84"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/托盤.png",
+     "sha256": "17335d7021d7e3610b4de0a45c54a965620a1fd8b421f94c0dc71e348fa37f9a"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/散紙.png",
+     "sha256": "56c41a6c1cbb3334060fcc253b34b6b0c9e0344ef3cb1a267445d0be2d57b26a"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/文件.png",
+     "sha256": "7e3e18b519c73ce1a23e4f3b231d8f72aae71074ec696d00e116de7c05413ba9"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/書帖.png",
+     "sha256": "5a0dd7198fadc802d8eaa3a7976b9f781b05c9ab255f092d8a5c445be7425600"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/移放圍裙.png",
+     "sha256": "68220d42d248b6e34b331129be8c9b69ddb548e72fa0f863d8dee6b6a9661348"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/課本.png",
+     "sha256": "662b933af74c568394afcf53f8b1ba5d62483007036b1e6159a664864f4d4d62"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/青年壓折.png",
+     "sha256": "296160c0b02389ad8ec975098c32f49092c697a6947ed683986a73f0ec5c3fa7"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/青年折骨.png",
+     "sha256": "d6beb731ba81296a287ecfab2a90040c042857ee4ece86573ca4c82a8c28cc7b"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/青年準備.png",
+     "sha256": "2b66be9a576c4d42b3d388d0f08c4b6aafb495a7cc6d28446a1e57cba3cfe7e8"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/青年移放.png",
+     "sha256": "4018d4764ec1d1eea5320ef24b89ff3dafa437a5c52d6c509b6c3238e3621f66"
+    },
+    {
+     "path": "art/R16/14-帶著訓練文件到裝訂工作檯跟師傅練折書帖/青年觀看.png",
+     "sha256": "6d2ffaf7359a311cd3f35fb2504ba2faf91799037e2ff2ce35a5aaeb96c4ce7a"
+    }
+   ]
+  },
+  "R16-16": {
+   "key": "ALA-EVT-TRAIT-NOTETAKER-03|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-NOTETAKER-03",
+    "variant": "一般",
+    "option": "記下討論，整理成大家看得懂的版本",
+    "displayOption": "記下討論，整理給大家看",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把會議桌上混在一起的紀錄分類給同事看",
+   "batch": 16,
+   "bytes": 309222,
+   "sources": [
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/分類板.png",
+     "sha256": "e640c3712fbc06f1fe4b20ae299cafb77f15ebb4a268cc37966899b47e369e93"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/勾號.png",
+     "sha256": "bcb14c90aec033b8d78b3a083bdf63208be8fa92cafa21039a80d65e58f3f1e7"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/右前臂.png",
+     "sha256": "9836fdc7910e6cf1b24fd58d6e475614f2736353f1afe48ea50abea5abb91265"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/右指.png",
+     "sha256": "b221c596e18bfd9891085ab35577b8512905ebae31ca29e811882f9bcc747e07"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/同事右.png",
+     "sha256": "8fa95a32cadce2cf7a987b9e4bbadc0e20aed1c087eb0ac0308ec5a5b47c8dba"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/同事左.png",
+     "sha256": "11f0b4af575dcec9705d045f63b79fea2d4b7341aea0a2f7601e5f9807c0ef07"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/執筆.png",
+     "sha256": "61db2c3d19e77c5f67dcd60f7a0c6c873b1753846cc441d3b70c7e900620a692"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/左前臂.png",
+     "sha256": "5bfda6029bda280e12c5efefe19935200ee5d56f1d8c0288919d863bd0649d43"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/左指.png",
+     "sha256": "3974e077a22ae93f1bda188db8de4fd6e373035d96ccc237b418ab5762153ab4"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/待覆卡.png",
+     "sha256": "6b04757cc8e69bd96049fcd7c74c7f0c858be3bb320da4b39d58ae0cc250cf2d"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/手中筆.png",
+     "sha256": "d3b591d2b2764fecf8ea298b35278503b1217dd03ff336054bf7655dc2aeab3e"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/托板.png",
+     "sha256": "a668949f415b6d5c9fb0e1719c20568cc3be7fb20522de73c26b69a292318502"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/扶紙手.png",
+     "sha256": "f306121c8c25b0dc9d461d44b863052161b7a07ba24af1a0bb5f6e7b87cf0a17"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/提議卡.png",
+     "sha256": "6342f28d9852d26129e8c5099fc2f853ce45bb8650e16717d6d02a5809287590"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/會議室.png",
+     "sha256": "f041c4bb7105d0b5526beeb3fbbf50d3a03db9ad7f66a7393f34bab6f543c19c"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/桌前.png",
+     "sha256": "38bef8f277b2c0de7283192ce1fddcff3c7ec486fdfc2ed529afa8323f16a7fb"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/決定卡.png",
+     "sha256": "f770ddd43e4983ee58b4308ee7de75b055267ec04a44f76345898cd6b7203478"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/沙漏.png",
+     "sha256": "1acf62543ea01d9c91eadd00728988b93ec3e547ba47198b44bb78dd78fe0466"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/燈泡.png",
+     "sha256": "65d7c45ec72778eadd0682ac87abd6ed26793f3de372e4900ee9c58fced46a3a"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/筆.png",
+     "sha256": "c8568550a68c97e0798bc445f04391d69a536be531c85fce2328b589875308e0"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/記錄雙手.png",
+     "sha256": "bb2c7bff10e12752a68eeccfa4ed4d0efa567a6a7089bca67a06d691bd47198a"
+    },
+    {
+     "path": "art/R16/16-把會議桌上混在一起的紀錄分類給同事看/貼卡.png",
+     "sha256": "55faf49b50fceb00a79a3f13e88c4f717f35bc64cee647a891a94e851c6b8a3b"
+    }
+   ]
+  },
+  "R16-18": {
+   "key": "ALA-EVT-TRAIT-APPETITE-02|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-APPETITE-02",
+    "variant": "一般",
+    "option": "學會煮幾道菜",
+    "displayOption": "練幾道家常菜，輪流煮來吃",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在獨居廚房輪流練煮兩道家常菜",
+   "batch": 16,
+   "bytes": 237185,
+   "sources": [
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/1-主角.png",
+     "sha256": "62f9b9ab008ee37bee0d0e243bacb7c61bccf19bb8798c1b23746df28309ef15"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/1-右手.png",
+     "sha256": "b886fdeb6e1387fc556e3fe8284dd0b4f4d4fee98740af65f8edf91edfe72cd5"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/1-左手.png",
+     "sha256": "75efc23692529c90de2a375e900c3e27a03aca7029eff190f71e28975f74bc5a"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/2-主角.png",
+     "sha256": "29ad4ff59410c68cbe5751338d2f4ae9c9f790701faac5a2635ce8a91e625ab6"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/2-右手.png",
+     "sha256": "c837f803e1db41cb2ea713a207e12e069e05159bb5c694387c52677714526e89"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/2-左手.png",
+     "sha256": "8d62d2e784d3c597d66ddac8d01af6cc513f6f93895e890b3ef414a2cc659963"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/3-主角.png",
+     "sha256": "01c8675b3156d56c9086b2d14d060d7b4dfa9e13779b27cb6725ce1f886f1829"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/3-右手.png",
+     "sha256": "772ec967a1b1f9a8abb586a5b48f70fe89c0a7440c07dc0ad36a59328188af7c"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/3-左手.png",
+     "sha256": "28f51eadafd892470b0f304cf62bb3cef536673abbe071df58d4c6c776949a40"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/4-主角.png",
+     "sha256": "7e5f37c9435576acb91bf60f7cb6fcaa8ec780f310c8f0938cc62fa47e433742"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/4-右手.png",
+     "sha256": "db3d8ff4aca24ea7e27307c62724a22c5198dae4f6c0435deeee825fc97d2a9e"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/4-左手.png",
+     "sha256": "6ce90803857b9939742cb8aebec81f3f2bc88da3b002e5187d545aed5fecfcca"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/圖卡架.png",
+     "sha256": "de160acc4e7b39b950c4aa94218679bc6264ce6e797ce4ba6f6892548d4b84d1"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/布巾.png",
+     "sha256": "1b07675dded93891ad8261be21b0cde9b462152563f01b39598cf87accfed476"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/廚房.png",
+     "sha256": "0e2398eb0e2a5cf72812aa190a225b69aad4f6ccc9ab89d011f9164445f7103c"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/斜鍋.png",
+     "sha256": "e6b83ab56bdde4bb0258388b5f2f6266ec400477480e83bd938a7f2cc7fb29e5"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/日曆.png",
+     "sha256": "9a41626b84c3da3854a97e0c81a4f8065a7548be40ee9a42fb471ef38a142192"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/日曆格.png",
+     "sha256": "b21a9dcf3ff615ec5f43a7d5b41391b1bffe32265a4413dd452457951306ebf9"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/次晚光色.png",
+     "sha256": "b29779b08ba3b5975092df5cf4afff154412c90e404b90d2d4ab785f8582e7de"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/炒青菜.png",
+     "sha256": "7f62fe4c58999f6e2ce764f78f28f28a795a9e9b5b1b76160bef5de3261a7e8e"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/熱氣.png",
+     "sha256": "77477a6a6da43b4405e7760ceedcdd419bdf677c730f8a0c96e188ff037226b4"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/瓷盤.png",
+     "sha256": "6078ccfe0fc982cf7a54c1b9c828274976d0ba9cbb24c52360ce54a7c2e12518"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/番茄炒蛋.png",
+     "sha256": "dfb07ea0341db4d0e886afec11627555d155da06b13757d355071b0f1736ca83"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/番茄蛋圖卡.png",
+     "sha256": "d70fbf1a936eed8cd8996b2e7bf27a222f3fd104b49cfcd26ebefd0c3bd68920"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/鍋.png",
+     "sha256": "812790c841fdd65da6f0f42d3403f03a4a88ae141d2c75c1ebdfedf7150dfb20"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/鍋鏟.png",
+     "sha256": "78fb920a57f133115a8e9184cad193140b5f67238f6045e4c97e28b24ed09888"
+    },
+    {
+     "path": "art/R16/18-在獨居廚房輪流練煮兩道家常菜/青菜圖卡.png",
+     "sha256": "a1fec2b3de87f418cc3af6db9980029e28b344d8d44ca2b7bf205fa1ba4fe028"
+    }
+   ]
+  },
+  "R16-19": {
+   "key": "ALA-EVT-TRAIT-STYLISH-03|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-STYLISH-03",
+    "variant": "一般",
+    "option": "整理乾淨，送給願意收下且需要的人",
+    "displayOption": "洗好舊衣，送給需要的人",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把少穿的外套洗好交給願意收下的人",
+   "batch": 16,
+   "bytes": 338652,
+   "sources": [
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角交衣.png",
+     "sha256": "95c31937827572e62340096142ea43df8e28975c3cb6f66b28fff4af1737c433"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角交衣前手.png",
+     "sha256": "c935f0bbe5ea62671d27510c88aabb98780eed8944cfd9f716be88f4b6b0e696"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角俯身.png",
+     "sha256": "ac6484e03ea801b15a4b81bf0c0776eec098904399bab3f0d09f433aba18b1f8"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角俯身前手.png",
+     "sha256": "dafeb5064bbbf21308683162492e5e01d37855a3f21595fda9af5adab6cedf61"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角取衣.png",
+     "sha256": "44c947a89bf37e0e39fe0450208e59e6f820b0cce86e3364e8cb0a2cab462db1"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角取衣前手.png",
+     "sha256": "f6eef0c5974186c28e403a9f723f0fdfb68f5c4714acb709af94655188378d7d"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角挑衣.png",
+     "sha256": "20b04093aa1c8827399259a4f5a260482ae1e99b5ccd793fa1c311d0eff6e5af"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/主角挑衣前手.png",
+     "sha256": "71254a29ebeb8b164044c9f0ef2af776404eb34c99279ab232a81b7b344aaf27"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/來者接衣.png",
+     "sha256": "9ab07678585c9843d50abbf0eff0cd00f4da63bed0d7e587e638efcaa4540f40"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/來者接衣前手.png",
+     "sha256": "e7dc1314b34a77d40af15021edbb4443a2c8c1b1640b3419ddc79ac50762bdcb"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/入槽外套.png",
+     "sha256": "62e777546c0a9ee14cb3dd803b5067822843832bb807175d08cbbe0c83eaada1"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/公寓連陽臺無人底.png",
+     "sha256": "d9e5b1ce45ac48e46244dcbf1e8659fb43f66d865ab8ec390ea1e5d06bb79703"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/完整外套.png",
+     "sha256": "ed0a04c079ab4e3478eee6b47ee02c7d475bbad843bd77586fc2c23c204b4b50"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/摺好外套.png",
+     "sha256": "2256c7f0b7cc32ae7e0a4d09b113832d7aa76f9e1268868967e3a499d98b6c72"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/洗衣機.png",
+     "sha256": "cb6833df37b5eb57a5d112f507f30e406352e6f56546a90ca62f9512b6234cae"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/洗衣機前緣.png",
+     "sha256": "3eff5b61f166db240728a986cff8e9ab7111412ced910f14d10de8596fb6bd78"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/玄關門框.png",
+     "sha256": "99952980fdccd6f85d58208e863abd07cc7e88500e10b4a47a295b8908fd8362"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/落地晾架.png",
+     "sha256": "2011c5d32cacbc45becf4f695b8fb19a78a7e0d681db282018c887533ec88402"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/衣櫃.png",
+     "sha256": "dae71f620df4359e7fab232550ff3406bb7146c6b2df8828cccdedc328438a77"
+    },
+    {
+     "path": "art/R16/19-把少穿的外套洗好交給願意收下的人/衣櫃門.png",
+     "sha256": "5b1b93f5751ef076e6141108b16b713581762455b646812ff82afc226c297109"
+    }
+   ]
+  },
+  "R16-20": {
+   "key": "ALA-EVT-TRAIT-FINDER-03|一般|B",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-FINDER-03",
+    "variant": "一般",
+    "option": "捐給社區或博物館",
+    "displayOption": "把舊物捐給社區或博物館",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把保存多年的老提燈捐給地方博物館",
+   "batch": 16,
+   "bytes": 257512,
+   "sources": [
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/凹痕老提燈.png",
+     "sha256": "4ef3eaede0d32f938446c64a8913f6301edf2c398c156edc7f13a8596ac870c8"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/地方館午后.png",
+     "sha256": "99110e7e1a6d4fd33f3aa77bbdc47fcbf8582503f32d6b6b6475cfc1cd4bf0ab"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/展示標籤.png",
+     "sha256": "8aea80ed435e727ec540edefa8b5fc205ddf2be7903f2ecb7e0a9569dcdef3ef"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/攤開包布.png",
+     "sha256": "457add3046a333fa5f93c687226a303b483d9aca1f03f4778c0a2166ca2d6097"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/收件臺.png",
+     "sha256": "7bcf1a8d680431695323b0942ce578205c047b2165db3cbb1f95fd8db8b34f8b"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/木展示櫃.png",
+     "sha256": "34e8d7d13ab07d24e83f1990e5bbf5bb735a77490b1b9784046bb7b354e17b0f"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/滑動玻璃門.png",
+     "sha256": "edb35bfca377a1860277094a2e5fa26b9fb108b382dfb402d1bdafecf931aa7c"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/翻口布包.png",
+     "sha256": "73b8bc9db68cb887af8222546a7ef1751cbd07697b0399fb2d2fe170795a1b32"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/老人右掌前緣.png",
+     "sha256": "41710523b5c0739c62399b4d2c30f8055b3b3a5073bdd0609ed171f937ca5dfe"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/老人扶燈.png",
+     "sha256": "facaaff48694d8f81349db701a8769eed089120c3c9b6546a621301fcb14dbaa"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/老人揭包.png",
+     "sha256": "2c3fa4fccf712d903097e1dfcaaba110ebdfe6c58376fde563ce2616dd23c36a"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/老人收手.png",
+     "sha256": "ed0b1ab1d6e21aef1e98b973b53d34790defb3f25a76ee435d0b299403da42dd"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/襯墊托盤.png",
+     "sha256": "c5344b044eba3fab1efdaee57b08036215d319739033fa77b33d64a5f4b6fd58"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/館員接盤.png",
+     "sha256": "69afec8aa9ef4d2d8c218ec79a58ae4bf8e712c7c3aa40b9369546b31b48ef60"
+    },
+    {
+     "path": "art/R16/20-把保存多年的老提燈捐給地方博物館/館員關門.png",
+     "sha256": "9968b25248750d6d32ee90a9b6f738de52bbecffafaeb1f17b4da3e1179a7bb3"
+    }
+   ]
+  },
+  "R17-01": {
+   "key": "ALA-EVT-LOCAL1-TW-003|ALA-EVT-LOCAL1-TW-003-V1|B",
+   "binding": {
+    "event": "ALA-EVT-LOCAL1-TW-003",
+    "variant": "ALA-EVT-LOCAL1-TW-003-V1",
+    "option": "先聽不同說法，不急著選一個",
+    "displayOption": "把不同的叫法都聽完",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在臺北聽完同一路口的兩種叫法",
+   "batch": 17,
+   "bytes": 670896,
+   "sources": [
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/002-M_A3_耳機上身.png",
+     "sha256": "e2044b8a0ee92f1babd19b03879c247d5f73886683083aa31d53438c249ab67f"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/中央窗框.png",
+     "sha256": "77a2d39e1708e2623b514fa5ca831ed6c14e6eb89be4efb7d8de7f98008dfa40"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/右手_按第一段.png",
+     "sha256": "51ba54eaf661f9a153fbe37adcf00da74e50d072527dd7951ce0967d289a6e8c"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/右手_按第二段.png",
+     "sha256": "098c4649e713db7d23ff5b99671050544742d659864f3105f88135a8821e83fe"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/右手_收回.png",
+     "sha256": "57755c3ffdf63ca0f1d3af92b9248fdcad445c370573b1bdcf9219f5764c2dec"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/右手_預備.png",
+     "sha256": "06781d9693457bcbb636388ed9343e2f515b915b43d70be818a181c047bfb0da"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/地點圖釘.png",
+     "sha256": "eeb6deb08eee8023821bc437263493efd1bd06498d06c58222761369ef84c8ee"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/室內_坡地住宅.png",
+     "sha256": "e3ba91a802e02a4dfc151d359ff3c9ebe66846798bc0c7b5cc3d9b5f4c2e25f3"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/左手_指橋.png",
+     "sha256": "2603e9f61c866cf4077c5f277cd8b34e93b739e90a41c908d67f1a4ef91e1197"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/左手_收回.png",
+     "sha256": "eba0e1740fa02190e8a7e2c9d0fe1fe70ea71e778c394f295de5d8091a5d79ac"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/左手_預備.png",
+     "sha256": "9e73dcf0c7f6494380fa4d0c0af4f798205db83c1c88b03048ff4d3ecfdea53a"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/播放鍵_待播.png",
+     "sha256": "a0f4c228d03b7e4f46d4f368cd9e593077f244779a9d6ca5f28a817359bfb6e8"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/播放鍵_播放中.png",
+     "sha256": "0ba7ff1c4eeed8433f081efb605925fef3f1dc47cd5a607415c3d1bf62dd666a"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/播放鍵_聽完.png",
+     "sha256": "64fc85003bf95c3fc6f45ecceeefc4c75d606478447f1f8b87d85d2ef0f34c66"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/故事地圖.png",
+     "sha256": "d9441d1f967c8831232e48d9e58a8fa1f16b9dd776eb0c40c92702870e57f911"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/木桌.png",
+     "sha256": "7eaa3d5d61b4128696d9cd1406105c51bfcbe81324d66c55d3b94b6557ce4b66"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/窗外_寶藏巖.png",
+     "sha256": "40020ee8ae2aa3961adc987d8a3713f6684913c5aacae716681a167c08c9bd34"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/聲音卡_銀髮講述者.png",
+     "sha256": "3426ea9fbcbd9352774b897778dad3f2ec8949685d4f4de53e65854d27fd42f7"
+    },
+    {
+     "path": "art/R17/01-在臺北聽完同一路口的兩種叫法/聲音卡_黑髮講述者.png",
+     "sha256": "21fb156e72730e28c26650a6cbc5e93cbe50b1075b2518d92085ce9b52e613c3"
+    }
+   ]
+  },
+  "R17-02": {
+   "key": "ALA-EVT-CHAIN-013|ALA-EVT-CHAIN-013-V3|A",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-013",
+    "variant": "ALA-EVT-CHAIN-013-V3",
+    "option": "在大人身旁幫忙照顧老幼",
+    "displayOption": "在大人身旁照應老幼",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在東京收容體育館陪小孩把毯子攤開",
+   "batch": 17,
+   "bytes": 669246,
+   "sources": [
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/004-F-A2.png",
+     "sha256": "bc67d814fd9c300d089bb9192b7c44c9149cd5da32aa259d24257fb2534a8f09"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/前景鞋袋.png",
+     "sha256": "a21b6ea2b6feb36968df2b99895df6622b5cb4593a556709e2eb24f737238864"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/場館結構.png",
+     "sha256": "e05c4f0c8ffd5173cde4b22809105bc3b9b918e339bddc756b612402db78d395"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/孩子的手.png",
+     "sha256": "f0d78bc1ec2400603999ffeda689946b5a9c9fcf9cb810be884624b5004d3c01"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/幼兒.png",
+     "sha256": "0fd9180b9f83bdfba9ca7002d425440c2daea924e54fbeb294abc73b8751970e"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/幼兒的手.png",
+     "sha256": "7173cc19f48ce891012bd3bea53f6a4b2cf4f99ad08812caf6d81d2cf4b2d977"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/整理中的行李.png",
+     "sha256": "20a92f25e61f37be734dbfd4f5286622251e234def9159ce02b503b02105aca9"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/毯子.png",
+     "sha256": "79e32b3d0e80df52411e18855ea858d1d90be3c4f6e961e67b38c327799d19ac"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/熟悉大人.png",
+     "sha256": "9b22b558fce8c287a8cceb5ed96e1eeb17570b6e0c204c538385edd6b074effd"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/牆邊鞋袋.png",
+     "sha256": "9a236001e8095bb932df3d0059345863db0aecb7a913af7915a7fe623bce114b"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/窗外谷中.png",
+     "sha256": "cdec8a61f115a02857a8f42b8b2ba4ca6457e204634c8c45e9d9ed99365479ad"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/窗框.png",
+     "sha256": "3a548d526c55a288ae3b4ba8e23050afcf7d583a69d2906e9c7c9361e1965a02"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/藍布包.png",
+     "sha256": "c5bd3b977de78d2bba7b62903b5e48816f318d6a6bab094b2061f1f52424e888"
+    },
+    {
+     "path": "art/R17/02-在東京收容體育館陪小孩把毯子攤開/語系文字.png",
+     "sha256": "c0f6d86b1f37344ffa6dccfaf95488661eb6c0f2bbd9a44f24dc98e28e7c3048"
+    }
+   ]
+  },
+  "R17-03": {
+   "key": "ALA-EVT-WORK-003|ALA-EVT-WORK-003-V1|B",
+   "binding": {
+    "event": "ALA-EVT-WORK-003",
+    "variant": "ALA-EVT-WORK-003-V1",
+    "option": "找一份外面的打工",
+    "displayOption": "到外面尋找合適的打工",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在首爾街角店確認第一個外店班再圍上圍裙",
+   "batch": 17,
+   "bytes": 597728,
+   "sources": [
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/主角1.png",
+     "sha256": "2fad3a9cc80bd23d23b0887c0f4021b567aa2c9421c420260e3595c71761e6ec"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/主角2.png",
+     "sha256": "9d51b1898d92a6a10988d2b3a85af261b3b2219077a14e61dc5c522d8de9a49f"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/主角3.png",
+     "sha256": "49452ab3e174722ca3b46a902f21cc7035a92e78fefb6b7ba31d4b6b290217b2"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/主角4.png",
+     "sha256": "a7d79d43ed98c3d03fb67133499d9a4dbd3932312222deb5d8269debc303c6c7"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/原木櫃檯.png",
+     "sha256": "fef191cd41be33a30aa48a4531d70a00124968f5d3d000f6f840c619f436e92e"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/回程公車與休息格.png",
+     "sha256": "6c1fdce2c59ef90e26512770c55012869efe3edeab890ffceb02e581186e854c"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/圍裙.png",
+     "sha256": "004c2a31abc1ed93df3d100d059d5cdd2b13029b484b308e862cdfe63da1fc38"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/外帶紙袋.png",
+     "sha256": "151cb4330dd30523d9c0f09883f64492b2faba1d205502b52fe88041d668baff"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/外店店員.png",
+     "sha256": "e82cddc72a97bf16725471e3feb8ab38ed0db9fb7b7366131688ab5864ede963"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/室內底層.png",
+     "sha256": "1f235cfd660d30c961b24a3cbe5afd0089cdece2ad9c294a948f970be64cd8e9"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/工時圖格.png",
+     "sha256": "0bd8b0964eae4632d861d7f6d1887a57e2634f04c856779e46d1c7130343245e"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/已摺紙袋.png",
+     "sha256": "864260ad2b530276c6536fea6f9cc36b9a729f27e7a33e380a237ed22f34c5cc"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/指班食指.png",
+     "sha256": "9b05c1be06c679864b9173395245d6c02b18af9acac3e2bcc632b167287b338d"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/掛鉤.png",
+     "sha256": "d1c6beeb3125b88fd47238ba43ceb41f3be878fc43e60adeeff0f8e8b8b52161"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/接表指尖.png",
+     "sha256": "275b559c368dad44567dce08f43dcf72c8173d7e2d572d3ce4d65e846c18baf9"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/摺袋前臂.png",
+     "sha256": "c60ffbe66cb284a87f220897c71991116aed161c749421521682653e36b3620b"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/收折圍裙.png",
+     "sha256": "5d97c7ef90bd1635c89f8cafb1062b3c9b9ad9a0b0bb1e5d50ed6822db160752"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/日曆.png",
+     "sha256": "f788b64b01eeb180bc267ff42d0dc3d588fa8ff7206ddb1ba91f7f6f85549c20"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/木窗框.png",
+     "sha256": "d0d8e04961207e65a74b73c3234cf416b06a3ea37e0d2e773f3c9e29e7a5bd7d"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/玻璃霧滴.png",
+     "sha256": "f966d0cfc679e524c5ae62de2ab59b0a331d291482c0b0a5339ae741ac8fd37f"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/班表底板.png",
+     "sha256": "8a91af1a5e3857bd0cb9b06ccf4dde9b89a5de8f3d9c0238671987c762e7a5eb"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/窗外街廓.png",
+     "sha256": "65e56eaece3f4e29bbfadbcef2086f5378d234b78755f39945111c3887985013"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/語系文字.png",
+     "sha256": "89096794258595f9aeab932ed59e5e3ae92004fe043a905bfa6f935be53d99b5"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/選班勾.png",
+     "sha256": "042ccb27cdb6c905d997fd97ec6d694d6016028d73025626855f0d5da2112eeb"
+    },
+    {
+     "path": "art/R17/03-在首爾街角店確認第一個外店班再圍上圍裙/陪同成人.png",
+     "sha256": "d1c82ebf69f1b899101b91a0325f8fc34dab62754f0b82551f7c2be50da64542"
+    }
+   ]
+  },
+  "R17-06": {
+   "key": "ALA-EVT-WORK-012|ALA-EVT-WORK-012-V1|C",
+   "binding": {
+    "event": "ALA-EVT-WORK-012",
+    "variant": "ALA-EVT-WORK-012-V1",
+    "option": "租出部分土地，到鎮上打工",
+    "displayOption": "租出部分土地，去鎮上打工",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在拜伯里交出部分菜畦的使用範圍再到鎮上上工",
+   "batch": 17,
+   "bytes": 568165,
+   "sources": [
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-主角.png",
+     "sha256": "9abefd9899a579b66bc4c32b21b50b39be3c60f6e3df2b80af9c1401328ed065"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-出租範圍.png",
+     "sha256": "9440360888d6b20f3c8a011518ecd78dfb494b57cb0100b5cb16b8757c1ec045"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-地塊圖.png",
+     "sha256": "883f8dc35a207ca905307d50062938063234ad22bdd4705486f98434e7f8f251"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-工具籃.png",
+     "sha256": "e13286be2e1f5fb3053010d736ce3d7ac8622ded9d85f3830896ac801ec59a29"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-承租人.png",
+     "sha256": "6b91a14cb002dd89ea197d18b4e659acd2efde48c7a4f536acc452c055b5b8bc"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-無人底圖.png",
+     "sha256": "5b65036d93694b4a9032a470b8879226c4de9681449fb5128973075edd9dd7b2"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-窗外.png",
+     "sha256": "93a3ff26e321d56aadbd8a2a01ef601797127a3ab439e8e0f2081616da1b262e"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-窗框.png",
+     "sha256": "564ff1efc8f1d3bc896414c1a25b87051c4015f68c1b4a520f2f6ecd6fab1c84"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-苗盆.png",
+     "sha256": "2a53eb06f0d2f19605782f005ad8d3529bbaf0110ca6dd430167f2ab245e0ced"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/1-鉛筆.png",
+     "sha256": "67310befaf340a6e60fec85a58736f05c5ecb2f49c0c1b578ff0862cf932c228"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-主角.png",
+     "sha256": "ce67bb00a44ed3ce0fd980641a7e31c887c8386a8396cb8ee06a0238da6a3534"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-主角契約.png",
+     "sha256": "cc6f4cad696d6704a9cd3f38ee88e91994406361bca0caaf261c17a6a44c8739"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-主角筆.png",
+     "sha256": "9a254c200e936365df9486e00c72e57b1ce095c4ea11e11a7e7da389ff876615"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-對方契約.png",
+     "sha256": "8b1c6d3bb8eee6fba255afdc31ddbbaab3a1f3365c589193075d36b02a0063ed"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-對方筆.png",
+     "sha256": "e349e8db7d2d01411a4e13fae16a703c63b56a4d406f2dbc5ef9e0a4e6af5ebd"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-承租人.png",
+     "sha256": "e01f0f6774b44fc6775a2d291f6d20de83870ecec2e6627e328acaf864bf6444"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/2-無人底圖.png",
+     "sha256": "d6368c9f8fe6d14a38ca0aab081a2b43b00a38e34062872ed99415221640751d"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-主角.png",
+     "sha256": "7d78f16db1f0e1ac07c900885102a8c9bab30abd1861a0d3047f67484536f1bf"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-出租畦標.png",
+     "sha256": "87a881cf5fb59e70c3d8ac7e9b8dd68c00bd79cc6c5249cd0b065a47bebaa25d"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-工具籃.png",
+     "sha256": "8782571acb7583f37acc9fc481044b24fa262c28fb8935646fce10c5aedc8b76"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-承租人.png",
+     "sha256": "3120c9cc6301326761a6cffba9dbc1eb82bd020c208ed6b5745f79bf605c2dc7"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-棚鑰.png",
+     "sha256": "08c3a7ea9474932ce76ac7860e6607c1fbb77df3e1d26a52dfa5c384b24fbd33"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-無人底圖.png",
+     "sha256": "443eedf476801edf01a325edd83cd20371b467933e84535298fce8d90de86035"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/3-苗盆.png",
+     "sha256": "d301b8ce23a1ebe3ac266cafb68ea86113aadbe8d1073c3f67fbdc699af83d9e"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-主角.png",
+     "sha256": "b8194dc3ff6e08ab6ec76bccab07f45f36f574f0c58616da1c8a351e047dbe8b"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-圍裙.png",
+     "sha256": "589a15047932f3a2fe870f675ead2e85b8e2d16c11e2c5859722628154e55d7b"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-圍裙下襬.png",
+     "sha256": "60e8cec20ff5fb7d97c878f853d8a35e37f5f729f6fac3a5d7e517734ed8436e"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-圍裙胸片.png",
+     "sha256": "f7fb73c0aa37df429f7d49e5c2b13a69221cf5b64b6fcda901de88d9bdb8aa9a"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-承托罐頭.png",
+     "sha256": "9f267b686f68b989f349dd91d12430650f57170a3300ab7a20663f685a42a186"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-無人底圖.png",
+     "sha256": "f0b73ff7121daf0e5719c7fa936ec7427126b38d71b81e264ec7225fa23a98ee"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-疊放罐頭.png",
+     "sha256": "755090c58f5a4a4d68fb38ec434009caa9e13f794af3b4dd5955e0897c763856"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-窗外.png",
+     "sha256": "a637e936b585bffd494ef5ebd38e63f0754c6fe6f259e35da1bfb4c24f76c9a7"
+    },
+    {
+     "path": "art/R17/06-在拜伯里交出部分菜畦的使用範圍再到鎮上上工/4-窗框.png",
+     "sha256": "991aef5d03d19e12c769a7dad05fa281b0becf82bdd6bc8e4f5ded12e5b8451c"
+    }
+   ]
+  },
+  "R17-08": {
+   "key": "ALA-DAY-TEXT-20261028-T01-E004||B",
+   "binding": {
+    "event": "ALA-DAY-TEXT-20261028-T01-E004",
+    "variant": "r4",
+    "option": "把臉偏回原先的肩側，發出聲音",
+    "displayOption": "轉回熟悉的肩膀，出個聲",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "chainId": "ALA-DAY-TEXT-20261028-T01-C002",
+    "controlMode": "character",
+    "sourceFile": "src/round1/candidate-t01-data.js"
+   },
+   "title": "在新的照顧者面前轉回原來扶著自己的肩膀",
+   "batch": 17,
+   "bytes": 559707,
+   "sources": [
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/1-A.png",
+     "sha256": "1fd9bd02969b55d3e1fb832ebcaa5908ee3e85954ca6dd03a878020e3347e911"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/1-A前手.png",
+     "sha256": "27951c5018f7033f5e3609be47ac1213bcdb26fdcdba8b50f7b30c0a73bae9bd"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/1-B.png",
+     "sha256": "06da519eb36b1b4439e6bea64563843732ee4d2eec80f5dab29f441b60eee484"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/1-嬰兒.png",
+     "sha256": "af2a4b58ebf378b705f475ede698c568e5f051eeebc6a1e8d0f632109a85862e"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/2-A.png",
+     "sha256": "0c280691e08af109cb8b8ea6fb0f137d6f350ec2138dddba5a16541cfd1dd4de"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/2-A前手.png",
+     "sha256": "716cd807751dd4220f30ca4eaf32f7b26d4b4aaca3446f89f91a948b03d089a9"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/2-B.png",
+     "sha256": "ca995711d5386f63487bb6640d6ee2b177b4329301ae519fd111e1357b040493"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/2-嬰兒.png",
+     "sha256": "85efacac0d45309c11150cca7f75ae440acf4efc25128e8b3dfaf1f0e9547f58"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/3-A.png",
+     "sha256": "af143a340750aeafc020b90517afee314a7f4b6dac666ac0f526e0f90f905d60"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/3-A前手.png",
+     "sha256": "1461ba6bb53f25077324071a458d9eeb75db5714c9a67fbc249438e907d1f6f1"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/3-B.png",
+     "sha256": "6d21c9393a2db6ac12985ca42a5c0e9f1671d09ae93db4e1a15951acea867a07"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/3-嬰兒.png",
+     "sha256": "5d859a6142618ed2ec09e7164e1d2a6975ebce3af8e88651d5ec52841be992bc"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/4-A.png",
+     "sha256": "20827bebf8068a19554f614736333a9b9ab27f2ed7fcf914cb71f0c800b420c6"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/4-A前手.png",
+     "sha256": "97fab2d1f9be0bc679434e05f85e60cc461cff2fa8c317f9924c189d5a421905"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/4-B.png",
+     "sha256": "b50c370ffcc60b36f90cebcff69f999f3a599022d08864a62b7be19a1d115433"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/4-嬰兒.png",
+     "sha256": "d1503d12e5aa15926c593694b5a20436f8d027ea383282c9123099f0fadc433a"
+    },
+    {
+     "path": "art/R17/08-在新的照顧者面前轉回原來扶著自己的肩膀/客廳晨光.png",
+     "sha256": "937fa4e8afa67bdc268f2165a922d104e7db21018ec545511f5065f3187e6da4"
+    }
+   ]
+  },
+  "R17-10": {
+   "key": "ALA-DAY-TEXT-20261028-T01-E011||B",
+   "binding": {
+    "event": "ALA-DAY-TEXT-20261028-T01-E011",
+    "variant": "r4",
+    "option": "叫一聲熟悉稱呼，或朝成人伸手",
+    "displayOption": "用熟悉的方式叫大人靠近",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "chainId": "ALA-DAY-TEXT-20261028-T01-C004",
+    "controlMode": "character",
+    "sourceFile": "src/round1/candidate-t01-data.js"
+   },
+   "title": "午睡醒來朝熟悉的大人伸手讓對方走近",
+   "batch": 17,
+   "bytes": 220752,
+   "sources": [
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/布巾.png",
+     "sha256": "fc7263444f8297ab588ec42b080323d18c0385c91c6442a7d06906d5e50da4e3"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒1.png",
+     "sha256": "00ccca75b70d9091df98a28996280a10fe29c6c8d23a9e1f0b8cf9df92d09d5c"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒2.png",
+     "sha256": "ae59a2e38409ec32e6479c77255bf5165c1be4655a598defe36d0b27e55d87e8"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒2手臂.png",
+     "sha256": "dac3898c9348ae8dbc7037dc26b4fbb00d08028623af811975e56925cb9051b1"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒3.png",
+     "sha256": "a72dc83a12a98015d4c93a6cd542c134fa711a6cc233fbd646af584071d6eb5d"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒3手臂.png",
+     "sha256": "2143ef64b3b557313af1ee51e38121249e4736a61d1ff14b8b1feb4200afd856"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/幼兒4.png",
+     "sha256": "f2defca038076ae462e74f2d9ba516908678d2fcc1e81aad6552253589fa159d"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/床沿前遮.png",
+     "sha256": "8259b98848ac1804947a4ddd224950326ebb6a7e9de6024c929983ffd1e6abd7"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/房間.png",
+     "sha256": "bda8c26f548d8447531aae8be90a983b81cda36bfd47d12aea12e921a32e44a4"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/照顧者A1.png",
+     "sha256": "6bf794e0e2b24040ed23e22b874931ff08fd221dc0b0153bcb50014037c55bcf"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/照顧者A2.png",
+     "sha256": "72732084881c90e47441f7dabed99028eec4e3669b4581c98149c67512761df0"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/照顧者A3.png",
+     "sha256": "366e540344c5e0c6e255b20b1e59a84581acf014604138b9a227e9df37079083"
+    },
+    {
+     "path": "art/R17/10-午睡醒來朝熟悉的大人伸手讓對方走近/照顧者A4.png",
+     "sha256": "f90e73431d14b3159f98c87e944af33e5a9be57bfec5a4cc1b2ab46b5507bf32"
+    }
+   ]
+  },
+  "R17-11": {
+   "key": "ALA-EVT-GOOD-002|ALA-EVT-GOOD-002-V1|B",
+   "binding": {
+    "event": "ALA-EVT-GOOD-002",
+    "variant": "ALA-EVT-GOOD-002-V1",
+    "option": "和對方輪流玩",
+    "displayOption": "和對方約好輪流玩",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "和等候的孩子交換鞦韆再換回來",
+   "batch": 17,
+   "bytes": 421253,
+   "sources": [
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/主角接回.png",
+     "sha256": "fa6fab967dcd22ebfb7d837729f33fcb947d95894165fa2f4f9cc64fe845e4bb"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/主角落地.png",
+     "sha256": "98f17f50fb87a48e84cb0fe4d1c9aa99dbabd36b36fa3f701caa5e7797907b52"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/主角邀約.png",
+     "sha256": "b435d4a5973c36b6e8591fabbb529ee42be8ec353def755d3e0da57857d2b673"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/吊板盪動.png",
+     "sha256": "76e0005e766b9622b52b530257eff78bb1f09aee9839364f4fa21a6ef545b782"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/吊板靜止.png",
+     "sha256": "a02f2ea35793fed78c0b5c0e95d388de36f8a09568d4cb9b9923e2176cb2020f"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/孩子盪動.png",
+     "sha256": "46a5081eecc8df6a1865fd1e79d0509e4e6e666893c8666f76962b660310e5c1"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/孩子遞繩.png",
+     "sha256": "0647969b531dc48f6d31dffdd286bf297248a01d94cc544c2ee4f7e673961041"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/爸爸扶穩.png",
+     "sha256": "22317bc824c394fa0bd1f43363dc8df080bb129335dbff3dbb6191f35530f22f"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/社區公園.png",
+     "sha256": "fc6409edc873970ea45903cf6bdaecdcb9c677d135a10e1b6a49d5826869e09a"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/腳影1.png",
+     "sha256": "d03964f568059c1f6ba26364f54cff891a60fd405d9940ccb4fdc087d9e251ed"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/腳影2.png",
+     "sha256": "04abbea5310de79afcca5b360a9729240e90ef485396140d6fb229ef05af9442"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/腳影3.png",
+     "sha256": "28026d4c7e88fc0c4133947c43402f299cfb78996f19613a401c766cfe265943"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/腳影4.png",
+     "sha256": "52200e6d5ce5ea2bcf561a94cc067730db220ceae0d5f08dae11c75bb73aaa1b"
+    },
+    {
+     "path": "art/R17/11-和等候的孩子交換鞦韆再換回來/鞦韆架.png",
+     "sha256": "2547cb3fc2e0dd69cc39df20652c7615dcdac412cda8ecb91b9c2ab6e334d663"
+    }
+   ]
+  },
+  "R17-12": {
+   "key": "ALA-EVT-CHAIN-005|ALA-EVT-CHAIN-005-V1|B",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-005",
+    "variant": "ALA-EVT-CHAIN-005-V1",
+    "option": "用零用錢買新書還給對方",
+    "displayOption": "用零用錢買本新書賠給對方",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把零用錢換成新書再把新書親手還給朋友",
+   "batch": 17,
+   "bytes": 261323,
+   "sources": [
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/主角握指.png",
+     "sha256": "3520b4efedc156c7e3b65f56cfdb06acec826834848985fd9d25aab82b29e0c5"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/主角收書.png",
+     "sha256": "361d9b140120e85d9b89595c68af053e700a09e76b703d82aef84f5349df06db"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/付款.png",
+     "sha256": "c5a54a2bf257fc9357eb8a14e9fea827b533434608ecba6e88fa056a11e9ab60"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/接書.png",
+     "sha256": "508eb0bfe2e055f0dfd9c478cc799e04da7150daebed6c348dcfcece4a5f8648"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/接書指.png",
+     "sha256": "4e470c50975fbbd3355d24ecf2016d5833eebb64469e5580014aa6fe0a2dc8d2"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/攤書.png",
+     "sha256": "b5b3bda0f3e297f815a58af7dc9e5a86077c6222bfae6e5a1618fcd883e015b4"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/攤書指.png",
+     "sha256": "cd915cbde7270a926ea34cd711d3e254f7b8b1cc6b90c0fa58edf4267e7e861a"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/教室.png",
+     "sha256": "951b20e924f20d9a12b0410fb8c8299025d01a24414b311ac2ce205b0c6ef59e"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/新書.png",
+     "sha256": "e27bdfc55d9cef78a2e1fbcb13eca1c50e5ad6f8d545cb4bdba284616d433165"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/書店.png",
+     "sha256": "47cbc9c0f55a3b4b94d4a0d99a85390da22a8913af2db07588ca2cd0668c6d64"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/朋友握指.png",
+     "sha256": "f9fc46f61ebf324d67c34b2964d69d2fa84fb694378653f58d24128caa5367c4"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/朋友收書.png",
+     "sha256": "bd20cfa1f993baec2ae911a0e8ec578b0706f4de9bda09b3ec6cd815e43ee8ca"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/櫃檯前沿.png",
+     "sha256": "d0bbac23fb3b2f53ddec515f67fc0eb8514736956eef41b9685904598f9756bd"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/濕書.png",
+     "sha256": "a2cdd87f6cb7adf71a06c7d2166288e3a0ac2ff70c8bc38f6dd636e231f104bf"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/硬幣.png",
+     "sha256": "aacf8b205b7058b8cd012d8cc3a3ec44737c535fc543b025e148abbf3df1514d"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/立書.png",
+     "sha256": "2f4af4e95c0988b119cffbf4e016939e17178a058ee802fbdb5d6f061d538be2"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/課桌.png",
+     "sha256": "aa997258ed76cc588f78f6bd4c614cf5b3cd73522fcacf9fc212b932574f0cd1"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/遞出.png",
+     "sha256": "65783da0f076dc30e54835d1aefed89e7f580ae75d321d1510bcf5fe4d603afe"
+    },
+    {
+     "path": "art/R17/12-把零用錢換成新書再把新書親手還給朋友/遞書指.png",
+     "sha256": "0c85f772ffef0a2fcd19a2b2eb648dc7be0562dcba20fac87463b15f26c7202d"
+    }
+   ]
+  },
+  "R17-13": {
+   "key": "ALA-EVT-MONEY-001|ALA-EVT-MONEY-001-V1|B",
+   "binding": {
+    "event": "ALA-EVT-MONEY-001",
+    "variant": "ALA-EVT-MONEY-001-V1",
+    "option": "先不問，少要想買的東西",
+    "displayOption": "先少買東西，之後再問",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "聽見廚房正在算開支先把想買的東西擱下",
+   "batch": 17,
+   "bytes": 543336,
+   "sources": [
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/商品頁.png",
+     "sha256": "67f1a2c46e236b9db0a4a03ab33e9d9171dd5e28a31f176ead94761ac3233d7d"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/媽媽.png",
+     "sha256": "448bc2f07dba8ee6b7904c7b2caccf3d45ebbc929565cad7fbc29a658e748c22"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/抽屜前緣.png",
+     "sha256": "03473b0734867988ee6314de3a39cffcce0619c191d5498f2ad7abb2007b1f66"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/接觸.png",
+     "sha256": "2e51f4ea2a5c242f2f9be438e4b2bde6138f17db8562c5d19a34c2e5b2d4152e"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/收手.png",
+     "sha256": "05e96ce9c2c74636a7ae1254f540759d15a2070acacb1e3113ca2bb281c888df"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/準備.png",
+     "sha256": "ed70ad5a0e7d8412587d7a32ccd4131b88d6a5ea96fadfe6544a8eb8e7fb9394"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/無人廚房.png",
+     "sha256": "2aed1a94ca407df827c55c688c883b42ea26b13e16cb13ef9f98973c63f45697"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/爸爸.png",
+     "sha256": "e4030daf64398fdc4441fbd203e2fb57bda4e74f6e22bfc777c473441e2ab2d3"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/移動.png",
+     "sha256": "0b372b11d88ea681860fe8888ea40c8f5035da817dd1b6d48a78fa76c1f8c816"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/閉櫃.png",
+     "sha256": "2250633bac109de754d4b4abc297e3dea5bed97d172d669373d149528da608fa"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/開支桌.png",
+     "sha256": "9074e64be6630cf83401559aef0872d5d7bc84658a368bc1a702c6f7dc138bd2"
+    },
+    {
+     "path": "art/R17/13-聽見廚房正在算開支先把想買的東西擱下/開櫃.png",
+     "sha256": "cdbf9ea1ab5375a55a090543a6d4f7db4e42197c05731b3dea4955a1e98896be"
+    }
+   ]
+  },
+  "R17-14": {
+   "key": "ALA-EVT-TRAIT-LATE_BLOOMER-01|一般|B",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-LATE_BLOOMER-01",
+    "variant": "一般",
+    "option": "請同學一起報告",
+    "displayOption": "請同學陪自己一起報告",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把第二張講稿分給同學一起上台報告",
+   "batch": 17,
+   "bytes": 623184,
+   "sources": [
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/女側.png",
+     "sha256": "3b027f91cff59b10547414b053ed11c6e578317a346418084ae2157f20f54dcb"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/女正.png",
+     "sha256": "5d943f771e48c1d1aadea7691ba874d89c17a153e67afede5ee7e5d19a06805c"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/女正聆聽.png",
+     "sha256": "6acbe363efbc68e42d3c848bde3293d2c1fded1267c55d51774f852c4b5774bc"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/山形.png",
+     "sha256": "3eced6daf25b528b251c99a836ececab51459b5880ea854dc8c2915d71ef7785"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/捲角稿.png",
+     "sha256": "42833bf40242c4db742dfd9e94570977f8d137d01affef509a250fc542524275"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/教室.png",
+     "sha256": "098d6d998abbc5cc0bfa787b0f815f84e3c3c574153e47f83bef66de8c6449e8"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/日輪.png",
+     "sha256": "1ed6a59910f122d4df4298105fe7bda4e74c660aea5cd7415acd0342966c1d8e"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/男側.png",
+     "sha256": "b40bbf8a311f21471a82f8ce856170b415340e09e2c34f817cac1266212037ec"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/男正.png",
+     "sha256": "3211a84b7a249720e3b0131b470d3479718e9ad31bbf3506b6d09b4170a4e30d"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/男正聆聽.png",
+     "sha256": "8d1f7cc01d56655be65f21a3cb1ecb048028361d87d85ecc707458bf7b3c48f1"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/翻頁稿.png",
+     "sha256": "39ac789110a59d552981e61c6d60fe238a44fca9310401233b7cbacad6d2c388"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/老師.png",
+     "sha256": "c7d8e67fc39a729b56ebb8e00aec2315307682b73968b62fbabd8875b3f234bb"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/聽眾.png",
+     "sha256": "5bdcfff4e95977b53c30c7630ff4963a503c8647f7f57b5f12ac4303461cf979"
+    },
+    {
+     "path": "art/R17/14-把第二張講稿分給同學一起上台報告/講臺.png",
+     "sha256": "205aa1286aef1111c6f7fa015e14182ae871b7ca3c6fa73003c9bcba02775c41"
+    }
+   ]
+  },
+  "R17-15": {
+   "key": "ALA-EVT-TRAIT-BABY_FACE-01|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-BABY_FACE-01",
+    "variant": "一般",
+    "option": "笑著說明身分，把事情辦好",
+    "displayOption": "說明自己的身分，再辦正事",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "出示自己的證件後打開案卷洽公",
+   "batch": 17,
+   "bytes": 516122,
+   "sources": [
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/候位.png",
+     "sha256": "07d1c5d0284751d33b5da97c59451b1a59d738d1be8c3daee6c3ded234fb3a4d"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/出示證件.png",
+     "sha256": "798de0b6e966e0a9c399179a11ff6d237feaf0e20010161a1482c295942e7dba"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/圖表字面.png",
+     "sha256": "1a13c29ba46321d97f0f971e7a1f3a0e1d93b3cbd4fb643f7bbf7f770cef25c2"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/手持皮套.png",
+     "sha256": "b5e4c58a6e336bcd7d147a40e0bd61d4ebb931e6f7ae075067139c2cd576fce5"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/抽卡.png",
+     "sha256": "59eed3177cc438e875b41fb4f570090d5393b5d5fd7f4973741ec2c07a8b27d5"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/抽卡時皮套.png",
+     "sha256": "3c721da7cc3cd711c8def734f108c2d5b7df87d8358d7cce38f94bed24affbf9"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/抽卡時肖像.png",
+     "sha256": "5b4dda478793acd3587b9c4f51b03489d9dca772022bab2986570ada2d4878e4"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/推件.png",
+     "sha256": "170be10391fb24d40ab58a8d972e94eb3c880619b97b5d609ea7f0bebe71d828"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/攤圖.png",
+     "sha256": "e55b70a462d1661f26c807db5a88d8523b414e024f44f62245392f8156471a8c"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/改向.png",
+     "sha256": "5174526a883cab35c4be907c7f89ccffaf695d52204c027f5f135011c1abcf06"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/案卷字面.png",
+     "sha256": "9b8d9bcabd73a8873fc1115d740307fcc027402a93b08f2178e4c6ad070212b9"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/桌緣.png",
+     "sha256": "a7ec7d793a9a1f1f649ff7c7ff8d39f6ea6142f647398c8dab26f7032872ae82"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/舉證.png",
+     "sha256": "8ee1a667e737077194e0434030651d93331b61c57ee493d1c915beeb1d382f02"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/證件套.png",
+     "sha256": "071293781a4e187f2f74f56381bfbddbf8ae55ca6ab899791a7c59a1cb176b34"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/辦公室.png",
+     "sha256": "d140595e580ae1cb496b63fa495f484a69a62ffbd8ab5277bb1a977358a1f568"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/開卷.png",
+     "sha256": "6b8639b9bdf4ff3533a0ca9095c0dc2bf5ccc62b3fbb4093801362bb255d890d"
+    },
+    {
+     "path": "art/R17/15-出示自己的證件後打開案卷洽公/闔卷.png",
+     "sha256": "c4174e47033ecae6289b124ac8182299cbfd8ce88240bae95c434c78787c3f9b"
+    }
+   ]
+  },
+  "R17-17": {
+   "key": "ALA-EVT-FAMILY-005|ALA-EVT-FAMILY-005-V1|B",
+   "binding": {
+    "event": "ALA-EVT-FAMILY-005",
+    "variant": "ALA-EVT-FAMILY-005-V1",
+    "option": "不要孩子，過我們的生活",
+    "displayOption": "不養育孩子，維持兩人的日子",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把育兒草案收起和伴侶留下兩人的生活計畫",
+   "batch": 17,
+   "bytes": 255746,
+   "sources": [
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/一起散步格.png",
+     "sha256": "955af2c849dfe1cfe0031e6a935c890a6842070210399ba9c21376ce4e121deb"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/主角交接手.png",
+     "sha256": "4d8433fb8958934458ec88a0d2dc0008a1218490d9851e9811e2d2a0dd6cffec"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/主角交接身.png",
+     "sha256": "d9a9734623889fd5b0c4b84ade0d18a06b1059f1532c566981bbf47a53000c52"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/主角指認手.png",
+     "sha256": "e2413d86813641963e82b30fb0f89a734f21f0bb0138f436b993fd43e27de82e"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/主角指認身.png",
+     "sha256": "8c45275f82833d23cf94899d4203c27a4bf73ff44e32632f4cdfc515c42b4b2e"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/伴侶交接手.png",
+     "sha256": "572c27278e5712cf860cea27f1503c83a1a814856110c981522b5266c15c68aa"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/伴侶交接身.png",
+     "sha256": "af61fea269f3d46f7e11dcf5e5c9ef84926c470025c0ee32e8a6c5ff94bc1cf4"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/伴侶指認手.png",
+     "sha256": "1d5d8250bce994fbddc77a96719aa2e3c070f13edfda85267e7a40fbd7bc1363"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/伴侶指認身.png",
+     "sha256": "56e2a00dc25694ae4389471b91acc031a51582c19dbf3141b8859239341d2dee"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/對摺草案.png",
+     "sha256": "914cda0da138c19cc331eb26edcf0f8d586fe780eddbe19d3b943dd415d4a7de"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/搖籃草案.png",
+     "sha256": "bf1dd809b19ead480b583520d837eb853d949e4fec512f39f4426bc8c9ffd507"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/收妥袋.png",
+     "sha256": "479a96bf31e7379322484facf2254ad0677b7f9eaf6a147d51c73735ab2e735d"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/晚間桌邊.png",
+     "sha256": "762865162d7b709e9778b87a048289427f460ee459c0929becdbaca0c2698a2d"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/登山卡.png",
+     "sha256": "ebe27159d920eb235ccea16034e760f6bdfbe1bf160a38b5fb40cd68b9fc623c"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/袋口前片.png",
+     "sha256": "d947b612a7be53d0d3f057927f09f977376bfc5bd68aeed9028163d8ca5a4d91"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/語系字面.png",
+     "sha256": "7f33f7f38d9baeb5d30ea1d889d11f57939bc3d189a8a1c7467b0215df6f1fdc"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/開口袋.png",
+     "sha256": "099582187fc39fee12c59592d3e94289f1417371b4e8e97d4f338970260f47bb"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/雙人行程.png",
+     "sha256": "9f59e418d92bec17421f3d6fa8b9cbf748dec98cf7c34a313bc70b8dfd77dabd"
+    },
+    {
+     "path": "art/R17/17-把育兒草案收起和伴侶留下兩人的生活計畫/音樂卡.png",
+     "sha256": "647f099d6f74b084c3b5873b62ff2d11facda7d115f0e8edae46389cce9cd567"
+    }
+   ]
+  },
+  "R18-01": {
+   "key": "ALA-EVT-EDU-009|ALA-EVT-EDU-009-V1|A",
+   "binding": {
+    "event": "ALA-EVT-EDU-009",
+    "variant": "ALA-EVT-EDU-009-V1",
+    "option": "把眼睛收回來，寫自己會的",
+    "displayOption": "轉回自己的卷子，先寫會的",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "回到自己卷上先寫會的那題",
+   "batch": 18,
+   "bytes": 636527,
+   "sources": [
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/低頭.png",
+     "sha256": "54195660aeb53cbca5d0cd12bf0fb6f15630d91a37c73e8ab148aef57483e7b5"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/停筆.png",
+     "sha256": "747a142197aa54978c42fa148e2127c2ec0d885c73b51500878408f429563400"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/前桌沿.png",
+     "sha256": "ada92853f83756c11657b80bf4d90abcc565f74ab396e85146d0c9c4165c3df9"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/右卷.png",
+     "sha256": "89a25be092008a0871f4128617edd97f0ec06c49df68ead654a0ceb299c5945b"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/室內基底.png",
+     "sha256": "aa97a19d461272a4ae4531e2cac80c70f8eaf033ef1563ccc85fa5573183c827"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/左卷.png",
+     "sha256": "a543317c9f9f2f5c2e96e7917ffec832a981da0d603d28de60cc439db63aaa2d"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/教師.png",
+     "sha256": "0a72bacddb90c1b050412d185e449ff9c438c54b0b93fa41933e70e62c046de8"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/新增步驟.png",
+     "sha256": "1d0fbfa9fad40c1fc1b6979826668c02220f255274f8e27c4d4cef6fbd63b4dd"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/木窗框.png",
+     "sha256": "cd841d214cc1de2d1b0889d062c4d9df388e92807f67701b366b28605236ae8a"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/遠窗田野.png",
+     "sha256": "6cc1bcd22a9bc4d41f30f71eaf13901975d699a6309525335a9f5d855f7db25e"
+    },
+    {
+     "path": "art/R18/01-回到自己卷上先寫會的那題/鄰生.png",
+     "sha256": "db04d29217e266163983c4b9fd77a0c282ec7b0032a2f29e1a3520674f4bdb13"
+    }
+   ]
+  },
+  "R18-03": {
+   "key": "ALA-EVT-GOOD-007|ALA-EVT-GOOD-007-V3|C",
+   "binding": {
+    "event": "ALA-EVT-GOOD-007",
+    "variant": "ALA-EVT-GOOD-007-V3",
+    "option": "放回原地，讓失主來找",
+    "displayOption": "把皮夾留在原處，不拿內容物",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把皮夾放回新加坡車站原來的椅腳旁",
+   "batch": 18,
+   "bytes": 284115,
+   "sources": [
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/003-F-A3-拿起.png",
+     "sha256": "118bc13ec7c68593eceade70c1e33fb005da546c7e3eabdc8456dc798f4b4381"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/003-F-A3-放回.png",
+     "sha256": "27420f5a9f322e8f389d0c3a00a01fb45c6876c8e97f99ef188a039e5f8dcc34"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/003-F-A3-發現.png",
+     "sha256": "59cdfb69fd06eb3a536867f8fad717f3f4af6a9f7f1c34ad02ea3594def6740a"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/003-F-A3-退開.png",
+     "sha256": "6ef87396f2ce0df3463b508b4f531e009d7a8538b871fdbc2407ccfab836c695"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/指尖拿起.png",
+     "sha256": "1691f02355cd95685a330840115550be488eebac61271a1f9cc19903c8313df4"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/指尖放回.png",
+     "sha256": "fefaf6d810c6b24f69489182cf1fea80f34a0a5cc850b0e17a3fc8ee2b216903"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/旅客.png",
+     "sha256": "72b73bc53a1fff762db50af616135c89018843a96e5444da5a5aaa8dc0e3df6a"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/椅腳前遮.png",
+     "sha256": "7e765ba701c6e877caa98a7ebacbbb326437bcc5458cdcf081b108a9684d440d"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/無人背景.png",
+     "sha256": "67c1b55c7ea90798b8270a113e66f9468efd8921f8e4b89e2a79921eba495e84"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/皮夾合.png",
+     "sha256": "4099dc5030a8544715ac412e2baefe9923760c90d5d2990b003c5458fe4a94f3"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/皮夾開.png",
+     "sha256": "21c7e405650da241a485958c1f095f054242ce10342e7f196b4d03ba1a73dac4"
+    },
+    {
+     "path": "art/R18/03-把皮夾放回新加坡車站原來的椅腳旁/站員.png",
+     "sha256": "2ff67a72f9482addd1d2fba126fd5fa78b7b5c8c0050ac0604fb67fadefcef7d"
+    }
+   ]
+  },
+  "R18-04": {
+   "key": "ALA-EVT-WORK-013|ALA-EVT-WORK-013-V1|A",
+   "binding": {
+    "event": "ALA-EVT-WORK-013",
+    "variant": "ALA-EVT-WORK-013-V1",
+    "option": "自己批貨，自己擺攤賣",
+    "displayOption": "自己進貨，試著擺攤販售",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "在墨爾本自己進一箱貨擺出第一攤",
+   "batch": 18,
+   "bytes": 666123,
+   "sources": [
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/主角004-M-A4-1.png",
+     "sha256": "d67a1158edcfa3792f9282841509cfce03991d246199efe1046be05e38ca143b"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/主角004-M-A4-2.png",
+     "sha256": "b731c6413d7b32ff7bc4104ae5b853612e5f54f64e9a1eb92175c527bb23c163"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/主角004-M-A4-3.png",
+     "sha256": "20ce38cac9aa8a81c92afcaac226e9cee027c298ed1b764e8e90fcdbb6dbd9ac"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/主角004-M-A4-4.png",
+     "sha256": "28ec4e4d15d5eec3b438cec8c27c4a805eff593756971b5f482b4abcc9b80fad"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/供貨人.png",
+     "sha256": "15c5d17d3fbe13bdfd3394b4580d08b966ee7f4ac915f5160d5c34d2f1d06452"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/前攤桌邊.png",
+     "sha256": "080b85b4806b59e1f2f617dc42b3f4e5dbcfae44939f78ea188b8b84cd4da2c4"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/客人提袋.png",
+     "sha256": "0f681f40b62a7e80c820557090e8ee3b451f3d6e8a106b83ed867697cf95a120"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/後棚巷道無人底圖.png",
+     "sha256": "df8f8b3baa16f19d87079305b774f607211b21e75b7f134fdd31e5d1f75c93ac"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/找零.png",
+     "sha256": "f41d58e0722120919d2f0df13c759ef90c7c25f415676fef6c54bff1130b729a"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/指間梨.png",
+     "sha256": "63705de6c9bf2ce8ff8cdcd0015ef973ea00dfda6513a2a7328f7de6084eb378"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/攤桌.png",
+     "sha256": "542d9f9bc14ee06f13f5e31dcd0da7e22d7dc9947058064f11c52e1d99cc58ea"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/果箱蓋.png",
+     "sha256": "04b50c855d0929ffd5285fe7a7ba5959d95769918f80404b0e98d90065636e5c"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/滿箱梨.png",
+     "sha256": "358b713558bb1a94a76b5b3a57a1ab204d3f362d20a784414790e6c2264fef8a"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/秤.png",
+     "sha256": "cf4edc1823077299f62258108aab3e9e7a064c7542bb52d2b714510d75b72573"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/秤盤.png",
+     "sha256": "d9f2e9d7afe6bb51569cde125ddbcc56496309441f4b4d50dc86d320debf0172"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/第一位客人.png",
+     "sha256": "2e33c913d3f58eb9efa3e3b42c2869cd4954886a18041c23c26e395a46f6d0ff"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/進貨款.png",
+     "sha256": "d7982950b994af133f4f3e282e5717e213b2dbca0849f850c01b0b97fd620fe4"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/遞出紙袋.png",
+     "sha256": "8fab06c240b0d48b5bc959e6a11367d979db03e75c0febd914fc42ac3b999bb9"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/陳列梨.png",
+     "sha256": "ee2899f29702579df6115973c2ee070a21b1089694659decb425e2a0cdde3a6c"
+    },
+    {
+     "path": "art/R18/04-在墨爾本自己進一箱貨擺出第一攤/餘梨箱.png",
+     "sha256": "c043522476c8f20eee178c1ce8990046cc5b4cc7d59405238a331bbcec08c76f"
+    }
+   ]
+  },
+  "R18-10": {
+   "key": "ALA-DAY-TEXT-20261028-T01-E012||B",
+   "binding": {
+    "event": "ALA-DAY-TEXT-20261028-T01-E012",
+    "variant": "r4",
+    "option": "先看成人做一回，再接過大拉片",
+    "displayOption": "先看大人做，再自己動手",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "chainId": "ALA-DAY-TEXT-20261028-T01-C004",
+    "controlMode": "character",
+    "sourceFile": "src/round1/candidate-t01-data.js"
+   },
+   "title": "看完一次示範接過布拉片只按住一角",
+   "batch": 18,
+   "bytes": 617466,
+   "sources": [
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/主角1.png",
+     "sha256": "f2aff770e20ecce9376c7718c87d1b3e84e32cab3f1aa4bff9a6c96d9cd702ec"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/主角2.png",
+     "sha256": "0d3fd6f9be7a45b421fb860b5ff8772e3a82feb7fb2b968c5fc9a43f08104e18"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/主角3.png",
+     "sha256": "3e95f88ae7fa5730ad68218f214fc18e4058c48d6501ba86f4231967a19dcfe6"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/布袋1.png",
+     "sha256": "0700987c577a2ac60b4f23ad26806f2eb5a843b7301a55f38d009af39cae74f3"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/布袋2.png",
+     "sha256": "8b8ecaaa0695a97a412ede475c9fd7d241a060c6c935002ca6c8f7b6eb86f190"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/布袋3.png",
+     "sha256": "291cbb8963095ee751518b8441885976d2a375e3da8e7101c95c0dfb48080c22"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/布袋4.png",
+     "sha256": "e2eb8cf9038459c2f372efe7f59b33211ed2bd1f290c9b38b4f5d3e67040ed62"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/清晨客廳.png",
+     "sha256": "8ed50ede81afa2f453edc72725bab662e856808f0a854f997969d6064098bb6f"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/照顧者A1.png",
+     "sha256": "e081d1636d09d82f6608f2cb07b48a2e771a91f854698e3331f99cfa428c59f0"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/照顧者A2.png",
+     "sha256": "ac9d9787eb2d13c24af2ec0f36fa8ff3cc39a6c8f2965793bb8f269bcf07f267"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/照顧者A3.png",
+     "sha256": "f891d6abfaffc96fc46aae40f7a5d2d1e8f7c0a80c361a7daeb9740f8b34bcca"
+    },
+    {
+     "path": "art/R18/10-看完一次示範接過布拉片只按住一角/矮木桌.png",
+     "sha256": "4ff93af9e49c2476662c45466e212ad73e1c5f0f0e70fe697843583c94569622"
+    }
+   ]
+  },
+  "R18-12": {
+   "key": "ALA-EVT-FRIEND-001|ALA-EVT-FRIEND-001-V1|B",
+   "binding": {
+    "event": "ALA-EVT-FRIEND-001",
+    "variant": "ALA-EVT-FRIEND-001-V1",
+    "option": "把對方介紹給自己的朋友",
+    "displayOption": "介紹自己的朋友認識",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把新同學介紹給午餐桌旁的朋友",
+   "batch": 18,
+   "bytes": 455298,
+   "sources": [
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/主角_介紹.png",
+     "sha256": "5aaa9e24a0ee0e58cb31dcb65fdcbade169cbfab8fbc94a18e129416f3941e53"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/主角_招呼.png",
+     "sha256": "1a9fdef2b727453795524dbca42fd38ed127ec39568f1b10ecb5bd8fb6601e03"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/主角_退後.png",
+     "sha256": "def95669a4461237d3332468f821548fa2470a103e930bf469268fedd06c9df6"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人回禮_人物.png",
+     "sha256": "f27a8845b883ca39f9db3ad74356eb3918a77de3cafd0eb8e8fe008e138ef8d1"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人回禮_回應手掌.png",
+     "sha256": "f9ea6cd1cf0aef72861e4cbe45f9a39ba05a058b213785e3a606ca18e63178d4"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人回禮_抱包手.png",
+     "sha256": "513a4c12522cc6838fa5f12ba588ef4e497ea942ddee854cdf6ac7abb3787af6"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人回禮_書包.png",
+     "sha256": "862759308821d69fd9623e0fb658ea125800157dbbd91945c418b20e5bd7bb56"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人抱包_人物.png",
+     "sha256": "a07866262f0b58008339f4fa00fa89f8580c4fc14eda56e09f1fed3c34b92e72"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人抱包_抱包手.png",
+     "sha256": "55974b23f65d8c054ba3a4296acac6ffdde643f4b31415557897656c45a5df2d"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/新人抱包_書包.png",
+     "sha256": "2f29d284c68f587a619dafcfd46113131be16253219947128430ca02d65b99b4"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/朋友回禮_人物.png",
+     "sha256": "854d2de97f2ff7179a7862fd449cb098a8b36a2f3542903e498be315e3b737b2"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/朋友回禮_回應手掌.png",
+     "sha256": "7f74f157eaf2ea8dd828cd982d6e32b092e14850ac463521c7a6d372c345fb6d"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/人物/朋友回禮_垂手人物.png",
+     "sha256": "3271c740af064eea9957774904cb27072f1c7912e61cb5eb7629cb73821ab3ed"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/午間教室.png",
+     "sha256": "d902fe8feb0e7cec896aca6f79a50e7d24aeb363bbbdfe14ed3f9ca42fd7cdb3"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/道具/午餐桌.png",
+     "sha256": "e881905308f427f0e3848919aef79803bba8d3820e17cf40db82a4a22d9d17da"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/道具/空椅.png",
+     "sha256": "ccf7158a5ec1602dbfa02eccbd96d17e7009cbf6ae0a06c88779c197a54353f5"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/道具/紅餐盒.png",
+     "sha256": "cfd0866b910a5a39edcbc7e7f9bb217de5aa9e18540099693405ec41ad5ad329"
+    },
+    {
+     "path": "art/R18/12-把新同學介紹給午餐桌旁的朋友/道具/藍餐盒.png",
+     "sha256": "696a8fd7b8f56b5dbe9c5d044f4d781eaea8d7c662fae3a6377fded9a66ab88d"
+    }
+   ]
+  },
+  "R18-13": {
+   "key": "ALA-EVT-TRAIT-CURIOUS-02|一般|A",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-CURIOUS-02",
+    "variant": "一般",
+    "option": "下課留下來，和老師一起查",
+    "displayOption": "放學後留下和老師查資料",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "放學留下和老師輪流查同一題的圖表",
+   "batch": 18,
+   "bytes": 586017,
+   "sources": [
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/E4主角.png",
+     "sha256": "13f6c10859cf878b39742f2ee9e2fd92f07177e5d4f2805e2ace0365006d6883"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/主角前臂.png",
+     "sha256": "d43695db193ab1aae0de2e961ed2658b618782cbc995d9c2e87940a6ded8fea8"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/主角前臂1.png",
+     "sha256": "51257ddddd8eab1bfd5233f4f1a5605f8de24f3b25722385e6f76069e8729e0c"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/主角前臂2.png",
+     "sha256": "d43695db193ab1aae0de2e961ed2658b618782cbc995d9c2e87940a6ded8fea8"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/主角前臂3.png",
+     "sha256": "13892c5052f181d84a8276346a1450efa93b7c22da9db0047ac5b21d8f88edaa"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/前景桌角.png",
+     "sha256": "dbe31d44b53ec04b5edc356ce1b39ce6cf097781aaed70a307c1e9b8b4b6f05b"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/教師.png",
+     "sha256": "64cd27bd86a111b15e5dbc3948fd24415d94d33114b1d7f0cc18331d91fd6637"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/教師前臂.png",
+     "sha256": "54a7d645d87498b07fe700b7fa8b60f767c5e2fc4963acbab03d9774464ed278"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/教師前臂1.png",
+     "sha256": "e00b0f930608f0ef10fa3cfd80d7c9919703e00dc3bedb040c05db54abd598d2"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/教師前臂2.png",
+     "sha256": "a50374e4338d1c858b22624ba07201290233963a32d207c120a7c9f78ccfd1f5"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/教師前臂3.png",
+     "sha256": "8a9b3c992a5853bc0ce43deb45a3b16f8e8eeb62c2694df69979a8ace966b086"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/板書葉脈.png",
+     "sha256": "066b7212f12f36fcbcde814e6bc7d58ee8f01701fcbe49125eadc0e532d4469d"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/無人教室.png",
+     "sha256": "ba39213abdf05d1a2420aef07c8fa879a4d351c74f0069ca41b7c08fd5d2afcc"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/翻起書頁.png",
+     "sha256": "bb68163ea46c8fde1c84b3eea9c9b564c9fa4773c0b3c9e56d91e6e1bfc0157e"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/課本.png",
+     "sha256": "9f9dac1afc25abd0cd633d6b4706f9cc5190af154b25629ef5ef4851c79b1688"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/課桌.png",
+     "sha256": "34684945ef5dad07e6d898aa935be50dc76165ab6169140dda0e0e9b17259360"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/資料書.png",
+     "sha256": "bcdc735fdd207c2576e935f0ef83bcbbfc8e730ae0430fa3e90fb622da728878"
+    },
+    {
+     "path": "art/R18/13-放學留下和老師輪流查同一題的圖表/離校同學.png",
+     "sha256": "e11c5d62afe943a14dd887b4450ed88c6aebe79a5858b2f20f608afe0c415b9a"
+    }
+   ]
+  },
+  "R18-14": {
+   "key": "ALA-EVT-CHAIN-002|ALA-EVT-CHAIN-002-V1|C",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-002",
+    "variant": "ALA-EVT-CHAIN-002-V1",
+    "option": "與家人一起探望老人",
+    "displayOption": "與家人一起探望老人",
+    "optionIndex": 2,
+    "optionLetter": "C",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "由家人陪著到住處探望當年公車站的老人",
+   "batch": 18,
+   "bytes": 700831,
+   "sources": [
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/主角坐.png",
+     "sha256": "9492fd896c25fe76c43e778051f3fc0b27aa1d0e8f9fc2e17f8f76c42ba0f4f8"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/主角接物.png",
+     "sha256": "f1e6fd664e2b5fb648b71c3dad1b94d363cd3f4972cbccc2222e7b53b2b3c646"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/主角致意.png",
+     "sha256": "60ac3a49c18a06813da588318e993d8076df69b3fe5242b07f77121fe2332248"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/媽媽坐.png",
+     "sha256": "5626a0089d95752a1c761fdbf281bdc98587b9d979d9cda4b07aeb4477625131"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/媽媽站.png",
+     "sha256": "9f7e0a98e32e414b3d79fad19a35abe96242b6b4367e15c465144affcb143a99"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/客廳.png",
+     "sha256": "25ca842f79bdc4262b2983ffbb054b8243e0ecad1b32d2168787eb4f4b275d05"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/校門.png",
+     "sha256": "fbb7732b78e257c113128ba8403aab5a2a8ca2df9dfd24c9731adc5911b8cc30"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/老人坐.png",
+     "sha256": "7d399c509de755a06943e5f4526dc4851d04890a2953668581de23e1a00f8689"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/老人招呼.png",
+     "sha256": "6531954cea8b5986af725a7ba97da1a530d825bacbe0b4da36e2d520cbd9ed9f"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/老人親屬.png",
+     "sha256": "f5d0be1b9e8f457b23afbbc6e3379b677005019707ea0496f93b256ee043829c"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/聯絡名片.png",
+     "sha256": "0099f948afc4b569d6d9e3ba74eb393c77ca8cb4ab2fb7351008cde353bfe390"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/門口.png",
+     "sha256": "27e9017e6134ed5a3953b459ea55152b8fc273a2f3dd20efcdc7e5f5e86ccc1f"
+    },
+    {
+     "path": "art/R18/14-由家人陪著到住處探望當年公車站的老人/門扇前遮.png",
+     "sha256": "3e78f17638fc775651a94e951bf9bb4ccae6a8a9b4e047be3c5e1d34ea1da266"
+    }
+   ]
+  },
+  "R18-15": {
+   "key": "ALA-EVT-HEALTH-006|ALA-EVT-HEALTH-006-V1|A",
+   "binding": {
+    "event": "ALA-EVT-HEALTH-006",
+    "variant": "ALA-EVT-HEALTH-006-V1",
+    "option": "去看醫生或找人諮詢",
+    "displayOption": "安排就醫或專業諮詢",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "帶著睡眠紀錄走進診間諮詢",
+   "batch": 18,
+   "bytes": 346505,
+   "sources": [
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/主角指夜醒.png",
+     "sha256": "fcf1edaa66010226fcbcdeee585aaf6bf50d395bd97b7bc5095113b1bbc9e760"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/住家無人背景.png",
+     "sha256": "76b50dc93f2858c5909e3bfaa61d8ae6be9915d54231fb1831f0b22f2bc0887a"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/半杯水.png",
+     "sha256": "9a44826af52296be85e9aa5516aff6fbaa04ad25453b98ec8d7755a5405798d9"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/完成紀錄.png",
+     "sha256": "ee20099a0a3e6a8af6545e05ad089ec1d0e6f2920c2bcae93ec54d5f43356cba"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/專業人員傾聽.png",
+     "sha256": "ea7ee6ac91a64e3b7b5362b42cde1565c9a5882af13e61ab108ef1ddef8a1fe9"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/專業人員回望.png",
+     "sha256": "ef175a636e02b1a770436f4e3795f7288345969fa151ed779b8c540eff30e6e4"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/手機.png",
+     "sha256": "68bac16bfa9acd0cd52d195ef65515309cd0e1a7cdf773913427108b32265bc5"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/攤開睡眠本.png",
+     "sha256": "458710cfe033be48035c2c1bde856dfdb072b4ff8a996507be63020bdacad7b2"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/收手主角.png",
+     "sha256": "c22ddf1b6a17e72cc6d4467751df5ea12ef7c84cc940fe648cbb7b2b327bb517"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/月曆預約確認.png",
+     "sha256": "6ee3f6c53c8f0d2945bf9dee1db33a872decb6091e6aae1e8e1ed3a5be70e65f"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/月相與夜醒中斷.png",
+     "sha256": "aeb6606e84ade3a5bb388b0f24d9872fdb1b33060a8dc86db6bb870a622646a3"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/清晨主角.png",
+     "sha256": "7d6b127bbcd10b21b39012b3f2a9b39541ff898826446c742eae2c34c4e91933"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/紀錄筆.png",
+     "sha256": "5a9046e96a8b44fd9e27e29bdbfc48be6462e3067ac9078f21f9f96364562b36"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/診間無人背景.png",
+     "sha256": "553b886fb8e74a95ae4f8978c61209f79b153e718faea188c2b5b2bda6e101ac"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/諮詢書寫板.png",
+     "sha256": "fccc6ee40a03529e68437d4e65f0c4bd9cb98c764172887355ce17f49d3d14be"
+    },
+    {
+     "path": "art/R18/15-帶著睡眠紀錄走進診間諮詢/闔起睡眠本.png",
+     "sha256": "4e39088b14b2e4499e0d9d0d7eac2f654b13a1f55d2b6224b850a57b4c98e5b5"
+    }
+   ]
+  },
+  "R18-17": {
+   "key": "ALA-EVT-CHAIN-031|ALA-EVT-CHAIN-031-V1|A",
+   "binding": {
+    "event": "ALA-EVT-CHAIN-031",
+    "variant": "ALA-EVT-CHAIN-031-V1",
+    "option": "交出{work_item}，教對方起手",
+    "displayOption": "交出掃碼器，示範第一步",
+    "optionIndex": 0,
+    "optionLetter": "A",
+    "careerJobId": "shop-assistant",
+    "workplace": "店面",
+    "workItem": "掃碼器",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "把掃碼器交給門市新人示範對準條碼",
+   "batch": 18,
+   "bytes": 413120,
+   "sources": [
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/主角0.png",
+     "sha256": "8883d79ed3945b5672c1ca12ff1291442880efb0ebeab09e956d7a268ac4e773"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/主角1.png",
+     "sha256": "3c62311aed931bb44a82df2035563a65a99771918aef84074173f212a6af5b87"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/主角2.png",
+     "sha256": "a6728fc419e85b9725f3c04610c340ed09d7d65a496499baaff0e0ca6b67c0ad"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/主角3.png",
+     "sha256": "7964d85b87282e5b7ee91739f44f1c156a40bab3d17f2d63bbd49fd411279c70"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/店面.png",
+     "sha256": "489f7996747b84b80e2c02b914f356af43adc03eff4b2176edcdf1b833410cef"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/指示手2.png",
+     "sha256": "7485de821694118f5543e69a0221cccca2177a3b10607a0c4b1902d202a7ee3f"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/指示手3.png",
+     "sha256": "edabee88fa606f181fa728168c993041275d70c9b6a98239da2df101fd86626a"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/掃碼器0.png",
+     "sha256": "534f64b2a07d236f36a138e2e2f0bad43d93e687ed6071ea4014696d04c1363a"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/掃碼器1.png",
+     "sha256": "bb07238af1a244f3db1245000d992e0060a85917b063a756d79fd314bd667fbc"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/掃碼器2.png",
+     "sha256": "916538ba93870c7a27381b6aea2e01630cda9fde5f5f93f5ee6df6ead209113b"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/掃讀光線.png",
+     "sha256": "2702a7a1d1c77e4f24471457f87a766b9c37d4570075a9e2889f138057e85a69"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/掃讀回饋.png",
+     "sha256": "838f970dcc8e7a0c289625b62a2abce0a18905a429e87586223abdfc1bcff18f"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/收銀螢幕.png",
+     "sha256": "21f889143eb837b806708ae8ead306328498555f3e3fae403becfb9c01e25394"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/新人.png",
+     "sha256": "55ef6c9bf6041eab4abb31daafa80cf4ef7f94ef207a0189147be21e5e71e9a8"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/新人抬腕.png",
+     "sha256": "1684e4968532cf04efbf3ada8432c79088e0884529cafdd9c59121b37b2a1144"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/條碼.png",
+     "sha256": "056dfde38a6d46a86998614f357641895281831f1be924a3e94ca461e04d617e"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/櫃檯前沿.png",
+     "sha256": "8ee060e15a40562981ba608e4940ea0bae5c37535e5e7eaf8b8a94a5db485e14"
+    },
+    {
+     "path": "art/R18/17-把掃碼器交給門市新人示範對準條碼/紙盒.png",
+     "sha256": "4dd2ddb8a4cc48650457270e0d4f549566b0ed651c773ad3e261f8dfa1dd4997"
+    }
+   ]
+  },
+  "R18-18": {
+   "key": "ALA-EVT-TRAIT-PHOENIX-02|一般|B",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-PHOENIX-02",
+    "variant": "一般",
+    "option": "找人陪著一起",
+    "displayOption": "請信任的人陪自己練習",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "請熟人陪在身邊練完一段復健",
+   "batch": 18,
+   "bytes": 448400,
+   "sources": [
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/停步.png",
+     "sha256": "e3741e223d6b5e69da6e8afdf9ec7c0b7a51311990a6ff9f5d4e5b590481b168"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/到位.png",
+     "sha256": "05e5b91c15dd5e1ad5e5ea4fb0ea406529936747e35fefaf8db9e1cdd0d12b6e"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/同行.png",
+     "sha256": "e3cce4ac5e0440f5328b2f8f8875652e6fa5fd244951a47fce4f1ea1244922c9"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/復健安排.png",
+     "sha256": "f86a92c05bdf33f063e08b73725ba4988fdb0b3c6ba6f7d62667008a31324cee"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/握桿手.png",
+     "sha256": "d3fcdd2d1f385f7a798d02cc148670493ab78cec1c6f899ffe8ee37f883edf82"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/桿.png",
+     "sha256": "73c0e6b9db2010f2a186117dc08524d1ecce6b49c6164b8a90495c99531d31b6"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/治療師.png",
+     "sha256": "34ce107e973add089887c71ab71dc1917c867e734a30a42b06055a26bf59e9b3"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/相視.png",
+     "sha256": "67a979c1cb614d574b1cd3a64242e5fbe79c34305117a8431758879888cf8100"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/等候.png",
+     "sha256": "97860fd1dd57de80e0bf1f42e5e0bc7f79479c17aca984b7e2af7c9b29390a41"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/診間.png",
+     "sha256": "d2cae8e0b0e9bfe4651bbb3e20769efd222d54943038c670dad801e2af5b52f0"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/起身.png",
+     "sha256": "d80ad52a46d437c6fa44c74a07f434b27945fa6bf53ce92f65d1c55962466d3d"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/踏步.png",
+     "sha256": "0d31522b1aa8eb25b1715ea4085f4b2e663c4f4ea2b266059df9586958dd2562"
+    },
+    {
+     "path": "art/R18/18-請熟人陪在身邊練完一段復健/邀請.png",
+     "sha256": "7f8b034743fa029bc363e12f73bc20b160d6c4b9c225ddf3996521e1b121d543"
+    }
+   ]
+  },
+  "R18-19": {
+   "key": "ALA-EVT-TRAIT-STAMINA-03|一般|B",
+   "binding": {
+    "event": "ALA-EVT-TRAIT-STAMINA-03",
+    "variant": "一般",
+    "option": "走到半山腰就折返",
+    "displayOption": "這次走到半山腰就折返",
+    "optionIndex": 1,
+    "optionLetter": "B",
+    "sourceFile": "dist/assets/game-data.json"
+   },
+   "title": "到半山腰的亭旁轉身沿原路下山",
+   "batch": 18,
+   "bytes": 429165,
+   "sources": [
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/中途亭圖記.png",
+     "sha256": "a61b0c8ce5aead4433a305928bec2a2a3f459e94dd6c7c45a1619f4c0fce8c96"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/主角1.png",
+     "sha256": "a85db0fcb38b682bf917a60ad0cf431311638fe42708d0120040f9de5475ddb3"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/主角2.png",
+     "sha256": "0bae69b4a947adcc7aba133852cb52852584a8e6fdbc270f529b55d90075e171"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/主角3.png",
+     "sha256": "903ce75d59f80abc9b6abfc5eecd9ced639691d108bc529761fbce80a54bd28b"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/主角4.png",
+     "sha256": "b825e3981362c885476d0a0c18688a77d0d35f0515953f175ffad35a4b74e0c9"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/前景欄繩.png",
+     "sha256": "09b6786693dc2dc9362df9a07f09a225b35ed53d61ab42553ce02c635fc2ff57"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/同行者1.png",
+     "sha256": "1aecae4c139c1e9d4191d4dd055fdee8ee72a1de61f39c9ae1ca25600bd840b2"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/同行者2.png",
+     "sha256": "ab57ef0e52181167d8dc02f65ca6380b6866e7138ac5e5357d6c15a94486c35a"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/同行者3.png",
+     "sha256": "dc79bbcda62605eb8c686e44e8a4dd9e46e33c585fa0e4fad6551fadf180f47d"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/同行者4.png",
+     "sha256": "c3107d98d615e4d11b5cc838508697f3c7fd41f0668ed9c5bdaa8e42d206dee8"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/山腰石亭.png",
+     "sha256": "16f09660c002a186efa76d32cbb732407b667e6fcd3e3e1604ba6defa3e06e91"
+    },
+    {
+     "path": "art/R18/19-到半山腰的亭旁轉身沿原路下山/紙圖.png",
+     "sha256": "95f8029bb4ce0a58a469d5a86689c77970ad38b37fc896c235900ac02ce7f137"
+    }
+   ]
+  }
+ }
+}
