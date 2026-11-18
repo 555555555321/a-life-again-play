@@ -1,0 +1,1318 @@
+{
+ "delivery": "09 圖片缺口｜工單與待審成品（2026-11-17）",
+ "sets": {
+  "G09-E02": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E02/1.png",
+     "sha256": "48f92dc1c3765fab190a60ace555a14a0e243075f64594f9f8c6d3279da2536f"
+    },
+    {
+     "file": "E02/2.png",
+     "sha256": "fa6ab9d46eca6700190b93739625207b2c6056d67d2567a7af83e7b121d5dc88"
+    },
+    {
+     "file": "E02/3.png",
+     "sha256": "8f82442ab788a0d9d461138537e841e31d0422109c2cca22788ca7c5e797466a"
+    },
+    {
+     "file": "E02/4.png",
+     "sha256": "1edc4266d6df2cb588729b805994167975adf7ab6208db3be5e7d76f390e2117"
+    }
+   ]
+  },
+  "G09-E03": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E03/1.png",
+     "sha256": "f4da0c851b7f77d1030f41f5e66fdf1ee9c18115adb0774ee23f5f3281694044"
+    },
+    {
+     "file": "E03/2.png",
+     "sha256": "931f0f0677878018507b796a5f1f76cd427742542ff7a2f2b80fd12e6c91f9d7"
+    },
+    {
+     "file": "E03/3.png",
+     "sha256": "df70a6ec67858729bb16d7f7986c5ef4646a660f216e3ab39be7078c86e1de45"
+    },
+    {
+     "file": "E03/4.png",
+     "sha256": "62b7b749890f578c4aa6baaa29ff461136ae930c12df47267a3fbba28ceacc44"
+    }
+   ]
+  },
+  "G09-E04": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E04/1.png",
+     "sha256": "a2e3b722b83d028042b804003e7dedf23a15c983a267fd9bd78c2c229d241ef4"
+    },
+    {
+     "file": "E04/2.png",
+     "sha256": "68fb7f37cd658f2221b7633e326da7d2e213e5b7133496253a6015762d02c2d7"
+    },
+    {
+     "file": "E04/3.png",
+     "sha256": "a5eb162ea0b440dfc98c9def21baa06a2ed47da6577ffb31cd13cff56bc016ff"
+    },
+    {
+     "file": "E04/4.png",
+     "sha256": "d54300f9505e1dedd4f9b86745fe33838e76d2aa1529581c86e9456627e78acf"
+    }
+   ]
+  },
+  "G09-E05": {
+   "note": "ALA-EDUCATION-011",
+   "sources": [
+    {
+     "file": "E05/1.png",
+     "sha256": "ac1212125a4c0bc1591a45f341ad4b239b8004b2d6adcff216c0958673d5a43a"
+    },
+    {
+     "file": "E05/2.png",
+     "sha256": "5e280da2e4f05484c47fbf16d19c18de24e85e2d92e4aa30e91d60a393c9314a"
+    },
+    {
+     "file": "E05/3.png",
+     "sha256": "41986c895c10181fc27ee527782de32a4843bb99f4a006edb6cf857322b3b41c"
+    },
+    {
+     "file": "E05/4.png",
+     "sha256": "1766bb30a1277635a42415e888b1504390c93ec65e5573bbf89d67c76e12efea"
+    }
+   ]
+  },
+  "G09-E07": {
+   "note": "ALA-EDUCATION-021",
+   "sources": [
+    {
+     "file": "E07/1.png",
+     "sha256": "e40effffaef0f40603f77a6632ba9257bb85b1561cd178e23d60abf8a670dd8b"
+    },
+    {
+     "file": "E07/2.png",
+     "sha256": "2b54bde9c0ec546b7d1481e8afd92282cc2c901d5b28720a9c67ddd8f911a17b"
+    },
+    {
+     "file": "E07/3.png",
+     "sha256": "680acf57e83cc4fbef3aef9876a441ed53772efa6649f17d1c5113d3a1f5fba6"
+    },
+    {
+     "file": "E07/4.png",
+     "sha256": "a0357d88668f72ec2d490107a81749f37fd32c3430f432308f8a35ad722cdb64"
+    }
+   ]
+  },
+  "G09-E08": {
+   "note": "ALA-EDUCATION-023",
+   "sources": [
+    {
+     "file": "E08/1.png",
+     "sha256": "4b880a5ff6b7333911b8ca949ba93e5f00ffd991811a82630f5bd03a764abd93"
+    },
+    {
+     "file": "E08/2.png",
+     "sha256": "f79dd3c4ef9bc3b69e9afad1faa9451160a147a4c9609aadfaca5b136ec5d909"
+    },
+    {
+     "file": "E08/3.png",
+     "sha256": "3962e7b1e60195a9a6bf287418b376510bba79bdd1221add7bea540089175db0"
+    },
+    {
+     "file": "E08/4.png",
+     "sha256": "b3bda517d52c5138a39ac4b591daa0016ec135da5b773e0d1cad57bcee3a585c"
+    }
+   ]
+  },
+  "G09-E09": {
+   "note": "ALA-EDUCATION-025",
+   "sources": [
+    {
+     "file": "E09/1.png",
+     "sha256": "168a79986a4018fd98de5622d1fc95155cf2dce469c0296f828772b540519868"
+    },
+    {
+     "file": "E09/2.png",
+     "sha256": "5d51612fe5046cc11ef3544d9831e885d1cdccc1b0c62f16d55f130c3fc96151"
+    },
+    {
+     "file": "E09/3.png",
+     "sha256": "e634b41ae023086a6c78635cbe33e7e186c60bf3c2a7b0ddbcccf92ebe8874a9"
+    },
+    {
+     "file": "E09/4.png",
+     "sha256": "e609e6740578124644268d89dec2e0e206115a5679d265e9616ef894b176c481"
+    }
+   ]
+  },
+  "G09-E10": {
+   "note": "ALA-EDUCATION-031",
+   "sources": [
+    {
+     "file": "E10/1.png",
+     "sha256": "6f8a3d959828ee72d0f89ae60a4fd08ada6392e46cee41d910428661d4ac73b1"
+    },
+    {
+     "file": "E10/2.png",
+     "sha256": "610f0dd6a7c6d0406ca12f7b762da2e6e159a3a85cc722cd0d1b9e6dd8e9e845"
+    },
+    {
+     "file": "E10/3.png",
+     "sha256": "d7e666bba2120d5fef3e067bac43cafa2401f27652946ce7b9507391a3290135"
+    },
+    {
+     "file": "E10/4.png",
+     "sha256": "10e61d5d29752c7c7ca77fb095c477150605c72de3fd98330e7c7bd46ddcb93e"
+    }
+   ]
+  },
+  "G09-E12": {
+   "note": "ALA-EDUCATION-038",
+   "sources": [
+    {
+     "file": "E12/1.png",
+     "sha256": "2347af24b62aee13ff18cb387b547528cf9e52ca944179f22e40183633675749"
+    },
+    {
+     "file": "E12/2.png",
+     "sha256": "db6adc507fdc7fe3f927106f4ed89e82d5bead5a6bb0701a33c31df7c550bd0b"
+    },
+    {
+     "file": "E12/3.png",
+     "sha256": "7c6bbf7b032b31a9ef9e96f432f57d93eeb0c6913e2df1c417df4f6399e63d09"
+    },
+    {
+     "file": "E12/4.png",
+     "sha256": "f217421043923e6d86846e95ddfbd501cda48b2c1482dee001ab7c869c4efd4b"
+    }
+   ]
+  },
+  "G09-E14": {
+   "note": "phone:handdown:smart:mother",
+   "sources": [
+    {
+     "file": "E14/1.png",
+     "sha256": "f7140b41f0fa690f74df29e348e95f74d7fa48eccbe807569aad5e7dd330cb39"
+    },
+    {
+     "file": "E14/2.png",
+     "sha256": "4186bb2ebcbcccdf7aedbcd0aa1368ee59f11b90a10c1de5758af64bc9aa4926"
+    },
+    {
+     "file": "E14/3.png",
+     "sha256": "760082e971313267d8db0fa839f389ae0b85a77de7d77a261e418f290e7d7452"
+    },
+    {
+     "file": "E14/4.png",
+     "sha256": "3475408f401211be97753c0453065b4e9b030d17120cc06bf4336e25fe1f018f"
+    }
+   ]
+  },
+  "G09-E14-smart-father": {
+   "note": "phone:handdown:smart:father",
+   "sources": [
+    {
+     "file": "E14/分層/E0-09-家裡客廳.png",
+     "sha256": "1f29c70c144a9f43f75edb73d87ba21628ec939b35cc748c2ab94cd03a154483"
+    },
+    {
+     "file": "E14/分層/爸爸-1.png",
+     "sha256": "f55cc9604a634da5065638e58b01078d3fc2131ffabe00407ff636cca350a212"
+    },
+    {
+     "file": "E14/分層/客廳茶几前景.png",
+     "sha256": "909f2772960fb08830e1fefb007d98af76729f09d4b5515b4f6caed8c6627ddb"
+    },
+    {
+     "file": "E14/分層/主角-1.png",
+     "sha256": "87db49e2107be2fcd61855f62214285eb58ec260bd26357192e7cbcec49fa4f1"
+    },
+    {
+     "file": "E14/分層/舊手機-1-智慧型.png",
+     "sha256": "65b2248ac709f00c105c2bc95116c38ca0174bc9e2e9c9b8a0cca6ad34d1ab18"
+    },
+    {
+     "file": "E14/分層/擦拭布-1.png",
+     "sha256": "c826364187ee80bb035c7fd8331a755e1a08a30c557891567efc82627701e273"
+    },
+    {
+     "file": "E14/分層/爸爸-2.png",
+     "sha256": "400fac1f3154d9921da4f8c36ed02185dff2724495bde580aec4361080ceb683"
+    },
+    {
+     "file": "E14/分層/主角-2.png",
+     "sha256": "0adf30d3c691efcc6d0f230320a33b94fa366031489e4ddb3b4aafc24c3cc318"
+    },
+    {
+     "file": "E14/分層/舊手機-2-智慧型.png",
+     "sha256": "a694f8816f5c8c2043381dd807c88eab3d88cab9b8d4a61f91f69b54c33d4629"
+    },
+    {
+     "file": "E14/分層/擦拭布-2.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/爸爸-3.png",
+     "sha256": "0fff0e69a578f7b44e0ff2d3496e4532fb74932054fa974564f1e4bf9c595a48"
+    },
+    {
+     "file": "E14/分層/主角-3.png",
+     "sha256": "84994d9fbd21524fbdacc013dc19d1a5b223533528eb5bd203b298a29f7f8c3f"
+    },
+    {
+     "file": "E14/分層/舊手機-3-智慧型.png",
+     "sha256": "f7af858e16947a0b162b09ad85421047b012465fb2e963e9a5701e40f996c6c5"
+    },
+    {
+     "file": "E14/分層/擦拭布-3.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/爸爸-4.png",
+     "sha256": "c31f93a9fc410b478179c339499b918942ec8d1b2fefefb72d3a7493550272b8"
+    },
+    {
+     "file": "E14/分層/主角-4.png",
+     "sha256": "913c51131d8fc4e26246a5ade96ef5cd6200f0fbef97772d79f03db138d67a5e"
+    },
+    {
+     "file": "E14/分層/舊手機-4-智慧型.png",
+     "sha256": "eaa6d06c29164786b61cefe8f9afd97cc83257c80166bc5b6b2c70da3ef7980a"
+    },
+    {
+     "file": "E14/分層/擦拭布-4.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    }
+   ]
+  },
+  "G09-E14-flip-mother": {
+   "note": "phone:handdown:flip:mother",
+   "sources": [
+    {
+     "file": "E14/分層/E0-09-家裡客廳.png",
+     "sha256": "1f29c70c144a9f43f75edb73d87ba21628ec939b35cc748c2ab94cd03a154483"
+    },
+    {
+     "file": "E14/分層/媽媽-1.png",
+     "sha256": "3fffb5b2f8c7c5234610f6918db8612796da925121994ffe299d49b654164c7f"
+    },
+    {
+     "file": "E14/分層/客廳茶几前景.png",
+     "sha256": "909f2772960fb08830e1fefb007d98af76729f09d4b5515b4f6caed8c6627ddb"
+    },
+    {
+     "file": "E14/分層/主角-1.png",
+     "sha256": "87db49e2107be2fcd61855f62214285eb58ec260bd26357192e7cbcec49fa4f1"
+    },
+    {
+     "file": "E14/分層/舊手機-1-掀蓋機.png",
+     "sha256": "3ad8b70d360257deee9a56a1b7b86dfe93281fced5acab5f00f589a89283efc1"
+    },
+    {
+     "file": "E14/分層/擦拭布-1.png",
+     "sha256": "c826364187ee80bb035c7fd8331a755e1a08a30c557891567efc82627701e273"
+    },
+    {
+     "file": "E14/分層/媽媽-2.png",
+     "sha256": "4e2beb959db5be8cf92e299c44a19d5cf670f458efefcd60f91bfd5de11b321e"
+    },
+    {
+     "file": "E14/分層/主角-2.png",
+     "sha256": "0adf30d3c691efcc6d0f230320a33b94fa366031489e4ddb3b4aafc24c3cc318"
+    },
+    {
+     "file": "E14/分層/舊手機-2-掀蓋機.png",
+     "sha256": "f19eb7853f0533001241d82c7be0e17c87a6f3e76102be734c859ebd374a0787"
+    },
+    {
+     "file": "E14/分層/擦拭布-2.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/媽媽-3.png",
+     "sha256": "ea5ec53f7b71de113290b00b80efd76c1853f27d61273803b525318cee070ccf"
+    },
+    {
+     "file": "E14/分層/主角-3.png",
+     "sha256": "84994d9fbd21524fbdacc013dc19d1a5b223533528eb5bd203b298a29f7f8c3f"
+    },
+    {
+     "file": "E14/分層/舊手機-3-掀蓋機.png",
+     "sha256": "0b95d48d52b28b1eb86ed2651efc80780a49a464921dfedea8cf2e197d30c021"
+    },
+    {
+     "file": "E14/分層/擦拭布-3.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/媽媽-4.png",
+     "sha256": "dcbba3616496f1cf8ca0e103661c324725e57456005f0d6298b3d2094fa8eb50"
+    },
+    {
+     "file": "E14/分層/主角-4.png",
+     "sha256": "913c51131d8fc4e26246a5ade96ef5cd6200f0fbef97772d79f03db138d67a5e"
+    },
+    {
+     "file": "E14/分層/舊手機-4-掀蓋機.png",
+     "sha256": "c2a57661f55e13f1ff3ab6eabdbd62417b5f405eb55b2b96a936223bf42c702b"
+    },
+    {
+     "file": "E14/分層/擦拭布-4.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    }
+   ]
+  },
+  "G09-E14-flip-father": {
+   "note": "phone:handdown:flip:father",
+   "sources": [
+    {
+     "file": "E14/分層/E0-09-家裡客廳.png",
+     "sha256": "1f29c70c144a9f43f75edb73d87ba21628ec939b35cc748c2ab94cd03a154483"
+    },
+    {
+     "file": "E14/分層/爸爸-1.png",
+     "sha256": "f55cc9604a634da5065638e58b01078d3fc2131ffabe00407ff636cca350a212"
+    },
+    {
+     "file": "E14/分層/客廳茶几前景.png",
+     "sha256": "909f2772960fb08830e1fefb007d98af76729f09d4b5515b4f6caed8c6627ddb"
+    },
+    {
+     "file": "E14/分層/主角-1.png",
+     "sha256": "87db49e2107be2fcd61855f62214285eb58ec260bd26357192e7cbcec49fa4f1"
+    },
+    {
+     "file": "E14/分層/舊手機-1-掀蓋機.png",
+     "sha256": "3ad8b70d360257deee9a56a1b7b86dfe93281fced5acab5f00f589a89283efc1"
+    },
+    {
+     "file": "E14/分層/擦拭布-1.png",
+     "sha256": "c826364187ee80bb035c7fd8331a755e1a08a30c557891567efc82627701e273"
+    },
+    {
+     "file": "E14/分層/爸爸-2.png",
+     "sha256": "400fac1f3154d9921da4f8c36ed02185dff2724495bde580aec4361080ceb683"
+    },
+    {
+     "file": "E14/分層/主角-2.png",
+     "sha256": "0adf30d3c691efcc6d0f230320a33b94fa366031489e4ddb3b4aafc24c3cc318"
+    },
+    {
+     "file": "E14/分層/舊手機-2-掀蓋機.png",
+     "sha256": "f19eb7853f0533001241d82c7be0e17c87a6f3e76102be734c859ebd374a0787"
+    },
+    {
+     "file": "E14/分層/擦拭布-2.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/爸爸-3.png",
+     "sha256": "0fff0e69a578f7b44e0ff2d3496e4532fb74932054fa974564f1e4bf9c595a48"
+    },
+    {
+     "file": "E14/分層/主角-3.png",
+     "sha256": "84994d9fbd21524fbdacc013dc19d1a5b223533528eb5bd203b298a29f7f8c3f"
+    },
+    {
+     "file": "E14/分層/舊手機-3-掀蓋機.png",
+     "sha256": "0b95d48d52b28b1eb86ed2651efc80780a49a464921dfedea8cf2e197d30c021"
+    },
+    {
+     "file": "E14/分層/擦拭布-3.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    },
+    {
+     "file": "E14/分層/爸爸-4.png",
+     "sha256": "c31f93a9fc410b478179c339499b918942ec8d1b2fefefb72d3a7493550272b8"
+    },
+    {
+     "file": "E14/分層/主角-4.png",
+     "sha256": "913c51131d8fc4e26246a5ade96ef5cd6200f0fbef97772d79f03db138d67a5e"
+    },
+    {
+     "file": "E14/分層/舊手機-4-掀蓋機.png",
+     "sha256": "c2a57661f55e13f1ff3ab6eabdbd62417b5f405eb55b2b96a936223bf42c702b"
+    },
+    {
+     "file": "E14/分層/擦拭布-4.png",
+     "sha256": "92c4b3f9d0b6e30e825e301a2618de9754b71a138a38b330080c41bb39bb0ded"
+    }
+   ]
+  },
+  "G09-E19": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E19/1.png",
+     "sha256": "a4125052183f01bc1686164db1bbb4e01df1ebc0fa3aba9b685cbc8ff39f6601"
+    },
+    {
+     "file": "E19/2.png",
+     "sha256": "9e0884dc4e711d354bd1239ac66ff2dfd6897fb5ce0c8ea278ddf4396f3921b9"
+    },
+    {
+     "file": "E19/3.png",
+     "sha256": "ae8b144ae6768c9995b628c6b010e736b51b65e96052a986bfbd6dea211532dd"
+    },
+    {
+     "file": "E19/4.png",
+     "sha256": "af85b03964b8db9b109f89dffc0b3c8345478fa2448d622c94e1704bc71fe68b"
+    }
+   ]
+  },
+  "G09-E20": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E20/1.png",
+     "sha256": "cd10c4edad9da73f6b0c71091b3d22649b77ce90060e0d9c4edacd3f08bff09a"
+    },
+    {
+     "file": "E20/2.png",
+     "sha256": "fcea565a1404ff5bdff6e764a5ef0e7dee5fc3928e9507b8e397e5604308a60f"
+    },
+    {
+     "file": "E20/3.png",
+     "sha256": "c52cd47d03ed4d258cb6a683b4b0353f81e71ac701c9affc444dcde117ce9220"
+    },
+    {
+     "file": "E20/4.png",
+     "sha256": "4e25b4396f60216733dc95a9b59148ff3f18af1671e47a2278f51fc2792cf6a3"
+    }
+   ]
+  },
+  "G09-E21": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E21/1.png",
+     "sha256": "3ec3e9cb7a5bc763a826307154bf4ed41a42e3eff2bb050ed7536e4d017cf46f"
+    },
+    {
+     "file": "E21/2.png",
+     "sha256": "2bea8bdfa323fee4ccfdf973af2be034a28661b934d4d96d4f1e21affbf3c1d6"
+    },
+    {
+     "file": "E21/3.png",
+     "sha256": "76e192ea5970040f102e14654de35f143c615bf0e2545adb234ddf1f54cb6c06"
+    },
+    {
+     "file": "E21/4.png",
+     "sha256": "fa19be7bb5d94f4d6ef0222f6eb39e435e99a2dc45ebfa61900bdec5b583b6cc"
+    }
+   ]
+  },
+  "G09-E22": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E22/1.png",
+     "sha256": "7264d7edeff791a51aa02b347656f09fad2817765a4438aeee1370d04e430a57"
+    },
+    {
+     "file": "E22/2.png",
+     "sha256": "1a70129856f7e1063c4ae421ccc05537418cae2f96743a1cf22e934796ba631d"
+    },
+    {
+     "file": "E22/3.png",
+     "sha256": "db9a06a48045fc759ab1106e2bcb21e5ada459431acf9c308a46f0c670e315b8"
+    },
+    {
+     "file": "E22/4.png",
+     "sha256": "01e8f827220d72ea7e913738e15c20b0f7fb63e58c7aa096935bad4f2fd5b924"
+    }
+   ]
+  },
+  "G09-E23": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E23/1.png",
+     "sha256": "269ccc7a3b251349c7f0940ecd682c579c0080f1e3a6b466848046f5f0963898"
+    },
+    {
+     "file": "E23/2.png",
+     "sha256": "0608758cdccada0825466a04f6e1d688e4db9735fe076ca9775036f185691120"
+    },
+    {
+     "file": "E23/3.png",
+     "sha256": "dd3ff9caa52c253a21c762faf558eb56bd57ec47cd4cf293031f0a97748308cb"
+    },
+    {
+     "file": "E23/4.png",
+     "sha256": "376325a997af93f487cabc3d1d8bb3fe09102f81a3d07ea4a854a9019895d467"
+    }
+   ]
+  },
+  "G09-E25": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E25/1.png",
+     "sha256": "4c54a2653e5a39700688258e140ea025a827d91deba35f9beba6c05a1f453d2d"
+    },
+    {
+     "file": "E25/2.png",
+     "sha256": "fe7789708f6605499b5485b70d53380209facf6594874dc703188ddfe8b44835"
+    },
+    {
+     "file": "E25/3.png",
+     "sha256": "5c717c18ec2b1631a3fe25dff3ec772ef88f43e86d41e367b3af0a8316248359"
+    },
+    {
+     "file": "E25/4.png",
+     "sha256": "c68119a4ed1c5c47a4f2d782905cf1d2a676853ba0ada84dd527421d98aea636"
+    }
+   ]
+  },
+  "G09-E27": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E27/1.png",
+     "sha256": "4a805db57c3bf98df2540334a4133de13f00bcdec2cafc31c1f42545bee65ad5"
+    },
+    {
+     "file": "E27/2.png",
+     "sha256": "16cc0b4b21342c87ec36ab5599c2ea1d17327c1ee70b233fe7df386dca750b33"
+    },
+    {
+     "file": "E27/3.png",
+     "sha256": "81b647f374e0bcff8b15c3fbeb88cf826a76323891f70e832ff297269aeb07e4"
+    },
+    {
+     "file": "E27/4.png",
+     "sha256": "1bec3a181d76e2462204322b4acdc98ecc6d6821852b85fbe652a30a97ceb13e"
+    }
+   ]
+  },
+  "G09-E28": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E28/1.png",
+     "sha256": "a0c2382a62c7b232c9b87c21bf332fc1af1e66a13114885122ac66b180f8abcf"
+    },
+    {
+     "file": "E28/2.png",
+     "sha256": "5ab85f075b079d476d761bbaf778bf7902a231ca881a93010ca9967d6f955089"
+    },
+    {
+     "file": "E28/3.png",
+     "sha256": "7b252f27972fb4f89555f471cbddc98db6e12a8de0548f2c4f380e3f4c563959"
+    },
+    {
+     "file": "E28/4.png",
+     "sha256": "569fee4b7e5da79254ec176c13a4a3a9896cfc584af3689d7894b46693d41ab8"
+    }
+   ]
+  },
+  "G09-E28-V2": {
+   "note": "ALA-EVT-CHAIN-026-V2",
+   "sources": [
+    {
+     "file": "E28/無人玄關.png",
+     "sha256": "9d3aa6026393f99f727160ab66b1f950e60b66d94f6f69d0c13db19b8c2d8df2"
+    },
+    {
+     "file": "E28/鑰匙.png",
+     "sha256": "4541d9c804c822331d0f41ca3275caf6f52d38ead4df17558a9df3961af77d53"
+    },
+    {
+     "file": "E28/靛藍外套.png",
+     "sha256": "5a411e9da4af5a9325faef9411b20dc2553468c750b9870fc69583d585113bf8"
+    },
+    {
+     "file": "E28/駝色外套.png",
+     "sha256": "8e6a158553d1bb1a8f81f8b11e0ce871bb97441dcce6f90a52732b28a851ae3e"
+    },
+    {
+     "file": "E28/主角1.png",
+     "sha256": "5f489722f6b7657c79ee085d739b951d43a739ca0148ceb0d801747319a148e6"
+    },
+    {
+     "file": "E28/女性伴侶1.png",
+     "sha256": "bc5094886be2f7f46c2145b965f2a28e3e827b06bffd43d0c0fe161204e9f729"
+    },
+    {
+     "file": "E28/主角2.png",
+     "sha256": "e6c50be54bf25da43a867127f37e57458a1a7fbbc58bcbdda520e55f84bcdc29"
+    },
+    {
+     "file": "E28/女性伴侶2.png",
+     "sha256": "7f70d12fa0f075a08baf1e38f25bafdd88106f5e5512fdd514fe5b71e968df42"
+    },
+    {
+     "file": "E28/主角3.png",
+     "sha256": "1db3d75d28c7f50883e0039eae42ab71b0a787647673295bd4b8c6dc12faf8b7"
+    },
+    {
+     "file": "E28/女性伴侶3.png",
+     "sha256": "0ba3f8b31aede2a0f4411b249e25b0ca5e2c480e9c1cfe7be36ad02c278104eb"
+    },
+    {
+     "file": "E28/主角4.png",
+     "sha256": "b92ced03d81db2300760934c9e531db62354a4ef3fe5b59ba04ddd50b733feba"
+    },
+    {
+     "file": "E28/女性伴侶4.png",
+     "sha256": "3dfae0fa01b694fedc0d3007165e84c552d0a86a1fad5098bcf9fe6f091726f5"
+    }
+   ]
+  },
+  "G09-E29": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E29/1.png",
+     "sha256": "462374d0a60b6792b6d708fe359ada34740d45c232a55d388aac4ae08e3ebe21"
+    },
+    {
+     "file": "E29/2.png",
+     "sha256": "44fccb6bbf1fde2ca50a7d97b29224b5c23e636adf0efff6901c1f4f6de78040"
+    },
+    {
+     "file": "E29/3.png",
+     "sha256": "f27e55f1bb3070b7d7074f10879d640f9d034e306234a737323f792be79b239f"
+    },
+    {
+     "file": "E29/4.png",
+     "sha256": "f864b16674b83704885ac33b10914a335d2ebc784972016d17a1c615ff0961f8"
+    }
+   ]
+  },
+  "G09-E30": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E30/1.png",
+     "sha256": "8cdf21f24a6fb269b97dc712c2bc4341e5e4a2a27683b512ff6eef5fca9385d5"
+    },
+    {
+     "file": "E30/2.png",
+     "sha256": "c5ee879f34ee835fe05c000b898acbb24e427348b82cd2926ec57a6106e51404"
+    },
+    {
+     "file": "E30/3.png",
+     "sha256": "7c32444eb50d1bdc5738851a835ba1a542d75a09c48e92b87c280afac76084e5"
+    },
+    {
+     "file": "E30/4.png",
+     "sha256": "6daeea90d36e0f301b4bb222fafab75ebb115871929054302c33a95ba7661014"
+    }
+   ]
+  },
+  "G09-E32": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E32/1.png",
+     "sha256": "9b97143ddd78a924faa6dda3a31e1535123ee8878a4b5b8b1c5322f842907bed"
+    },
+    {
+     "file": "E32/2.png",
+     "sha256": "6eb34c5e5f571c62c0465e663f58dcf2ef610d8b96a45519a10dc8039afc731b"
+    },
+    {
+     "file": "E32/3.png",
+     "sha256": "3c4902918f53f06df642dbef23112fc1118e2fadbf2ef0e9511fdf0334ab519f"
+    },
+    {
+     "file": "E32/4.png",
+     "sha256": "2a8d716e4b52601c4a2b8830740b16bfb486f1d1e94df2d3a46f37ff65777714"
+    }
+   ]
+  },
+  "G09-E33": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E33/1.png",
+     "sha256": "d17c8d116fa7fd8647aad29cbf2ba42cb14d561972f266b57f7f43ad1cf8f0f4"
+    },
+    {
+     "file": "E33/2.png",
+     "sha256": "ebac5f03b70387078441ff68258148111e0a62dbe0f53f146386ed66f42c6f1a"
+    },
+    {
+     "file": "E33/3.png",
+     "sha256": "af32665041c1c6cfd79c1c75b6932000fd0bc3512aa26abcad9b4f7f4f72c7db"
+    },
+    {
+     "file": "E33/4.png",
+     "sha256": "784384da80a1851dccf1adb92de8a1478e52b88d04e016fcbcb13ab3ea1a52ce"
+    }
+   ]
+  },
+  "G09-E35": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E35/1.png",
+     "sha256": "b131089a4ea2adf050318dabe68d8b8025d72ea428763d25287be115fc34958a"
+    },
+    {
+     "file": "E35/2.png",
+     "sha256": "71f3c968ef52375429c019fefaf6db5433a47b12a3cee6d8ee8862a333610cbc"
+    },
+    {
+     "file": "E35/3.png",
+     "sha256": "eda3c3b8be57a268c04784529de5bc36cfb82ef159f4a974b8dad28a2ac96435"
+    },
+    {
+     "file": "E35/4.png",
+     "sha256": "473d8cb2c15caefecc4d883743f18407803f8cf3eb5de61ba247dbe894d32872"
+    }
+   ]
+  },
+  "G09-E39": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E39/1.png",
+     "sha256": "20be97121f26261e4feff1e09715d4e6ff0a8a43046c5c116072c565edb50df5"
+    },
+    {
+     "file": "E39/2.png",
+     "sha256": "101a48e6a4eb28de62c56b0fbed115fa13aa4bd2eaad23111b2b89a5d70a99ed"
+    },
+    {
+     "file": "E39/3.png",
+     "sha256": "e6579399fa97993b31d54761900f511ffe59096682a6d71ad54ddcb20c7d1075"
+    },
+    {
+     "file": "E39/4.png",
+     "sha256": "f085f7b4c7ae85e31f2f4dcf36938bfcb3f0eb80cbdbd1f5a9da2adc48ef1229"
+    }
+   ]
+  },
+  "G09-E40": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E40/1.png",
+     "sha256": "f9457007d60b3f48c89e0f655cdd052748f8689aba82028e2864b03c3721df19"
+    },
+    {
+     "file": "E40/2.png",
+     "sha256": "904b3cf9674c8dce9b1f8550da7801521a77dae58c046b1626689328f0a141fb"
+    },
+    {
+     "file": "E40/3.png",
+     "sha256": "cef3acfac30387a54049b9809d735a29b49f51d3c5ee224dd8bd7b47d8dc4ee1"
+    },
+    {
+     "file": "E40/4.png",
+     "sha256": "16c696896f2ef4945baa99e269cf1d5f08a2bb8ab17eb59acf9d374e181e1ef2"
+    }
+   ]
+  },
+  "G09-E42": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E42/1.png",
+     "sha256": "4b75df9a0b28af8b52948777360e3d18d680bf6e4605c78d5b7d4bed3152ed77"
+    },
+    {
+     "file": "E42/2.png",
+     "sha256": "966e0b198771073a37ee25372cee23143f4dd5e2f829936884a938a533049655"
+    },
+    {
+     "file": "E42/3.png",
+     "sha256": "e978e470839a79440589c2ecfc9d3a792ebd1802f997b225ab771560813d9de0"
+    },
+    {
+     "file": "E42/4.png",
+     "sha256": "62e2a23cd1c1fac3e18eb5490fabe4be3a15a18d126383302a773c66e7ec0a35"
+    }
+   ]
+  },
+  "G09-E46": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E46/1.png",
+     "sha256": "3c37c059cabea6db5841ab6615b709590dd6886067d48c6a9107417893d89cad"
+    },
+    {
+     "file": "E46/2.png",
+     "sha256": "ad23339e1b0072774db272ad75a2460aa651b5c7e9ac4984c512cd9c62b90edd"
+    },
+    {
+     "file": "E46/3.png",
+     "sha256": "a3cb22e482c944acd8a21ad64671ad3262e1f1d3a2b441e0b2c031198a31c41f"
+    },
+    {
+     "file": "E46/4.png",
+     "sha256": "749f77bc97bd70b465c779c3d49d373eefb612b11d368ce344ad8e51bbc583d0"
+    }
+   ]
+  },
+  "G09-E47": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E47/1.png",
+     "sha256": "b88a99150e97cf7f7689a6ad9b37f3fa995b3e7a720d95153e7ab3c6d5800e91"
+    },
+    {
+     "file": "E47/2.png",
+     "sha256": "01b2c8e59df29eab419b339cdd5f8a8ea7f508d5bbd8dae5fc29227fd801c311"
+    },
+    {
+     "file": "E47/3.png",
+     "sha256": "6f32c1b0ce17f96e28e7e321f5b3e51de24ef6517e483b772a43d40217eb430c"
+    },
+    {
+     "file": "E47/4.png",
+     "sha256": "e62081baa728645b9d934b6d126c29dbc173a28b5be4ed2419fbdfeb6f8b930b"
+    }
+   ]
+  },
+  "G09-E49": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E49/1.png",
+     "sha256": "765ca969ccf8a3d36d99327f9cc2687385382dceb07f02f886db15e32e1afe63"
+    },
+    {
+     "file": "E49/2.png",
+     "sha256": "75f9e8e9b245231a7ebf8e4e38dc9b4efc584c7c62febf1356be3faf403838b4"
+    },
+    {
+     "file": "E49/3.png",
+     "sha256": "9f4226f42f9c35522cad8efd1a1397844997b7ae752934cee33bd649399025f7"
+    },
+    {
+     "file": "E49/4.png",
+     "sha256": "dbfd201c8bbbb116b70b7231cc45423e8e637d67ed5b010b65ca5b6934d9a353"
+    }
+   ]
+  },
+  "G09-E50": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E50/1.png",
+     "sha256": "6da4e012bc7261225bb7101dac4a60a8683777f18c3dda4f400b62d0f108b364"
+    },
+    {
+     "file": "E50/2.png",
+     "sha256": "2410990a37543d1821c46622ccd32cfbaee6878376a23a682036fc3d90facbbb"
+    },
+    {
+     "file": "E50/3.png",
+     "sha256": "15f7cffa6f9ce09d8e91b08a9426c334009edfc2ca77476e54bb9bee35f6cac0"
+    },
+    {
+     "file": "E50/4.png",
+     "sha256": "2836896df8ace8a91290436c912c2c2a8372d10e41a5a1f0d5e64821b5751881"
+    }
+   ]
+  },
+  "G09-E51": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E51/1.png",
+     "sha256": "1b55c5c8201918c29a8c534f531515cb98c973e3ac91325e51f0316d7da304ea"
+    },
+    {
+     "file": "E51/2.png",
+     "sha256": "9e5bc7b900054210038f3e929e6c220c863b7a8c7e44c27d84ef3f464843ffb0"
+    },
+    {
+     "file": "E51/3.png",
+     "sha256": "b26c034c0c54d8f8e7139867b8588464349dfeca2550ad442c21413d9039f121"
+    },
+    {
+     "file": "E51/4.png",
+     "sha256": "9d690e1d27c697b4047a029cca7ed580947215de5c5c81e441a1d081c3b0d5c7"
+    }
+   ]
+  },
+  "G09-E53": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E53/1.png",
+     "sha256": "86f49aec9c77c7740e202b5968e957ca16baecec0840580731699c34437143e5"
+    },
+    {
+     "file": "E53/2.png",
+     "sha256": "d3a1a75e18c833daefd21340fa3ca257e121a1f3d87c0f1c96cbb93555b68878"
+    },
+    {
+     "file": "E53/3.png",
+     "sha256": "00805710c04fef608aa0e6c7b2f0321cc73e413c5fc70b60656867614add3cbe"
+    },
+    {
+     "file": "E53/4.png",
+     "sha256": "637256ae5775c4d30aeec8097fd173bdfe60a2142f526c2fdc50161d6e8b4133"
+    }
+   ]
+  },
+  "G09-E54": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E54/1.png",
+     "sha256": "82c7070a06b5797fc23d2f3489b53ab5257f05b4b7940e72ca7040a2e4cdab01"
+    },
+    {
+     "file": "E54/2.png",
+     "sha256": "67bf6f4174f077d159e46081a996c1b594e74abecce982e09dc367407b11e12a"
+    },
+    {
+     "file": "E54/3.png",
+     "sha256": "9992cfad65b9da48e8645c71001650873aca0db9a15ec7d460697a59a67bbe18"
+    },
+    {
+     "file": "E54/4.png",
+     "sha256": "338f72af4a3ead8e0a3b88078c7b6de9886b1b3d5fc26844c6a2a487e1d14401"
+    }
+   ]
+  },
+  "G09-E55": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E55/1.png",
+     "sha256": "9c5986aac4e0892a6a3ebf30e5ac4de634e3766fc2fc5723a1fcde56ff5d7f74"
+    },
+    {
+     "file": "E55/2.png",
+     "sha256": "0e31bd28487ab4b8fa0d8b09d42f9f02616c18a23d264f168813bfdd058282fa"
+    },
+    {
+     "file": "E55/3.png",
+     "sha256": "408348facea5388f3036d1575106c91687cb757384b6d3a9fe9328e3e093cf0b"
+    },
+    {
+     "file": "E55/4.png",
+     "sha256": "9d5024ed33c0aa13682101a7d3a544bfbec3c1e8f8da882af09b9074c681b0f2"
+    }
+   ]
+  },
+  "G09-E59": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E59/1.png",
+     "sha256": "c4ebdcdd001ccdd56e00216b154db475a2f15cd145628a993a885118ff78933f"
+    },
+    {
+     "file": "E59/2.png",
+     "sha256": "802a6cce7c9fd4a6c77b2f65edf584490fb364f8749ff2b9480c44e10f19cb13"
+    },
+    {
+     "file": "E59/3.png",
+     "sha256": "fdb43d346c148468c7fb6ee2fa8bf4d0e5dc32a7c8c4b06b183641c9a4da6403"
+    },
+    {
+     "file": "E59/4.png",
+     "sha256": "78ddd3709158e0ed5ce0cf770a869d5ac2ebd1b28e3862529ff8c5f37d7b54a5"
+    }
+   ]
+  },
+  "G09-E60": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E60/1.png",
+     "sha256": "0358ca620c8c9c8daf31739abb183d2ada68bb7dfb4d5f0b394fc9419f19c6fc"
+    },
+    {
+     "file": "E60/2.png",
+     "sha256": "1bea61e53a5a9ea048016e5d33973482417208ceb51e06eec8d40cf13170c27b"
+    },
+    {
+     "file": "E60/3.png",
+     "sha256": "b94808f233ecbe943451f4b999d420975aca8d461fff7804e7c6d7e91b42fb13"
+    },
+    {
+     "file": "E60/4.png",
+     "sha256": "70a19a60c7c91aa750ac19548c7fd0f97182a388a9f64b3c00887ede5bdda686"
+    }
+   ]
+  },
+  "G09-E61": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E61/1.png",
+     "sha256": "d2945f8ffe0038c19d1a39b095296538950cd9e7c00286699a2d71638b351bf9"
+    },
+    {
+     "file": "E61/2.png",
+     "sha256": "bb61123814d34a9f71be289c882faa00cd83bb6fc63e2f80ad08e31b165f6267"
+    },
+    {
+     "file": "E61/3.png",
+     "sha256": "c1d9127b10689c2c343e2b4d3bf9b3e00e0e2bfc18716c50e173f04b6eb2e98d"
+    },
+    {
+     "file": "E61/4.png",
+     "sha256": "ac06064f02a176eb9ab7097e6d1ac480a4f330f60daa0a9ea7211dedd91e770f"
+    }
+   ]
+  },
+  "G09-E63": {
+   "note": "well:push:40",
+   "sources": [
+    {
+     "file": "E63/1.png",
+     "sha256": "ccfd1d41b78d03c2ca8adb0427e620050ddcab0600c6c520043d06143904d474"
+    },
+    {
+     "file": "E63/2.png",
+     "sha256": "53f8b48151c9b0672082af23d10ca3e9f4133558621fffac503a5f705fb8b942"
+    },
+    {
+     "file": "E63/3.png",
+     "sha256": "29a2a8995605898bb4331c792ca12c582d16a188afd34901a3635bdd3eb1f65d"
+    },
+    {
+     "file": "E63/4.png",
+     "sha256": "48fa61fc90303ebb493c957e211cf7a32f2ce68c9f835335fcafa6d5891c48ec"
+    }
+   ]
+  },
+  "G09-E63-15": {
+   "note": "well:push:15",
+   "sources": [
+    {
+     "file": "E63/年齡切換/15歲/1.png",
+     "sha256": "e3ab289019d0db8994cfb22b3675bf1738c733eb5d39341f3bcf29b9910062a9"
+    },
+    {
+     "file": "E63/年齡切換/15歲/2.png",
+     "sha256": "9dd56bee9737c5a90cdb1cd6a94dd661d916a04baf442f3565d8a4cb3cb0be30"
+    },
+    {
+     "file": "E63/年齡切換/15歲/3.png",
+     "sha256": "d4b06681a30f3fc129236996f7e4af7fcdb07a4c6404944845061e8721539c4d"
+    },
+    {
+     "file": "E63/年齡切換/15歲/4.png",
+     "sha256": "d2b7e1817532675ac4b09b21be6df9ffed19bde9fbef8a988a2c3f838c5ba4f9"
+    }
+   ]
+  },
+  "G09-E63-70": {
+   "note": "well:push:70",
+   "sources": [
+    {
+     "file": "E63/年齡切換/70歲/1.png",
+     "sha256": "cb551c23650f14e8c4bcfbb51d689a979a579642e5b070fb2fed02cf15c59255"
+    },
+    {
+     "file": "E63/年齡切換/70歲/2.png",
+     "sha256": "b73a2fea22d0d03f59701344dcc7719eb4ff939a47fc7f2545fcca3a3994176c"
+    },
+    {
+     "file": "E63/年齡切換/70歲/3.png",
+     "sha256": "5cc6314e9a48855238c7342059c4dd2e87661ef6cc918bb0bf135c8c684688e4"
+    },
+    {
+     "file": "E63/年齡切換/70歲/4.png",
+     "sha256": "e82514d1ed63199c1107fb3d9e0bc4178250ad478a6d7b3fd8c28430ed602c36"
+    }
+   ]
+  },
+  "G09-E65": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E65/1.png",
+     "sha256": "d903b4d721994cfec6d0c15078fc136f3d39e03b76d7d57b02c7ba3361a6fc96"
+    },
+    {
+     "file": "E65/2.png",
+     "sha256": "8398d441ddbc3760a27adcb7d7f652d70168e9c2c4b739bed7cb5485ef1fe998"
+    },
+    {
+     "file": "E65/3.png",
+     "sha256": "eadb3fc1232a377cbbbe85693077dd3a136054d2b48528b3e58c134c29ce2186"
+    },
+    {
+     "file": "E65/4.png",
+     "sha256": "eade49b12632d3ac89ebe346894d0a3f1f00a5611adf6925f7376a430e7e6923"
+    }
+   ]
+  },
+  "G09-E68": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E68/1.png",
+     "sha256": "34f78ee2e610cafda4c15c6428a39db084a1d0d99d4b365e62da05d47806e84e"
+    },
+    {
+     "file": "E68/2.png",
+     "sha256": "e505634d97ce34c943aaf83570c4cd667a25da687797f2959b7f76bda4dfe622"
+    },
+    {
+     "file": "E68/3.png",
+     "sha256": "d010d964bfdd8f8986e8beb99fd8c8ef447b639afb939df086c909ee9667e1fa"
+    },
+    {
+     "file": "E68/4.png",
+     "sha256": "e6a95f60b7bdddc6232762459de02417a2bb7292dcc93dd2688a844730472cdb"
+    }
+   ]
+  },
+  "G09-E69": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E69/1.png",
+     "sha256": "be0d507987f2f8aaf1bd15182fb465fdba8e603f5044483732ac380bfb416e6f"
+    },
+    {
+     "file": "E69/2.png",
+     "sha256": "6b3c2c6717f8b4a11ad33f82ac57a0c3b1ceac2d152d95385bed1f0cd918c271"
+    },
+    {
+     "file": "E69/3.png",
+     "sha256": "0de89461818ece332fe5f76225c3d338c5bef73c6324761ca0c37d4cdd710a2c"
+    },
+    {
+     "file": "E69/4.png",
+     "sha256": "95900010aa2f9db26252c2a2a045bc2ca2b3c4625eb09ad0d46e4b870639b7ef"
+    }
+   ]
+  },
+  "G09-E70": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E70/1.png",
+     "sha256": "e25e316fa9089edeb444c3526a0f5d2756f8e53146f7ffda6403ce4ace7bc6d7"
+    },
+    {
+     "file": "E70/2.png",
+     "sha256": "1b5e7997d0537aadff5e51864fd89490a4ce3957f5b56192ccd9725055b6a0f8"
+    },
+    {
+     "file": "E70/3.png",
+     "sha256": "29e6b3445a71d70d363dfb97bb3c0686b5393eeeff3d7d4de509d1bc5febb28e"
+    },
+    {
+     "file": "E70/4.png",
+     "sha256": "981e7f54d904ab6247020d94f81549ab743eaa6178c64c7eeafa60c06e5b5937"
+    }
+   ]
+  },
+  "G09-E73": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E73/1.png",
+     "sha256": "b951a1e76b9f3a3199e3042060594b74b47fd17ee1fe29627346ae6b0ba70e36"
+    },
+    {
+     "file": "E73/2.png",
+     "sha256": "f7774fa4aa3a206af2fc18a7031b5a61a8e0fb0964017a3ba9ebe7c1263bdaea"
+    },
+    {
+     "file": "E73/3.png",
+     "sha256": "fbe630fe692d041016511abd658125f9598fae627346a38c8c5b846733a67862"
+    },
+    {
+     "file": "E73/4.png",
+     "sha256": "2188737cb2c1fbd4f7ccc4912bfbe09ab36d3331c45f2d6c2c74efbe5649feb1"
+    }
+   ]
+  },
+  "G09-E74": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E74/1.png",
+     "sha256": "413a4a24749dfa2fae4823fe7f711049622993e737ec0b13d24e27dcbff014c0"
+    },
+    {
+     "file": "E74/2.png",
+     "sha256": "e496e8552cb74fd811eef5da4af19d01decc881b265e8630e1b48184a167667a"
+    },
+    {
+     "file": "E74/3.png",
+     "sha256": "01d3bd524339a69752ca627a04685e81f14e215e6d0aa5c27c3a558fc0197dca"
+    },
+    {
+     "file": "E74/4.png",
+     "sha256": "68642d9dddcb0af215c4ae30e9ed64742932b067862e5f34fb03bf0d6d90faf3"
+    }
+   ]
+  },
+  "G09-E75": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E75/1.png",
+     "sha256": "269ccc7a3b251349c7f0940ecd682c579c0080f1e3a6b466848046f5f0963898"
+    },
+    {
+     "file": "E75/2.png",
+     "sha256": "74aab4ed28661ef661fdade9464766a8114c5d9b9af58cc125d394c92ad60de8"
+    },
+    {
+     "file": "E75/3.png",
+     "sha256": "b3cb7522e104a023845ea0dc000f2ede58c4d4cbdc44fb22d8338345f6491500"
+    },
+    {
+     "file": "E75/4.png",
+     "sha256": "3bf611980fb58e61667484d64cc5726679f83a6de384866d3a7ccfa0405faff0"
+    }
+   ]
+  },
+  "G09-E77": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E77/1.png",
+     "sha256": "f4504bc1768724639a26d3b948f98333352996d042650cf560763626681037af"
+    },
+    {
+     "file": "E77/2.png",
+     "sha256": "35c4d42af3b5e4e88c387ee8b129d4c0b87f9507459a9d7a28e7e135f36ac9c0"
+    },
+    {
+     "file": "E77/3.png",
+     "sha256": "5c85206a679a3378eb9a9045d7e998425895447c87cf61b6e321850bb4533d2e"
+    },
+    {
+     "file": "E77/4.png",
+     "sha256": "267387c052b7e4d5f41b3c09893779f7b40cdab765061ea649e5a5405a7c6b43"
+    }
+   ]
+  },
+  "G09-E78": {
+   "note": "預設",
+   "sources": [
+    {
+     "file": "E78/1.png",
+     "sha256": "b803ed4f55ebda5b264efea489e5294906bfbdd204f2d3ce1f664426c3799618"
+    },
+    {
+     "file": "E78/2.png",
+     "sha256": "f095f127430470fc85c80a848ba74b2687fd3ba0811ad79365e2168082316120"
+    },
+    {
+     "file": "E78/3.png",
+     "sha256": "78429c6339992674497db654cb26f63dddda38b5e34d4c2f034f1f8c3b6aac63"
+    },
+    {
+     "file": "E78/4.png",
+     "sha256": "ecf00cf48ad89c88e4f6ff78557787a6e5bb4325ef373a149cc873dd3dce789e"
+    }
+   ]
+  }
+ }
+}
