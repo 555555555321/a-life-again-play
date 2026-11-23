@@ -1,0 +1,40 @@
+# 每個「車種:款」的疊圖資料。由 dd8fa4fe 的 vehicle-art-data.js 反推；腳本讀它產生 VEHICLE_OVERLAYS。
+# 欄位：
+#   type,model       車種、款
+#   max_passengers   最多疊幾人（0＝不載人）
+#   kinds            參考用：舊格式有的疊圖種類（; 分隔：wear、breakdown、crash、passengers_p1…）。
+#                    腳本實際以圖檔目錄為準：新格式看 assets/pixel/vehicles/overlay/，舊格式看 dist/assets/vehicles/overlay/
+type,model,max_passengers,kinds
+bicycle,0,0,breakdown;crash;wear
+bicycle,1,0,breakdown;crash;wear
+bicycle,2,0,breakdown;crash;wear
+ev,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+ev,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+ev,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+hatchback,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+hatchback,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+hatchback,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+luxury,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+luxury,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+luxury,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+scooter,0,1,breakdown;crash;passengers_p1;wear
+scooter,1,1,breakdown;crash;passengers_p1;wear
+scooter,2,1,breakdown;crash;passengers_p1;wear
+sedan,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+sedan,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+sedan,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+compact,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+compact,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+compact,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+sports,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+sports,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+sports,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+suv,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+suv,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+suv,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+truck,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+truck,1,1,breakdown;crash;passengers_p1;wear
+truck,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+van,0,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+van,1,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
+van,2,3,breakdown;crash;passengers_p1;passengers_p2;passengers_p3;wear
